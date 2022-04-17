@@ -1,0 +1,145 @@
+/*------------------------------------*\
+  计算器
+\*------------------------------------*/
+.simulator[calculator] {
+    --primary-color: var(--cyan-500);
+    --secondary-color: var(--teal-a400);
+}
+
+.simulator[calculator] .system-layer .status {
+    background-color: var(--status-bar-background-color);
+}
+
+.simulator[calculator] .display {
+    order: -1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    row-gap: var(--keyline);
+    padding-block-end: 24px;
+    background-color: var(--medium-emphasis-surface-color);
+    box-shadow: var(--shadow-z4);
+    overflow: clip;
+}
+
+.simulator[calculator] .app-bar {
+    align-self: stretch;
+    justify-content: space-between;
+}
+
+.simulator[calculator] .app-bar .button {
+    color: var(--secondary-text-color);
+}
+
+.simulator[calculator] .expression {
+    padding-inline-end: var(--keyline);
+    font-family: "Roboto";
+    font-weight: 300;
+    line-height: 1;
+}
+
+.simulator[calculator] .result {
+    margin-block-start: 8px;
+    padding-inline-end: var(--keyline);
+    color: var(--hint-text-color);
+    font-family: "Roboto";
+    font-weight: 300;
+    line-height: 1;
+}
+
+.simulator[calculator] .panel {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    padding-block-end: 48px;
+}
+
+.simulator[calculator] .numeric {
+    flex-grow: 1;
+    display: grid;
+    align-items: center;
+    justify-items: stretch;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color: var(--grey-800);
+    padding: 4px 8px;
+}
+
+.simulator[calculator] .operator {
+    display: grid;
+    align-items: center;
+    justify-items: stretch;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    background-color: var(--grey-700);
+    padding: 4px 12px;
+}
+
+.simulator[calculator] :is(.numeric, .operator) .button {
+    color: var(--primary-text-color);
+    font-weight: 300;
+}
+
+.simulator[calculator] .operator .button:is(:nth-of-type(4), :nth-of-type(5)) {
+    grid-column-start: 1;
+}
+
+.simulator[calculator] .advanced {
+    flex-grow: 1;
+    align-items: center;
+    justify-items: stretch;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    box-sizing: border-box;
+    padding: 4px 8px 52px 8px;
+    background-color: var(--secondary-color);
+    font-family: "Roboto";
+}
+
+.simulator[calculator] .advanced .button {
+    color: var(--secondary-text-color);
+    text-transform: none;
+    font-weight: 400;
+}
+
+.simulator[calculator] .scrim {
+    inset: 0;
+    position: absolute;
+}
+
+@container simulator (max-width: 519px) {
+    .simulator[calculator] .panel {
+        padding-inline-end: 16px;
+    }
+
+    .simulator[calculator] .operator .button:last-of-type {
+        display: none;
+    }
+
+    .simulator[calculator] .operator .button:nth-of-type(2) {
+        grid-row-start: 1;
+    }
+
+    .simulator[calculator] .advanced {
+        inline-size: calc(100% - var(--increment));
+        block-size: 100%;
+        transform: translateX(calc(100% + var(--increment) - 16px));
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .simulator[calculator] .numeric {
+        background-color: var(--grey-900);
+    }
+
+    .simulator[calculator] .operator {
+        background-color: var(--grey-850);
+    }
+
+    .simulator[calculator] .display {
+        background-color: var(--grey-800);
+    }
+}

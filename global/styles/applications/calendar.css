@@ -1,0 +1,178 @@
+/*------------------------------------*\
+  日历
+\*------------------------------------*/
+.simulator[calendar] {
+    --secondary-color: var(--red-a200);
+    --calendar-light-red: var(--google-red-alt-400);
+    --calendar-teal: var(--teal-500);
+    --calendar-light-green: var(--google-green-kennedy-300);
+    --calendar-blue-grey: var(--blue-grey-300);
+    --calendar-yellow: var(--google-yellow-alt-700);
+}
+
+.simulator[calendar] .button[variant="fab"] {
+    --surface-shade-color: rgb(62 39 35 / 0.2);
+    inset-inline-end: var(--keyline);
+    inset-block-end: calc(48px + var(--keyline));
+    color: var(--primary-text-color);
+}
+
+.simulator[calendar="schedule"] .application {
+    justify-content: center;
+}
+
+.simulator[calendar="schedule"] .app-bar {
+    inset-inline: 0;
+    position: absolute;
+    background-color: var(--low-emphasis-surface-color);
+}
+
+.simulator[calendar="schedule"] .app-bar .title {
+    display: flex;
+    align-items: center;
+}
+
+.simulator[calendar="schedule"] .app-bar .title cmd-icon {
+    color: var(--secondary-text-color);
+}
+
+.simulator[calendar="schedule"] .system-layer .status {
+    background-color: var(--status-bar-background-color);
+}
+
+.simulator[calendar="schedule"] .schedule {
+    position: relative;
+    inline-size: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.simulator[calendar="schedule"] .illustration {
+    order: 9;
+    position: relative;
+    block-size: calc(3 * var(--increment));
+    display: flex;
+    align-items: start;
+    padding-inline: calc(16px + var(--increment));
+    overflow: clip;
+}
+
+.simulator[calendar="schedule"] .illustration img {
+    position: absolute;
+    inline-size: 200%;
+    align-self: center;
+}
+
+.simulator[calendar="schedule"] .illustration span {
+    position: relative;
+    margin-block: var(--keyline);
+    color: var(--primary-text-color);
+}
+
+.simulator[calendar="schedule"] .august {
+    order: 8;
+}
+
+.simulator[calendar="schedule"] .september {
+    order: 10;
+}
+
+.simulator[calendar="schedule"] .month {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--keyline);
+    padding-block: 24px;
+    background-color: var(--medium-emphasis-surface-color);
+}
+
+.simulator[calendar="schedule"] .events {
+    position: relative;
+    display: grid;
+    grid-template-columns: 44px auto;
+    padding-inline: var(--keyline);
+    row-gap: 8px;
+}
+
+.simulator[calendar="schedule"] .date {
+    align-self: start;
+    grid-row-end: span 2;
+    inset-block-start: calc(24px + var(--keyline) + var(--increment));
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--primary-text-color);
+}
+
+.simulator[calendar="schedule"] .date[class~="today"] {
+    color: var(--secondary-color);
+}
+
+.simulator[calendar="schedule"] .date>span {
+    color: var(--secondary-text-color);
+    white-space: nowrap;
+}
+
+.simulator[calendar="schedule"] .event {
+    grid-column-start: 2;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 12px;
+    color: white;
+    background-color: var(--teal-300);
+    border-radius: 2px;
+}
+
+.simulator[calendar="schedule"] .event[size="regular"] {
+    block-size: 32px;
+    align-items: center;
+}
+
+.simulator[calendar="schedule"] .event[size="medium"] {
+    block-size: 56px;
+    align-items: center;
+}
+
+.simulator[calendar="schedule"] .event[size="large"] {
+    block-size: 112px;
+    align-items: end;
+    padding-block: 8px;
+}
+
+.simulator[calendar="schedule"] .event span {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    line-height: 1.25rem;
+}
+
+.simulator[calendar="schedule"] .now {
+    grid-column-start: 2;
+    position: relative;
+    block-size: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.simulator[calendar="schedule"] .now::before {
+    content: "";
+    inline-size: 100%;
+    block-size: 1px;
+    padding-inline-start: 8px;
+    margin-inline-start: -8px;
+    background-color: var(--secondary-color);
+}
+
+.simulator[calendar="schedule"] .now::after {
+    content: "";
+    inset-inline-start: -12px;
+    position: absolute;
+    inline-size: 8px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+}

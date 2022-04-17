@@ -1,0 +1,62 @@
+/*------------------------------------*\
+  分割线
+\*------------------------------------*/
+.divider {
+    display: flex;
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    overflow: visible;
+}
+
+.divider::before {
+    content: "";
+    background-color: var(--divider-color);
+}
+
+.divider[horizontal] {
+    inline-size: 100%;
+    block-size: 0;
+    align-items: center;
+}
+
+.divider[horizontal]::before {
+    position: relative;
+    flex-grow: 1;
+    block-size: 1px;
+}
+
+.divider[vertical] {
+    inline-size: 0;
+    block-size: 100%;
+    justify-content: center;
+}
+
+.divider[vertical]::before {
+    position: absolute;
+    inset: 0;
+    inline-size: 1px;
+}
+
+/*------------------------------------*\
+  主题
+\*------------------------------------*/
+@media (prefers-color-scheme: light) {
+    :root {
+        --divider-color: rgb(0 0 0 / 0.12);
+    }
+}
+
+[theme~="light"] {
+    --divider-color: rgb(0 0 0 / 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --divider-color: rgba(255, 255, 255, 0.12);
+    }
+}
+
+[theme~="dark"] {
+    --divider-color: rgba(255, 255, 255, 0.12);
+}

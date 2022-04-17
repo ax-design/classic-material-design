@@ -1,0 +1,385 @@
+/*------------------------------------*\
+  正文
+\*------------------------------------*/
+#motion-virtual-presence,
+#screen-piercing {
+    grid-column-start: max(1, calc(var(--content-columns) - 1));
+}
+
+#motion-virtual-presence,
+#magical-material,
+#ideal-material,
+#free-movement,
+#screen-piercing,
+#material-display,
+#independent-content {
+    grid-column-end: span min(var(--content-columns), 2);
+}
+
+:is(#physical-presence, #virtual-presence) .diagram {
+    aspect-ratio: 1/1;
+}
+
+:is(#consistent-surfaces-thickness, #inconsistent-surfaces-thickness, #obstructed-input, #input-pass-through) .diagram {
+    block-size: 360px;
+}
+
+:is(#magical-material, #ideal-material, #free-movement, #screen-piercing) .diagram {
+    block-size: 480px;
+}
+
+:is(#physical-presence, #virtual-presence) .surface {
+    position: absolute;
+    inline-size: 200px;
+    aspect-ratio: 1/1;
+    background-color: var(--high-emphasis-surface-color);
+    border-radius: 2px;
+}
+
+#physical-presence .surface:first-child {
+    transform: translate(24px, 24px);
+    box-shadow: var(--shadow-z2);
+}
+
+#physical-presence .surface:last-child {
+    transform: translate(-24px, -24px);
+    box-shadow: var(--shadow-z8);
+}
+
+:is(#virtual-presence, #ideal-material, #free-movement) .wrapper {
+    inline-size: 100%;
+    block-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: var(--drop-shadow-z2);
+}
+
+#virtual-presence .surface:first-child {
+    transform: translate(24px, 24px);
+}
+
+#virtual-presence .surface:last-child {
+    transform: translate(-24px, -24px);
+    border-inline-end: 1px solid var(--divider-color);
+    border-block-end: 1px solid var(--divider-color);
+}
+
+:is(#obstructed-input, #input-pass-through) .diagram {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    background-color: var(--medium-emphasis-surface-color);
+}
+
+:is(#obstructed-input, #input-pass-through) .surface {
+    border-radius: 2px;
+}
+
+:is(#obstructed-input, #input-pass-through) .top-bar {
+    position: relative;
+    inline-size: 100%;
+    block-size: 56px;
+    background-color: var(--low-emphasis-surface-color);
+    box-shadow: var(--shadow-z2);
+}
+
+:is(#obstructed-input, #input-pass-through) .flyout {
+    inset-block-start: 8px;
+    inset-inline-end: 8px;
+    position: absolute;
+    inline-size: 168px;
+    block-size: 256px;
+    background-color: var(--high-emphasis-surface-color);
+    box-shadow: var(--shadow-z8);
+}
+
+:is(#obstructed-input, #input-pass-through) .hint {
+    position: relative;
+    inline-size: 100%;
+    background-color: var(--states-base-color);
+    opacity: 0.12;
+}
+
+:is(#obstructed-input, #input-pass-through) .surface .hint {
+    inset-block-start: 152px;
+    block-size: 48px;
+}
+
+#input-pass-through .diagram>.hint {
+    inset-block-start: 120px;
+    block-size: 56px;
+}
+
+:is(#obstructed-input, #input-pass-through) .touch-input {
+    inset-block-start: 184px;
+    inset-inline-end: 168px;
+}
+
+#magical-material .surface {
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--high-emphasis-surface-color);
+    box-shadow: var(--shadow-z2);
+}
+
+#magical-material [play=on] {
+    animation-duration: 5s;
+}
+
+#magical-material [play=on] .surface {
+    animation-name: magicalMaterial1, magicalMaterial2, magicalMaterial3, magicalMaterial4, magicalMaterial5;
+    animation-duration: 400ms, 500ms, 500ms, 500ms, 400ms;
+    animation-delay: 0.5s, 1.5s, 2.5s, 3.5s, 4.5s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+@keyframes magicalMaterial1 {
+    0% {
+        inline-size: 0px;
+        block-size: 0px;
+    }
+
+    100% {
+        inline-size: 100px;
+        block-size: 100px;
+    }
+}
+
+@keyframes magicalMaterial2 {
+    0% {
+        inline-size: 100px;
+        block-size: 100px;
+        border-radius: 50%;
+    }
+
+    100% {
+        inline-size: 200px;
+        block-size: 200px;
+        border-radius: 2px;
+    }
+}
+
+@keyframes magicalMaterial3 {
+    0% {
+        inline-size: 200px;
+    }
+
+    100% {
+        inline-size: 300px;
+    }
+}
+
+@keyframes magicalMaterial4 {
+    0% {
+        block-size: 200px;
+    }
+
+    100% {
+        block-size: 300px;
+    }
+}
+
+@keyframes magicalMaterial5 {
+    0% {
+        inline-size: 300px;
+        block-size: 300px;
+    }
+
+    100% {
+        inline-size: 0px;
+        block-size: 0px;
+    }
+}
+
+#ideal-material .wrapper {
+    flex-direction: column;
+}
+
+#ideal-material .surface {
+    position: relative;
+    inline-size: 250px;
+    block-size: 125px;
+    border-radius: 2px;
+    background-color: var(--high-emphasis-surface-color);
+}
+
+#ideal-material .surface:first-child {
+    inset-block-start: -50px;
+}
+
+#ideal-material .surface:last-child {
+    inset-block-end: -50px;
+}
+
+#ideal-material [play=on] {
+    animation-duration: 5s;
+}
+
+#ideal-material [play=on] .surface:first-child {
+    animation-name: idealMaterial11, idealMaterial2, idealMaterial31;
+    animation-duration: 1s, 1s, 0.75s;
+    animation-delay: 0.5s, 2s, 4s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+#ideal-material [play=on] .surface:last-child {
+    animation-name: idealMaterial12, idealMaterial2, idealMaterial32;
+    animation-duration: 1s, 1s, 0.75s;
+    animation-delay: 0.5s, 2s, 4s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+@keyframes idealMaterial11 {
+    0% {
+        inset-block-start: -50px;
+        block-size: 125px;
+    }
+
+    100% {
+        inset-block-start: 2px;
+        block-size: 127px;
+    }
+}
+
+@keyframes idealMaterial12 {
+    0% {
+        inset-block-end: -50px;
+        block-size: 125px;
+    }
+
+    100% {
+        inset-block-end: 2px;
+        block-size: 127px;
+    }
+}
+
+@keyframes idealMaterial2 {
+    0% {
+        block-size: 127px;
+    }
+
+    100% {
+        block-size: 152px;
+    }
+}
+
+@keyframes idealMaterial31 {
+    0% {
+        inset-block-start: 2px;
+        block-size: 152px;
+    }
+
+    100% {
+        inset-block-start: -50px;
+        block-size: 125px;
+    }
+}
+
+@keyframes idealMaterial32 {
+    0% {
+        inset-block-end: 2px;
+        block-size: 152px;
+    }
+
+    100% {
+        inset-block-end: -50px;
+        block-size: 125px;
+    }
+}
+
+#free-movement .surface {
+    position: relative;
+    inline-size: 150px;
+    aspect-ratio: 1/1;
+    border-radius: 2px;
+    background-color: var(--high-emphasis-surface-color);
+    transform: translate(-225px, 100px);
+}
+
+#free-movement [play=on] {
+    animation-duration: 4s;
+}
+
+#free-movement [play=on] .wrapper {
+    will-change: filter;
+    animation-name: freeMovement12, freeMovement22;
+    animation-duration: 1s;
+    animation-delay: 0.5s, 2.5s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+@keyframes freeMovement12 {
+    100% {
+        filter: var(--drop-shadow-z8);
+    }
+}
+
+@keyframes freeMovement22 {
+    100% {
+        filter: var(--drop-shadow-z2);
+    }
+}
+
+#free-movement [play=on] .surface {
+    animation-name: freeMovement11, freeMovement21;
+    animation-duration: 1s;
+    animation-delay: 0.5s, 2.5s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+@keyframes freeMovement11 {
+    100% {
+        transform: translate(225px, -100px) rotate(-90deg);
+    }
+}
+
+@keyframes freeMovement21 {
+    100% {
+        transform: translate(-225px, 100px) rotate(0deg);
+    }
+}
+
+@media (max-width: 919px) {
+    #free-movement .surface {
+        transform: translate(-75px, 135px);
+    }
+
+    @keyframes freeMovement11 {
+        100% {
+            transform: translate(75px, -135px) rotate(-90deg);
+        }
+    }
+
+    @keyframes freeMovement21 {
+        100% {
+            transform: translate(-75px, 135px) rotate(0deg);
+        }
+    }
+}
+
+/*------------------------------------*\
+  主题
+\*------------------------------------*/
+:root {
+    --primary-color: var(--cyan-500);
+    --secondary-color: var(--lime-a200);
+}
+
+::selection {
+    color: rgb(0 0 0 / 0.87);
+    background-color: var(--secondary-color);
+}
+
+main>.app-bar {
+    --surface-shade-color: rgb(38 50 56 / 0.2);
+}
+
+h1 {
+    --primary-text-color: white;
+}
