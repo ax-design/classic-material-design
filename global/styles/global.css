@@ -690,7 +690,7 @@ footer cmd-icon {
 /*------------------------------------*\
   跨屏幕
 \*------------------------------------*/
-@media (max-width: 1575px) {
+@media (width < 1576px) {
     :root {
         --content-columns: 2;
     }
@@ -722,7 +722,7 @@ footer cmd-icon {
     }
 }
 
-@media (max-width: 919px) {
+@media (width < 920px) {
     :root {
         --content-columns: 1;
     }
@@ -732,7 +732,7 @@ footer cmd-icon {
     }
 }
 
-@media (max-width: 503px) {
+@media (width < 504px) {
     :root {
         --increment: 56px;
         --keyline: 16px;
@@ -756,7 +756,7 @@ footer cmd-icon {
     }
 }
 
-@media (max-width: 391px) {
+@media (width < 392px) {
     :root {
         --content-unit-inline-size: auto;
     }
@@ -771,7 +771,7 @@ footer cmd-icon {
     }
 }
 
-@container simulator (min-width: 600px) {
+@container simulator (width >= 600px) {
     .navigation {
         --navigation-button-inline-size: 162px;
         --navigation-bar-inline-padding: 42px;
@@ -784,7 +784,7 @@ footer cmd-icon {
     }
 }
 
-@container simulator (min-width: 360px) {
+@container simulator (width >= 360px) {
     .navigation {
         --navigation-button-inline-size: 80px;
         --navigation-bar-inline-padding: 40px;

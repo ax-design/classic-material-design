@@ -522,7 +522,7 @@
     }
 }
 
-@media (max-width: 919px) {
+@media (width < 920px) {
     #relative-static .surfaces {
         grid-template-columns: repeat(2, 1fr);
         margin-block: calc(var(--increment) + 12px);

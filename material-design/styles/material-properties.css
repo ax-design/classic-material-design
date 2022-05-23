@@ -345,7 +345,7 @@
     }
 }
 
-@media (max-width: 919px) {
+@media (width < 920px) {
     #free-movement .surface {
         transform: translate(-75px, 135px);
     }

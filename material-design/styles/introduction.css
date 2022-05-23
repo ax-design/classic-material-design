@@ -77,7 +77,7 @@ main>picture {
     background-color: #8f4099;
 }
 
-@media (max-width: 919px) {
+@media (width < 920px) {
     #language .illustration {
         block-size: 480px;
     }

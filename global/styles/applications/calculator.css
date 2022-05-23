@@ -110,7 +110,7 @@
     position: absolute;
 }
 
-@container simulator (max-width: 519px) {
+@container simulator (width < 520px) {
     .simulator[calculator] .panel {
         padding-inline-end: 16px;
     }
