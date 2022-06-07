@@ -797,15 +797,26 @@ cmd-icon[name="more_vert"] {
     border-radius: 50%;
 }
 
-[unbounded] .ripple {
-    inline-size: 100%;
+.ripple {
+    animation-name: rippleForegroundExpand, rippleForegroundFadeOut;
+    animation-duration: 400ms;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
 }
 
-.ripple {
-    animation-name: rippleForegroundFadeOut;
-    animation-duration: 400ms;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
+[unbounded] .ripple {
+    inline-size: 100%;
+    animation-duration: 800ms, 400ms;
+}
+
+@keyframes rippleForegroundExpand {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+    }
 }
 
 @keyframes rippleForegroundFadeOut {
@@ -816,8 +827,4 @@ cmd-icon[name="more_vert"] {
     100% {
         opacity: 0;
     }
-}
-
-button:not([unbounded]) .ripple {
-    inline-size: min(calc(var(--diameter) * min(var(--ripple-expand-parameter), 1.5)), 700px);
 }
