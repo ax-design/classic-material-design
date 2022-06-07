@@ -341,7 +341,7 @@
 
 @keyframes freeMovement21 {
     100% {
-        transform: translate(-225px, 100px) rotate(0deg);
+        transform: translate(-225px, 100px) rotate(-180deg);
     }
 }
 
