@@ -220,14 +220,30 @@
     visibility: hidden;
 }
 
+#color-overlap .button .states-overlay {
+    inline-size: auto;
+    block-size: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+#color-overlap .button .states-overlay::after {
+    visibility: hidden;
+    content: '';
+    position: absolute;
+    block-size: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--states-base-color);
+}
+
 #color-overlap>[play="on"] {
-    animation-duration: 5s;
+    animation-duration: 5.5s;
 }
 
 #color-overlap>[play="on"] .expression::before {
     animation-name: colorOverlap1, colorOverlap7;
-    animation-duration: 1.5s;
-    animation-delay: 0.5s, 3.4s;
+    animation-duration: 2s, 0.5s;
+    animation-delay: 0.5s, 3.8s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
@@ -267,7 +283,7 @@
 #color-overlap>[play="on"] .numeric .button:nth-child(8) .states-overlay::before {
     animation-name: colorOverlap2, colorOverlap3;
     animation-duration: 225ms, 195ms;
-    animation-delay: 0.8s, 1.025s;
+    animation-delay: 0.75s, 0.975s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
@@ -275,7 +291,7 @@
 #color-overlap>[play="on"] .operator .button:nth-child(5) .states-overlay::before {
     animation-name: colorOverlap2, colorOverlap3;
     animation-duration: 225ms, 195ms;
-    animation-delay: 1s, 1.225s;
+    animation-delay: 1.25s, 1.475s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
@@ -283,7 +299,7 @@
 #color-overlap>[play="on"] .numeric .button:nth-child(4) .states-overlay::before {
     animation-name: colorOverlap2, colorOverlap3;
     animation-duration: 225ms, 195ms;
-    animation-delay: 1.2s, 1.425s;
+    animation-delay: 1.75s, 1.975s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
@@ -291,7 +307,7 @@
 #color-overlap>[play="on"] .numeric .button:nth-child(6) .states-overlay::before {
     animation-name: colorOverlap2, colorOverlap3;
     animation-duration: 225ms, 195ms;
-    animation-delay: 1.4s, 1.625s;
+    animation-delay: 2.25s, 2.475s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
@@ -299,7 +315,7 @@
 #color-overlap>[play="on"] .operator .button:nth-child(2) .states-overlay::before {
     animation-name: colorOverlap2, colorOverlap3;
     animation-duration: 225ms, 195ms;
-    animation-delay: 3s, 3.4s;
+    animation-delay: 3s, 4.105s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
@@ -324,10 +340,82 @@
     }
 }
 
+#color-overlap>[play="on"] .button .states-overlay::after {
+    visibility: visible;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(7) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 0.5s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(8) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 0.75s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .operator .button:nth-child(5) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 1.25s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(4) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 1.75s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(6) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 2.25s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .operator .button:nth-child(2) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 3s, 4.105s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+@keyframes colorOverlap21 {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes colorOverlap22 {
+    0% {
+        opacity: 0.16;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 #color-overlap>[play="on"] .result::before {
     animation-name: colorOverlap4, colorOverlap7;
-    animation-duration: 1.5s;
-    animation-delay: 0.5s, 3.4s;
+    animation-duration: 2s, 0.5s;
+    animation-delay: 0.5s, 3.9s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
@@ -337,8 +425,13 @@
         visibility: hidden;
     }
 
-    75% {
+    62.5% {
         visibility: hidden;
+        content: "16";
+    }
+
+    75% {
+        visibility: visible;
         content: "16";
     }
 
@@ -351,7 +444,7 @@
 #color-overlap>[play="on"] .clear-ripple::before {
     animation-name: colorOverlap5, colorOverlap6;
     animation-duration: 400ms;
-    animation-delay: 3s, 3.4s;
+    animation-delay: 3.4s, 3.8s;
     animation-timing-function: cubic-bezier(0.35, 0, 0.65, 1);
     animation-fill-mode: forwards;
 }
