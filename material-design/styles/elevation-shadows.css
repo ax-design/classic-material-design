@@ -206,7 +206,7 @@
     transform: scale(0);
 }
 
-#color-overlap .system-layer .clear-ripple::before {
+#color-overlap .overlay .clear-ripple::before {
     background-color: var(--cyan-600);
 }
 
