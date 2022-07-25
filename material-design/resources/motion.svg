@@ -1,19 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 360 360" style="enable-background:new 0 0 360 360;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:url(#SVGID_1_);}
-	.st1{fill:#FFFFFF;}
-</style>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="99.0201" y1="69.0188" x2="407.3206" y2="603.011">
-	<stop  offset="0" style="stop-color:#EA5B61"/>
-	<stop  offset="0.4" style="stop-color:#EA5B61;stop-opacity:0.87"/>
-	<stop  offset="0.4139" style="stop-color:#EA5D5F;stop-opacity:0.8499"/>
-	<stop  offset="0.6704" style="stop-color:#F1853E;stop-opacity:0.4778"/>
-	<stop  offset="0.8747" style="stop-color:#F59D2A;stop-opacity:0.1817"/>
-	<stop  offset="1" style="stop-color:#F6A623;stop-opacity:0"/>
-</linearGradient>
-<polygon class="st0" points="416,454.1 416,598 309.8,598 80,200 80,80 200,80 "/>
-<rect x="80" y="80" class="st1" width="120" height="120"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360">
+	<defs>
+		<linearGradient id="gradient" gradientUnits="userSpaceOnUse" x1="99.01919" y1="69.01927" x2="290.6772" y2="400.98069">
+			<stop offset="0" stop-color="#EF5350"/>
+			<stop offset="1" stop-color="#E57373" stop-opacity="0.7"/>
+		</linearGradient>
+	</defs>
+	<rect fill="#8E24AA" width="100%" height="100%" />
+	<polygon fill="url(#gradient)" points="80 80 200 80 361.65784 360 172.37591 360 80 200 80 80" />
+	<rect fill="#FFFFFF" x="80" y="80" width="120" height="120" />
 </svg>

@@ -66,15 +66,15 @@ main>picture {
 }
 
 #metaphor {
-    background-color: #b4e0e1;
+    background-color: #B2DFDB;
 }
 
 #bold-graphic-intentional {
-    background-color: #ea1b75;
+    background-color: #E91E63;
 }
 
 #motion {
-    background-color: #8f4099;
+    background-color: #8E24AA;
 }
 
 @media (width < 920px) {
