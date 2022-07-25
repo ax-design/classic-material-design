@@ -129,9 +129,9 @@
 
 #magical-material [play=on] .surface {
     animation-name: magicalMaterial1, magicalMaterial2, magicalMaterial3, magicalMaterial4, magicalMaterial5;
-    animation-duration: 400ms, 500ms, 500ms, 500ms, 400ms;
+    animation-duration: 300ms, 500ms, 500ms, 500ms, 250ms;
     animation-delay: 0.5s, 1.5s, 2.5s, 3.5s, 4.5s;
-    animation-timing-function: var(--standard-curve);
+    animation-timing-function: var(--deceleration-curve), var(--standard-curve), var(--standard-curve), var(--standard-curve), var(--acceleration-curve);
     animation-fill-mode: forwards;
 }
 
