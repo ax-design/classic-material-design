@@ -289,6 +289,7 @@ h2 {
 }
 
 header p {
+    max-inline-size: 940px;
     margin-block-end: var(--increment);
     font-weight: 400;
 }
@@ -370,7 +371,7 @@ figcaption:not(:has(.recommends)) :is(p, ul, ol) {
 }
 
 :is(section, .paragraphs, figcaption) p:not(:last-of-type) {
-    margin-block-end: 1em;
+    margin-block-end: 1.75em;
 }
 
 :is(.paragraphs, figcaption) :is(ul, ol) {
