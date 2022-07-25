@@ -752,7 +752,8 @@ cmd-icon[name="more_vert"] {
     --ripple-background-parameter: 1;
 }
 
-[disabled] {
+[disabled],
+[aria-disabled="true"] {
     color: var(--hint-text-color);
     pointer-events: none;
     cursor: default;
