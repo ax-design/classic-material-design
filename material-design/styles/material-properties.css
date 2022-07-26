@@ -26,7 +26,7 @@
     block-size: 360px;
 }
 
-:is(#ideal-material, #free-movement, #screen-piercing) .diagram {
+:is(#ideal-material, #free-movement) .diagram {
     block-size: 480px;
 }
 
