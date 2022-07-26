@@ -20,11 +20,11 @@
     aspect-ratio: 1/1;
 }
 
-:is(#consistent-surfaces-thickness, #inconsistent-surfaces-thickness, #obstructed-input, #input-pass-through) .diagram {
+:is(#consistent-surfaces-thickness, #inconsistent-surfaces-thickness, #obstructed-input, #input-pass-through, #magical-material) .diagram {
     block-size: 360px;
 }
 
-:is(#magical-material, #ideal-material, #free-movement, #screen-piercing) .diagram {
+:is(#ideal-material, #free-movement, #screen-piercing) .diagram {
     block-size: 480px;
 }
 
@@ -214,21 +214,21 @@
 }
 
 #ideal-material [play=on] {
-    animation-duration: 5s;
+    animation-duration: 4s;
 }
 
 #ideal-material [play=on] .surface:first-child {
     animation-name: idealMaterial11, idealMaterial2, idealMaterial31;
-    animation-duration: 1s, 1s, 0.75s;
-    animation-delay: 0.5s, 2s, 4s;
+    animation-duration: 0.75s, 0.6s, 0.6s;
+    animation-delay: 0.5s, 2s, 3.5s;
     animation-timing-function: var(--standard-curve);
     animation-fill-mode: forwards;
 }
 
 #ideal-material [play=on] .surface:last-child {
     animation-name: idealMaterial12, idealMaterial2, idealMaterial32;
-    animation-duration: 1s, 1s, 0.75s;
-    animation-delay: 0.5s, 2s, 4s;
+    animation-duration: 0.75s, 0.6s, 0.6s;
+    animation-delay: 0.5s, 2s, 3.5s;
     animation-timing-function: var(--standard-curve);
     animation-fill-mode: forwards;
 }
@@ -236,43 +236,30 @@
 @keyframes idealMaterial11 {
     0% {
         inset-block-start: -50px;
-        block-size: 125px;
     }
 
     100% {
-        inset-block-start: 2px;
-        block-size: 127px;
+        inset-block-start: 25px;
     }
 }
 
 @keyframes idealMaterial12 {
     0% {
         inset-block-end: -50px;
-        block-size: 125px;
     }
 
     100% {
-        inset-block-end: 2px;
-        block-size: 127px;
+        inset-block-end: 25px;
     }
 }
 
 @keyframes idealMaterial2 {
-    0% {
-        block-size: 127px;
-    }
-
     100% {
-        block-size: 152px;
+        block-size: 150px;
     }
 }
 
 @keyframes idealMaterial31 {
-    0% {
-        inset-block-start: 2px;
-        block-size: 152px;
-    }
-
     100% {
         inset-block-start: -50px;
         block-size: 125px;
@@ -280,11 +267,6 @@
 }
 
 @keyframes idealMaterial32 {
-    0% {
-        inset-block-end: 2px;
-        block-size: 152px;
-    }
-
     100% {
         inset-block-end: -50px;
         block-size: 125px;
