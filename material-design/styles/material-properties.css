@@ -2,7 +2,8 @@
   正文
 \*------------------------------------*/
 #motion-virtual-presence,
-#screen-piercing {
+#screen-piercing,
+#no-approximated-shadows {
     grid-column-start: max(1, calc(var(--content-columns) - 1));
 }
 
@@ -12,6 +13,7 @@
 #free-movement,
 #screen-piercing,
 #material-display,
+#no-approximated-shadows,
 #independent-content {
     grid-column-end: span min(var(--content-columns), 2);
 }
