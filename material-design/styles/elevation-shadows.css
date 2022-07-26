@@ -53,7 +53,7 @@
     box-shadow: var(--shadow-z2);
 }
 
-:is(#absolute-elevation, #relative-elevation) img {
+:is(#absolute-elevation, #relative-elevation) picture {
     flex-basis: 100%;
 }
 
@@ -616,6 +616,30 @@
 }
 
 @media (width < 920px) {
+    #absolute-elevation .illustration {
+        flex-direction: column;
+        padding: 0 0 40px 0;
+    }
+
+    #relative-elevation .illustration {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    :is(#absolute-elevation, #relative-elevation) .wrapper {
+        flex-direction: row;
+    }
+
+    #absolute-elevation .surface {
+        inline-size: 120px;
+        block-size: 120px;
+    }
+
+    #relative-elevation .wrapper>.surface {
+        inline-size: 264px;
+        block-size: 160px;
+    }
+
     #relative-static .surfaces {
         grid-template-columns: repeat(2, 1fr);
         margin-block: calc(var(--increment) + 12px);
