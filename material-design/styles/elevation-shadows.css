@@ -673,7 +673,7 @@ h1 {
 }
 
 footer a:nth-of-type(2) {
-    --primary-color: var(--pink-800);
+    --primary-color: var(--purple-600);
 }
 
 @media (prefers-color-scheme: dark) {
