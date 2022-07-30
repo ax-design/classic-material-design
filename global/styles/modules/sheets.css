@@ -1,0 +1,45 @@
+/*------------------------------------*\
+  导航抽屉
+\*------------------------------------*/
+.drawer {
+    inset-block-start: 0;
+    position: sticky;
+    inline-size: calc(100% - var(--increment));
+    max-inline-size: 320px;
+    block-size: 100cqb;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--high-emphasis-surface-color);
+    overflow: auto;
+    overscroll-behavior: contain;
+    transition-property: none;
+    transition-timing-function: var(--sharp-curve);
+    transition-duration: 195ms;
+}
+
+.drawer[open] {
+    box-shadow: var(--shadow-z16);
+    transition-property: transform;
+}
+
+.drawer[enter] {
+    transform: translateX(0%);
+    transition-timing-function: var(--deceleration-curve);
+    transition-duration: 225ms;
+}
+
+.drawer+.scrim {
+    position: fixed;
+    inset: 0;
+    transition-property: background-color;
+    transition-timing-function: var(--deceleration-curve);
+    transition-duration: 225ms;
+}
+
+.drawer:not([enter])+.scrim {
+    transition-duration: 195ms;
+}
+
+.drawer>ul {
+    margin: 8px 0;
+}

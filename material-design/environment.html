@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#212121" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="质感设计所创造的虚拟世界是一个明亮的三维空间。">
+    <title>质感设计 - 环境</title>
+    <base href="../" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Roboto+Mono:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="icon" href="global/resources/favicon.svg" />
+    <link rel="stylesheet" href="material-design/styles/environment.css" />
+    <link rel="stylesheet" href="global/styles/global.css" />
+    <script type="module" src="global/scripts/global.js"></script>
+</head>
+
+<body type-scale="body1">
+    <aside class="drawer" chapter="1-2"></aside>
+
+    <div class="divider" vertical></div>
+
+    <main>
+        <div class="app-bar" variant="regular" theme="light" solid="end">
+            <button id="drawer-trigger" class="button" variant="icon" unbounded aria-label="打开目录">
+                <cmd-icon name="menu"></cmd-icon>
+            </button>
+            <h1 class="title" type-scale="title">基本原理 - 环境</h1>
+            <button id="search-trigger" class="button" variant="icon" unbounded disabled aria-label="搜索">
+                <cmd-icon name="search"></cmd-icon>
+            </button>
+        </div>
+
+        <header>
+            <h2 type-scale="display1">环境</h2>
+            <p type-scale="title">质感设计参照现实世界，将屏幕喻为一个明亮的虚拟世界。由 Material 这一基本粒子构成的应用程序界面存在其中，并受到虚拟世界运行规律的约束。</p>
+            <nav>
+                <h3 type-scale="body1">索引</h3>
+                <ul type-scale="title">
+                    <li><a href="material-design/environment.html#space">空间</a></li>
+                    <li><a href="material-design/environment.html#matter">物质</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article id="space" horizontal>
+            <h3 type-scale="headline">空间</h3>
+            <div class="paragraphs">
+                <p>质感设计的虚拟世界是一个三维空间，这意味着其中每个物体都有 X、Y、Z 三个三维坐标属性。表示海拔高度的 Z 轴垂直于显示屏，以屏幕正面朝向方向为正方向，由 Material 所组成的层面均在空间中占据一定的位置。</p>
+            </div>
+            <figure id="dimensions">
+                <picture class="illustration" aria-hidden="true">
+                    <img src="material-design/resources/whatismaterial-environment-3d.png" />
+                </picture>
+                <figcaption>
+                    <p>具备长、宽、高的三维空间。</p>
+                </figcaption>
+            </figure>
+            <div class="paragraphs" long>
+                <p>为了使内容可见，虚拟世界需要光的介入。虚拟光源发出的光线被 Material 组成的层面所阻挡，投下阴影，进一步表现出层面的空间关系。</p>
+                <p>从虚拟光源发出的直射光投射出定向的阴影，从空间边界平面反射的环境光投射出广泛、柔和的阴影。界面中的阴影由这两种阴影合成。</p>
+            </div>
+            <figure id="key-light-shadow">
+                <div class="diagram" aria-hidden="true">
+                    <div class="surface" solid></div>
+                </div>
+                <figcaption>
+                    <p>直射光投射出的阴影。</p>
+                </figcaption>
+            </figure>
+            <figure id="ambient-light-shadow">
+                <div class="diagram" aria-hidden="true">
+                    <div class="surface"></div>
+                </div>
+                <figcaption>
+                    <p>环境光投射出的阴影。</p>
+                </figcaption>
+            </figure>
+            <figure id="combined-light-shadow">
+                <div class="diagram" aria-hidden="true">
+                    <div class="surface" solid></div>
+                </div>
+                <figcaption>
+                    <p>直射光与环境光共同投射出的阴影。</p>
+                </figcaption>
+            </figure>
+        </article>
+
+        <hr class="divider" horizontal />
+
+        <article id="matter" horizontal>
+            <h3 type-scale="headline">物质</h3>
+            <div class="paragraphs" long>
+                <p>在 Material 空间中，由 Material 构成的层面组成应用程序。但为了保证系统栏的可操作性并减少视觉冗余，系统栏以像素的概念被置入于 Material 空间之上的二维空间。</p>
+            </div>
+        </article>
+
+        <footer theme="dark">
+            <a href="index.html">
+                <span type-scale="subheading">上一节</span>
+                <span type-scale="title">
+                    <cmd-icon name="arrow_back"></cmd-icon>
+                    概述
+                </span>
+            </a>
+            <a href="material-design/material-properties.html">
+                <span type-scale="subheading">下一节</span>
+                <span type-scale="title">
+                    <cmd-icon name="arrow_forward"></cmd-icon>
+                    Material 属性
+                </span>
+            </a>
+        </footer>
+    </main>
+</body>
+
+</html>

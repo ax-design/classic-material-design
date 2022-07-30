@@ -1,0 +1,683 @@
+@import "../../global/styles/applications/calculator.css";
+@import "../../global/styles/applications/calendar.css";
+@import "../../global/styles/applications/contacts.css";
+
+/*------------------------------------*\
+  正文
+\*------------------------------------*/
+#elevation table,
+#absolute-elevation,
+#relative-elevation,
+#relative-static {
+    grid-column-end: span min(var(--content-columns), 2);
+}
+
+#without-shadow,
+#motion-without-shadow {
+    grid-column-start: 1;
+}
+
+:is(#motion-without-shadow, #motion-different-shadow, #motion-same-shadow) .diagram {
+    aspect-ratio: 1/1;
+}
+
+:is(#absolute-elevation, #relative-elevation) .illustration {
+    block-size: 480px;
+    padding: 0 20px;
+    align-items: unset;
+    background-color: var(--diagram-background-color);
+}
+
+:is(#absolute-elevation, #relative-elevation) .wrapper {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+#absolute-elevation .surface {
+    position: relative;
+    inline-size: 200px;
+    block-size: 150px;
+    border-radius: 2px;
+    background-color: var(--high-emphasis-surface-color);
+}
+
+#absolute-elevation .surface:first-child {
+    box-shadow: var(--shadow-z8);
+}
+
+#absolute-elevation .surface:last-child {
+    box-shadow: var(--shadow-z2);
+}
+
+:is(#absolute-elevation, #relative-elevation) picture {
+    flex-basis: 100%;
+}
+
+#relative-elevation .wrapper>.surface {
+    position: relative;
+    inline-size: 250px;
+    block-size: 324px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: end;
+    background-color: var(--medium-emphasis-surface-color);
+    box-shadow: var(--shadow-z16);
+}
+
+#relative-elevation .wrapper>.surface>.surface {
+    position: relative;
+    inline-size: 80px;
+    block-size: 36px;
+    border-radius: 2px;
+    margin: 16px;
+    background-color: #2196f3;
+    box-shadow: var(--shadow-z2);
+}
+
+:is(#without-shadow, #similar-shadow, #distinguishable-shadow) .diagram {
+    block-size: 240px;
+    align-items: start;
+    background-color: var(--grey-300);
+}
+
+:is(#without-shadow, #similar-shadow, #distinguishable-shadow) .surface:nth-child(1) {
+    flex-grow: 1;
+    position: relative;
+    block-size: 168px;
+    background-color: var(--low-emphasis-surface-color);
+}
+
+:is(#without-shadow, #similar-shadow, #distinguishable-shadow) .surface:nth-child(2) {
+    inset-block-start: 140px;
+    inset-inline-end: 16px;
+    position: absolute;
+    inline-size: 56px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--high-emphasis-surface-color);
+}
+
+#similar-shadow .surface,
+#distinguishable-shadow .surface:nth-child(1) {
+    box-shadow: var(--shadow-z2);
+}
+
+#distinguishable-shadow .surface:nth-child(2) {
+    box-shadow: var(--shadow-z6);
+}
+
+:is(#motion-without-shadow, #motion-different-shadow, #motion-same-shadow) .surface {
+    position: relative;
+    inline-size: 125px;
+    aspect-ratio: 1/1;
+    border-radius: 2px;
+    background-color: var(--high-emphasis-surface-color);
+}
+
+:is(#motion-different-shadow, #motion-same-shadow) .surface {
+    box-shadow: var(--shadow-z2);
+}
+
+:is(#motion-without-shadow, #motion-different-shadow, #motion-same-shadow) [play="on"] {
+    animation-duration: 4s;
+}
+
+:is(#motion-without-shadow, #motion-different-shadow, #motion-same-shadow) .surface {
+    animation-duration: 750ms;
+    animation-delay: 0.5s, 2.5s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+:is(#motion-without-shadow, #motion-same-shadow) [play="on"] .surface {
+    animation-name: motionWithoutShadow1, motionWithoutShadow2;
+}
+
+#motion-different-shadow [play="on"] .surface {
+    animation-name: motionDifferentShadow1, motionDifferentShadow2;
+}
+
+@keyframes motionWithoutShadow1 {
+    0% {
+        inline-size: 125px;
+    }
+
+    100% {
+        inline-size: 150px;
+    }
+}
+
+@keyframes motionWithoutShadow2 {
+    0% {
+        inline-size: 150px;
+    }
+
+    100% {
+        inline-size: 125px;
+    }
+}
+
+@keyframes motionDifferentShadow1 {
+    0% {
+        inline-size: 125px;
+        box-shadow: var(--shadow-z2);
+    }
+
+    100% {
+        inline-size: 150px;
+        box-shadow: var(--shadow-z12);
+    }
+}
+
+@keyframes motionDifferentShadow2 {
+    0% {
+        inline-size: 150px;
+        box-shadow: var(--shadow-z12);
+    }
+
+    100% {
+        inline-size: 125px;
+        box-shadow: var(--shadow-z2);
+    }
+}
+
+#color-overlap .clear-ripple {
+    justify-self: start;
+    inset-inline-end: 60px;
+    inset-block-start: 273px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#color-overlap .clear-ripple::before {
+    content: "";
+    position: absolute;
+    inline-size: calc(405.6217px * 2);
+    aspect-ratio: 1 / 1;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transform: scale(0);
+}
+
+#color-overlap .overlay .clear-ripple::before {
+    background-color: var(--cyan-600);
+}
+
+#color-overlap .expression::before {
+    content: "12 + 46";
+    visibility: hidden;
+}
+
+#color-overlap .result::before {
+    content: "58";
+    visibility: hidden;
+}
+
+#color-overlap .button .states-overlay {
+    inline-size: auto;
+    block-size: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+#color-overlap .button .states-overlay::after {
+    visibility: hidden;
+    content: '';
+    position: absolute;
+    block-size: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--states-base-color);
+}
+
+#color-overlap>[play="on"] {
+    animation-duration: 5.5s;
+}
+
+#color-overlap>[play="on"] .expression::before {
+    animation-name: colorOverlap1, colorOverlap7;
+    animation-duration: 2s, 0.5s;
+    animation-delay: 0.5s, 3.8s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes colorOverlap1 {
+    0% {
+        visibility: visible;
+        content: "1";
+    }
+
+    25% {
+        content: "12";
+    }
+
+    50% {
+        content: "12 +";
+    }
+
+    75% {
+        content: "12 + 4";
+    }
+
+    100% {
+        visibility: visible;
+        content: "12 + 46";
+    }
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(7) .states-overlay::before {
+    animation-name: colorOverlap2, colorOverlap3;
+    animation-duration: 225ms, 195ms;
+    animation-delay: 0.5s, 0.725s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(8) .states-overlay::before {
+    animation-name: colorOverlap2, colorOverlap3;
+    animation-duration: 225ms, 195ms;
+    animation-delay: 0.75s, 0.975s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+#color-overlap>[play="on"] .operator .button:nth-child(5) .states-overlay::before {
+    animation-name: colorOverlap2, colorOverlap3;
+    animation-duration: 225ms, 195ms;
+    animation-delay: 1.25s, 1.475s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(4) .states-overlay::before {
+    animation-name: colorOverlap2, colorOverlap3;
+    animation-duration: 225ms, 195ms;
+    animation-delay: 1.75s, 1.975s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(6) .states-overlay::before {
+    animation-name: colorOverlap2, colorOverlap3;
+    animation-duration: 225ms, 195ms;
+    animation-delay: 2.25s, 2.475s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+#color-overlap>[play="on"] .operator .button:nth-child(2) .states-overlay::before {
+    animation-name: colorOverlap2, colorOverlap3;
+    animation-duration: 225ms, 195ms;
+    animation-delay: 3s, 4.105s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes colorOverlap2 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.04;
+    }
+}
+
+@keyframes colorOverlap3 {
+    0% {
+        opacity: 0.04;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#color-overlap>[play="on"] .button .states-overlay::after {
+    visibility: visible;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(7) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 0.5s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(8) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 0.75s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .operator .button:nth-child(5) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 1.25s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(4) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 1.75s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .numeric .button:nth-child(6) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 2.25s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+#color-overlap>[play="on"] .operator .button:nth-child(2) .states-overlay::after {
+    animation-name: colorOverlap21, colorOverlap22;
+    animation-duration: 400ms;
+    animation-delay: 3s, 4.105s;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+@keyframes colorOverlap21 {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes colorOverlap22 {
+    0% {
+        opacity: 0.16;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#color-overlap>[play="on"] .result::before {
+    animation-name: colorOverlap4, colorOverlap7;
+    animation-duration: 2s, 0.5s;
+    animation-delay: 0.5s, 3.9s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes colorOverlap4 {
+    0% {
+        visibility: hidden;
+    }
+
+    62.5% {
+        visibility: hidden;
+        content: "16";
+    }
+
+    75% {
+        visibility: visible;
+        content: "16";
+    }
+
+    100% {
+        visibility: visible;
+        content: "58";
+    }
+}
+
+#color-overlap>[play="on"] .clear-ripple::before {
+    animation-name: colorOverlap5, colorOverlap6;
+    animation-duration: 400ms;
+    animation-delay: 3.4s, 3.8s;
+    animation-timing-function: cubic-bezier(0.35, 0, 0.65, 1);
+    animation-fill-mode: forwards;
+}
+
+@keyframes colorOverlap5 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes colorOverlap6 {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes colorOverlap7 {
+    0% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+#parallax .schedule {
+    inset-block-start: -40px;
+}
+
+#parallax img {
+    inset-inline-start: -15%;
+    transform: translateY(calc(12 / 404 * 84px));
+}
+
+#parallax>[play="on"] {
+    animation-duration: 6s;
+}
+
+#parallax>[play="on"] .schedule {
+    animation-name: parallax1, parallax2, parallax3;
+    animation-duration: 1.25s, 1.5s, 1.5s;
+    animation-delay: 0.5s, 2.25s, 4.25s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+@keyframes parallax1 {
+    100% {
+        inset-block-start: -136px;
+    }
+}
+
+@keyframes parallax2 {
+    100% {
+        inset-block-start: 168px;
+    }
+}
+
+@keyframes parallax3 {
+    100% {
+        inset-block-start: -40px;
+    }
+}
+
+#parallax>[play="on"] img {
+    animation-name: parallax4, parallax5, parallax6;
+    animation-duration: 1.25s, 1.5s, 1.5s;
+    animation-delay: 0.5s, 2.25s, 4.25s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+@keyframes parallax4 {
+    100% {
+        transform: translateY(calc(84 / 404 * 84px));
+    }
+}
+
+@keyframes parallax5 {
+    100% {
+        transform: translateY(calc(-220 / 404 * 84px));
+    }
+}
+
+@keyframes parallax6 {
+    100% {
+        transform: translateY(calc(12 / 404 * 84px));
+    }
+}
+
+#relative-static .diagram {
+    block-size: 570px;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+#relative-static .surface {
+    position: relative;
+}
+
+#relative-static .diagram>.surface:nth-child(2) {
+    position: absolute;
+    inline-size: 100%;
+    block-size: var(--increment);
+    background-color: var(--high-emphasis-surface-color);
+    box-shadow: var(--shadow-z4);
+}
+
+#relative-static .surfaces {
+    inline-size: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-block: calc(var(--increment) + var(--keyline));
+    padding-inline: var(--keyline);
+    box-sizing: border-box;
+}
+
+#relative-static .surfaces .surface {
+    aspect-ratio: 1 / 1;
+    background-color: var(--medium-emphasis-surface-color);
+    box-shadow: var(--shadow-z2);
+    border-radius: 2px;
+}
+
+#relative-static .diagram>.surface:last-child {
+    inset-inline-end: var(--keyline);
+    inset-block-end: var(--keyline);
+    position: absolute;
+    inline-size: 56px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--blue-500);
+    border-radius: 50%;
+    box-shadow: var(--shadow-z6);
+}
+
+#relative-static>[play="on"] {
+    animation-duration: 5s;
+}
+
+#relative-static>[play="on"] .surfaces {
+    animation-name: relativeStatic1, relativeStatic2;
+    animation-duration: 2s;
+    animation-delay: 0.5s, 3s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+@keyframes relativeStatic1 {
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes relativeStatic2 {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@media (width < 920px) {
+    #absolute-elevation .illustration {
+        flex-direction: column;
+        padding: 0 0 40px 0;
+    }
+
+    #relative-elevation .illustration {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    :is(#absolute-elevation, #relative-elevation) .wrapper {
+        flex-direction: row;
+    }
+
+    #absolute-elevation .surface {
+        inline-size: 120px;
+        block-size: 120px;
+    }
+
+    #relative-elevation .wrapper>.surface {
+        inline-size: 264px;
+        block-size: 160px;
+    }
+
+    #relative-static .surfaces {
+        grid-template-columns: repeat(2, 1fr);
+        margin-block: calc(var(--increment) + 12px);
+        padding-inline: 8px;
+    }
+
+    #relative-static .surfaces .surface:nth-of-type(2n) {
+        display: none;
+    }
+}
+
+/*------------------------------------*\
+  主题
+\*------------------------------------*/
+:root {
+    --primary-color: var(--cyan-500);
+    --secondary-color: var(--lime-a200);
+}
+
+::selection {
+    color: rgb(0 0 0 / 0.87);
+    background-color: var(--secondary-color);
+}
+
+main>.app-bar {
+    --surface-shade-color: rgb(38 50 56 / 0.2);
+}
+
+h1 {
+    --primary-text-color: white;
+}
+
+footer a:nth-of-type(2) {
+    --primary-color: var(--purple-600);
+}
+
+@media (prefers-color-scheme: dark) {
+    :is(#without-shadow, #similar-shadow, #distinguishable-shadow) .diagram {
+        background-color: var(--grey-950);
+    }
+}

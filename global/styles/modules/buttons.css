@@ -1,0 +1,55 @@
+/*------------------------------------*\
+  按钮
+\*------------------------------------*/
+:where(.button) {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    text-decoration: none;
+    color: inherit;
+    white-space: nowrap;
+    text-transform: uppercase;
+    display: inline-flex;
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.button[variant~=icon] {
+    padding: 12px;
+}
+
+.button[variant~=icon][narrowed] span {
+    inline-size: 0.5em;
+}
+
+.button[variant~=text] {
+    --states-base-color: currentColor;
+    min-inline-size: 64px;
+    block-size: 36px;
+    padding: 0 8px;
+    color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.button[variant~=filled] {
+    color: var(--primary-text-color);
+    background-color: var(--secondary-color, var(--primary-color));
+}
+
+.button[variant~=fab] {
+    position: absolute;
+    inline-size: 56px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    color: var(--secondary-text-color);
+    background-color: var(--secondary-color, var(--high-emphasis-surface-color));
+    box-shadow: var(--shadow-z6);
+}
+
+.fab[density=mini] {
+    inline-size: 40px;
+}

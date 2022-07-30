@@ -1,0 +1,55 @@
+/*------------------------------------*\
+  正文
+\*------------------------------------*/
+#dimensions {
+    grid-column-end: span min(var(--content-columns), 2);
+}
+
+#key-light-shadow {
+    grid-column-start: 1;
+}
+
+figure:not(#dimensions) .diagram {
+    aspect-ratio: 1/1;
+}
+
+#space .diagram .surface {
+    position: relative;
+    inline-size: 168px;
+    aspect-ratio: 1/1;
+    background-color: var(--high-emphasis-surface-color);
+    border-radius: 2px;
+}
+
+#key-light-shadow .surface {
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+#ambient-light-shadow .surface {
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
+}
+
+#combined-light-shadow .surface {
+    box-shadow: var(--shadow-z6);
+}
+
+/*------------------------------------*\
+  主题
+\*------------------------------------*/
+:root {
+    --primary-color: var(--cyan-500);
+    --secondary-color: var(--lime-a200);
+}
+
+::selection {
+    color: rgb(0 0 0 / 0.87);
+    background-color: var(--secondary-color);
+}
+
+main>.app-bar {
+    --surface-shade-color: rgb(38 50 56 / 0.2);
+}
+
+h1 {
+    --primary-text-color: white;
+}

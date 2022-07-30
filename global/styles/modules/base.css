@@ -1,0 +1,831 @@
+/*------------------------------------*\
+  层面
+\*------------------------------------*/
+:root {
+    --shadow-z0: 0px 0px 0px 0px rgb(0 0 0 / 0.2), 0px 0px 0px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 0px rgb(0 0 0 / 0.12);
+    --shadow-z1: 0px 2px 1px -1px rgb(0 0 0 / 0.2), 0px 1px 1px 0px rgb(0 0 0 / 0.14), 0px 1px 3px 0px rgb(0 0 0 / 0.12);
+    --shadow-z2: 0px 3px 1px -2px rgb(0 0 0 / 0.2), 0px 2px 2px 0px rgb(0 0 0 / 0.14), 0px 1px 5px 0px rgb(0 0 0 / 0.12);
+    --shadow-z3: 0px 3px 3px -2px rgb(0 0 0 / 0.2), 0px 3px 4px 0px rgb(0 0 0 / 0.14), 0px 1px 8px 0px rgb(0 0 0 / 0.12);
+    --shadow-z4: 0px 2px 4px -1px rgb(0 0 0 / 0.2), 0px 4px 5px 0px rgb(0 0 0 / 0.14), 0px 1px 10px 0px rgb(0 0 0 / 0.12);
+    --shadow-z5: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 5px 8px 0px rgb(0 0 0 / 0.14), 0px 1px 14px 0px rgb(0 0 0 / 0.12);
+    --shadow-z6: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 6px 10px 0px rgb(0 0 0 / 0.14), 0px 1px 18px 0px rgb(0 0 0 / 0.12);
+    --shadow-z7: 0px 4px 5px -2px rgb(0 0 0 / 0.2), 0px 7px 10px 1px rgb(0 0 0 / 0.14), 0px 2px 16px 1px rgb(0 0 0 / 0.12);
+    --shadow-z8: 0px 5px 5px -3px rgb(0 0 0 / 0.2), 0px 8px 10px 1px rgb(0 0 0 / 0.14), 0px 3px 14px 2px rgb(0 0 0 / 0.12);
+    --shadow-z9: 0px 5px 6px -3px rgb(0 0 0 / 0.2), 0px 9px 12px 1px rgb(0 0 0 / 0.14), 0px 3px 16px 2px rgb(0 0 0 / 0.12);
+    --shadow-z10: 0px 6px 6px -3px rgb(0 0 0 / 0.2), 0px 10px 14px 1px rgb(0 0 0 / 0.14), 0px 4px 18px 3px rgb(0 0 0 / 0.12);
+    --shadow-z11: 0px 6px 7px -4px rgb(0 0 0 / 0.2), 0px 11px 15px 1px rgb(0 0 0 / 0.14), 0px 4px 20px 3px rgb(0 0 0 / 0.12);
+    --shadow-z12: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 12px 17px 2px rgb(0 0 0 / 0.14), 0px 5px 22px 4px rgb(0 0 0 / 0.12);
+    --shadow-z13: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 13px 19px 2px rgb(0 0 0 / 0.14), 0px 5px 24px 4px rgb(0 0 0 / 0.12);
+    --shadow-z14: 0px 7px 9px -4px rgb(0 0 0 / 0.2), 0px 14px 21px 2px rgb(0 0 0 / 0.14), 0px 5px 26px 4px rgb(0 0 0 / 0.12);
+    --shadow-z15: 0px 8px 9px -5px rgb(0 0 0 / 0.2), 0px 15px 22px 2px rgb(0 0 0 / 0.14), 0px 6px 28px 5px rgb(0 0 0 / 0.12);
+    --shadow-z16: 0px 8px 10px -5px rgb(0 0 0 / 0.2), 0px 16px 24px 2px rgb(0 0 0 / 0.14), 0px 6px 30px 5px rgb(0 0 0 / 0.12);
+    --shadow-z17: 0px 8px 11px -5px rgb(0 0 0 / 0.2), 0px 17px 26px 2px rgb(0 0 0 / 0.14), 0px 6px 32px 5px rgb(0 0 0 / 0.12);
+    --shadow-z18: 0px 9px 11px -5px rgb(0 0 0 / 0.2), 0px 18px 28px 2px rgb(0 0 0 / 0.14), 0px 7px 34px 6px rgb(0 0 0 / 0.12);
+    --shadow-z19: 0px 9px 12px -6px rgb(0 0 0 / 0.2), 0px 19px 29px 2px rgb(0 0 0 / 0.14), 0px 7px 36px 6px rgb(0 0 0 / 0.12);
+    --shadow-z20: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 20px 31px 3px rgb(0 0 0 / 0.14), 0px 8px 38px 7px rgb(0 0 0 / 0.12);
+    --shadow-z21: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 21px 33px 3px rgb(0 0 0 / 0.14), 0px 8px 40px 7px rgb(0 0 0 / 0.12);
+    --shadow-z22: 0px 10px 14px -6px rgb(0 0 0 / 0.2), 0px 22px 35px 3px rgb(0 0 0 / 0.14), 0px 8px 42px 7px rgb(0 0 0 / 0.12);
+    --shadow-z23: 0px 11px 14px -7px rgb(0 0 0 / 0.2), 0px 23px 36px 3px rgb(0 0 0 / 0.14), 0px 9px 44px 8px rgb(0 0 0 / 0.12);
+    --shadow-z24: 0px 11px 15px -7px rgb(0 0 0 / 0.2), 0px 24px 38px 3px rgb(0 0 0 / 0.14), 0px 9px 46px 8px rgb(0 0 0 / 0.12);
+}
+
+:root {
+    --drop-shadow-z2: drop-shadow(0px 1px 0.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 2px 1px rgb(0 0 0 / 0.14)) drop-shadow(0px 1px 2.5px rgb(0 0 0 / 0.12));
+    --drop-shadow-z8: drop-shadow(0px 2px 2.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 9px 5px rgb(0 0 0 / 0.14)) drop-shadow(0px 5px 7px rgb(0 0 0 / 0.12));
+}
+
+[solid]::after,
+.button[variant~="fab"]::after {
+    content: "";
+    inset: 0;
+    position: absolute;
+    border-block-start: 1px solid var(--surface-hint-color);
+    border-block-end: 1px solid var(--surface-shade-color);
+    border-radius: inherit;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+[solid="start"]::after {
+    border-block-end: none;
+}
+
+[solid="end"]::after {
+    border-block-start: none;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --high-emphasis-surface-color: white;
+        --medium-emphasis-surface-color: var(--grey-50);
+        --low-emphasis-surface-color: var(--grey-100);
+        --surface-hint-color: rgb(255 255 255 / 0.4);
+        --surface-shade-color: rgb(0 0 0 / 0.1);
+        --theme-base-color: white;
+        --content-base-color: black;
+    }
+}
+
+[theme~="light"] {
+    --high-emphasis-surface-color: white;
+    --medium-emphasis-surface-color: var(--grey-50);
+    --low-emphasis-surface-color: var(--grey-100);
+    --surface-hint-color: rgb(255 255 255 / 0.4);
+    --surface-shade-color: rgb(0 0 0 / 0.1);
+    --theme-base-color: white;
+    --content-base-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --high-emphasis-surface-color: var(--grey-800);
+        --medium-emphasis-surface-color: var(--grey-850);
+        --low-emphasis-surface-color: var(--grey-900);
+        --surface-hint-color: rgb(255 255 255 / 0.2);
+        --surface-shade-color: rgb(0 0 0 / 0.2);
+        --theme-base-color: black;
+        --content-base-color: white;
+    }
+}
+
+[theme~="dark"] {
+    --high-emphasis-surface-color: var(--grey-800);
+    --medium-emphasis-surface-color: var(--grey-850);
+    --low-emphasis-surface-color: var(--grey-900);
+    --surface-hint-color: rgb(255 255 255 / 0.2);
+    --surface-shade-color: rgb(0 0 0 / 0.2);
+    --theme-base-color: black;
+    --content-base-color: white;
+}
+
+/*------------------------------------*\
+  字体排印
+\*------------------------------------*/
+:lang(en) {
+    --display-4-leading: 7rem;
+    --display-3-leading: 4rem;
+    --display-2-leading: 3rem;
+    --display-1-leading: 2.5rem;
+    --headline-leading: 2rem;
+    --title-leading: 1.75rem;
+    --subheading-leading: 1.5rem;
+    --body-leading: 1.25rem;
+    --caption-leading: 1rem;
+}
+
+:lang(zh) {
+    --display-4-leading: 1em;
+    --display-3-leading: 1em;
+    --display-2-leading: 1em;
+    --display-1-leading: 1em;
+    --headline-leading: 1em;
+    --title-leading: 1.5em;
+    --subheading-leading: 1.5em;
+    --body-leading: 1.75em;
+    --caption-leading: 1.75em;
+}
+
+[type-scale=display4] {
+    font-size: 7rem;
+    font-weight: 300;
+    line-height: var(--display-4-leading);
+}
+
+:lang(en) [type-scale=display4],
+[type-scale=display4]:lang(en) {
+    letter-spacing: -0.01em;
+}
+
+[type-scale=display3] {
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: var(--display-3-leading);
+}
+
+:lang(en) [type-scale=display3],
+[type-scale=display3]:lang(en) {
+    letter-spacing: -0.005em;
+}
+
+[type-scale=display2] {
+    font-size: 2.8125rem;
+    font-weight: 400;
+    line-height: var(--display-2-leading);
+}
+
+[type-scale=display1] {
+    font-size: 2.125rem;
+    font-weight: 400;
+    line-height: var(--display-1-leading);
+}
+
+[type-scale=headline] {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: var(--headline-leading);
+}
+
+[type-scale=title] {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: var(--title-leading);
+}
+
+:lang(en) [type-scale=title],
+[type-scale=title]:lang(en) {
+    letter-spacing: 0.005em;
+}
+
+[type-scale=subheading] {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: var(--subheading-leading);
+}
+
+:lang(en) [type-scale=subheading],
+[type-scale=subheading]:lang(en) {
+    letter-spacing: 0.01em;
+}
+
+[type-scale=body2] {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: var(--body-leading);
+}
+
+:lang(en) [type-scale=body2],
+[type-scale=body2]:lang(en) {
+    letter-spacing: 0.01em;
+}
+
+[type-scale=body1] {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: var(--body-leading);
+}
+
+:lang(en) [type-scale=body1],
+[type-scale=body1]:lang(en) {
+    letter-spacing: 0.01em;
+}
+
+[type-scale=caption] {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: var(--caption-leading);
+}
+
+:lang(en) [type-scale=caption],
+[type-scale=caption]:lang(en) {
+    letter-spacing: 0.02em;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary-text-color: rgb(0 0 0 / 0.87);
+        --secondary-text-color-alt: rgb(0 0 0 / 0.7);
+        --secondary-text-color: rgb(0 0 0 / 0.54);
+        --hint-text-color: rgb(0 0 0 / 0.38);
+        --hint-text-color-alt: rgb(0 0 0 / 0.2);
+    }
+}
+
+[theme~=light] {
+    --primary-text-color: rgb(0 0 0 / 0.87);
+    --secondary-text-color-alt: rgb(0 0 0 / 0.7);
+    --secondary-text-color: rgb(0 0 0 / 0.54);
+    --hint-text-color: rgb(0 0 0 / 0.38);
+    --hint-text-color-alt: rgb(0 0 0 / 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-text-color: rgb(255 255 255 / 1);
+        --secondary-text-color-alt: rgb(255 255 255 / 0.9);
+        --secondary-text-color: rgb(255 255 255 / 0.7);
+        --hint-text-color: rgb(255 255 255 / 0.5);
+        --hint-text-color-alt: rgb(255 255 255 / 0.38);
+    }
+}
+
+[theme~=dark] {
+    --primary-text-color: rgb(255 255 255 / 1);
+    --secondary-text-color-alt: rgb(255 255 255 / 0.9);
+    --secondary-text-color: rgb(255 255 255 / 0.7);
+    --hint-text-color: rgb(255 255 255 / 0.5);
+    --hint-text-color-alt: rgb(255 255 255 / 0.38);
+}
+
+/*------------------------------------*\
+  遮罩
+\*------------------------------------*/
+.scrim {
+    pointer-events: none;
+}
+
+.scrim[fill] {
+    background-color: rgb(0 0 0 / 0);
+}
+
+.scrim[fill][show] {
+    background-color: rgb(0 0 0 / 0.4);
+}
+
+.scrim[gradient] {
+    max-block-size: calc(3 * var(--increment));
+    background: linear-gradient(rgb(0 0 0 / 1) 0%, rgb(0 0 0 / 0.5) calc(1 / 3 * 100%), rgb(0 0 0 / 0) 100%);
+}
+
+/*------------------------------------*\
+  动画
+\*------------------------------------*/
+:root {
+    --standard-curve: cubic-bezier(0.4, 0, 0.2, 1);
+    --deceleration-curve: cubic-bezier(0, 0, 0.2, 1);
+    --acceleration-curve: cubic-bezier(0.4, 0, 1, 1);
+    --sharp-curve: cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/*------------------------------------*\
+  颜色
+\*------------------------------------*/
+:root {
+    --red-50: #ffebee;
+    --red-100: #ffcdd2;
+    --red-200: #ef9a9a;
+    --red-300: #e57373;
+    --red-400: #ef5350;
+    --red-500: #f44336;
+    --red-600: #e53935;
+    --red-700: #d32f2f;
+    --red-800: #c62828;
+    --red-900: #b71c1c;
+    --red-a100: #ff8a80;
+    --red-a200: #ff5252;
+    --red-a400: #ff1744;
+    --red-a700: #d50000;
+    --pink-50: #fce4ec;
+    --pink-100: #f8bbd0;
+    --pink-200: #f48fb1;
+    --pink-300: #f06292;
+    --pink-400: #ec407a;
+    --pink-500: #e91e63;
+    --pink-600: #d81b60;
+    --pink-700: #c2185b;
+    --pink-800: #ad1457;
+    --pink-900: #880e4f;
+    --pink-a100: #ff80ab;
+    --pink-a200: #ff4081;
+    --pink-a400: #f50057;
+    --pink-a700: #c51162;
+    --purple-50: #f3e5f5;
+    --purple-100: #e1bee7;
+    --purple-200: #ce93d8;
+    --purple-300: #ba68c8;
+    --purple-400: #ab47bc;
+    --purple-500: #9c27b0;
+    --purple-600: #8e24aa;
+    --purple-700: #7b1fa2;
+    --purple-800: #6a1b9a;
+    --purple-900: #4a148c;
+    --purple-a100: #ea80fc;
+    --purple-a200: #e040fb;
+    --purple-a400: #d500f9;
+    --purple-a700: #aa00ff;
+    --deep-purple-50: #ede7f6;
+    --deep-purple-100: #d1c4e9;
+    --deep-purple-200: #b39ddb;
+    --deep-purple-300: #9575cd;
+    --deep-purple-400: #7e57c2;
+    --deep-purple-500: #673ab7;
+    --deep-purple-600: #5e35b1;
+    --deep-purple-700: #512da8;
+    --deep-purple-800: #4527a0;
+    --deep-purple-900: #311b92;
+    --deep-purple-a100: #b388ff;
+    --deep-purple-a200: #7c4dff;
+    --deep-purple-a400: #651fff;
+    --deep-purple-a700: #6200ea;
+    --indigo-50: #e8eaf6;
+    --indigo-100: #c5cae9;
+    --indigo-200: #9fa8da;
+    --indigo-300: #7986cb;
+    --indigo-400: #5c6bc0;
+    --indigo-500: #3f51b5;
+    --indigo-600: #3949ab;
+    --indigo-700: #303f9f;
+    --indigo-800: #283593;
+    --indigo-900: #1a237e;
+    --indigo-a100: #8c9eff;
+    --indigo-a200: #536dfe;
+    --indigo-a400: #3d5afe;
+    --indigo-a700: #304ffe;
+    --blue-50: #e3f2fd;
+    --blue-100: #bbdefb;
+    --blue-200: #90caf9;
+    --blue-300: #64b5f6;
+    --blue-400: #42a5f5;
+    --blue-500: #2196f3;
+    --blue-600: #1e88e5;
+    --blue-700: #1976d2;
+    --blue-800: #1565c0;
+    --blue-900: #0d47a1;
+    --blue-a100: #82b1ff;
+    --blue-a200: #448aff;
+    --blue-a400: #2979ff;
+    --blue-a700: #2962ff;
+    --light-blue-50: #e1f5fe;
+    --light-blue-100: #b3e5fc;
+    --light-blue-200: #81d4fa;
+    --light-blue-300: #4fc3f7;
+    --light-blue-400: #29b6f6;
+    --light-blue-500: #03a9f4;
+    --light-blue-600: #039be5;
+    --light-blue-700: #0288d1;
+    --light-blue-800: #0277bd;
+    --light-blue-900: #01579b;
+    --light-blue-a100: #80d8ff;
+    --light-blue-a200: #40c4ff;
+    --light-blue-a400: #00b0ff;
+    --light-blue-a700: #0091ea;
+    --cyan-50: #e0f7fa;
+    --cyan-100: #b2ebf2;
+    --cyan-200: #80deea;
+    --cyan-300: #4dd0e1;
+    --cyan-400: #26c6da;
+    --cyan-500: #00bcd4;
+    --cyan-600: #00acc1;
+    --cyan-700: #0097a7;
+    --cyan-800: #00838f;
+    --cyan-900: #006064;
+    --cyan-a100: #84ffff;
+    --cyan-a200: #18ffff;
+    --cyan-a400: #00e5ff;
+    --cyan-a700: #00b8d4;
+    --teal-50: #e0f2f1;
+    --teal-100: #b2dfdb;
+    --teal-200: #80cbc4;
+    --teal-300: #4db6ac;
+    --teal-400: #26a69a;
+    --teal-500: #009688;
+    --teal-600: #00897b;
+    --teal-700: #00796b;
+    --teal-800: #00695c;
+    --teal-900: #004d40;
+    --teal-a100: #a7ffeb;
+    --teal-a200: #64ffda;
+    --teal-a400: #1de9b6;
+    --teal-a700: #00bfa5;
+    --green-50: #e8f5e9;
+    --green-100: #c8e6c9;
+    --green-200: #a5d6a7;
+    --green-300: #81c784;
+    --green-400: #66bb6a;
+    --green-500: #4caf50;
+    --green-600: #43a047;
+    --green-700: #388e3c;
+    --green-800: #2e7d32;
+    --green-900: #1b5e20;
+    --green-a100: #b9f6ca;
+    --green-a200: #69f0ae;
+    --green-a400: #00e676;
+    --green-a700: #00c853;
+    --light-green-50: #f1f8e9;
+    --light-green-100: #dcedc8;
+    --light-green-200: #c5e1a5;
+    --light-green-300: #aed581;
+    --light-green-400: #9ccc65;
+    --light-green-500: #8bc34a;
+    --light-green-600: #7cb342;
+    --light-green-700: #689f38;
+    --light-green-800: #558b2f;
+    --light-green-900: #33691e;
+    --light-green-a100: #ccff90;
+    --light-green-a200: #b2ff59;
+    --light-green-a400: #76ff03;
+    --light-green-a700: #64dd17;
+    --lime-50: #f9fbe7;
+    --lime-100: #f0f4c3;
+    --lime-200: #e6ee9c;
+    --lime-300: #dce775;
+    --lime-400: #d4e157;
+    --lime-500: #cddc39;
+    --lime-600: #c0ca33;
+    --lime-700: #afb42b;
+    --lime-800: #9e9d24;
+    --lime-900: #827717;
+    --lime-a100: #f4ff81;
+    --lime-a200: #eeff41;
+    --lime-a400: #c6ff00;
+    --lime-a700: #aeea00;
+    --yellow-50: #fffde7;
+    --yellow-100: #fff9c4;
+    --yellow-200: #fff59d;
+    --yellow-300: #fff176;
+    --yellow-400: #ffee58;
+    --yellow-500: #ffeb3b;
+    --yellow-600: #fdd835;
+    --yellow-700: #fbc02d;
+    --yellow-800: #f9a825;
+    --yellow-900: #f57f17;
+    --yellow-a100: #ffff8d;
+    --yellow-a200: #ffff00;
+    --yellow-a400: #ffea00;
+    --yellow-a700: #ffd600;
+    --amber-50: #fff8e1;
+    --amber-100: #ffecb3;
+    --amber-200: #ffe082;
+    --amber-300: #ffd54f;
+    --amber-400: #ffca28;
+    --amber-500: #ffc107;
+    --amber-600: #ffb300;
+    --amber-700: #ffa000;
+    --amber-800: #ff8f00;
+    --amber-900: #ff6f00;
+    --amber-a100: #ffe57f;
+    --amber-a200: #ffd740;
+    --amber-a400: #ffc400;
+    --amber-a700: #ffab00;
+    --orange-50: #fff3e0;
+    --orange-100: #ffe0b2;
+    --orange-200: #ffcc80;
+    --orange-300: #ffb74d;
+    --orange-400: #ffa726;
+    --orange-500: #ffa726;
+    --orange-600: #fb8c00;
+    --orange-700: #f57c00;
+    --orange-800: #ef6c00;
+    --orange-900: #ef6c00;
+    --orange-a100: #ffd180;
+    --orange-a200: #ffab40;
+    --orange-a400: #ff9100;
+    --orange-a700: #ff6d00;
+    --deep-orange-50: #fbe9e7;
+    --deep-orange-100: #ffccbc;
+    --deep-orange-200: #ffab91;
+    --deep-orange-300: #ff8a65;
+    --deep-orange-400: #ff7043;
+    --deep-orange-500: #ff5722;
+    --deep-orange-600: #f4511e;
+    --deep-orange-700: #e64a19;
+    --deep-orange-800: #d84315;
+    --deep-orange-900: #bf360c;
+    --deep-orange-a100: #ff9e80;
+    --deep-orange-a200: #ff6e40;
+    --deep-orange-a400: #ff3d00;
+    --deep-orange-a700: #dd2c00;
+    --brown-50: #efebe9;
+    --brown-100: #d7ccc8;
+    --brown-200: #bcaaa4;
+    --brown-300: #a1887f;
+    --brown-400: #8d6e63;
+    --brown-500: #795548;
+    --brown-600: #6d4c41;
+    --brown-700: #5d4037;
+    --brown-800: #4e342e;
+    --brown-900: #3e2723;
+    --grey-50: #fafafa;
+    --grey-100: #f5f5f5;
+    --grey-200: #eeeeee;
+    --grey-300: #e0e0e0;
+    --grey-400: #bdbdbd;
+    --grey-500: #9e9e9e;
+    --grey-600: #757575;
+    --grey-700: #616161;
+    --grey-800: #424242;
+    --grey-850: #303030;
+    --grey-900: #212121;
+    --grey-950: #121212;
+    --blue-grey-50: #eceff1;
+    --blue-grey-100: #cfd8dc;
+    --blue-grey-200: #b0bec5;
+    --blue-grey-300: #90a4ae;
+    --blue-grey-400: #78909c;
+    --blue-grey-500: #607d8b;
+    --blue-grey-600: #546e7a;
+    --blue-grey-700: #455a64;
+    --blue-grey-800: #37474f;
+    --blue-grey-900: #263238;
+    --blue-grey-950: #21272b;
+}
+
+:root {
+    --google-red-50: #fce8e6;
+    --google-red-100: #fad2cf;
+    --google-red-200: #f6aea9;
+    --google-red-300: #f28b82;
+    --google-red-400: #ee675c;
+    --google-red-500: #ea4335;
+    --google-red-600: #d93025;
+    --google-red-700: #c5221f;
+    --google-red-800: #b31412;
+    --google-red-900: #a50e0e;
+    --google-red-alt-50: #fbe9e7;
+    --google-red-alt-100: #f4c7c3;
+    --google-red-alt-200: #eda29b;
+    --google-red-alt-300: #e67c73;
+    --google-red-alt-400: #e06055;
+    --google-red-alt-500: #db4437;
+    --google-red-alt-600: #d23f31;
+    --google-red-alt-700: #c53929;
+    --google-red-alt-800: #b93221;
+    --google-red-alt-900: #a52714;
+    --google-red-alt-a100: #ff8a80;
+    --google-red-alt-a200: #ff5252;
+    --google-red-alt-a400: #ff1744;
+    --google-red-alt-a700: #d50000;
+    --google-red-kennedy-200: #ed9d97;
+    --google-red-kennedy-300: #e57368;
+    --google-red-kennedy-500: #db4437;
+    --google-red-kennedy-600: #d73d32;
+    --google-red-kennedy-700: #d3362d;
+    --google-blue-50: #e8f0fe;
+    --google-blue-100: #d2e3fc;
+    --google-blue-200: #aecbfa;
+    --google-blue-300: #8ab4f8;
+    --google-blue-400: #669df6;
+    --google-blue-500: #4285f4;
+    --google-blue-600: #1a73e8;
+    --google-blue-700: #1967d2;
+    --google-blue-800: #185abc;
+    --google-blue-900: #174ea6;
+    --google-blue-alt-50: #e8f0fe;
+    --google-blue-alt-100: #c6dafc;
+    --google-blue-alt-200: #a1c2fa;
+    --google-blue-alt-300: #7baaf7;
+    --google-blue-alt-400: #5e97f6;
+    --google-blue-alt-500: #4285f4;
+    --google-blue-alt-600: #3b78e7;
+    --google-blue-alt-700: #3367d6;
+    --google-blue-alt-800: #2a56c6;
+    --google-blue-alt-900: #1c3aa9;
+    --google-blue-alt-a100: #82b1ff;
+    --google-blue-alt-a200: #448aff;
+    --google-blue-alt-a400: #2979ff;
+    --google-blue-alt-a700: #2962ff;
+    --google-blue-kennedy-200: #a0c3ff;
+    --google-blue-kennedy-300: #76a7fa;
+    --google-blue-kennedy-500: #4285f4;
+    --google-blue-kennedy-600: #427fed;
+    --google-blue-kennedy-700: #4374e0;
+    --google-green-50: #e6f4ea;
+    --google-green-100: #ceead6;
+    --google-green-200: #a8dab5;
+    --google-green-300: #81c995;
+    --google-green-400: #5bb974;
+    --google-green-500: #34a853;
+    --google-green-600: #1e8e3e;
+    --google-green-700: #188038;
+    --google-green-800: #137333;
+    --google-green-900: #0d652d;
+    --google-green-alt-50: #e2f3eb;
+    --google-green-alt-100: #b7e1cd;
+    --google-green-alt-200: #87ceac;
+    --google-green-alt-300: #57bb8a;
+    --google-green-alt-400: #33ac71;
+    --google-green-alt-500: #0f9d58;
+    --google-green-alt-600: #0d904f;
+    --google-green-alt-700: #0b8043;
+    --google-green-alt-800: #097138;
+    --google-green-alt-900: #055524;
+    --google-green-alt-a100: #b9f6ca;
+    --google-green-alt-a200: #69f0ae;
+    --google-green-alt-a400: #00e676;
+    --google-green-alt-a700: #00c853;
+    --google-green-kennedy-200: #7bcfa9;
+    --google-green-kennedy-300: #33b679;
+    --google-green-kennedy-500: #0f9d58;
+    --google-green-kennedy-600: #13955c;
+    --google-green-kennedy-700: #1a8763;
+    --google-yellow-50: #fef7e0;
+    --google-yellow-100: #feefc3;
+    --google-yellow-200: #fde293;
+    --google-yellow-300: #fdd663;
+    --google-yellow-400: #fcc934;
+    --google-yellow-500: #fbbc04;
+    --google-yellow-600: #f9ab00;
+    --google-yellow-700: #f29900;
+    --google-yellow-800: #ea8600;
+    --google-yellow-900: #e37400;
+    --google-yellow-alt-50: #fef6e0;
+    --google-yellow-alt-100: #fce8b2;
+    --google-yellow-alt-200: #fada80;
+    --google-yellow-alt-300: #f7cb4d;
+    --google-yellow-alt-400: #f6bf26;
+    --google-yellow-alt-500: #f4b400;
+    --google-yellow-alt-600: #f2a600;
+    --google-yellow-alt-700: #f09300;
+    --google-yellow-alt-800: #ee8100;
+    --google-yellow-alt-900: #ea6100;
+    --google-yellow-alt-a100: #ffde80;
+    --google-yellow-alt-a200: #ffcd40;
+    --google-yellow-alt-a400: #ffbc00;
+    --google-yellow-alt-a700: #ff9e00;
+    --google-yellow-kennedy-200: #ffe168;
+    --google-yellow-kennedy-300: #fbcb43;
+    --google-yellow-kennedy-500: #f4b400;
+    --google-yellow-kennedy-600: #eca403;
+    --google-yellow-kennedy-700: #e49307;
+}
+
+/*------------------------------------*\
+  图标
+\*------------------------------------*/
+cmd-icon {
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+cmd-icon[size="small"] {
+    inline-size: 1.125rem;
+    block-size: 1.125rem;
+}
+
+cmd-icon[size="large"] {
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+}
+
+cmd-icon[name="more_vert"] {
+    inline-size: 0.75rem;
+    block-size: 1.5rem;
+}
+
+/*------------------------------------*\
+  状态
+\*------------------------------------*/
+.states-overlay {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.states-overlay::before {
+    content: "";
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    border-radius: inherit;
+    background-color: var(--states-base-color);
+    opacity: calc((0.04 * var(--hover-parameter, 0) + 0.12 * var(--focus-parameter, 0) + 0.08 * var(--selected-parameter, 0) + 0.12 * var(--activate-parameter, 0) + 0.04 * var(--ripple-background-parameter, 0) + 0.08 * var(--dragged-parameter, 0)) * var(--states-parameter, 1));
+    transition-property: opacity;
+    transition-duration: 195ms;
+    transition-timing-function: linear;
+}
+
+[unbounded] {
+    overflow: visible;
+}
+
+:is(:hover, :focus-visible, [disabled]) .states-overlay::before {
+    transition-duration: 225ms;
+}
+
+@media (hover: hover) {
+
+    *[interact]:hover,
+    button:hover {
+        --hover-parameter: 1;
+    }
+}
+
+:focus-visible {
+    --focus-parameter: 1;
+}
+
+[activated] {
+    --activate-parameter: 1;
+}
+
+[pressed] {
+    --ripple-background-parameter: 1;
+}
+
+[disabled],
+[aria-disabled="true"] {
+    color: var(--hint-text-color);
+    pointer-events: none;
+    cursor: default;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --states-base-color: black;
+    }
+}
+
+[theme~="light"] {
+    --states-base-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --states-base-color: white;
+    }
+}
+
+[theme~="dark"] {
+    --states-base-color: white;
+}
+
+/*------------------------------------*\
+  涟漪
+\*------------------------------------*/
+[unbounded]>.states-overlay {
+    inset-block-start: unset;
+    inset-inline-start: unset;
+    block-size: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.ripple {
+    position: absolute;
+    block-size: auto;
+    aspect-ratio: 1/1;
+    background-color: var(--states-base-color);
+    border-radius: 50%;
+}
+
+.ripple {
+    animation-name: rippleForegroundExpand, rippleForegroundFadeOut;
+    animation-duration: 400ms;
+    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-fill-mode: both;
+}
+
+[unbounded] .ripple {
+    inline-size: 100%;
+    animation-duration: 800ms, 400ms;
+}
+
+@keyframes rippleForegroundExpand {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes rippleForegroundFadeOut {
+    0% {
+        opacity: var(--ripple-foreground-alpha, 0.16);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

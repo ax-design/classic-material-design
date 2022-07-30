@@ -1,0 +1,78 @@
+/*------------------------------------*\
+  联系人
+\*------------------------------------*/
+.simulator[contacts] {
+    --primary-color: var(--indigo-500);
+    --secondary-color: var(--pink-a200);
+}
+
+.simulator[contacts="detailed"] .overlay .status {
+    background-color: rgb(0 0 0 / 0.5);
+}
+
+.simulator[contacts] .divider {
+    padding-inline-start: calc(16px + var(--increment));
+}
+
+.simulator[contacts="detailed"] .app-bar {
+    block-size: calc(100cqi * 2 / 3);
+    box-shadow: var(--shadow-z0);
+}
+
+.simulator[contacts="detailed"] .app-bar .title {
+    transform: translateY(160px);
+}
+
+.simulator[contacts="detailed"] .app-bar img {
+    z-index: -1;
+    position: absolute;
+    justify-self: center;
+    transform: scale(calc(390 / 360)) translate(4px, -26px);
+}
+
+.simulator[contacts="detailed"] .app-bar .scrim {
+    z-index: -1;
+    inset-block-start: var(--status-bar-block-size);
+    inset-inline: 0;
+    position: absolute;
+    block-size: calc(1.5 * var(--increment));
+    opacity: 0.38;
+}
+
+.simulator[contacts="detailed"] ul {
+    padding: 8px 0;
+}
+
+.simulator[contacts="detailed"] ul:first-of-type {
+    margin-block-start: calc(56px / 2);
+}
+
+.simulator[contacts="detailed"] li {
+    padding-inline: var(--keyline);
+    grid-template-columns: 56px auto 56px;
+}
+
+.simulator[contacts="detailed"] li .primary-text {
+    grid-column-start: 2;
+}
+
+.simulator[contacts="detailed"] li>cmd-icon {
+    color: var(--primary-color);
+}
+
+.simulator[contacts="detailed"] .meta {
+    justify-self: center;
+}
+
+.simulator[contacts="detailed"] .button[variant~="fab"] {
+    --surface-shade-color: rgb(62 39 35 / 0.2);
+    inset-inline-end: var(--keyline);
+    inset-block-start: calc(var(--status-bar-block-size) + 100cqi * 2 / 3 - 56px / 2);
+    color: var(--primary-text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    .simulator[contacts] {
+        --primary-color: var(--indigo-300);
+    }
+}
