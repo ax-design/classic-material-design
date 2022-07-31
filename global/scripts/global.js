@@ -49,12 +49,12 @@ template.innerHTML = `
     <li>
         <span interact type-scale="body2" aria-disabled="true">布局</span>
         <ul>
-            <li states><a href="layout/principles.html">架构方法</a></li>
-            <li states><a href="layout/units-measurements.html">单位与度量方法</a></li>
-            <li states><a href="layout/spacing-methods.html">元素排布</a></li>
-            <li states><a href="layout/structure.html">界面结构</a></li>
-            <li states><a href="layout/responsive-ui.html">响应式界面</a></li>
-            <li states><a href="layout/density.html">元素密度</a></li>
+            <li interact><a href="layout/principles.html">架构方法</a></li>
+            <li interact><a href="layout/units-measurements.html">单位与度量方法</a></li>
+            <li interact><a href="layout/spacing-methods.html">元素排布</a></li>
+            <li interact><a href="layout/structure.html">界面结构</a></li>
+            <li interact><a href="layout/responsive-ui.html">响应式界面</a></li>
+            <li interact><a href="layout/density.html">元素密度</a></li>
         </ul>
     </li>
     <li>
