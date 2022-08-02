@@ -1,7 +1,7 @@
 /*------------------------------------*\
   列表
 \*------------------------------------*/
-.list {
+.tile {
     position: relative;
     display: grid;
     justify-items: start;
@@ -11,38 +11,51 @@
     white-space: nowrap;
 }
 
-.list[variant~="one"] {
+.tile[variant~="one"] {
     block-size: 56px;
 }
 
-.list[variant~="one"][density="dense"] {
+.tile[variant~="one"][density="dense"] {
     block-size: 48px;
 }
 
-.list[variant~="two"] {
+.tile[variant~="two"] {
     block-size: 72px;
 }
 
-.list[variant~="two"][density="dense"] {
+.tile[variant~="two"][density="dense"] {
     block-size: 60px;
 }
 
-.list .primary-text {
+.tile .primary-text {
     justify-self: stretch;
     color: var(--primary-text-color);
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.list .secondary-text {
+.tile .secondary-text {
     display: block;
     color: var(--secondary-text-color);
     overflow: inherit;
     text-overflow: inherit;
 }
 
-.list .meta {
+.tile .meta {
     justify-self: end;
+}
+
+/*------------------------------------*\
+  副标题
+\*------------------------------------*/
+
+.subheader {
+    position: relative;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--keyline);
+    color: var(--secondary-color, var(--secondary-text-color));
 }
 
 /*------------------------------------*\
