@@ -6,7 +6,7 @@
     --secondary-color: var(--teal-a400);
 }
 
-.simulator[calculator] .overlay .status {
+.simulator[calculator] .overlay[variant="status"] {
     background-color: var(--status-bar-background-color);
 }
 
