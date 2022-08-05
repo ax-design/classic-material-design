@@ -7,13 +7,22 @@
     position: sticky;
     display: grid;
     padding-inline: calc(var(--keyline) - 12px);
-    grid-template-columns: min-content auto;
+    grid-template-columns: min-content;
     grid-auto-columns: min-content;
     grid-template-rows: var(--increment);
     grid-auto-flow: column;
     align-items: center;
+    flex-shrink: 0;
     color: var(--secondary-text-color);
     overflow: clip;
+}
+
+.app-bar:has(.button+.title) {
+    grid-template-columns: min-content 1fr;
+}
+
+.app-bar[variant="prominent"] {
+    grid-template-columns: min-content minmax(0px, 1fr);
 }
 
 .app-bar:not([variant~="transparent"]) {
