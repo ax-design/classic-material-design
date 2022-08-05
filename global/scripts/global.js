@@ -223,7 +223,7 @@ function diagramAnimationReset(event) {
 
 /*涟漪*/
 
-document.querySelectorAll('*[interact], button,footer>a').forEach((element) => {
+document.querySelectorAll('[interact], button, footer>a').forEach((element) => {
     const div = document.createElement('div');
     div.className = 'states-overlay';
     element.appendChild(div);
