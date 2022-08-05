@@ -47,16 +47,16 @@
     margin-block-start: calc(56px / 2);
 }
 
-.simulator[contacts="detailed"] li {
+.simulator[contacts="detailed"] .tile {
     padding-inline: var(--keyline);
     grid-template-columns: 56px auto 56px;
 }
 
-.simulator[contacts="detailed"] li .primary-text {
+.simulator[contacts="detailed"] .tile .text {
     grid-column-start: 2;
 }
 
-.simulator[contacts="detailed"] li>cmd-icon {
+.simulator[contacts="detailed"] .tile>cmd-icon {
     color: var(--primary-color);
 }
 

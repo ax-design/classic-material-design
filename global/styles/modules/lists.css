@@ -7,8 +7,6 @@
     justify-items: start;
     align-items: center;
     grid-template-columns: auto;
-    color: var(--secondary-text-color);
-    white-space: nowrap;
 }
 
 .tile[variant~="one"] {
@@ -27,22 +25,31 @@
     block-size: 60px;
 }
 
-.tile .primary-text {
+.tile .text {
     justify-self: stretch;
+    display: grid;
+    white-space: nowrap;
+}
+
+.tile .text .primary {
     color: var(--primary-text-color);
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.tile .secondary-text {
-    display: block;
+.tile .text .secondary {
     color: var(--secondary-text-color);
-    overflow: inherit;
-    text-overflow: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tile .text .tertiary {
+    color: var(--secondary-text-color);
 }
 
 .tile .meta {
     justify-self: end;
+    color: var(--secondary-text-color);
 }
 
 /*------------------------------------*\
