@@ -603,6 +603,8 @@ figure[screen~="mobile"] .simulator {
     block-size: 48px;
     display: grid;
     grid-template-columns: repeat(3, var(--navigation-button-inline-size));
+    grid-template-rows: 100%;
+    grid-template-areas: "back home recent";
     justify-content: space-between;
     align-items: center;
     justify-items: center;
@@ -612,6 +614,18 @@ figure[screen~="mobile"] .simulator {
 
 .navigation cmd-icon {
     filter: drop-shadow(0 1.5px 0.5px rgba(0, 0, 0, 0.2)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.14)) drop-shadow(0 1px 2.5px rgba(0, 0, 0, 0.12));
+}
+
+.navigation cmd-icon[name="arrow_back_system"] {
+    grid-area: back;
+}
+
+.navigation cmd-icon[name="circle_home"] {
+    grid-area: home;
+}
+
+.navigation cmd-icon[name="square_recent"] {
+    grid-area: recent;
 }
 
 .application {
@@ -641,6 +655,32 @@ figure[screen~="mobile"] .simulator {
     block-size: 48px;
     background-color: black;
     overflow: clip;
+}
+
+.navigation-ripple {
+    visibility: hidden;
+    inline-size: 135%;
+    max-inline-size: 128px;
+    block-size: 100%;
+    background-color: white;
+    border-radius: 24px;
+    opacity: 0.2;
+}
+
+@keyframes navigationRippleEnter {
+    0% {
+        scale: 0 1;
+    }
+
+    100% {
+        scale: 1 1;
+    }
+}
+
+@keyframes navigationRippleFade {
+    100% {
+        opacity: 0;
+    }
 }
 
 /*------------------------------------*\
