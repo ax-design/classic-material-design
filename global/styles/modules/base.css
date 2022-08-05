@@ -1,282 +1,4 @@
 /*------------------------------------*\
-  层面
-\*------------------------------------*/
-:root {
-    --shadow-z0: 0px 0px 0px 0px rgb(0 0 0 / 0.2), 0px 0px 0px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 0px rgb(0 0 0 / 0.12);
-    --shadow-z1: 0px 2px 1px -1px rgb(0 0 0 / 0.2), 0px 1px 1px 0px rgb(0 0 0 / 0.14), 0px 1px 3px 0px rgb(0 0 0 / 0.12);
-    --shadow-z2: 0px 3px 1px -2px rgb(0 0 0 / 0.2), 0px 2px 2px 0px rgb(0 0 0 / 0.14), 0px 1px 5px 0px rgb(0 0 0 / 0.12);
-    --shadow-z3: 0px 3px 3px -2px rgb(0 0 0 / 0.2), 0px 3px 4px 0px rgb(0 0 0 / 0.14), 0px 1px 8px 0px rgb(0 0 0 / 0.12);
-    --shadow-z4: 0px 2px 4px -1px rgb(0 0 0 / 0.2), 0px 4px 5px 0px rgb(0 0 0 / 0.14), 0px 1px 10px 0px rgb(0 0 0 / 0.12);
-    --shadow-z5: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 5px 8px 0px rgb(0 0 0 / 0.14), 0px 1px 14px 0px rgb(0 0 0 / 0.12);
-    --shadow-z6: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 6px 10px 0px rgb(0 0 0 / 0.14), 0px 1px 18px 0px rgb(0 0 0 / 0.12);
-    --shadow-z7: 0px 4px 5px -2px rgb(0 0 0 / 0.2), 0px 7px 10px 1px rgb(0 0 0 / 0.14), 0px 2px 16px 1px rgb(0 0 0 / 0.12);
-    --shadow-z8: 0px 5px 5px -3px rgb(0 0 0 / 0.2), 0px 8px 10px 1px rgb(0 0 0 / 0.14), 0px 3px 14px 2px rgb(0 0 0 / 0.12);
-    --shadow-z9: 0px 5px 6px -3px rgb(0 0 0 / 0.2), 0px 9px 12px 1px rgb(0 0 0 / 0.14), 0px 3px 16px 2px rgb(0 0 0 / 0.12);
-    --shadow-z10: 0px 6px 6px -3px rgb(0 0 0 / 0.2), 0px 10px 14px 1px rgb(0 0 0 / 0.14), 0px 4px 18px 3px rgb(0 0 0 / 0.12);
-    --shadow-z11: 0px 6px 7px -4px rgb(0 0 0 / 0.2), 0px 11px 15px 1px rgb(0 0 0 / 0.14), 0px 4px 20px 3px rgb(0 0 0 / 0.12);
-    --shadow-z12: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 12px 17px 2px rgb(0 0 0 / 0.14), 0px 5px 22px 4px rgb(0 0 0 / 0.12);
-    --shadow-z13: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 13px 19px 2px rgb(0 0 0 / 0.14), 0px 5px 24px 4px rgb(0 0 0 / 0.12);
-    --shadow-z14: 0px 7px 9px -4px rgb(0 0 0 / 0.2), 0px 14px 21px 2px rgb(0 0 0 / 0.14), 0px 5px 26px 4px rgb(0 0 0 / 0.12);
-    --shadow-z15: 0px 8px 9px -5px rgb(0 0 0 / 0.2), 0px 15px 22px 2px rgb(0 0 0 / 0.14), 0px 6px 28px 5px rgb(0 0 0 / 0.12);
-    --shadow-z16: 0px 8px 10px -5px rgb(0 0 0 / 0.2), 0px 16px 24px 2px rgb(0 0 0 / 0.14), 0px 6px 30px 5px rgb(0 0 0 / 0.12);
-    --shadow-z17: 0px 8px 11px -5px rgb(0 0 0 / 0.2), 0px 17px 26px 2px rgb(0 0 0 / 0.14), 0px 6px 32px 5px rgb(0 0 0 / 0.12);
-    --shadow-z18: 0px 9px 11px -5px rgb(0 0 0 / 0.2), 0px 18px 28px 2px rgb(0 0 0 / 0.14), 0px 7px 34px 6px rgb(0 0 0 / 0.12);
-    --shadow-z19: 0px 9px 12px -6px rgb(0 0 0 / 0.2), 0px 19px 29px 2px rgb(0 0 0 / 0.14), 0px 7px 36px 6px rgb(0 0 0 / 0.12);
-    --shadow-z20: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 20px 31px 3px rgb(0 0 0 / 0.14), 0px 8px 38px 7px rgb(0 0 0 / 0.12);
-    --shadow-z21: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 21px 33px 3px rgb(0 0 0 / 0.14), 0px 8px 40px 7px rgb(0 0 0 / 0.12);
-    --shadow-z22: 0px 10px 14px -6px rgb(0 0 0 / 0.2), 0px 22px 35px 3px rgb(0 0 0 / 0.14), 0px 8px 42px 7px rgb(0 0 0 / 0.12);
-    --shadow-z23: 0px 11px 14px -7px rgb(0 0 0 / 0.2), 0px 23px 36px 3px rgb(0 0 0 / 0.14), 0px 9px 44px 8px rgb(0 0 0 / 0.12);
-    --shadow-z24: 0px 11px 15px -7px rgb(0 0 0 / 0.2), 0px 24px 38px 3px rgb(0 0 0 / 0.14), 0px 9px 46px 8px rgb(0 0 0 / 0.12);
-}
-
-:root {
-    --drop-shadow-z2: drop-shadow(0px 1px 0.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 2px 1px rgb(0 0 0 / 0.14)) drop-shadow(0px 1px 2.5px rgb(0 0 0 / 0.12));
-    --drop-shadow-z8: drop-shadow(0px 2px 2.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 9px 5px rgb(0 0 0 / 0.14)) drop-shadow(0px 5px 7px rgb(0 0 0 / 0.12));
-}
-
-[solid]::after,
-.button[variant~="fab"]::after {
-    content: "";
-    inset: 0;
-    position: absolute;
-    border-block-start: 1px solid var(--surface-hint-color);
-    border-block-end: 1px solid var(--surface-shade-color);
-    border-radius: inherit;
-    box-sizing: border-box;
-    pointer-events: none;
-}
-
-[solid="start"]::after {
-    border-block-end: none;
-}
-
-[solid="end"]::after {
-    border-block-start: none;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --high-emphasis-surface-color: white;
-        --medium-emphasis-surface-color: var(--grey-50);
-        --low-emphasis-surface-color: var(--grey-100);
-        --surface-hint-color: rgb(255 255 255 / 0.4);
-        --surface-shade-color: rgb(0 0 0 / 0.1);
-        --theme-base-color: white;
-        --content-base-color: black;
-    }
-}
-
-[theme~="light"] {
-    --high-emphasis-surface-color: white;
-    --medium-emphasis-surface-color: var(--grey-50);
-    --low-emphasis-surface-color: var(--grey-100);
-    --surface-hint-color: rgb(255 255 255 / 0.4);
-    --surface-shade-color: rgb(0 0 0 / 0.1);
-    --theme-base-color: white;
-    --content-base-color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --high-emphasis-surface-color: var(--grey-800);
-        --medium-emphasis-surface-color: var(--grey-850);
-        --low-emphasis-surface-color: var(--grey-900);
-        --surface-hint-color: rgb(255 255 255 / 0.2);
-        --surface-shade-color: rgb(0 0 0 / 0.2);
-        --theme-base-color: black;
-        --content-base-color: white;
-    }
-}
-
-[theme~="dark"] {
-    --high-emphasis-surface-color: var(--grey-800);
-    --medium-emphasis-surface-color: var(--grey-850);
-    --low-emphasis-surface-color: var(--grey-900);
-    --surface-hint-color: rgb(255 255 255 / 0.2);
-    --surface-shade-color: rgb(0 0 0 / 0.2);
-    --theme-base-color: black;
-    --content-base-color: white;
-}
-
-/*------------------------------------*\
-  字体排印
-\*------------------------------------*/
-:lang(en) {
-    --display-4-leading: 7rem;
-    --display-3-leading: 4rem;
-    --display-2-leading: 3rem;
-    --display-1-leading: 2.5rem;
-    --headline-leading: 2rem;
-    --title-leading: 1.75rem;
-    --subheading-leading: 1.5rem;
-    --body-leading: 1.25rem;
-    --caption-leading: 1rem;
-}
-
-:lang(zh) {
-    --display-4-leading: 1em;
-    --display-3-leading: 1em;
-    --display-2-leading: 1em;
-    --display-1-leading: 1em;
-    --headline-leading: 1em;
-    --title-leading: 1.5em;
-    --subheading-leading: 1.5em;
-    --body-leading: 1.75em;
-    --caption-leading: 1.75em;
-}
-
-[type-scale=display4] {
-    font-size: 7rem;
-    font-weight: 300;
-    line-height: var(--display-4-leading);
-}
-
-:lang(en) [type-scale=display4],
-[type-scale=display4]:lang(en) {
-    letter-spacing: -0.01em;
-}
-
-[type-scale=display3] {
-    font-size: 3.5rem;
-    font-weight: 400;
-    line-height: var(--display-3-leading);
-}
-
-:lang(en) [type-scale=display3],
-[type-scale=display3]:lang(en) {
-    letter-spacing: -0.005em;
-}
-
-[type-scale=display2] {
-    font-size: 2.8125rem;
-    font-weight: 400;
-    line-height: var(--display-2-leading);
-}
-
-[type-scale=display1] {
-    font-size: 2.125rem;
-    font-weight: 400;
-    line-height: var(--display-1-leading);
-}
-
-[type-scale=headline] {
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: var(--headline-leading);
-}
-
-[type-scale=title] {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: var(--title-leading);
-}
-
-:lang(en) [type-scale=title],
-[type-scale=title]:lang(en) {
-    letter-spacing: 0.005em;
-}
-
-[type-scale=subheading] {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: var(--subheading-leading);
-}
-
-:lang(en) [type-scale=subheading],
-[type-scale=subheading]:lang(en) {
-    letter-spacing: 0.01em;
-}
-
-[type-scale=body2] {
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: var(--body-leading);
-}
-
-:lang(en) [type-scale=body2],
-[type-scale=body2]:lang(en) {
-    letter-spacing: 0.01em;
-}
-
-[type-scale=body1] {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: var(--body-leading);
-}
-
-:lang(en) [type-scale=body1],
-[type-scale=body1]:lang(en) {
-    letter-spacing: 0.01em;
-}
-
-[type-scale=caption] {
-    font-size: 0.75rem;
-    font-weight: 400;
-    line-height: var(--caption-leading);
-}
-
-:lang(en) [type-scale=caption],
-[type-scale=caption]:lang(en) {
-    letter-spacing: 0.02em;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --primary-text-color: rgb(0 0 0 / 0.87);
-        --secondary-text-color-alt: rgb(0 0 0 / 0.7);
-        --secondary-text-color: rgb(0 0 0 / 0.54);
-        --hint-text-color: rgb(0 0 0 / 0.38);
-        --hint-text-color-alt: rgb(0 0 0 / 0.2);
-    }
-}
-
-[theme~=light] {
-    --primary-text-color: rgb(0 0 0 / 0.87);
-    --secondary-text-color-alt: rgb(0 0 0 / 0.7);
-    --secondary-text-color: rgb(0 0 0 / 0.54);
-    --hint-text-color: rgb(0 0 0 / 0.38);
-    --hint-text-color-alt: rgb(0 0 0 / 0.2);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-text-color: rgb(255 255 255 / 1);
-        --secondary-text-color-alt: rgb(255 255 255 / 0.9);
-        --secondary-text-color: rgb(255 255 255 / 0.7);
-        --hint-text-color: rgb(255 255 255 / 0.5);
-        --hint-text-color-alt: rgb(255 255 255 / 0.38);
-    }
-}
-
-[theme~=dark] {
-    --primary-text-color: rgb(255 255 255 / 1);
-    --secondary-text-color-alt: rgb(255 255 255 / 0.9);
-    --secondary-text-color: rgb(255 255 255 / 0.7);
-    --hint-text-color: rgb(255 255 255 / 0.5);
-    --hint-text-color-alt: rgb(255 255 255 / 0.38);
-}
-
-/*------------------------------------*\
-  遮罩
-\*------------------------------------*/
-.scrim {
-    pointer-events: none;
-}
-
-.scrim[fill] {
-    background-color: rgb(0 0 0 / 0);
-}
-
-.scrim[fill][show] {
-    background-color: rgb(0 0 0 / 0.4);
-}
-
-.scrim[gradient] {
-    max-block-size: calc(3 * var(--increment));
-    background: linear-gradient(rgb(0 0 0 / 1) 0%, rgb(0 0 0 / 0.5) calc(1 / 3 * 100%), rgb(0 0 0 / 0) 100%);
-}
-
-/*------------------------------------*\
   动画
 \*------------------------------------*/
 :root {
@@ -284,6 +6,46 @@
     --deceleration-curve: cubic-bezier(0, 0, 0.2, 1);
     --acceleration-curve: cubic-bezier(0.4, 0, 1, 1);
     --sharp-curve: cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes fade {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes toVisible {
+    0% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: visible;
+    }
+}
+
+@keyframes expand_scale {
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes shrink_inlineSize {
+    100% {
+        inline-size: 0px;
+    }
+}
+
+@keyframes moveClear {
+    100% {
+        translate: 0px 0px;
+    }
 }
 
 /*------------------------------------*\
@@ -666,6 +428,286 @@
     --google-yellow-kennedy-500: #f4b400;
     --google-yellow-kennedy-600: #eca403;
     --google-yellow-kennedy-700: #e49307;
+}
+
+/*------------------------------------*\
+  层面
+\*------------------------------------*/
+:root {
+    --shadow-z0: 0px 0px 0px 0px rgb(0 0 0 / 0.2), 0px 0px 0px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 0px rgb(0 0 0 / 0.12);
+    --shadow-z1: 0px 2px 1px -1px rgb(0 0 0 / 0.2), 0px 1px 1px 0px rgb(0 0 0 / 0.14), 0px 1px 3px 0px rgb(0 0 0 / 0.12);
+    --shadow-z2: 0px 3px 1px -2px rgb(0 0 0 / 0.2), 0px 2px 2px 0px rgb(0 0 0 / 0.14), 0px 1px 5px 0px rgb(0 0 0 / 0.12);
+    --shadow-z3: 0px 3px 3px -2px rgb(0 0 0 / 0.2), 0px 3px 4px 0px rgb(0 0 0 / 0.14), 0px 1px 8px 0px rgb(0 0 0 / 0.12);
+    --shadow-z4: 0px 2px 4px -1px rgb(0 0 0 / 0.2), 0px 4px 5px 0px rgb(0 0 0 / 0.14), 0px 1px 10px 0px rgb(0 0 0 / 0.12);
+    --shadow-z5: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 5px 8px 0px rgb(0 0 0 / 0.14), 0px 1px 14px 0px rgb(0 0 0 / 0.12);
+    --shadow-z6: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 6px 10px 0px rgb(0 0 0 / 0.14), 0px 1px 18px 0px rgb(0 0 0 / 0.12);
+    --shadow-z7: 0px 4px 5px -2px rgb(0 0 0 / 0.2), 0px 7px 10px 1px rgb(0 0 0 / 0.14), 0px 2px 16px 1px rgb(0 0 0 / 0.12);
+    --shadow-z8: 0px 5px 5px -3px rgb(0 0 0 / 0.2), 0px 8px 10px 1px rgb(0 0 0 / 0.14), 0px 3px 14px 2px rgb(0 0 0 / 0.12);
+    --shadow-z9: 0px 5px 6px -3px rgb(0 0 0 / 0.2), 0px 9px 12px 1px rgb(0 0 0 / 0.14), 0px 3px 16px 2px rgb(0 0 0 / 0.12);
+    --shadow-z10: 0px 6px 6px -3px rgb(0 0 0 / 0.2), 0px 10px 14px 1px rgb(0 0 0 / 0.14), 0px 4px 18px 3px rgb(0 0 0 / 0.12);
+    --shadow-z11: 0px 6px 7px -4px rgb(0 0 0 / 0.2), 0px 11px 15px 1px rgb(0 0 0 / 0.14), 0px 4px 20px 3px rgb(0 0 0 / 0.12);
+    --shadow-z12: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 12px 17px 2px rgb(0 0 0 / 0.14), 0px 5px 22px 4px rgb(0 0 0 / 0.12);
+    --shadow-z13: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 13px 19px 2px rgb(0 0 0 / 0.14), 0px 5px 24px 4px rgb(0 0 0 / 0.12);
+    --shadow-z14: 0px 7px 9px -4px rgb(0 0 0 / 0.2), 0px 14px 21px 2px rgb(0 0 0 / 0.14), 0px 5px 26px 4px rgb(0 0 0 / 0.12);
+    --shadow-z15: 0px 8px 9px -5px rgb(0 0 0 / 0.2), 0px 15px 22px 2px rgb(0 0 0 / 0.14), 0px 6px 28px 5px rgb(0 0 0 / 0.12);
+    --shadow-z16: 0px 8px 10px -5px rgb(0 0 0 / 0.2), 0px 16px 24px 2px rgb(0 0 0 / 0.14), 0px 6px 30px 5px rgb(0 0 0 / 0.12);
+    --shadow-z17: 0px 8px 11px -5px rgb(0 0 0 / 0.2), 0px 17px 26px 2px rgb(0 0 0 / 0.14), 0px 6px 32px 5px rgb(0 0 0 / 0.12);
+    --shadow-z18: 0px 9px 11px -5px rgb(0 0 0 / 0.2), 0px 18px 28px 2px rgb(0 0 0 / 0.14), 0px 7px 34px 6px rgb(0 0 0 / 0.12);
+    --shadow-z19: 0px 9px 12px -6px rgb(0 0 0 / 0.2), 0px 19px 29px 2px rgb(0 0 0 / 0.14), 0px 7px 36px 6px rgb(0 0 0 / 0.12);
+    --shadow-z20: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 20px 31px 3px rgb(0 0 0 / 0.14), 0px 8px 38px 7px rgb(0 0 0 / 0.12);
+    --shadow-z21: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 21px 33px 3px rgb(0 0 0 / 0.14), 0px 8px 40px 7px rgb(0 0 0 / 0.12);
+    --shadow-z22: 0px 10px 14px -6px rgb(0 0 0 / 0.2), 0px 22px 35px 3px rgb(0 0 0 / 0.14), 0px 8px 42px 7px rgb(0 0 0 / 0.12);
+    --shadow-z23: 0px 11px 14px -7px rgb(0 0 0 / 0.2), 0px 23px 36px 3px rgb(0 0 0 / 0.14), 0px 9px 44px 8px rgb(0 0 0 / 0.12);
+    --shadow-z24: 0px 11px 15px -7px rgb(0 0 0 / 0.2), 0px 24px 38px 3px rgb(0 0 0 / 0.14), 0px 9px 46px 8px rgb(0 0 0 / 0.12);
+}
+
+:root {
+    --drop-shadow-z0: drop-shadow(0px 0px 0px rgb(0 0 0 / 0.2)) drop-shadow(0px 0px 0px rgb(0 0 0 / 0.14)) drop-shadow(0px 0px 0px rgb(0 0 0 / 0.12));
+    --drop-shadow-z2: drop-shadow(0px 1px 0.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 2px 1px rgb(0 0 0 / 0.14)) drop-shadow(0px 1px 2.5px rgb(0 0 0 / 0.12));
+    --drop-shadow-z4: drop-shadow(0px 1px 2px rgb(0 0 0 / 0.2)) drop-shadow(0px 4px 2.5px rgb(0 0 0 / 0.14)) drop-shadow(0px 1px 5px rgb(0 0 0 / 0.12));
+    --drop-shadow-z8: drop-shadow(0px 2px 2.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 9px 5px rgb(0 0 0 / 0.14)) drop-shadow(0px 5px 7px rgb(0 0 0 / 0.12));
+}
+
+[solid]::after,
+.button[variant~="fab"]::after {
+    content: "";
+    inset: 0;
+    position: absolute;
+    border-block-start: 1px solid var(--surface-hint-color);
+    border-block-end: 1px solid var(--surface-shade-color);
+    border-radius: inherit;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+[solid="start"]::after {
+    border-block-end: none;
+}
+
+[solid="end"]::after {
+    border-block-start: none;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --high-emphasis-surface-color: white;
+        --medium-emphasis-surface-color: var(--grey-50);
+        --low-emphasis-surface-color: var(--grey-100);
+        --surface-hint-color: rgb(255 255 255 / 0.4);
+        --surface-shade-color: rgb(0 0 0 / 0.1);
+        --theme-base-color: white;
+        --content-base-color: black;
+    }
+}
+
+[theme~="light"] {
+    --high-emphasis-surface-color: white;
+    --medium-emphasis-surface-color: var(--grey-50);
+    --low-emphasis-surface-color: var(--grey-100);
+    --surface-hint-color: rgb(255 255 255 / 0.4);
+    --surface-shade-color: rgb(0 0 0 / 0.1);
+    --theme-base-color: white;
+    --content-base-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --high-emphasis-surface-color: var(--grey-800);
+        --medium-emphasis-surface-color: var(--grey-850);
+        --low-emphasis-surface-color: var(--grey-900);
+        --surface-hint-color: rgb(255 255 255 / 0.2);
+        --surface-shade-color: rgb(0 0 0 / 0.2);
+        --theme-base-color: black;
+        --content-base-color: white;
+    }
+}
+
+[theme~="dark"] {
+    --high-emphasis-surface-color: var(--grey-800);
+    --medium-emphasis-surface-color: var(--grey-850);
+    --low-emphasis-surface-color: var(--grey-900);
+    --surface-hint-color: rgb(255 255 255 / 0.2);
+    --surface-shade-color: rgb(0 0 0 / 0.2);
+    --theme-base-color: black;
+    --content-base-color: white;
+}
+
+/*------------------------------------*\
+  字体排印
+\*------------------------------------*/
+:lang(en) {
+    --display-4-leading: 7rem;
+    --display-3-leading: 4rem;
+    --display-2-leading: 3rem;
+    --display-1-leading: 2.5rem;
+    --headline-leading: 2rem;
+    --title-leading: 1.75rem;
+    --subheading-leading: 1.5rem;
+    --body-leading: 1.25rem;
+    --caption-leading: 1rem;
+}
+
+:lang(zh) {
+    --display-4-leading: 1em;
+    --display-3-leading: 1em;
+    --display-2-leading: 1em;
+    --display-1-leading: 1em;
+    --headline-leading: 1em;
+    --title-leading: 1.5em;
+    --subheading-leading: 1.5em;
+    --body-leading: 1.75em;
+    --caption-leading: 1.75em;
+}
+
+[type-scale=display4] {
+    font-size: 7rem;
+    font-weight: 300;
+    line-height: var(--display-4-leading);
+}
+
+:lang(en) [type-scale=display4],
+[type-scale=display4]:lang(en) {
+    letter-spacing: -0.01em;
+}
+
+[type-scale=display3] {
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: var(--display-3-leading);
+}
+
+:lang(en) [type-scale=display3],
+[type-scale=display3]:lang(en) {
+    letter-spacing: -0.005em;
+}
+
+[type-scale=display2] {
+    font-size: 2.8125rem;
+    font-weight: 400;
+    line-height: var(--display-2-leading);
+}
+
+[type-scale=display1] {
+    font-size: 2.125rem;
+    font-weight: 400;
+    line-height: var(--display-1-leading);
+}
+
+[type-scale=headline] {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: var(--headline-leading);
+}
+
+[type-scale=title] {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: var(--title-leading);
+}
+
+:lang(en) [type-scale=title],
+[type-scale=title]:lang(en) {
+    letter-spacing: 0.005em;
+}
+
+[type-scale=subheading] {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: var(--subheading-leading);
+}
+
+:lang(en) [type-scale=subheading],
+[type-scale=subheading]:lang(en) {
+    letter-spacing: 0.01em;
+}
+
+[type-scale=body2] {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: var(--body-leading);
+}
+
+:lang(en) [type-scale=body2],
+[type-scale=body2]:lang(en) {
+    letter-spacing: 0.01em;
+}
+
+[type-scale=body1] {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: var(--body-leading);
+}
+
+:lang(en) [type-scale=body1],
+[type-scale=body1]:lang(en) {
+    letter-spacing: 0.01em;
+}
+
+[type-scale=caption] {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: var(--caption-leading);
+}
+
+:lang(en) [type-scale=caption],
+[type-scale=caption]:lang(en) {
+    letter-spacing: 0.02em;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary-text-color: rgb(0 0 0 / 0.87);
+        --secondary-text-color-alt: rgb(0 0 0 / 0.7);
+        --secondary-text-color: rgb(0 0 0 / 0.54);
+        --hint-text-color: rgb(0 0 0 / 0.38);
+        --hint-text-color-alt: rgb(0 0 0 / 0.2);
+    }
+}
+
+[theme~=light] {
+    --primary-text-color: rgb(0 0 0 / 0.87);
+    --secondary-text-color-alt: rgb(0 0 0 / 0.7);
+    --secondary-text-color: rgb(0 0 0 / 0.54);
+    --hint-text-color: rgb(0 0 0 / 0.38);
+    --hint-text-color-alt: rgb(0 0 0 / 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-text-color: rgb(255 255 255 / 1);
+        --secondary-text-color-alt: rgb(255 255 255 / 0.9);
+        --secondary-text-color: rgb(255 255 255 / 0.7);
+        --hint-text-color: rgb(255 255 255 / 0.5);
+        --hint-text-color-alt: rgb(255 255 255 / 0.38);
+    }
+}
+
+[theme~=dark] {
+    --primary-text-color: rgb(255 255 255 / 1);
+    --secondary-text-color-alt: rgb(255 255 255 / 0.9);
+    --secondary-text-color: rgb(255 255 255 / 0.7);
+    --hint-text-color: rgb(255 255 255 / 0.5);
+    --hint-text-color-alt: rgb(255 255 255 / 0.38);
+}
+
+/*------------------------------------*\
+  遮罩
+\*------------------------------------*/
+.scrim {
+    pointer-events: none;
+}
+
+.scrim[fill] {
+    background-color: rgb(0 0 0 / 0);
+}
+
+.scrim[fill][show] {
+    background-color: rgb(0 0 0 / 0.4);
+}
+
+.scrim[gradient] {
+    max-block-size: calc(3 * var(--increment));
+    background: linear-gradient(rgb(0 0 0 / 1) 0%, rgb(0 0 0 / 0.5) calc(1 / 3 * 100%), rgb(0 0 0 / 0) 100%);
 }
 
 /*------------------------------------*\
