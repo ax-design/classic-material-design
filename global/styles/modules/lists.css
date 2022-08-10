@@ -68,65 +68,57 @@
 /*------------------------------------*\
   缩略图
 \*------------------------------------*/
-.avatar {
+.thumbnail {
     position: relative;
     inline-size: 40px;
     aspect-ratio: 1 / 1;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-.avatar::after {
+.thumbnail[variant="avatar"] {
+    border-radius: 50%;
+}
+
+.thumbnail[variant="avatar"]::after {
     content: "";
     position: absolute;
     inline-size: calc(100% - 1px);
-    block-size: calc(100% - 1px);
+    aspect-ratio: 1 / 1;
     border: 1px solid var(--divider-color);
     border-radius: inherit;
     pointer-events: none;
 }
 
-.avatar[character="ali-connors"] {
+.thumbnail[variant="avatar"][character="ali-connors"] {
     background-size: 60px auto;
     background-position: -15px -13px;
 }
 
-.avatar[character="janet-perkins"] {
+.thumbnail[variant="avatar"][character="janet-perkins"] {
     background-size: auto 80px;
     background-position: -17px -22px;
 }
 
-.avatar[character="mary-johnson"] {
+.thumbnail[variant="avatar"][character="mary-johnson"] {
     background-size: auto 44px;
     background-position: bottom;
 }
 
-.avatar[character="peter-carlsson"] {
+.thumbnail[variant="avatar"][character="peter-carlsson"] {
     background-position: top;
 }
 
-.avatar[character="anthony-stevens"] {
+.thumbnail[variant="avatar"][character="anthony-stevens"] {
     background-size: 48px;
     background-position: -2px -2px;
 }
 
-.avatar[character="jonathan-lee"] {
-    background-size: auto 120px;
-    background-position: -50px -10px;
-}
-
-.thumbnail {
-    inline-size: 40px;
-    block-size: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.thumbnail[variant="avatar"][character="jennifer-smith"] {
+    background-size: 52px;
+    background-position: -8px -7px;
 }
