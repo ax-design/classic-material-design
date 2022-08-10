@@ -7,6 +7,7 @@
     justify-items: start;
     align-items: center;
     grid-template-columns: auto;
+    padding-inline: var(--keyline);
 }
 
 .tile[variant~="one"] {
@@ -58,10 +59,10 @@
 
 .subheader {
     position: relative;
-    height: 48px;
+    block-size: 48px;
     display: flex;
     align-items: center;
-    padding: 0 var(--keyline);
+    padding-inline: var(--keyline);
     color: var(--secondary-color, var(--secondary-text-color));
 }
 
