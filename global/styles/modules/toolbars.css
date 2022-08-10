@@ -1,11 +1,9 @@
 /*------------------------------------*\
   应用栏
 \*------------------------------------*/
-.app-bar {
+
+.toolbar {
     flex-shrink: 0;
-    inset-block-start: 0;
-    order: -1;
-    position: sticky;
     display: grid;
     padding-inline: calc(var(--keyline) - 12px);
     grid-template-rows: var(--increment);
@@ -16,20 +14,25 @@
     overflow: clip;
 }
 
-.app-bar:has(.button+.title) {
+.toolbar[variant~="app-bar"] {
+    inset-block-start: 0;
+    position: sticky;
+}
+
+.toolbar[variant~="app-bar"]:has(.button+.title) {
     grid-template-columns: auto 1fr;
 }
 
-.app-bar[variant~="prominent"] {
+.toolbar[variant~="app-bar"][variant~="prominent"] {
     grid-template-columns: auto minmax(0px, 1fr);
 }
 
-.app-bar:not([variant~="transparent"]) {
+.toolbar:not([theme~="transparent"]) {
     background-color: var(--primary-color, --low-emphasis-surface-color);
     box-shadow: var(--shadow-z4);
 }
 
-.app-bar .title {
+.toolbar[variant~="app-bar"] .title {
     margin-inline: 20px;
     color: var(--primary-text-color);
 }
@@ -37,6 +40,6 @@
 /*------------------------------------*\
   主题
 \*------------------------------------*/
-.app-bar[theme="light"] {
+.toolbar[theme="light"] {
     color: var(--secondary-text-color);
 }

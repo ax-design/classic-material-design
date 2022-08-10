@@ -23,7 +23,7 @@
     <div class="divider" vertical></div>
 
     <main>
-        <div class="app-bar" variant="regular" theme="light" solid="end">
+        <div class="toolbar" variant="app-bar" theme="light" solid="end">
             <button id="drawer-trigger" class="button" variant="icon" unbounded aria-label="打开目录">
                 <cmd-icon name="menu"></cmd-icon>
             </button>
@@ -360,9 +360,7 @@
                             </div>
                         </div>
                         <div class="display" solid="end">
-                            <span class="expression" type-scale="display3"></span>
-                            <span class="result" type-scale="display1"></span>
-                            <div class="app-bar" variant="transparent">
+                            <div class="toolbar" variant="app-bar" theme="transparent">
                                 <div class="button" variant="text" unbounded type-scale="body2">
                                     <span>RAD</span>
                                 </div>
@@ -370,6 +368,8 @@
                                     <cmd-icon name="more_vert"></cmd-icon>
                                 </div>
                             </div>
+                            <span class="expression" type-scale="display3"></span>
+                            <span class="result" type-scale="display1"></span>
                             <div class="clear-ripple"></div>
                             <div class="overlay" variant="status">
                                 <div class="clear-ripple"></div>
@@ -398,6 +398,21 @@
             <figure id="text-overlap" screen="mobile">
                 <div class="simulator" contacts="detailed" aria-hidden="true" inert>
                     <div class="application">
+                        <div class="toolbar" variant="app-bar prominent" theme="dark">
+                            <img character="ali-connors" src="global/resources/faces/ali_connors.png" />
+                            <div class="scrim" variant="gradient"></div>
+                            <div class="button" variant="icon" unbounded>
+                                <cmd-icon name="arrow_back"></cmd-icon>
+                            </div>
+                            <span class="title" type-scale="display1" lang="en">Ali Connors</span>
+                            <div class="button" variant="icon" unbounded>
+                                <cmd-icon name="star_border"></cmd-icon>
+                            </div>
+                            <div class="button" variant="icon" unbounded>
+                                <cmd-icon name="more_vert"></cmd-icon>
+                            </div>
+                            <div class="overlay" variant="status"></div>
+                        </div>
                         <ul>
                             <li class="tile" variant="two">
                                 <cmd-icon name="call"></cmd-icon>
@@ -435,21 +450,6 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="app-bar" variant="prominent" theme="dark">
-                            <img character="ali-connors" src="global/resources/faces/ali_connors.png" />
-                            <div class="scrim" variant="gradient"></div>
-                            <div class="button" variant="icon" unbounded>
-                                <cmd-icon name="arrow_back"></cmd-icon>
-                            </div>
-                            <span class="title" type-scale="display1" lang="en">Ali Connors</span>
-                            <div class="button" variant="icon" unbounded>
-                                <cmd-icon name="star_border"></cmd-icon>
-                            </div>
-                            <div class="button" variant="icon" unbounded>
-                                <cmd-icon name="more_vert"></cmd-icon>
-                            </div>
-                            <div class="overlay" variant="status"></div>
-                        </div>
                         <div class="button" variant="fab" theme="dark">
                             <cmd-icon name="edit"></cmd-icon>
                         </div>
@@ -479,6 +479,25 @@
             <figure id="parallax" screen="mobile">
                 <div class="simulator" calendar="schedule" aria-hidden="true" animated>
                     <div class="application">
+                        <div class="toolbar" variant="app-bar" solid="end">
+                            <div class="button" variant="icon" unbounded>
+                                <cmd-icon name="menu"></cmd-icon>
+                            </div>
+                            <span class="title" type-scale="title">
+                                八月
+                                <cmd-icon name="arrow_drop_down"></cmd-icon>
+                            </span>
+                            <div class="button" variant="icon" unbounded>
+                                <cmd-icon name="search"></cmd-icon>
+                            </div>
+                            <div class="button" variant="icon" unbounded>
+                                <cmd-icon name="today"></cmd-icon>
+                            </div>
+                            <div class="button" variant="icon" unbounded>
+                                <cmd-icon name="more_vert"></cmd-icon>
+                            </div>
+                            <div class="overlay" variant="status"></div>
+                        </div>
                         <div class="schedule">
                             <div class="illustration" theme="light">
                                 <img src="global/resources/calendar/bkg_09_september.jpg" />
@@ -553,25 +572,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="app-bar" solid="end">
-                            <div class="button" variant="icon" unbounded>
-                                <cmd-icon name="menu"></cmd-icon>
-                            </div>
-                            <span class="title" type-scale="title">
-                                八月
-                                <cmd-icon name="arrow_drop_down"></cmd-icon>
-                            </span>
-                            <div class="button" variant="icon" unbounded>
-                                <cmd-icon name="search"></cmd-icon>
-                            </div>
-                            <div class="button" variant="icon" unbounded>
-                                <cmd-icon name="today"></cmd-icon>
-                            </div>
-                            <div class="button" variant="icon" unbounded>
-                                <cmd-icon name="more_vert"></cmd-icon>
-                            </div>
-                            <div class="overlay" variant="status"></div>
                         </div>
                         <div class="button" variant="fab" theme="dark">
                             <cmd-icon name="add"></cmd-icon>

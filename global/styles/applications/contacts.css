@@ -14,23 +14,23 @@
     padding-inline-start: calc(16px + var(--increment));
 }
 
-.simulator[contacts="detailed"] .app-bar {
+.simulator[contacts="detailed"] .toolbar {
     block-size: calc(100cqi * 2 / 3);
     box-shadow: var(--shadow-z0);
 }
 
-.simulator[contacts="detailed"] .app-bar .title {
+.simulator[contacts="detailed"] .toolbar .title {
     transform: translateY(160px);
 }
 
-.simulator[contacts="detailed"] .app-bar img {
+.simulator[contacts="detailed"] .toolbar img {
     z-index: -1;
     position: absolute;
     justify-self: center;
     transform: scale(calc(390 / 360)) translate(4px, -26px);
 }
 
-.simulator[contacts="detailed"] .app-bar .scrim {
+.simulator[contacts="detailed"] .toolbar .scrim {
     z-index: -1;
     inset-block-start: var(--status-bar-block-size);
     block-size: calc(1.5 * var(--increment));

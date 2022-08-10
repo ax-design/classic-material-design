@@ -23,12 +23,12 @@
     overflow: clip;
 }
 
-.simulator[calculator] .app-bar {
+.simulator[calculator] .toolbar {
     align-self: stretch;
     justify-content: space-between;
 }
 
-.simulator[calculator] .app-bar .button {
+.simulator[calculator] .toolbar .button {
     color: var(--secondary-text-color);
 }
 

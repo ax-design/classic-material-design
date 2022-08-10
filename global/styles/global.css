@@ -1,6 +1,6 @@
 @layer reset,base;
 @import "./modules/base.css" layer(base);
-@import "./modules/app-bars.css" layer(base);
+@import "./modules/toolbars.css" layer(base);
 @import "./modules/buttons.css" layer(base);
 @import "./modules/dividers.css" layer(base);
 @import "./modules/lists.css" layer(base);
@@ -189,18 +189,18 @@ body>.divider[vertical] {
 /*------------------------------------*\
   应用栏
 \*------------------------------------*/
-main>.app-bar {
+main>.toolbar {
     z-index: 4;
     grid-column: 1 / -1;
 }
 
-main>.app-bar .title {
+main>.toolbar .title {
     inline-size: min(100%, calc(var(--content-columns) * var(--content-unit-inline-size) + (var(--content-columns) - 1) * var(--content-column-gap)));
     justify-self: center;
     user-select: none;
 }
 
-main>.app-bar[variant="prominent"] {
+main>.toolbar[variant~="prominent"] {
     animation-name: appBarSurfaceFlex;
     animation-timeline: appBarFlex;
     animation-timing-function: linear;
@@ -225,7 +225,7 @@ main>.app-bar[variant="prominent"] {
     }
 }
 
-main>.app-bar[variant="prominent"]::after {
+main>.toolbar[variant~="prominent"]::after {
     animation-name: appBarBorderShow;
     animation-timeline: appBarFlex;
     animation-timing-function: linear;
@@ -243,7 +243,7 @@ main>.app-bar[variant="prominent"]::after {
     }
 }
 
-main>.app-bar[variant="prominent"] .title {
+main>.toolbar[variant~="prominent"] .title {
     animation-name: appBarTextScale;
     animation-timeline: appBarFlex;
     animation-timing-function: linear;
@@ -686,7 +686,7 @@ figure[screen~="mobile"] .simulator {
 /*------------------------------------*\
   特别修改
 \*------------------------------------*/
-.application .app-bar {
+.application .toolbar[variant~="app-bar"] {
     padding-block-start: var(--status-bar-block-size);
 }
 
@@ -760,7 +760,7 @@ footer cmd-icon {
         display: none;
     }
 
-    body>.app-bar,
+    body>.toolbar,
     main,
     .paragraphs {
         grid-column: 1 / -1;
@@ -783,7 +783,7 @@ footer cmd-icon {
         --keyline: 16px;
     }
 
-    main>.app-bar .title {
+    main>.toolbar .title {
         justify-self: start;
     }
 
@@ -806,11 +806,11 @@ footer cmd-icon {
         --content-unit-inline-size: auto;
     }
 
-    main>.app-bar {
+    main>.toolbar {
         --title-margin-final-offset: 12px;
     }
 
-    main>.app-bar[variant="prominent"] {
+    main>.toolbar[variant~="prominent"] {
         --title-margin-final-offset: calc(var(--increment) + 12px);
         --title-margin-begin-offset: 12px;
     }
@@ -893,7 +893,7 @@ footer cmd-icon {
     --status-bar-background-color: black;
 }
 
-main>.app-bar,
+main>.toolbar,
 footer {
     --states-parameter: 2;
 }
