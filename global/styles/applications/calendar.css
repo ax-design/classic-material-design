@@ -24,6 +24,7 @@
 .simulator[calendar="schedule"] .app-bar {
     inset-inline: 0;
     position: absolute;
+    color: var(--secondary-text-color);
     background-color: var(--low-emphasis-surface-color);
 }
 

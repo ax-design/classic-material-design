@@ -530,6 +530,7 @@
 
 main>.app-bar {
     --surface-shade-color: rgb(38 50 56 / 0.2);
+    color: var(--secondary-text-color);
 }
 
 h1 {
