@@ -33,10 +33,7 @@
 .simulator[contacts="detailed"] .app-bar .scrim {
     z-index: -1;
     inset-block-start: var(--status-bar-block-size);
-    inset-inline: 0;
-    position: absolute;
     block-size: calc(1.5 * var(--increment));
-    opacity: 0.38;
 }
 
 .simulator[contacts="detailed"] ul {

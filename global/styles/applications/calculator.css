@@ -106,11 +106,6 @@
     font-weight: 400;
 }
 
-.simulator[calculator] .scrim {
-    inset: 0;
-    position: absolute;
-}
-
 @container simulator (width < 520px) {
     .simulator[calculator] .panel {
         padding-inline-end: 16px;

@@ -139,7 +139,7 @@ const initialOpenedItem = currentNavigationMain;
 
 const scrimElement = document.createElement('div');
 scrimElement.classList.add('scrim');
-scrimElement.setAttribute('fill', '');
+scrimElement.setAttribute('variant', 'fill');
 CMDnavigationDrawer.after(scrimElement);
 
 initialOpenedItem.querySelector('ul').style.setProperty('--rows', initialOpenedItem.querySelectorAll('li').length);
@@ -149,7 +149,6 @@ function closeDrawer(event) {
         return
     } else {
         CMDnavigationDrawer.removeAttribute('enter');
-        scrimElement.removeAttribute('show');
         document.removeEventListener('click', closeDrawer);
         CMDnavigationDrawer.addEventListener('transitionend', (event) => {
             if (event.currentTarget !== event.target || CMDnavigationDrawer.hasAttribute('enter')) {
@@ -163,7 +162,6 @@ function closeDrawer(event) {
 CMDdrawerTrigger.addEventListener('click', () => {
     CMDnavigationDrawer.setAttribute('open', '');
     CMDnavigationDrawer.setAttribute('enter', '');
-    scrimElement.setAttribute('show', '');
     document.addEventListener('pointerdown', closeDrawer);
 });
 

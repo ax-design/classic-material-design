@@ -694,18 +694,19 @@
   遮罩
 \*------------------------------------*/
 .scrim {
+    position: absolute;
+    opacity: 0.4;
     pointer-events: none;
 }
 
-.scrim[fill] {
-    background-color: rgb(0 0 0 / 0);
+.scrim[variant="fill"] {
+    inset: 0;
+    background-color: black;
 }
 
-.scrim[fill][show] {
-    background-color: rgb(0 0 0 / 0.4);
-}
-
-.scrim[gradient] {
+.scrim[variant="gradient"] {
+    inset-inline: 0;
+    block-size: 100%;
     max-block-size: calc(3 * var(--increment));
     background: linear-gradient(rgb(0 0 0 / 1) 0%, rgb(0 0 0 / 0.5) calc(1 / 3 * 100%), rgb(0 0 0 / 0) 100%);
 }
