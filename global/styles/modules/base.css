@@ -6,6 +6,7 @@
     --deceleration-curve: cubic-bezier(0, 0, 0.2, 1);
     --acceleration-curve: cubic-bezier(0.4, 0, 1, 1);
     --sharp-curve: cubic-bezier(0.4, 0, 0.6, 1);
+    --ripple-expand-curve: cubic-bezier(0.17, 0.74, 0.4, 1);
 }
 
 @keyframes fade {
@@ -16,7 +17,7 @@
 
 @keyframes appear {
     100% {
-        opacity: 1;
+        opacity: var(--custom-opacity, 1);
     }
 }
 
@@ -309,6 +310,7 @@
     --blue-grey-800: #37474f;
     --blue-grey-900: #263238;
     --blue-grey-950: #21272b;
+    --blue-grey-1000: #14171a;
 }
 
 :root {
@@ -737,10 +739,20 @@ cmd-icon[name="more_vert"] {
     block-size: 1.5rem;
 }
 
+cmd-icon[name="more_vert"][size="small"] {
+    inline-size: 0.5625rem;
+    block-size: 1.125rem;
+}
+
 /*------------------------------------*\
   状态
 \*------------------------------------*/
-.states-overlay {
+
+:is(.button[variant="icon"], [unbounded]) {
+    overflow: visible;
+}
+
+.overlay[variant="states"] {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
@@ -754,36 +766,59 @@ cmd-icon[name="more_vert"] {
     pointer-events: none;
 }
 
-.states-overlay::before {
+.overlay[variant="states"]::before,
+.overlay[variant="states"]::after {
     content: "";
     position: absolute;
     inline-size: 100%;
     block-size: 100%;
     border-radius: inherit;
     background-color: var(--states-base-color);
-    opacity: calc((0.04 * var(--hover-parameter, 0) + 0.12 * var(--focus-parameter, 0) + 0.08 * var(--selected-parameter, 0) + 0.12 * var(--activate-parameter, 0) + 0.04 * var(--ripple-background-parameter, 0) + 0.08 * var(--dragged-parameter, 0)) * var(--states-parameter, 1));
-    transition-property: opacity;
-    transition-duration: 195ms;
-    transition-timing-function: linear;
 }
 
-[unbounded] {
+.overlay[variant="states"]::before {
+    opacity: 0;
+}
+
+.overlay[variant="states"]::after {
+    opacity: calc((0.04 * var(--hover-parameter, 0) + 0.12 * var(--focus-parameter, 0) + 0.08 * var(--selected-parameter, 0) + 0.12 * var(--activate-parameter, 0) + 0.08 * var(--dragged-parameter, 0)) * var(--states-parameter, 1));
+}
+
+@scope (body) to (.simulator) {
+    .overlay[variant="states"]::after {
+        transition-property: opacity;
+        transition-duration: 480ms;
+        transition-timing-function: linear;
+    }
+}
+
+:is(.button[variant="icon"], [unbounded]) .overlay[variant="states"] {
+    inset-block-start: unset;
+    inset-inline-start: unset;
+    inline-size: auto;
+    min-inline-size: 100%;
+    block-size: auto;
+    min-block-size: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
     overflow: visible;
 }
 
-:is(:hover, :focus-visible, [disabled]) .states-overlay::before {
-    transition-duration: 225ms;
+:is([interact], button):is(:hover, :focus-visible, [disabled]) .overlay[variant="states"]::after {
+    transition-duration: 120ms;
 }
 
 @media (hover: hover) {
 
-    *[interact]:hover,
+    [interact]:hover,
     button:hover {
         --hover-parameter: 1;
     }
 }
 
-:focus-visible {
+:focus-visible,
+li:has(>:focus-visible) {
+    outline: transparent;
     --focus-parameter: 1;
 }
 
@@ -791,8 +826,15 @@ cmd-icon[name="more_vert"] {
     --activate-parameter: 1;
 }
 
-[pressed] {
-    --ripple-background-parameter: 1;
+.ripple {
+    position: absolute;
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1/1;
+    background-color: var(--states-base-color);
+    border-radius: 50%;
+    opacity: var(--ripple-opacity);
+    scale: 0;
 }
 
 [disabled],
@@ -805,70 +847,23 @@ cmd-icon[name="more_vert"] {
 @media (prefers-color-scheme: light) {
     :root {
         --states-base-color: black;
+        --ripple-opacity: 0.06;
     }
 }
 
 [theme~="light"] {
     --states-base-color: black;
+    --ripple-opacity: 0.06;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --states-base-color: white;
+        --ripple-opacity: 0.1;
     }
 }
 
 [theme~="dark"] {
     --states-base-color: white;
-}
-
-/*------------------------------------*\
-  涟漪
-\*------------------------------------*/
-[unbounded]>.states-overlay {
-    inset-block-start: unset;
-    inset-inline-start: unset;
-    block-size: auto;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-}
-
-.ripple {
-    position: absolute;
-    block-size: auto;
-    aspect-ratio: 1/1;
-    background-color: var(--states-base-color);
-    border-radius: 50%;
-}
-
-.ripple {
-    animation-name: rippleForegroundExpand, rippleForegroundFadeOut;
-    animation-duration: 400ms;
-    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
-    animation-fill-mode: both;
-}
-
-[unbounded] .ripple {
-    inline-size: 100%;
-    animation-duration: 800ms, 400ms;
-}
-
-@keyframes rippleForegroundExpand {
-    0% {
-        scale: 0;
-    }
-
-    100% {
-        scale: 1;
-    }
-}
-
-@keyframes rippleForegroundFadeOut {
-    0% {
-        opacity: var(--ripple-foreground-alpha, 0.16);
-    }
-
-    100% {
-        opacity: 0;
-    }
+    --ripple-opacity: 0.1;
 }

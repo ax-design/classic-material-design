@@ -202,21 +202,8 @@
     visibility: hidden;
 }
 
-#color-overlap .button .states-overlay {
-    inline-size: auto;
-    block-size: 100%;
-    aspect-ratio: 1 / 1;
-}
-
-#color-overlap .button .states-overlay::after {
+#color-overlap .button .overlay[variant="states"] .ripple {
     visibility: hidden;
-    content: '';
-    position: absolute;
-    block-size: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background-color: var(--states-base-color);
-    opacity: 0.16;
 }
 
 #color-overlap [play="on"] {
@@ -225,7 +212,7 @@
 
 #color-overlap [play="on"] .expression::before {
     animation-name: expressionShow, toVisible;
-    animation-duration: 2s, 3.775s;
+    animation-duration: 2s, 4s;
     animation-delay: 0.5s;
     animation-timing-function: step-end, linear;
     animation-fill-mode: forwards, backwards;
@@ -253,79 +240,53 @@
     }
 }
 
-#color-overlap [play="on"] .button .states-overlay::before {
-    animation-name: rippleBackgroundAppear, fade;
-    animation-duration: 225ms, 195ms;
+#color-overlap [play="on"] .operator .button:nth-child(2) .overlay[variant="states"]::before {
+    --custom-opacity: var(--ripple-opacity);
+    animation-name: appear, fade;
+    animation-duration: 600ms, 480ms;
+    animation-delay: 3.5s, 4.5s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
 
-#color-overlap [play="on"] .numeric .button:nth-child(7) .states-overlay::before {
-    animation-delay: 0.5s, 0.725s;
-}
-
-#color-overlap [play="on"] .numeric .button:nth-child(8) .states-overlay::before {
-    animation-delay: 0.8s, 1.025s;
-}
-
-#color-overlap [play="on"] .operator .button:nth-child(5) .states-overlay::before {
-    animation-delay: 1.5s, 1.725s;
-}
-
-#color-overlap [play="on"] .numeric .button:nth-child(4) .states-overlay::before {
-    animation-delay: 2.1s, 2.325s;
-}
-
-#color-overlap [play="on"] .numeric .button:nth-child(6) .states-overlay::before {
-    animation-delay: 2.5s, 2.725s;
-}
-
-#color-overlap [play="on"] .operator .button:nth-child(2) .states-overlay::before {
-    animation-delay: 3.5s, 4.605s;
-}
-
-@keyframes rippleBackgroundAppear {
-    100% {
-        opacity: 0.08;
-    }
-}
-
-#color-overlap [play="on"] .button .states-overlay::after {
+#color-overlap [play="on"] .button .overlay[variant="states"] .ripple {
+    --custom-opacity: var(--ripple-opacity);
     visibility: visible;
-    scale: 0;
-    animation-name: expand_scale, fade;
-    animation-duration: 400ms;
-    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
+    animation-name: expand_scale, appear, fade;
+    animation-duration: var(--exit-duration), 120ms, calc(1000ms / 3);
+    animation-timing-function: var(--ripple-expand-curve), linear, linear;
     animation-fill-mode: both;
 }
 
-#color-overlap [play="on"] .numeric .button:nth-child(7) .states-overlay::after {
-    animation-delay: 0.5s;
+#color-overlap [play="on"] .numeric .button:nth-child(7) .overlay[variant="states"] .ripple {
+    animation-delay: 0.5s, 0.5s, 0.62s;
 }
 
-#color-overlap [play="on"] .numeric .button:nth-child(8) .states-overlay::after {
-    animation-delay: 0.8s;
+#color-overlap [play="on"] .numeric .button:nth-child(8) .overlay[variant="states"] .ripple {
+    animation-delay: 0.8s, 0.8s, 0.92s;
 }
 
-#color-overlap [play="on"] .operator .button:nth-child(5) .states-overlay::after {
-    animation-delay: 1.5s;
+#color-overlap [play="on"] .operator .button:nth-child(5) .overlay[variant="states"] .ripple {
+    animation-delay: 1.5s, 1.5s, 1.62s;
 }
 
-#color-overlap [play="on"] .numeric .button:nth-child(4) .states-overlay::after {
-    animation-delay: 2.1s;
+#color-overlap [play="on"] .numeric .button:nth-child(4) .overlay[variant="states"] .ripple {
+    animation-delay: 2.1s, 2.1s, 2.22s;
 }
 
-#color-overlap [play="on"] .numeric .button:nth-child(6) .states-overlay::after {
-    animation-delay: 2.5s;
+#color-overlap [play="on"] .numeric .button:nth-child(6) .overlay[variant="states"] .ripple {
+    animation-delay: 2.5s, 2.5s, 2.62s;
 }
 
-#color-overlap [play="on"] .operator .button:nth-child(2) .states-overlay::after {
-    animation-delay: 3.5s, 4.605s;
+#color-overlap [play="on"] .operator .button:nth-child(2) .overlay[variant="states"] .ripple {
+    animation-duration: var(--enter-duration), 120ms, calc(1000ms / 3);
+    animation-delay: 3.58s, 3.5s, 4.5s;
+    animation-timing-function: linear;
 }
 
 #color-overlap [play="on"] .result::before {
     animation-name: resultShow, toVisible;
-    animation-duration: 0.4s, 2.175s;
+    animation-duration: 0.4s, 2.4s;
     animation-delay: 2.1s;
     animation-timing-function: step-end, linear;
     animation-fill-mode: both, backwards;
@@ -343,8 +304,8 @@
 
 #color-overlap [play="on"] .clear-ripple::before {
     animation-name: expand_scale, fade;
-    animation-duration: 375ms;
-    animation-delay: 3.9s, 4.275s;
+    animation-duration: 400ms;
+    animation-delay: 4.1s, 4.5s;
     animation-timing-function: var(--deceleration-curve), linear;
     animation-fill-mode: forwards;
 }

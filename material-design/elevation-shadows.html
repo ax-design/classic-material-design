@@ -24,11 +24,11 @@
 
     <main>
         <div class="toolbar" variant="app-bar" theme="light" solid="end">
-            <button id="drawer-trigger" class="button" variant="icon" unbounded aria-label="打开目录">
+            <button id="drawer-trigger" class="button" variant="icon" aria-label="打开目录">
                 <cmd-icon name="menu"></cmd-icon>
             </button>
             <h1 class="title" type-scale="title">基本原理 - 层级与阴影</h1>
-            <button id="search-trigger" class="button" variant="icon" unbounded disabled aria-label="搜索">
+            <button id="search-trigger" class="button" variant="icon" disabled aria-label="搜索">
                 <cmd-icon name="search"></cmd-icon>
             </button>
         </div>
@@ -259,22 +259,30 @@
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <span>4</span>
-                                    <div class="states-overlay"></div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <span>5</span>
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <span>6</span>
-                                    <div class="states-overlay"></div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <span>1</span>
-                                    <div class="states-overlay"></div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <span>2</span>
-                                    <div class="states-overlay"></div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <span>3</span>
@@ -295,7 +303,9 @@
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <cmd-icon name="backspace"></cmd-icon>
-                                    <div class="states-overlay"></div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <span>×</span>
@@ -305,7 +315,9 @@
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <span>+</span>
-                                    <div class="states-overlay"></div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
                                 </div>
                                 <div class="button" variant="text" unbounded>
                                     <span>=</span>
@@ -364,7 +376,7 @@
                                 <div class="button" variant="text" unbounded type-scale="body2">
                                     <span>RAD</span>
                                 </div>
-                                <div class="button" variant="icon" unbounded>
+                                <div class="button" variant="icon">
                                     <cmd-icon name="more_vert"></cmd-icon>
                                 </div>
                             </div>
@@ -401,14 +413,14 @@
                         <div class="toolbar" variant="app-bar prominent" theme="dark">
                             <img character="ali-connors" src="global/resources/faces/ali_connors.png" />
                             <div class="scrim" variant="gradient"></div>
-                            <div class="button" variant="icon" unbounded>
+                            <div class="button" variant="icon">
                                 <cmd-icon name="arrow_back"></cmd-icon>
                             </div>
                             <span class="title" type-scale="display1" lang="en">Ali Connors</span>
-                            <div class="button" variant="icon" unbounded>
+                            <div class="button" variant="icon">
                                 <cmd-icon name="star_border"></cmd-icon>
                             </div>
-                            <div class="button" variant="icon" unbounded>
+                            <div class="button" variant="icon">
                                 <cmd-icon name="more_vert"></cmd-icon>
                             </div>
                             <div class="overlay" variant="status"></div>
@@ -420,7 +432,7 @@
                                     <span class="primary" type-scale="subheading">(650) 555–1234</span>
                                     <span class="secondary" type-scale="body1">手机</span>
                                 </div>
-                                <div class="button meta" variant="icon" unbounded>
+                                <div class="button meta" variant="icon">
                                     <cmd-icon name="message"></cmd-icon>
                                 </div>
                             </li>
@@ -429,7 +441,7 @@
                                     <span class="primary" type-scale="subheading">(323) 555–6789</span>
                                     <span class="secondary" type-scale="body1">单位</span>
                                 </div>
-                                <div class="button meta" variant="icon" unbounded>
+                                <div class="button meta" variant="icon">
                                     <cmd-icon name="message"></cmd-icon>
                                 </div>
                             </li>
@@ -480,20 +492,20 @@
                 <div class="simulator" calendar="schedule" aria-hidden="true" animated>
                     <div class="application">
                         <div class="toolbar" variant="app-bar" solid="end">
-                            <div class="button" variant="icon" unbounded>
+                            <div class="button" variant="icon">
                                 <cmd-icon name="menu"></cmd-icon>
                             </div>
                             <span class="title" type-scale="title">
                                 八月
                                 <cmd-icon name="arrow_drop_down"></cmd-icon>
                             </span>
-                            <div class="button" variant="icon" unbounded>
+                            <div class="button" variant="icon">
                                 <cmd-icon name="search"></cmd-icon>
                             </div>
-                            <div class="button" variant="icon" unbounded>
+                            <div class="button" variant="icon">
                                 <cmd-icon name="today"></cmd-icon>
                             </div>
-                            <div class="button" variant="icon" unbounded>
+                            <div class="button" variant="icon">
                                 <cmd-icon name="more_vert"></cmd-icon>
                             </div>
                             <div class="overlay" variant="status"></div>
