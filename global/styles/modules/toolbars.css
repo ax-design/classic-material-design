@@ -17,14 +17,15 @@
 .toolbar[variant~="app-bar"] {
     inset-block-start: 0;
     position: sticky;
+    grid-auto-columns: min-content;
 }
 
 .toolbar[variant~="app-bar"]:has(.button+.title) {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: min-content 1fr;
 }
 
 .toolbar[variant~="app-bar"][variant~="prominent"] {
-    grid-template-columns: auto minmax(0px, 1fr);
+    grid-template-columns: min-content minmax(0px, 1fr);
 }
 
 .toolbar:not([theme~="transparent"]) {
