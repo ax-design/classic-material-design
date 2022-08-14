@@ -6,7 +6,7 @@
     --secondary-color: var(--pink-a200);
 }
 
-.simulator[contacts="detailed"] .overlay[variant="status"] {
+.simulator[contacts="detailed"] .overlay[variant="status-bar"] {
     background-color: rgb(0 0 0 / 0.5);
 }
 

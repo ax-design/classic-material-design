@@ -640,7 +640,7 @@ figure[screen~="mobile"] .simulator {
     color: var(--primary-text-color);
 }
 
-.overlay[variant="status"] {
+.overlay[variant="status-bar"] {
     inset-block-start: 0;
     position: absolute;
     inline-size: 100%;
@@ -648,7 +648,7 @@ figure[screen~="mobile"] .simulator {
     overflow: clip;
 }
 
-.overlay[variant="navigation"] {
+.overlay[variant="navigation-bar"] {
     z-index: 25;
     inset-block-end: 0;
     position: absolute;

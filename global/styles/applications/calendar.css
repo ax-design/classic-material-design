@@ -38,7 +38,7 @@
     color: var(--secondary-text-color);
 }
 
-.simulator[calendar="schedule"] .overlay[variant="status"] {
+.simulator[calendar="schedule"] .overlay[variant="status-bar"] {
     background-color: var(--status-bar-background-color);
 }
 
