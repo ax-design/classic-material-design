@@ -219,9 +219,11 @@ function diagramAnimationReset(event) {
     }, 1000);
 }
 
-/*涟漪*/
+/*状态遮罩*/
 
+const interactiveElement = '[interact], button, footer>a, summary';
 const RIPPLE_EXPAND_EASING = 'cubic-bezier(0.17, 0.74, 0.4, 1)';
+
 let rippleBackgroundExitHandler;
 let pointerMoveHandler;
 let pointerOutHandler;
@@ -556,7 +558,7 @@ function keyOut(element, input) {
     element.removeEventListener('keyup', keyOutHandler);
 }
 
-document.querySelectorAll('[interact], button, footer>a').forEach((element) => {
+document.querySelectorAll(interactiveElement).forEach((element) => {
     addStatesOverlay(element);
 
     element.addEventListener('pointerdown', (event) => {
