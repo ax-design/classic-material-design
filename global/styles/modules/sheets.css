@@ -39,7 +39,3 @@
     opacity: 0;
     transition-duration: 195ms;
 }
-
-.drawer>ul {
-    margin: 8px 0;
-}

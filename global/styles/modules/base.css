@@ -804,14 +804,12 @@ cmd-icon[name="more_vert"][size="small"] {
     overflow: visible;
 }
 
-:is([interact], button):is(:hover, :focus-visible, [disabled]) .overlay[variant="states"]::after {
+:is([interact], button, summary):is(:hover, :focus-visible, [disabled]) .overlay[variant="states"]::after {
     transition-duration: 120ms;
 }
 
 @media (hover: hover) {
-
-    [interact]:hover,
-    button:hover {
+    :is([interact], button, summary):hover {
         --hover-parameter: 1;
     }
 }
@@ -838,7 +836,7 @@ li:has(>:focus-visible) {
 }
 
 [disabled],
-[aria-disabled="true"] {
+[inert] {
     color: var(--hint-text-color);
     pointer-events: none;
     cursor: default;

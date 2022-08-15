@@ -140,25 +140,21 @@ body>.drawer figcaption {
     font-family: "Roboto Mono", monospace;
 }
 
-body>.drawer li ul {
+body>.drawer details {
     overflow: clip;
-    block-size: calc(36px * var(--rows));
-    transition-property: height;
-    transition-duration: 250ms;
-    transition-timing-function: var(--standard-curve);
+    flex-shrink: 0;
 }
 
-body>.drawer li:not([open]) ul {
-    block-size: 0px;
-    transition-duration: 300ms;
+body>.drawer details:first-of-type {
+    margin-block-start: 8px;
 }
 
-body>.drawer span {
+body>.drawer summary {
     position: relative;
     block-size: 48px;
     display: flex;
     align-items: center;
-    padding-inline-start: var(--keyline);
+    padding-inline: var(--keyline);
     cursor: pointer;
 }
 
