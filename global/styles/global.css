@@ -168,6 +168,7 @@ body>.drawer li a {
 
 body>.drawer li[activated] {
     --states-base-color: currentColor;
+    --ripple-opacity: 0.13;
     color: var(--primary-color);
     font-weight: 500;
 }

@@ -498,7 +498,7 @@ h1 {
     --primary-text-color: white;
 }
 
-footer a:nth-of-type(2) {
+footer a:last-of-type {
     --primary-color: var(--purple-600);
 }
 
