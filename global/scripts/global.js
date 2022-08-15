@@ -139,11 +139,19 @@ scrim.setAttribute('variant', 'fill');
 drawer.after(scrim);
 
 function closeDrawer(event) {
-    if (event.composedPath().includes(drawerTrigger) || event.composedPath().includes(drawer)) {
-        return
+    if (event.type == 'keyup' ) {
+        if (event.code !== 'Escape' || event.repeat) {
+            return
+        }
+    } else {
+        if (event.composedPath().includes(drawerTrigger) || event.composedPath().includes(drawer)) {
+            return
+        }
     }
+    
     drawer.removeAttribute('enter');
-    document.removeEventListener('click', closeDrawer);
+    document.removeEventListener('pointerup', closeDrawer);
+    document.removeEventListener('keyup', closeDrawer);
     drawer.addEventListener('transitionend', (event) => {
         if (event.currentTarget !== event.target || drawer.hasAttribute('enter')) {
             return
@@ -155,7 +163,10 @@ function closeDrawer(event) {
 drawerTrigger.addEventListener('click', () => {
     drawer.setAttribute('open', '');
     drawer.setAttribute('enter', '');
-    document.addEventListener('pointerdown', closeDrawer);
+    drawer.querySelector('summary').focus();
+
+    document.addEventListener('pointerup', closeDrawer);
+    document.addEventListener('keyup', closeDrawer);
 });
 
 window.onresize = () => {
@@ -182,15 +193,18 @@ function tocExited(element, object) {
 document.querySelectorAll('details').forEach((element) => {
     const trigger = element.querySelector('summary');
 
-    let animation = element.animate([], { id: 'flex', easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' })
-    if (element.hasAttribute('open')) {
-        animation.state = 'entered'
-    } else {
-        animation.state = 'exited'
-    }
-
     trigger.addEventListener('click', (event) => {
-        const animationObject = element.getAnimations().find(i => i.id == 'flex');
+        let animationObject = element.getAnimations().find(i => i.id == 'flex');
+
+        if (animationObject == undefined) {
+            animationObject = element.animate([], { id: 'flex', easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' })
+        }
+
+        if (element.hasAttribute('open')) {
+            animationObject.state = 'entered'
+        } else {
+            animationObject.state = 'exited'
+        }
 
         if (element.hasAttribute('open') && animationObject.state != 'exiting') {
             event.preventDefault();

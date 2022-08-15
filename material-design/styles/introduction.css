@@ -111,6 +111,10 @@ main>picture {
     background-color: var(--secondary-color);
 }
 
+body>.drawer li[activated] {
+    --ripple-opacity: 0.13;
+}
+
 main>.toolbar {
     --surface-shade-color: rgb(38 50 56 / 0.2);
     color: var(--secondary-text-color);
