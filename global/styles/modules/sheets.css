@@ -30,6 +30,7 @@
 
 .drawer+.scrim {
     position: fixed;
+    pointer-events: unset;
     transition-property: opacity;
     transition-timing-function: var(--deceleration-curve);
     transition-duration: 225ms;
@@ -37,5 +38,6 @@
 
 .drawer:not([enter])+.scrim {
     opacity: 0;
+    pointer-events: none;
     transition-duration: 195ms;
 }
