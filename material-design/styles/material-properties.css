@@ -113,9 +113,11 @@
     block-size: 56px;
 }
 
-:is(#obstructed-input, #input-pass-through) .touch-input {
+:is(#obstructed-input, #input-pass-through) .touch {
+    position: absolute;
     inset-block-start: 184px;
     inset-inline-end: 168px;
+    translate: 50% -50%;
 }
 
 #magical-material .surface {

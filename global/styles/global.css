@@ -489,38 +489,6 @@ main hr {
 }
 
 /*------------------------------------*\
-  输入事件
-\*------------------------------------*/
-.touch-input {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.touch-input div {
-    position: absolute;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-}
-
-.touch-input .core {
-    inline-size: 36px;
-    background-color: rgb(255 255 255 / 0.7);
-    border: 4px solid rgb(255 64 129 / 1);
-}
-
-.touch-input .foreground {
-    inline-size: 44px;
-    border: 8px solid rgb(255 64 129 / 0.38);
-}
-
-.touch-input .background {
-    inline-size: 60px;
-    border: 48px solid rgb(255 64 129 / 0.2);
-}
-
-/*------------------------------------*\
   模拟器
 \*------------------------------------*/
 .simulator {
@@ -679,6 +647,47 @@ figure[screen~="mobile"] .simulator {
     100% {
         opacity: 0;
     }
+}
+
+.user-input {
+    z-index: 26;
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    display: grid;
+    grid-template: 1fr / 1fr;
+}
+
+.touch {
+    grid-area: 1 / 1 / 2 / 2;
+    position: relative;
+    display: grid;
+    inline-size: 64px;
+    block-size: 64px;
+    grid-template: 1fr / 1fr;
+    place-content: center;
+    place-items: center;
+    border: 48px solid rgb(255 64 129 / 0.2);
+    border-radius: 50%;
+}
+
+.touch::after,
+.touch::before {
+    content: "";
+    grid-area: 1 / 1 / 2 / 2;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.touch::after {
+    inline-size: 44px;
+    border: 10px solid rgb(255 64 129 / 0.38);
+}
+
+.touch::before {
+    inline-size: 36px;
+    background-color: rgb(255 255 255 / 0.9);
+    border: 4px solid rgb(255 64 129 / 1);
 }
 
 /*------------------------------------*\
