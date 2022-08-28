@@ -4,12 +4,14 @@
 
 .toolbar {
     flex-shrink: 0;
+    position: relative;
     display: grid;
     padding-inline: calc(var(--keyline) - 12px);
-    grid-template-rows: var(--increment);
+    grid-template-rows: 48px;
     grid-auto-flow: column;
     grid-auto-columns: auto;
     align-items: center;
+    background-color: var(--medium-emphasis-surface-color);
     color: var(--primary-text-color);
     overflow: clip;
 }
@@ -17,6 +19,7 @@
 .toolbar[variant~="app-bar"] {
     inset-block-start: 0;
     position: sticky;
+    grid-template-rows: var(--increment);
     grid-auto-columns: min-content;
 }
 
@@ -28,7 +31,7 @@
     grid-template-columns: min-content minmax(0px, 1fr);
 }
 
-.toolbar:not([theme~="transparent"]) {
+.toolbar[variant~="app-bar"]:not([theme~="transparent"]) {
     background-color: var(--primary-color, --low-emphasis-surface-color);
     box-shadow: var(--shadow-z4);
 }
@@ -36,6 +39,11 @@
 .toolbar[variant~="app-bar"] .title {
     margin-inline: 20px;
     color: var(--primary-text-color);
+}
+
+.toolbar[variant~="float"] {
+    border-radius: 2px;
+    box-shadow: var(--shadow-z2);
 }
 
 /*------------------------------------*\
