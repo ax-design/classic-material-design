@@ -238,7 +238,6 @@ document.querySelectorAll('details').forEach((element) => {
             tocEnterHandler = tocEntered.bind(null, animationObject);
             animationObject.addEventListener('finish', tocEnterHandler, { once: true })
         }
-
     });
 })
 
@@ -246,8 +245,8 @@ document.querySelectorAll('details').forEach((element) => {
 
 let diagramAnimationPending;
 
-document.querySelectorAll('[animated]').forEach((element) => {
-    element.addEventListener('click', (event) => {
+document.querySelectorAll('figure>[animated]').forEach((element) => {
+    element.addEventListener('click', () => {
         if (element.querySelector('video')) {
             let target = element.querySelector('video');
             if (target.paused) {
