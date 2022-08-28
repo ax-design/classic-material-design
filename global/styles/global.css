@@ -667,12 +667,14 @@ figure[screen~="mobile"] .simulator {
     grid-area: 1 / 1 / 2 / 2;
     position: relative;
     display: grid;
-    inline-size: 64px;
-    block-size: 64px;
+    inline-size: 36px;
+    block-size: 36px;
     grid-template: 1fr / 1fr;
     place-content: center;
     place-items: center;
-    border: 48px solid rgb(255 64 129 / 0.2);
+    background-color: rgb(255 255 255 / 0.8);
+    background-clip: content-box;
+    border: 62px solid rgb(255 64 129 / 0.2);
     border-radius: 50%;
 }
 
@@ -680,18 +682,16 @@ figure[screen~="mobile"] .simulator {
 .touch::before {
     content: "";
     grid-area: 1 / 1 / 2 / 2;
+    inline-size: 100%;
     aspect-ratio: 1/1;
     border-radius: 50%;
 }
 
 .touch::after {
-    inline-size: 44px;
-    border: 10px solid rgb(255 64 129 / 0.38);
+    border: 14px solid rgb(255 64 129 / 0.3);
 }
 
 .touch::before {
-    inline-size: 36px;
-    background-color: rgb(255 255 255 / 0.9);
     border: 4px solid rgb(255 64 129 / 1);
 }
 
