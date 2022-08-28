@@ -23,7 +23,7 @@ template.innerHTML = `
         <li interact><a draggable="false" href="material-design/elevation-shadows.html">层级与阴影</a></li>
     </ul>
 </details>
-<details>
+<details inert>
     <summary type-scale="body2">动画效果</summary>
     <ul>
         <li interact><a draggable="false" href="motion/material-motion.html">运动机理</a></li>
