@@ -7,7 +7,7 @@
 }
 
 .simulator[contacts="detailed"] .overlay[variant="status-bar"] {
-    background-color: rgb(0 0 0 / 0.5);
+    --status-bar-background-color: rgb(0 0 0 / 0.5);
 }
 
 .simulator[contacts] .divider {

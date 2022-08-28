@@ -6,10 +6,6 @@
     --secondary-color: var(--teal-a400);
 }
 
-.simulator[calculator] .overlay[variant="status-bar"] {
-    background-color: var(--status-bar-background-color);
-}
-
 .simulator[calculator] .display {
     order: -1;
     position: relative;

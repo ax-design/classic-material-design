@@ -38,10 +38,6 @@
     color: var(--secondary-text-color);
 }
 
-.simulator[calendar="schedule"] .overlay[variant="status-bar"] {
-    background-color: var(--status-bar-background-color);
-}
-
 .simulator[calendar="schedule"] .schedule {
     position: relative;
     inline-size: 100%;

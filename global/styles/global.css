@@ -610,6 +610,7 @@ figure[screen~="mobile"] .simulator {
     position: absolute;
     inline-size: 100%;
     block-size: var(--status-bar-block-size);
+    background-color: var(--status-bar-background-color);
     overflow: clip;
 }
 
@@ -621,6 +622,10 @@ figure[screen~="mobile"] .simulator {
     block-size: 48px;
     background-color: black;
     overflow: clip;
+}
+
+.overlay[variant="navigation-bar"][theme="translucent"] {
+    opacity: 0.4;
 }
 
 .navigation-ripple {
