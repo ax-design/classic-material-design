@@ -139,7 +139,7 @@ scrim.setAttribute('variant', 'fill');
 drawer.after(scrim);
 
 function closeDrawer(event) {
-    if (event.type == 'keyup' ) {
+    if (event.type == 'keyup') {
         if (event.code !== 'Escape' || event.repeat) {
             return
         }
@@ -148,7 +148,7 @@ function closeDrawer(event) {
             return
         }
     }
-    
+
     drawer.removeAttribute('enter');
     document.removeEventListener('pointerup', closeDrawer);
     document.removeEventListener('keyup', closeDrawer);
@@ -312,8 +312,11 @@ function addStatesOverlay(element) {
 
     const statesContainer = document.createElement('div');
     if (unbounded) {
+        const containerWidth = element.getBoundingClientRect().width;
+        const containerHeight = element.getBoundingClientRect().height;
+        const containerRadius = Math.hypot(containerWidth, containerHeight) / 2;
         const longestLength = Math.max(element.getBoundingClientRect().width, element.getBoundingClientRect().height);
-        statesContainer.style.inlineSize = constrained ? CSS.px(longestLength) : CSS.px(Math.hypot(longestLength, longestLength));
+        statesContainer.style.inlineSize = constrained ? CSS.px(longestLength) : CSS.px(containerRadius * 2);
     }
     statesContainer.className = 'overlay';
     statesContainer.setAttribute('variant', 'states');
@@ -671,13 +674,13 @@ document.querySelectorAll(interactiveElement).forEach((element) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.simulator .overlay[variant="states"]').forEach((element) => {
-        const parentElement = element.parentNode;
+        const parentElement = element.hasAttribute('standalone') ? element : element.parentNode;
         const unbounded = ifUnbounded(parentElement);
         const constrained = ifConstraint(parentElement);
         const rippleForegroundObject = element.querySelector('.ripple');
 
-        const containerWidth = element.getBoundingClientRect().width;
-        const containerHeight = element.getBoundingClientRect().height;
+        const containerWidth = parentElement.getBoundingClientRect().width;
+        const containerHeight = parentElement.getBoundingClientRect().height;
         const longestLength = Math.max(containerWidth, containerHeight);
         const containerRadius = Math.hypot(containerWidth, containerHeight) / 2;
 
@@ -686,9 +689,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const rippleRadiusEnterDuration = 1000 * Math.sqrt(rippleRadius * 3 / 1024 * 3);
             const rippleRadiusExitDuration = 1000 * Math.sqrt(rippleRadius * 3 / (1024 + 3400) * 3);
 
-            element.style.inlineSize = constrained ? CSS.px(longestLength) : CSS.px(Math.hypot(longestLength, longestLength));
+            element.style.inlineSize = constrained ? CSS.px(longestLength) : CSS.px(containerRadius * 2);
             rippleForegroundObject.style.setProperty('--enter-duration', CSS.ms(rippleRadiusEnterDuration));
             rippleForegroundObject.style.setProperty('--exit-duration', CSS.ms(rippleRadiusExitDuration));
+
         } else {
             const rippleRadius = Math.min(containerRadius, 350) * 0.9 + containerRadius * Math.random() * 0.1;
             rippleForegroundObject.style.inlineSize = CSS.px(rippleRadius * 2);
