@@ -629,6 +629,30 @@ figure[screen~="mobile"] .simulator {
     border: 4px solid rgb(255 64 129 / 1);
 }
 
+@keyframes touchIn {
+    0% {
+        inline-size: 56px;
+        block-size: 56px;
+        border-width: 0px;
+        background-color: rgb(255 255 255 / 0);
+        border-color: rgb(255 64 129 / 0);
+    }
+}
+
+@keyframes touchOut {
+    50% {
+        border-color: rgb(255 64 129 / 0);
+    }
+
+    100% {
+        inline-size: 56px;
+        block-size: 56px;
+        border-width: 0px;
+        background-color: rgb(255 255 255 / 0);
+        border-color: rgb(255 64 129 / 0);
+    }
+}
+
 /*------------------------------------*\
   特别修改
 \*------------------------------------*/
