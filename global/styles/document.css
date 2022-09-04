@@ -318,6 +318,11 @@ figure> :is(.illustration, .diagram) {
     background-color: var(--diagram-background-color);
 }
 
+.diagram:not(:has(video)) {
+    container-name: diagram;
+    container-type: size;
+}
+
 figure>:is(.illustration, .diagram, .simulator)::before {
     content: "";
     z-index: 27;
