@@ -1043,3 +1043,28 @@ li:has(>:focus-visible) {
     --states-base-color: white;
     --ripple-opacity: 0.1;
 }
+
+/*------------------------------------*\
+  边缘效果
+\*------------------------------------*/
+
+.glow {
+    inset: 0;
+    position: absolute;
+    overflow: clip;
+}
+
+.glow .item {
+    position: absolute;
+    display: flex;
+    overflow: clip;
+    opacity: 0.15;
+}
+
+.glow .item::after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--states-base-color);
+}
