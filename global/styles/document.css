@@ -780,6 +780,10 @@ footer cmd-icon {
             font-weight: 400;
         }
     }
+
+    footer a {
+        flex-grow: 1;
+        flex-basis: unset;
     }
 
     figure {

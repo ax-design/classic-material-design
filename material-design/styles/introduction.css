@@ -84,6 +84,7 @@ main>picture {
 
     #system .diagram {
         inline-size: 480px;
+        block-size: 100%;
         padding: 40px;
         writing-mode: vertical-lr;
     }

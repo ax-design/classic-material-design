@@ -465,6 +465,10 @@
         block-size: 160px;
     }
 
+    #relative-static .diagram {
+        block-size: 480px;
+    }
+
     #relative-static .surfaces {
         grid-template-columns: repeat(2, 1fr);
         margin-block: calc(var(--increment) + 12px);
