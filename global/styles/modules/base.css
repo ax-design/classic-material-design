@@ -952,9 +952,6 @@ cmd-icon[name="more_vert"][size="small"] {
     block-size: 100%;
     border-radius: inherit;
     background-color: var(--states-base-color);
-}
-
-.overlay[variant="states"]::before {
     opacity: 0;
 }
 
