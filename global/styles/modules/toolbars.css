@@ -16,6 +16,10 @@
     overflow: clip;
 }
 
+.toolbar[theme~="transparent"] {
+    background-color: transparent;
+}
+
 .toolbar[variant~="app-bar"] {
     inset-block-start: 0;
     position: sticky;
