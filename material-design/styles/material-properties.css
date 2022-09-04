@@ -122,6 +122,8 @@
 
 #magical-material .surface {
     position: relative;
+    inline-size: 0cqb;
+    block-size: 0cqb;
     border-radius: 50%;
     background-color: var(--high-emphasis-surface-color);
     box-shadow: var(--shadow-z2);
@@ -132,7 +134,7 @@
 }
 
 #magical-material [play=on] .surface {
-    animation-name: magicalMaterial1, magicalMaterial2, magicalMaterial3, magicalMaterial4, magicalMaterial5;
+    animation-name: magicalMaterial1, magicalMaterial2, magicalMaterial3, magicalMaterial4, toCollapse_size;
     animation-duration: 300ms, 500ms, 500ms, 500ms, 250ms;
     animation-delay: 0.5s, 1.5s, 2.5s, 3.5s, 4.5s;
     animation-timing-function: var(--deceleration-curve), var(--standard-curve), var(--standard-curve), var(--standard-curve), var(--acceleration-curve);
@@ -140,60 +142,29 @@
 }
 
 @keyframes magicalMaterial1 {
-    0% {
-        inline-size: 0px;
-        block-size: 0px;
-    }
-
     100% {
-        inline-size: 100px;
-        block-size: 100px;
+        inline-size: 25cqb;
+        block-size: 25cqb;
     }
 }
 
 @keyframes magicalMaterial2 {
-    0% {
-        inline-size: 100px;
-        block-size: 100px;
-        border-radius: 50%;
-    }
-
     100% {
-        inline-size: 200px;
-        block-size: 200px;
+        inline-size: 40cqb;
+        block-size: 40cqb;
         border-radius: 2px;
     }
 }
 
 @keyframes magicalMaterial3 {
-    0% {
-        inline-size: 200px;
-    }
-
     100% {
-        inline-size: 300px;
+        inline-size: 60cqb;
     }
 }
 
 @keyframes magicalMaterial4 {
-    0% {
-        block-size: 200px;
-    }
-
     100% {
-        block-size: 300px;
-    }
-}
-
-@keyframes magicalMaterial5 {
-    0% {
-        inline-size: 300px;
-        block-size: 300px;
-    }
-
-    100% {
-        inline-size: 0px;
-        block-size: 0px;
+        block-size: 60cqb;
     }
 }
 
