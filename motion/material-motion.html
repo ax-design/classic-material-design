@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#212121" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="永恒运动的 Material 世界运动规律与现实世界相仿。质感设计以用户熟悉的动画效果为用户提供掌握界面的指导，将用户的注意力聚焦在核心进程和要素上。设计者通过合理调整相对运动时长和速率变化，可以实现自然的界面变化过程。">
+    <title>质感设计 - 运动机理</title>
+    <base href="../" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Lekton:wght@400;700&family=Montserrat:wght@400..700&family=Roboto+Mono:wght@400;500&Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="global/resources/favicon.svg" />
+    <link rel="stylesheet" href="motion/styles/material-motion.css" />
+    <link rel="stylesheet" href="global/styles/global.css" />
+    <script type="module" src="global/scripts/global.js"></script>
+</head>
+
+<body type-scale="body1">
+    <aside class="drawer" chapter="2-1"></aside>
+
+    <div class="divider" vertical></div>
+
+    <main>
+        <div class="toolbar" variant="app-bar prominent" theme="dark" solid="end">
+            <button id="drawer-trigger" class="button" variant="icon" type="button" aria-label="打开目录">
+                <cmd-icon name="menu"></cmd-icon>
+            </button>
+            <h1 class="title" type-scale="title">动画效果</h1>
+            <button id="search-trigger" class="button" variant="icon" type="button" disabled aria-label="搜索">
+                <cmd-icon name="search"></cmd-icon>
+            </button>
+        </div>
+
+        <header>
+            <h2 type-scale="display1">运动机理</h2>
+            <p type-scale="title">物体的运动能够传递自身的体积、质量、形变自由度等信息，帮助用户了解与掌控界面。质感设计借助运动体现空间关系和界面功能，表达设计意图，带来如意、流畅的使用体验和美观的视觉体验。</p>
+            <nav>
+                <h3 type-scale="body1">索引</h3>
+                <ul type-scale="title">
+                    <li><a href="motion/material-motion.html#usage">功能作用</a></li>
+                    <li><a href="motion/material-motion.html#speed">速率</a></li>
+                    <li><a href="motion/material-motion.html#duration">时长</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article id="usage" horizontal>
+            <h3 type-scale="headline">功能作用</h3>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">充实联系</h4>
+                    <p>动画能够预示、揭示、解释界面的变化，进一步说明界面的空间形态和层次体系。</p>
+                </div>
+                <figure id="hierarchy" screen="mobile">
+                    <div class="simulator" inbox="main" aria-hidden="true" animated>
+                        <div class="application">
+                            <div class="toolbar" variant="app-bar" theme="light">
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="menu"></cmd-icon>
+                                </div>
+                                <span class="title" type-scale="title">Inbox</span>
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="search"></cmd-icon>
+                                </div>
+                                <div class="overlay" variant="status-bar"></div>
+                            </div>
+                            <ul class="group">
+                                <li class="subheader">
+                                    <span type-scale="body2">今天</span>
+                                </li>
+                                <li class="tile" variant="two" lang="en-US">
+                                    <span class="thumbnail" variant="avatar" character="ali-connors" style="background-image: url(global/resources/faces/ali_connors.png)"></span>
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">Brunch this weekend?</span>
+                                        <p class="secondary" type-scale="body1">Ali Connors<span> — I’ll be in your neighborhood doing errands this weekend if you want to meet up for brunch. Let me know.</span></p>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two" lang="en-US">
+                                    <span class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/jonathan_lee.jpg)"></span>
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">Summer BBQ<span>&nbsp;&nbsp;4</span></span>
+                                        <p class="secondary" type-scale="body1">至 Alex, Scott, Jennifer<span> — Wish I could come, but I’m out of town this weekend.</span></p>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two" lang="en-US">
+                                    <span class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/sandra_adams.jpg)"></span>
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">Oui oui</span>
+                                        <p class="secondary" type-scale="body1">Sandra Adams<span> — Do you have Paris recommendations? Have you ever been? (I’m sure I’ve asked you this…</span></p>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two" lang="en-US">
+                                    <span class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/trevor_hansen.jpg)"></span>
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">Birthday gift</span>
+                                        <p class="secondary" type-scale="body1">Trevor Hansen<span> — Have any ideas about what to get Heidi for her birthday?</span></p>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two" lang="en-US">
+                                    <span class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/britta_holt.jpg)"></span>
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">Recipe to try</span>
+                                        <p class="secondary" type-scale="body1">Britta Holt<span> — We should eat this: Grated Squash, Corn and Tomatillo tacos.</span></p>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two" lang="en-US">
+                                    <span class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/david_park.jpg)"></span>
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">Giants game</span>
+                                        <p class="secondary" type-scale="body1">David Park<span> — Any interest in seeing the Giants play next month?</span></p>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two" lang="en-US">
+                                    <span class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/scott_masterson.png)"></span>
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">Montauk weekend</span>
+                                        <p class="secondary" type-scale="body1">Scott Masterson<span> — Here are the shots I mentioned from this weekend’s trip.</span></p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="scrim" variant="fill"></div>
+                            <div class="view">
+                                <div class="content">
+                                    <div class="toolbar" variant="app-bar" variant="prominent">
+                                        <div class="button" variant="icon">
+                                            <cmd-icon name="arrow_back"></cmd-icon>
+                                            <div class="overlay" variant="states">
+                                                <div class="ripple"></div>
+                                            </div>
+                                        </div>
+                                        <span class="title" type-scale="headline" lang="en-US">Summer BBQ</span>
+                                        <div class="button" variant="icon">
+                                            <cmd-icon name="push_pin"></cmd-icon>
+                                        </div>
+                                        <div class="button" variant="icon">
+                                            <cmd-icon name="access_time"></cmd-icon>
+                                        </div>
+                                        <div class="button" variant="icon">
+                                            <cmd-icon name="check"></cmd-icon>
+                                        </div>
+                                        <div class="button" variant="icon">
+                                            <cmd-icon name="more_vert"></cmd-icon>
+                                        </div>
+                                    </div>
+                                    <ul lang="en-US">
+                                        <li class="tile" variant="two">
+                                            <span class="thumbnail" variant="avatar" character="jennifer-smith" style="background-image: url(global/resources/faces/jennifer_smith.jpg)"></span>
+                                            <div class="text">
+                                                <div class="primary">
+                                                    <span type-scale="body2">Jennifer Smith</span>
+                                                    <span type-scale="caption">1天前</span>
+                                                    <div class="button" variant="icon">
+                                                        <cmd-icon name="more_vert" size="small"></cmd-icon>
+                                                    </div>
+                                                </div>
+                                                <p class="secondary" type-scale="body1">Welcome friends. Come have a drink at my house Sat @ 9pm.</p>
+                                            </div>
+                                        </li>
+                                        <li class="divider" horizontal></li>
+                                        <li class="tile" variant="two">
+                                            <span class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/scott_masterson.png)"></span>
+                                            <div class="text">
+                                                <div class="primary">
+                                                    <span type-scale="body2">Scott Masterson</span>
+                                                    <span type-scale="caption">3小时前</span>
+                                                    <div class="button" variant="icon">
+                                                        <cmd-icon name="more_vert" size="small"></cmd-icon>
+                                                    </div>
+                                                </div>
+                                                <p class="secondary" type-scale="body1">Ok. We'll be there.</p>
+                                            </div>
+                                        </li>
+                                        <li class="divider" horizontal></li>
+                                        <li class="tile" variant="two">
+                                            <span class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/alex_nelson.jpg)"></span>
+                                            <div class="text">
+                                                <div class="primary">
+                                                    <span type-scale="body2">Alex Nelson</span>
+                                                    <span type-scale="caption">15分钟前</span>
+                                                    <div class="button" variant="icon">
+                                                        <cmd-icon name="more_vert" size="small"></cmd-icon>
+                                                    </div>
+                                                </div>
+                                                <p class="secondary" type-scale="body1">There's a chance l can make it.</p>
+                                            </div>
+                                        </li>
+                                        <li class="divider" horizontal></li>
+                                        <li>
+                                            <div class="tile" variant="two">
+                                                <span class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/jonathan_lee.jpg)"></span>
+                                                <div class="text">
+                                                    <div class="primary">
+                                                        <span type-scale="body2">Jonathan Lee</span>
+                                                        <span type-scale="caption">1分钟前</span>
+                                                        <div class="button" variant="icon">
+                                                            <cmd-icon name="more_vert" size="small"></cmd-icon>
+                                                        </div>
+                                                    </div>
+                                                    <p class="secondary" type-scale="body1">至 Alex, Scott, Jennifer</p>
+                                                </div>
+                                            </div>
+                                            <p type-scale="body1">Wish I could come, but I’m out of town this weekend.</p>
+                                        </li>
+                                    </ul>
+                                    <hr class="divider" horizontal>
+                                    <div class="tile" variant="one" lang="zh-Hans">
+                                        <cmd-icon name="reply_all"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary" type-scale="body1">快速回复</span>
+                                        </div>
+                                    </div>
+                                    <div class="overlay" variant="status-bar"></div>
+                                </div>
+                            </div>
+                            <div class="overlay" variant="states" standalone>
+                                <div class="ripple"></div>
+                            </div>
+                            <div class="button" variant="fab" theme="light">
+                                <cmd-icon name="add"></cmd-icon>
+                            </div>
+                            <div class="overlay" variant="navigation-bar"></div>
+                        </div>
+                        <div class="system">
+                            <div class="status">
+                                <span type-scale="body2">12:30</span>
+                                <cmd-icon name="battery_full_alt" size="small"></cmd-icon>
+                                <cmd-icon name="signal_cellular_4_bar" size="small"></cmd-icon>
+                                <cmd-icon name="signal_wifi_4_bar" size="small"></cmd-icon>
+                            </div>
+                            <div class="navigation">
+                                <cmd-icon name="arrow_back_system"></cmd-icon>
+                                <cmd-icon name="circle_home"></cmd-icon>
+                                <cmd-icon name="square_recent"></cmd-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>转场动画提示了转场后层面的层级。</p>
+                    </figcaption>
+                </figure>
+                <figure id="result" screen="mobile">
+                    <div class="simulator" clock="stopwatch" aria-hidden="true" animated>
+                        <div class="application" theme="dark">
+                            <div class="toolbar" variant="app-bar">
+                                <div class="tab-bar">
+                                    <div class="item">
+                                        <cmd-icon name="alarm"></cmd-icon>
+                                    </div>
+                                    <div class="item">
+                                        <cmd-icon name="access_time"></cmd-icon>
+                                    </div>
+                                    <div class="item">
+                                        <cmd-icon name="hourglass"></cmd-icon>
+                                    </div>
+                                    <div class="item" activated>
+                                        <cmd-icon name="timer"></cmd-icon>
+                                    </div>
+                                </div>
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="more_vert"></cmd-icon>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
+                                </div>
+                                <div class="overlay" variant="status-bar"></div>
+                            </div>
+                            <div class="view" lang="en">
+                                <div class="watch">
+                                    <span>0:00</span>
+                                </div>
+                            </div>
+                            <ul class="menu" type-scale="subheading" solid>
+                                <li class="item">
+                                    <span>屏保</span>
+                                </li>
+                                <li class="item">
+                                    <span>设置</span>
+                                </li>
+                                <li class="item">
+                                    <span>提供反馈</span>
+                                </li>
+                                <li class="item">
+                                    <span>帮助</span>
+                                </li>
+                            </ul>
+                            <div class="button" variant="fab" theme="dark">
+                                <cmd-icon name="play_arrow"></cmd-icon>
+                            </div>
+                            <div class="overlay" variant="navigation-bar" theme="translucent"></div>
+                        </div>
+                        <div class="system">
+                            <div class="status">
+                                <span type-scale="body2">12:30</span>
+                                <cmd-icon name="battery_full_alt" size="small"></cmd-icon>
+                                <cmd-icon name="signal_cellular_4_bar" size="small"></cmd-icon>
+                                <cmd-icon name="signal_wifi_4_bar" size="small"></cmd-icon>
+                            </div>
+                            <div class="navigation">
+                                <cmd-icon name="arrow_back_system"></cmd-icon>
+                                <cmd-icon name="circle_home"></cmd-icon>
+                                <cmd-icon name="square_recent"></cmd-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>过渡动画提示了菜单弹出是点击特定按钮的结果。</p>
+                    </figcaption>
+                </figure>
+            </section>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">反馈状态</h4>
+                    <p>动画是界面对用户输入的确认和输出，并指示着界面的状态信息。</p>
+                </div>
+                <figure id="output" screen="mobile">
+                    <div class="simulator" settings="sim-status" aria-hidden="true" animated>
+                        <div class="application">
+                            <div class="toolbar" variant="app-bar" theme="dark" solid="end">
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="arrow_back"></cmd-icon>
+                                </div>
+                                <span class="title" type-scale="title">SIM卡状态</span>
+                                <div class="overlay" variant="status-bar"></div>
+                            </div>
+                            <ul>
+                                <li class="tile" variant="two">
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">网络</span>
+                                        <span class="secondary" type-scale="body1" lang="en">Android</span>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two">
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">信号强度</span>
+                                        <span class="secondary" type-scale="body1" lang="en">-80 dBm 60 asu</span>
+                                    </div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two">
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">移动网络类型</span>
+                                        <span class="secondary" type-scale="body1" lang="en">LTE</span>
+                                    </div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two">
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">服务状态</span>
+                                        <span class="secondary" type-scale="body1">在使用中</span>
+                                    </div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two">
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">漫游</span>
+                                        <span class="secondary" type-scale="body1">未使用漫游服务</span>
+                                    </div>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two">
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">移动网络状态</span>
+                                        <span class="secondary" type-scale="body1">已连接</span>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                                <li class="tile" variant="two">
+                                    <div class="text">
+                                        <span class="primary" type-scale="subheading">本机号码</span>
+                                        <span class="secondary" type-scale="body1" lang="en">+1-555-521-5554</span>
+                                    </div>
+                                </li>
+                                <li class="divider" horizontal></li>
+                            </ul>
+                            <div class="overlay" variant="navigation-bar"></div>
+                        </div>
+                        <div class="system">
+                            <div class="status">
+                                <span type-scale="body2">12:30</span>
+                                <cmd-icon name="battery_full_alt" size="small"></cmd-icon>
+                                <cmd-icon name="signal_cellular_4_bar" size="small"></cmd-icon>
+                                <cmd-icon name="signal_wifi_4_bar" size="small"></cmd-icon>
+                            </div>
+                            <div class="navigation">
+                                <cmd-icon name="arrow_back_system"></cmd-icon>
+                                <cmd-icon name="circle_home"></cmd-icon>
+                                <cmd-icon name="square_recent"></cmd-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>涟漪动画触发表示用户点击有效。</p>
+                    </figcaption>
+                </figure>
+                <figure id="hint" screen="mobile">
+                    <div class="simulator" launcher="home" aria-hidden="true" animated>
+                        <div class="application" theme="light">
+                            <img src="global/resources/wallpapers/default_wallpaper.jpg">
+                            <div class="scrim" variant="gradient" position="top"></div>
+                            <div class="scrim" variant="gradient" position="bottom"></div>
+                            <div class="toolbar" variant="float" solid>
+                                <img src="global/resources/googlelogo_clr_74x24px.svg">
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="mic" variant="google"></cmd-icon>
+                                </div>
+                            </div>
+                            <div class="workspace" theme="dark">
+                                <div class="unit" style="grid-area: m;">
+                                    <div class="folder">
+                                        <div class="tray" solid></div>
+                                        <cmd-icon product="gmail"></cmd-icon>
+                                        <cmd-icon product="maps"></cmd-icon>
+                                        <cmd-icon product="google"></cmd-icon>
+                                    </div>
+                                    <span type-scale="caption">Google</span>
+                                </div>
+                                <div class="unit" style="grid-area: n;">
+                                    <div class="folder">
+                                        <div class="tray" solid></div>
+                                        <cmd-icon product="slides"></cmd-icon>
+                                        <cmd-icon product="sheets"></cmd-icon>
+                                        <cmd-icon product="docs"></cmd-icon>
+                                    </div>
+                                    <span type-scale="caption">创建</span>
+                                </div>
+                                <div class="unit" style="grid-area: o;">
+                                    <div class="folder">
+                                        <div class="tray" solid></div>
+                                        <cmd-icon product="play_games"></cmd-icon>
+                                        <cmd-icon product="play_movies"></cmd-icon>
+                                        <cmd-icon product="play_music"></cmd-icon>
+                                    </div>
+                                    <span type-scale="caption">Play</span>
+                                </div>
+                                <div class="unit" style="grid-area: p;">
+                                    <cmd-icon product="play_store"></cmd-icon>
+                                    <span type-scale="caption">Play商店</span>
+                                </div>
+                                <div class="glow">
+                                    <div class="item"></div>
+                                </div>
+                            </div>
+                            <div class="page-indicator">
+                                <div class="dot" activated></div>
+                                <div class="dot"></div>
+                            </div>
+                            <div class="hotseat">
+                                <cmd-icon product="dialer"></cmd-icon>
+                                <cmd-icon product="messenger"></cmd-icon>
+                                <cmd-icon product="all_apps"></cmd-icon>
+                                <cmd-icon product="chrome"></cmd-icon>
+                                <cmd-icon product="google_camera"></cmd-icon>
+                            </div>
+                        </div>
+                        <div class="system">
+                            <div class="status">
+                                <span type-scale="body2">12:30</span>
+                                <cmd-icon name="battery_full_alt" size="small"></cmd-icon>
+                                <cmd-icon name="signal_cellular_4_bar" size="small"></cmd-icon>
+                                <cmd-icon name="signal_wifi_4_bar" size="small"></cmd-icon>
+                            </div>
+                            <div class="navigation">
+                                <cmd-icon name="arrow_back_system"></cmd-icon>
+                                <cmd-icon name="circle_home"></cmd-icon>
+                                <cmd-icon name="square_recent"></cmd-icon>
+                            </div>
+                        </div>
+                        <div class="user-input">
+                            <div class="touch" variant="swipe"></div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>边缘动画触发既表示用户滑动有效又表示滚动到达终端。</p>
+                    </figcaption>
+                </figure>
+            </section>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">引导用户</h4>
+                    <p>动画能够指引用户进一步推动程序进程，牵引用户的注意力，避免用户因其它非目标进程分心。动画还能减少等待进程的感知时间，增强进程间的连贯性。</p>
+                </div>
+                <figure id="progress" screen="mobile">
+                    <div class="simulator" chrome="android" aria-hidden="true" animated>
+                        <div class="application" lang="en-US">
+                            <div class="toolbar" variant="app-bar" solid="end">
+                                <div class="omnibox">
+                                    <cmd-icon name="lock" size="small"></cmd-icon>
+                                    <span type-scale="subheading">android.com</span>
+                                </div>
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="check_box_outline_blank"></cmd-icon>
+                                    <span type-scale="body2">4</span>
+                                </div>
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="more_vert"></cmd-icon>
+                                </div>
+                            </div>
+                            <div class="page" theme="light">
+                                <div class="header">
+                                    <cmd-icon name="menu"></cmd-icon>
+                                    <img src="../global/resources/android.com/android-wordmark-8EC047.png">
+                                    <cmd-icon name="search"></cmd-icon>
+                                </div>
+                                <div class="banner">
+                                    <span>be together. not the same.</span>
+                                    <p>welcome to android... be yourself.<br>do your thing. see what's up.</p>
+                                    <p><img src="../global/resources/android.com/andy.png"> create your android character</p>
+                                    <img src="../global/resources/android.com/play-btn.png">
+                                </div>
+                                <div class="controller">
+                                    <cmd-icon name="chevron_left"></cmd-icon>
+                                    <div class="dot active"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <cmd-icon name="chevron_right"></cmd-icon>
+                                </div>
+                                <div class="divider" horizontal></div>
+                                <div class="wrapper">
+                                    <span>Powering screens of all sizes</span>
+                                </div>
+                            </div>
+                            <div class="swipe-refresh" solid>
+                                <svg viewBox="0 0 40 40">
+                                    <circle cx="20" cy="20" r="8.75" fill="none" stroke="currentColor" stroke-width="2.5" pathLength="360" transform-origin="center" />
+                                    <path fill="currentColor" d="M 20 10 L 20 11.25 L 20 14 Z" transform-origin="center" />
+                                </svg>
+                            </div>
+                            <div class="overlay" variant="status-bar"></div>
+                            <div class="overlay" variant="navigation-bar"></div>
+                        </div>
+                        <div class="system">
+                            <div class="status">
+                                <span type-scale="body2">12:30</span>
+                                <cmd-icon name="battery_full_alt" size="small"></cmd-icon>
+                                <cmd-icon name="signal_cellular_4_bar" size="small"></cmd-icon>
+                                <cmd-icon name="signal_wifi_4_bar" size="small"></cmd-icon>
+                            </div>
+                            <div class="navigation">
+                                <cmd-icon name="arrow_back_system"></cmd-icon>
+                                <cmd-icon name="circle_home"></cmd-icon>
+                                <cmd-icon name="square_recent"></cmd-icon>
+                            </div>
+                        </div>
+                        <div class="user-input">
+                            <div class="touch" variant="swipe"></div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>跟随滑动进程的动画鼓励用户继续操作推动刷新进程。</p>
+                    </figcaption>
+                </figure>
+                <figure id="focus" screen="mobile">
+                    <div class="simulator" system="lockscreen" aria-hidden="true" animated>
+                        <div class="application" theme="dark">
+                            <img src="global/resources/wallpapers/wp_geo_1243.jpg">
+                            <div class="scrim" variant="fill"></div>
+                            <div class="clock">
+                                <span type-scale="display3">12:30</span>
+                                <span type-scale="body1">8月22日星期一</span>
+                            </div>
+                            <div class="actions">
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="mic"></cmd-icon>
+                                </div>
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="lock"></cmd-icon>
+                                </div>
+                                <div class="button" variant="icon">
+                                    <cmd-icon name="camera_alt"></cmd-icon>
+                                </div>
+                            </div>
+                            <span class="hint" type-scale="body1">向上滑动即可解锁</span>
+                        </div>
+                        <div class="system">
+                            <div class="status">
+                                <cmd-icon name="battery_full_alt" size="small"></cmd-icon>
+                                <cmd-icon name="signal_cellular_4_bar" size="small"></cmd-icon>
+                                <cmd-icon name="signal_wifi_4_bar" size="small"></cmd-icon>
+                                <span type-scale="body1">Android</span>
+                            </div>
+                            <div class="navigation">
+                                <cmd-icon name="arrow_back_system"></cmd-icon>
+                                <cmd-icon name="circle_home"></cmd-icon>
+                                <cmd-icon name="square_recent"></cmd-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>界面元素的运动既强调了提示文字，又指示了用户滑动操作的方向。</p>
+                    </figcaption>
+                </figure>
+            </section>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">装饰界面</h4>
+                    <p>动画的加入使界面变得生动有趣，富有情绪。同时动画也是传达品牌形象的途径。</p>
+                </div>
+                <figure id="polish" screen="mobile">
+                    <div class="simulator" plaid="shot" aria-hidden="true" animated>
+                        <div class="application" lang="en-US">
+                            <div class="toolbar" variant="app-bar prominent">
+                                <img src="global/resources/plaid/Shirt-Material-Design-Product-Icon-Wireframe.png" />
+                                <div class="overlay" variant="status-bar"></div>
+                            </div>
+                            <div class="title">
+                                <span type-scale="headline">Shirt Material Design Product Icon <br>Wireframe</span>
+                            </div>
+                            <div class="anchor">
+                                <div class="button" variant="fab" theme="dark">
+                                    <cmd-icon name="favorite_border"></cmd-icon>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <p type-scale="body1">A #materialdesign product icon wireframe for something <span>@nickbutcher</span> has <br>been cooking up.</p>
+                            </div>
+                            <div class="actions">
+                                <div class="like" unbounded>
+                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M 12 21.35 l -1.45 -1.315 C 5.4 15.36 2 12.275 2 8.5 C 2 5.415 4.415 3 7.5 3 c 1.74 0 3.41 0.81 4.5 2.085 C 13.09 3.81 14.76 3 16.5 3 c 3.085 0 5.5 2.415 5.5 5.5 c 0 3.775 -3.4 6.86 -8.55 11.535 L 12 21.35 z"></path>
+                                    </svg>
+                                    <span type-scale="body1">156 likes</span>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
+                                </div>
+                                <div class="view" unbounded>
+                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <defs>
+                                            <clipPath id="clip-path">
+                                                <circle cx="12" cy="7.683333333333334" r="11.816666666666666"></circle>
+                                            </clipPath>
+                                            <mask id="visibility-mask">
+                                                <circle fill="white" cx="12" cy="16.316666666666666" r="11.816666666666666" clip-path="url(#clip-path)"></circle>
+                                                <circle fill="black" cx="12" cy="12" r="5"></circle>
+                                                <circle fill="white" cx="12" cy="12" r="3"></circle>
+                                            </mask>
+                                        </defs>
+                                        <rect width="100%" height="100%" mask="url(#visibility-mask)"></rect>
+                                    </svg>
+                                    <span type-scale="body1">4834 views</span>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
+                                </div>
+                                <div class="share" unbounded>
+                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <defs>
+                                            <mask id="share-mask">
+                                                <path fill="none" stroke="white" stroke-width="1.7275578017968667" d="M 6 12 L 18 5"></path>
+                                                <path fill="none" stroke="white" stroke-width="1.7275578017968667" d="M 6 12 L 18 19"></path>
+                                                <circle fill="white" cx="18" cy="5" r="3"></circle>
+                                                <circle fill="white" cx="6" cy="12" r="3"></circle>
+                                                <circle fill="white" cx="18" cy="19" r="3"></circle>
+                                            </mask>
+                                        </defs>
+                                        <rect width="100%" height="100%" mask="url(#share-mask)"></rect>
+                                    </svg>
+                                    <span type-scale="body1">share</span>
+                                    <div class="overlay" variant="states">
+                                        <div class="ripple"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="player tile" variant="two" density="dense">
+                                <div class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/roman_nurik.png)"></div>
+                                <div class="text">
+                                    <span class="primary" type-scale="body2">Roman Nurik</span>
+                                    <span class="secondary" type-scale="body1">8 Sep 2015</span>
+                                </div>
+                            </div>
+                            <div class="overlay" variant="navigation-bar"></div>
+                        </div>
+                        <div class="system">
+                            <div class="status" theme="light">
+                                <span type-scale="body2">12:30</span>
+                                <cmd-icon name="battery_full_alt" size="small"></cmd-icon>
+                                <cmd-icon name="signal_cellular_4_bar" size="small"></cmd-icon>
+                                <cmd-icon name="signal_wifi_4_bar" size="small"></cmd-icon>
+                            </div>
+                            <div class="navigation">
+                                <cmd-icon name="arrow_back_system"></cmd-icon>
+                                <cmd-icon name="circle_home"></cmd-icon>
+                                <cmd-icon name="square_recent"></cmd-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>图标动画点缀了界面。</p>
+                    </figcaption>
+                </figure>
+                <figure id="brand" screen="mobile">
+                    <div class="simulator" basil aria-hidden="true" theme="light" animated>
+                        <div class="application" lang="en-US">
+                            <span class="title">BASiL</span>
+                            <div id="pot-pie" class="view">
+                                <div class="image">
+                                    <img src="global/resources/basil/pot-pie.png">
+                                </div>
+                                <div class="recipe">
+                                    <span class="name">Pot Pie</span>
+                                </div>
+                            </div>
+                            <div id="creamy-pesto-pasta" class="view">
+                                <div class="image">
+                                    <img src="global/resources/basil/creamy-pesto-pasta.png">
+                                </div>
+                                <div class="recipe">
+                                    <span class="name">Creamy Pesto Pasta</span>
+                                    <div class="divider" horizontal></div>
+                                    <p>Guilt-free gluten-free spaghetti pasta is sauteed in a garlic, kale pesto. It’s an easy and healthy dinner.</p>
+                                    <div class="info">
+                                        <div class="item">
+                                            <span>Calories</span>
+                                            <span>456g</span>
+                                        </div>
+                                        <div class="item">
+                                            <span>Protein</span>
+                                            <span>27g</span>
+                                        </div>
+                                        <div class="item">
+                                            <span>Fat</span>
+                                            <span>12g</span>
+                                        </div>
+                                    </div>
+                                    <div class="divider" horizontal></div>
+                                    <div class="not-included">
+                                        <div class="item">
+                                            <cmd-icon name="basil_gluten_free"></cmd-icon>
+                                            <span>Gluten-free</span>
+                                        </div>
+                                        <div class="item">
+                                            <cmd-icon name="basil_egg_free"></cmd-icon>
+                                            <span>Egg-free</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="details">
+                                <div class="divider" horizontal></div>
+                                <div class="tab-bar">
+                                    <div class="item" activated>
+                                        <span>INGREDIENTS</span>
+                                        <div class="overlay" variant="states">
+                                            <div class="ripple"></div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <span>DIRECTIONS</span>
+                                    </div>
+                                </div>
+                                <div class="divider" horizontal></div>
+                                <ul>
+                                    <li class="tile" variant="one">
+                                        <cmd-icon name="add_circle"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary">Basil</span>
+                                            <div class="divider" horizontal></div>
+                                            <span class="secondary">6 tbsp</span>
+                                        </div>
+                                    </li>
+                                    <li class="tile" variant="one">
+                                        <cmd-icon name="add_circle"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary">Gluten-free Spaghetti</span>
+                                            <div class="divider" horizontal></div>
+                                            <span class="secondary">2 cups</span>
+                                        </div>
+                                    </li>
+                                    <li class="tile" variant="one">
+                                        <cmd-icon name="add_circle"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary">Garlic</span>
+                                            <div class="divider" horizontal></div>
+                                            <span class="secondary">1 tbsp</span>
+                                        </div>
+                                    </li>
+                                    <li class="tile" variant="one">
+                                        <cmd-icon name="add_circle"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary">Ricotta</span>
+                                            <div class="divider" horizontal></div>
+                                            <span class="secondary">4 cups</span>
+                                        </div>
+                                    </li>
+                                    <li class="tile" variant="one">
+                                        <cmd-icon name="add_circle"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary">Kale</span>
+                                            <div class="divider" horizontal></div>
+                                            <span class="secondary">3 cups</span>
+                                        </div>
+                                    </li>
+                                    <li class="tile" variant="one">
+                                        <cmd-icon name="add_circle"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary">Red Pepper Flakes</span>
+                                            <div class="divider" horizontal></div>
+                                            <span class="secondary">1 tbsp</span>
+                                        </div>
+                                    </li>
+                                    <li class="tile" variant="one">
+                                        <cmd-icon name="add_circle"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary">Extra Virgin Olive Oil</span>
+                                            <div class="divider" horizontal></div>
+                                            <span class="secondary">1 tbsp</span>
+                                        </div>
+                                    </li>
+                                    <li class="tile" variant="one">
+                                        <cmd-icon name="add_circle"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary">Salt</span>
+                                            <div class="divider" horizontal></div>
+                                            <span class="secondary">1 tbsp</span>
+                                        </div>
+                                    </li>
+                                    <li class="tile" variant="one">
+                                        <cmd-icon name="add_circle"></cmd-icon>
+                                        <div class="text">
+                                            <span class="primary">Pine Nuts</span>
+                                            <div class="divider" horizontal></div>
+                                            <span class="secondary">2 tbsp</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <cmd-icon name="basil_expand_more"></cmd-icon>
+                            <div class="overlay" variant="status-bar"></div>
+                            <div class="overlay" variant="navigation-bar"></div>
+                        </div>
+                        <div class="system">
+                            <div class="status" theme="light">
+                                <span type-scale="body2">12:30</span>
+                                <cmd-icon name="battery_full_alt" size="small"></cmd-icon>
+                                <cmd-icon name="signal_cellular_4_bar" size="small"></cmd-icon>
+                                <cmd-icon name="signal_wifi_4_bar" size="small"></cmd-icon>
+                            </div>
+                            <div class="navigation">
+                                <cmd-icon name="arrow_back_system"></cmd-icon>
+                                <cmd-icon name="circle_home"></cmd-icon>
+                                <cmd-icon name="square_recent"></cmd-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>重复出现、贯穿流程的转场效果形成、丰富了产品形象。</p>
+                    </figcaption>
+                </figure>
+            </section>
+        </article>
+
+        <hr class="divider" horizontal />
+
+        <article id="duration" horizontal>
+            <h3 type-scale="headline">时长</h3>
+            <div class="paragraphs" long>
+                <p>无论何种动画都应保持合适的时长。特别是对于如界面转场、状态反馈等功能性动画，既不能太慢，使动画阻碍操作进程或分散用户注意力而起负面作用；又不能太快，使动画难以被用户感知而失去作用。</p>
+            </div>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">动态时长</h4>
+                    <p>由于界面元素物理量的不同，用户输入同样的力，能够改变界面元素运动状态的程度（变化速率、达到指定程度用时）也就不同。基于时长的动画设计系统可以通过控制时长表现这种规律。</p>
+                    <p>因此，当元素移动或转换时，变化幅度越大，动画时长则越长。对于手机尺寸的屏幕或窗口，通常：</p>
+                    <ul>
+                        <li>较小范围的变化需要 200ms</li>
+                        <li>中等范围的变化需要 300ms</li>
+                        <li>较大范围的变化需要 400ms</li>
+                    </ul>
+                    <p>动画时长超过 500ms 可能显得拖沓，短于 100 ms 可能难以被看清。</p>
+                </div>
+                <figure id="distance">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="group">
+                            <div class="line">
+                                <div class="surface" solid></div>
+                            </div>
+                            <span class="time" type-scale="subheading">ms</span>
+                        </div>
+                        <div class="group">
+                            <div class="line">
+                                <div class="surface" solid></div>
+                            </div>
+                            <span class="time" type-scale="subheading">ms</span>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>动画时长因位移距离长短而异。</p>
+                    </figcaption>
+                </figure>
+                <div class="paragraphs">
+                    <p>进场元素需要吸引用户的注意力，因此动画时长偏长；退场元素无需用户继续注意，因此动画时长偏短。另外，为了给一组动画的每个环节分配足够的注意时长，参与元素越多、变化形式越多的动画组时长越长；反之越简单的动画组时长越短。</p>
+                    <p>对比手机，可穿戴设备屏幕更小，界面元素变化幅度更小，动画时长可以更短；平板设备屏幕更大，界面元素变化幅度更大，动画时长可以更长。桌面设备虽然屏幕较大，但多进程和高频的操作环境不允许过于复杂的过渡动画，因此动画时长通常较短。</p>
+                </div>
+                <figure id="area">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="group">
+                            <div class="switch">
+                                <div class="track"></div>
+                                <div class="thumb"></div>
+                            </div>
+                            <span class="time" type-scale="subheading">250ms</span>
+                        </div>
+                        <div class="group">
+                            <div class="panel">
+                                <div class="button" variant="icon">
+                                    <svg viewBox="0 0 24 12" fill="currentColor" aria-hidden="true">
+                                        <path d="M 7.414213562373095 2.585786437626905 L 12 7.17157287525381 L 16.585786437626904 2.585786437626905 L 18 4 L 12 10 L 6 4 Z"></path>
+                                    </svg>
+                                </div>
+                                <div class="divider" horizontal></div>
+                            </div>
+                            <span class="time" type-scale="subheading">展开：350ms / 闭合：300ms</span>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>动画时长因变化区域大小、进退关系、复杂程度而异。</p>
+                    </figcaption>
+                </figure>
+            </section>
+        </article>
+
+        <hr class="divider" horizontal />
+
+        <article id="speed" horizontal>
+            <h3 type-scale="headline">速率变化</h3>
+            <div class="paragraphs">
+                <p>在现实世界中，物体的受力多种多样。比如推动石块需要克服摩擦力，压缩弹簧需要克服弹力——向相对运动发展的速率是渐进提升的过程。滚动的石块会因为阻力停下，压实的弹簧会因为恢复力恢复原状——向相对静止发展的速率也是渐进降低的过程。</p>
+                <p>因此，界面元素唐突地以恒定速率移动或伸缩会显得非常不自然。基于时长的动画设计系统可以通过控制动画的速率曲线，调整进度与时长的关系表现加速或减速。</p>
+            </div>
+            <figure id="easing">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="graph">
+                        <span type-scale="subheading">进度</span>
+                        <svg class="medium" stroke="currentColor" viewBox="0 0 260 170" overflow="visible">
+                            <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                            <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                            <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="0%" />
+                            <path fill="none" stroke-width="2" d="M 0 170 C 104 170 52 0 260 0" />
+                        </svg>
+                        <svg class="medium" stroke="currentColor" viewBox="0 0 392 212" overflow="visible">
+                            <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                            <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                            <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="0%" />
+                            <path fill="none" stroke-width="2" d="M 0 212 C 156.8 212 78.4 0 392 0" />
+                        </svg>
+                        <span type-scale="subheading">时间</span>
+                    </div>
+                    <div class="demo">
+                        <div class="surface" solid></div>
+                        <span type-scale="subheading">恒定速率</span>
+                    </div>
+                    <div class="demo">
+                        <div class="surface" solid></div>
+                        <span type-scale="subheading">变化速率</span>
+                    </div>
+                </div>
+            </figure>
+            <div class="paragraphs">
+                <p>由于物体受各种力的时间和大小不同，状态变化的加速度大小也就不同。具有不同快慢的加速和减速过程可以使位移或伸缩动画效果更加自然。</p>
+            </div>
+            <figure id="asymmetric">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="graph">
+                        <span type-scale="subheading">进度</span>
+                        <svg class="medium" stroke="currentColor" viewBox="0 0 260 170" overflow="visible">
+                            <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                            <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                            <path fill="none" stroke-width="2" d="M 0 170 C 104 170 156 0 260 0" />
+                            <path fill="none" stroke-width="2" d="M 0 170 C 104 170 52 0 260 0" />
+                        </svg>
+                        <svg class="medium" stroke="currentColor" viewBox="0 0 392 212" overflow="visible">
+                            <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                            <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                            <path fill="none" stroke-width="2" d="M 0 212 C 156.8 212 235.2 0 392 0" />
+                            <path fill="none" stroke-width="2" d="M 0 212 C 156.8 212 78.4 0 392 0" />
+                        </svg>
+                        <span type-scale="subheading">时间</span>
+                    </div>
+                    <div class="demo">
+                        <div class="surface" solid></div>
+                        <span type-scale="subheading">对称变化</span>
+                    </div>
+                    <div class="demo">
+                        <div class="surface" solid></div>
+                        <span type-scale="subheading">非对称变化</span>
+                    </div>
+                </div>
+            </figure>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">预设速率曲线</h4>
+                    <h5 type-scale="subheading">标准曲线</h5>
+                    <p>界面元素动画的变化速率通常遵循标准曲线。该曲线表示变化速率先快速增大后缓慢减小。</p>
+                </div>
+                <figure id="standard">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="graph">
+                            <span type-scale="subheading">进度</span>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 260 170" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <path fill="none" stroke-width="2" d="M 0 170 C 104 170 52 0 260 0" />
+                                <path fill="none" stroke-width="2" d="M 0 170 C 104 170 52 0 260 0" />
+                            </svg>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 392 212" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <path fill="none" stroke-width="2" d="M 0 212 C 156.8 212 78.4 0 392 0" />
+                                <path fill="none" stroke-width="2" d="M 0 212 C 156.8 212 78.4 0 392 0" />
+                            </svg>
+                            <span type-scale="subheading">时间</span>
+                        </div>
+                        <div class="demo">
+                            <div class="surface" solid></div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>曲线描述：cubic-bezier(0.4, 0, 0.2, 1)</p>
+                    </figcaption>
+                </figure>
+                <div class="paragraphs">
+                    <h5 type-scale="subheading">减速曲线</h5>
+                    <p>若界面元素要进入、淡入可视区域或凭空伸展出现，可以施用减速曲线。该曲线表示变化速率从满速缓慢减小至零。</p>
+                </div>
+                <figure id="deceleration">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="graph">
+                            <span type-scale="subheading">进度</span>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 260 170" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <path fill="none" stroke-width="2" d="M 0 170 C 0 170 52 0 260 0" />
+                                <path fill="none" stroke-width="2" d="M 0 170 C 0 170 52 0 260 0" />
+                            </svg>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 392 212" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <path fill="none" stroke-width="2" d="M 0 212 C 0 212 78.4 0 392 0" />
+                                <path fill="none" stroke-width="2" d="M 0 212 C 0 212 78.4 0 392 0" />
+                            </svg>
+                            <span type-scale="subheading">时间</span>
+                        </div>
+                        <div class="demo">
+                            <div class="surface" solid></div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>曲线描述：cubic-bezier(0, 0, 0.2, 1)</p>
+                    </figcaption>
+                </figure>
+                <div class="paragraphs">
+                    <h5 type-scale="subheading">加速曲线</h5>
+                    <p>若界面元素要退出、淡出可视区域或收缩至消失，可以施用加速曲线。该曲线表示变化速率从零缓慢增大至满速。</p>
+                </div>
+                <figure id="acceleration">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="graph">
+                            <span type-scale="subheading">进度</span>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 260 170" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <path fill="none" stroke-width="2" d="M 0 170 C 104 170 260 0 260 0" />
+                                <path fill="none" stroke-width="2" d="M 0 170 C 104 170 260 0 260 0" />
+                            </svg>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 392 212" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <path fill="none" stroke-width="2" d="M 0 212 C 156.8 212 392 0 392 0" />
+                                <path fill="none" stroke-width="2" d="M 0 212 C 156.8 212 392 0 392 0" />
+                            </svg>
+                            <span type-scale="subheading">时间</span>
+                        </div>
+                        <div class="demo">
+                            <div class="surface" solid></div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>曲线描述：cubic-bezier(0.4, 0, 1, 1)</p>
+                    </figcaption>
+                </figure>
+                <div class="paragraphs">
+                    <h5 type-scale="subheading">对称标准曲线</h5>
+                    <p>若界面元素要暂时退至屏幕边缘，可以施用对称标准曲线。该曲线表示变化速率快速增大和减小。</p>
+                </div>
+                <figure id="sharp">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="graph">
+                            <span type-scale="subheading">进度</span>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 260 170" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <path fill="none" stroke-width="2" d="M 0 170 C 104 170 156 0 260 0" />
+                                <path fill="none" stroke-width="2" d="M 0 170 C 104 170 156 0 260 0" />
+                            </svg>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 392 212" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <path fill="none" stroke-width="2" d="M 0 212 C 156.8 212 235.2 0 392 0" />
+                                <path fill="none" stroke-width="2" d="M 0 212 C 156.8 212 235.2 0 392 0" />
+                            </svg>
+                            <span type-scale="subheading">时间</span>
+                        </div>
+                        <div class="demo">
+                            <div class="surface" solid></div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>曲线描述：cubic-bezier(0.4, 0, 0.6, 1)</p>
+                    </figcaption>
+                </figure>
+                <div class="paragraphs">
+                    <h5 type-scale="subheading">恒定曲线</h5>
+                    <p>对于不受阻力或受用户恒定输入影响的变化，可以施用恒定曲线。</p>
+                </div>
+                <figure id="linear">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="graph">
+                            <span type-scale="subheading">进度</span>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 260 170" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="0%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="0%" />
+                            </svg>
+                            <svg class="medium" stroke="currentColor" viewBox="0 0 392 212" overflow="visible">
+                                <line stroke-width="2" x1="0%" y1="0%" x2="0%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="100%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="0%" />
+                                <line stroke-width="2" x1="0%" y1="100%" x2="100%" y2="0%" />
+                            </svg>
+                            <span type-scale="subheading">时间</span>
+                        </div>
+                        <div class="demo">
+                            <div class="surface" solid></div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>曲线描述：cubic-bezier(0, 0, 1, 1)</p>
+                    </figcaption>
+                </figure>
+            </section>
+        </article>
+
+        <footer theme="dark">
+            <a draggable="false" href="material-design/elevation-shadows.html">
+                <span type-scale="subheading">上一节</span>
+                <span type-scale="title">
+                    <cmd-icon name="arrow_back"></cmd-icon>
+                    层级与阴影
+                </span>
+            </a>
+            <a draggable="false" href="motion/movement.html">
+                <span type-scale="subheading"> 下一节 </span>
+                <span type-scale="title">
+                    <cmd-icon name="arrow_forward"></cmd-icon>
+                    移动
+                </span>
+            </a>
+        </footer>
+    </main>
+
+    <script>
+        document.body.style.setProperty('--window-width', document.body.clientWidth);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+/*------------------------------------*\
+  进程指示器
+\*------------------------------------*/
+
+/*------------------------------------*\
+  滑动刷新组件
+\*------------------------------------*/
+
+.swipe-refresh {
+    position: absolute;
+    inline-size: 40px;
+    block-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--medium-emphasis-surface-color);
+    border-radius: 50%;
+    box-shadow: var(--shadow-z3);
+    translate: 0% -50%;
+}
+
+.swipe-refresh svg {
+    rotate: -20deg;
+}
+
+.swipe-refresh svg circle {
+    stroke-dasharray: 0 0 20 360;
+    rotate: -90deg;
+}

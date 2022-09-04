@@ -1,0 +1,72 @@
+/*------------------------------------*\
+  时钟
+\*------------------------------------*/
+
+.simulator[clock] {
+    --primary-color: var(--indigo-700);
+    --secondary-color: var(--red-600);
+}
+
+.simulator[clock] .overlay[variant="status-bar"] {
+    --status-bar-background-color: var(--indigo-900);
+}
+
+.simulator[clock] .application {
+    background-color: var(--primary-color);
+}
+
+.simulator[clock] .toolbar {
+    grid-template-columns: auto;
+    column-gap: 12px;
+    padding-inline-start: 0px;
+    box-shadow: var(--shadow-z0);
+}
+
+.simulator[clock] .tab-bar {
+    block-size: auto;
+    align-self: stretch;
+}
+
+.simulator[clock] .button[variant="fab"] {
+    inset-block-end: calc(48px + var(--keyline));
+    align-self: center;
+}
+
+.simulator[clock] .view {
+    inline-size: 100%;
+    block-size: 100%;
+    display: grid;
+    grid-template-rows: auto 56px;
+    row-gap: var(--keyline);
+    padding-block-end: calc(48px + var(--keyline));
+}
+
+.simulator[clock] .watch {
+    place-self: center;
+    inline-size: calc(4 * var(--increment));
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    outline: 4px solid white;
+}
+
+.simulator[clock] .watch span {
+    font-weight: lighter;
+}
+
+.simulator[clock] .watch span:first-of-type {
+    font-size: 5rem;
+    line-height: 6rem;
+}
+
+.simulator[clock] .menu {
+    inset-block-start: 24px;
+    inset-inline-end: 0px;
+}
+
+.simulator[clock] .menu .item {
+    inline-size: calc(3 * var(--increment));
+}

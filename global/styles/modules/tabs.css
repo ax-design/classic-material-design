@@ -1,0 +1,30 @@
+.tab-bar {
+    block-size: 48px;
+    display: flex;
+    color: var(--secondary-text-color);
+}
+
+.tab-bar .item {
+    flex-basis: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 72px;
+    max-width: 264px;
+    padding-inline: var(--keyline);
+    box-sizing: border-box;
+}
+
+.tab-bar .item[activated] {
+    color: var(--primary-text-color);
+}
+
+.tab-bar .item[activated]::after {
+    content: "";
+    position: absolute;
+    inline-size: 100%;
+    block-size: 2px;
+    align-self: flex-end;
+    background-color: var(--primary-text-color);
+}

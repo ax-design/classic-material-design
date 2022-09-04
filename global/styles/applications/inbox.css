@@ -1,0 +1,147 @@
+/*------------------------------------*\
+  全局设定
+\*------------------------------------*/
+
+.simulator[inbox] {
+    --primary-color: var(--cyan-500);
+    --secondary-color: var(--lime-a200);
+}
+
+.simulator[inbox] .application {
+    background-color: var(--medium-emphasis-surface-color);
+}
+
+.simulator[inbox] .toolbar {
+    box-shadow: var(--shadow-z0);
+}
+
+.simulator[inbox] .button[variant="fab"] {
+    inset-inline-end: var(--keyline);
+    inset-block-end: calc(48px + var(--keyline));
+    color: var(--secondary-text-color);
+}
+
+/*------------------------------------*\
+  主界面
+\*------------------------------------*/
+
+.simulator[inbox="main"] .application>.toolbar .overlay[variant="status-bar"] {
+    --status-bar-background-color: var(--cyan-700);
+}
+
+.simulator[inbox="main"] .application>.toolbar {
+    color: var(--secondary-text-color);
+}
+
+.simulator[inbox="main"] .application>.toolbar .title {
+    color: white;
+}
+
+.simulator[inbox="main"] .application .subheader {
+    color: var(--secondary-text-color);
+}
+
+.simulator[inbox="main"] .group {
+    margin-block-end: var(--keyline);
+    background-color: var(--medium-emphasis-surface-color);
+    box-shadow: var(--shadow-z2);
+}
+
+.simulator[inbox="main"] .tile {
+    padding-inline: var(--keyline);
+    grid-template-columns: 56px 1fr;
+}
+
+.simulator[inbox="main"] .group .tile .primary span {
+    color: var(--secondary-text-color);
+}
+
+.simulator[inbox="main"] .tile .secondary {
+    color: var(--primary-text-color);
+}
+
+.simulator[inbox="main"] .tile .secondary span {
+    color: var(--secondary-text-color);
+}
+
+.simulator[inbox="main"] .divider {
+    padding-left: calc(16px + var(--increment));
+}
+
+.simulator[inbox="main"] .button[variant="fab"] {
+    --surface-hint-color: rgba(255, 255, 255, 0.2);
+    --surface-shade-color: rgba(38, 50, 56, 0.2);
+    box-shadow: var(--shadow-z4);
+}
+
+/*------------------------------------*\
+  邮件内容
+\*------------------------------------*/
+
+.simulator[inbox] .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.simulator[inbox] .content .toolbar {
+    block-size: calc(var(--increment) + 72px);
+    grid-template-columns: min-content minmax(0px, 1fr);
+    color: var(--secondary-text-color);
+}
+
+.simulator[inbox] .content .toolbar .title {
+    transform: translateY(64px);
+    white-space: nowrap;
+}
+
+.simulator[inbox] .content .text {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: auto auto;
+}
+
+.simulator[inbox] .content .text .primary {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+}
+
+.simulator[inbox] .content .text .primary :not(span:first-of-type) {
+    color: var(--secondary-text-color);
+}
+
+.simulator[inbox] .content .text .secondary {
+    grid-column: 1 / -1;
+}
+
+.simulator[inbox] .content .text .button {
+    inset-block-end: 2px;
+    position: relative;
+    padding: 0px;
+    margin-inline-start: 12px;
+}
+
+.simulator[inbox] .content li>p {
+    padding-inline: calc(var(--increment) + 16px) var(--keyline);
+}
+
+.simulator[inbox] .content li:has(>p) .secondary {
+    color: var(--secondary-text-color);
+}
+
+.simulator[inbox] .content hr {
+    bottom: 104px;
+    position: sticky;
+    padding: 0;
+}
+
+.simulator[inbox] .content>.tile {
+    bottom: 48px;
+    position: sticky;
+    color: var(--hint-text-color);
+}
+
+.simulator[inbox] .content>.tile .primary {
+    color: var(--secondary-text-color);
+}
