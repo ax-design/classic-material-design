@@ -723,7 +723,6 @@
     --subheading-leading: 1.5em;
     --body-leading: 1.75em;
     --caption-leading: 1.75em;
-    text-align: justify;
 }
 
 :lang(en) {
@@ -736,7 +735,6 @@
     --subheading-leading: 1.5rem;
     --body-leading: 1.25rem;
     --caption-leading: 1rem;
-    text-align: initial;
 }
 
 [type-scale=display4] {

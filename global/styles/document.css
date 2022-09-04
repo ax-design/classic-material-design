@@ -405,6 +405,7 @@ h5 {
     p,
     ul,
     ol {
+        text-align: justify;
         user-select: text;
     }
 
