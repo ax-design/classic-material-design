@@ -663,13 +663,6 @@ figure[screen~="mobile"] .simulator {
 }
 
 /*------------------------------------*\
-  特别修改
-\*------------------------------------*/
-.application .toolbar[variant~="app-bar"] {
-    padding-block-start: var(--status-bar-block-size);
-}
-
-/*------------------------------------*\
   页脚导航
 \*------------------------------------*/
 footer {

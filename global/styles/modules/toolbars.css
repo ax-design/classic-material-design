@@ -52,3 +52,10 @@
 .toolbar[theme="light"] {
     color: var(--secondary-text-color);
 }
+
+/*------------------------------------*\
+  特别修改
+\*------------------------------------*/
+.application .toolbar[variant~="app-bar"] {
+    padding-block-start: var(--status-bar-block-size);
+}
