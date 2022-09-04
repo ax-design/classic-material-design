@@ -211,7 +211,7 @@
 }
 
 #color-overlap [play="on"] .expression::before {
-    animation-name: expressionShow, toVisible;
+    animation-name: expressionShow, hiddenToVisible;
     animation-duration: 2s, 4s;
     animation-delay: 0.5s;
     animation-timing-function: step-end, linear;
@@ -242,7 +242,7 @@
 
 #color-overlap [play="on"] .operator .button:nth-child(2) .overlay[variant="states"]::before {
     --custom-opacity: var(--ripple-opacity);
-    animation-name: appear, fade;
+    animation-name: toOpaque, toTransparent;
     animation-duration: 600ms, 480ms;
     animation-delay: 3.5s, 4.5s;
     animation-timing-function: linear;
@@ -252,7 +252,7 @@
 #color-overlap [play="on"] .button .overlay[variant="states"] .ripple {
     --custom-opacity: var(--ripple-opacity);
     visibility: visible;
-    animation-name: expand_scale, appear, fade;
+    animation-name: toExpand_scale, toOpaque, toTransparent;
     animation-duration: var(--exit-duration), 120ms, calc(1000ms / 3);
     animation-timing-function: var(--ripple-expand-curve), linear, linear;
     animation-fill-mode: both;
@@ -285,7 +285,7 @@
 }
 
 #color-overlap [play="on"] .result::before {
-    animation-name: resultShow, toVisible;
+    animation-name: resultShow, hiddenToVisible;
     animation-duration: 0.4s, 2.4s;
     animation-delay: 2.1s;
     animation-timing-function: step-end, linear;
@@ -303,7 +303,7 @@
 }
 
 #color-overlap [play="on"] .clear-ripple::before {
-    animation-name: expand_scale, fade;
+    animation-name: toExpand_scale, toTransparent;
     animation-duration: 400ms;
     animation-delay: 4.1s, 4.5s;
     animation-timing-function: var(--deceleration-curve), linear;
@@ -427,7 +427,7 @@
 }
 
 #relative-static [play="on"] .surfaces {
-    animation-name: surfacesMoveUp, moveClear;
+    animation-name: surfacesMoveUp, toMoveClear;
     animation-duration: 2s;
     animation-delay: 0.5s, 3s;
     animation-timing-function: var(--standard-curve);

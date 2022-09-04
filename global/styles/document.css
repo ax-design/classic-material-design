@@ -358,8 +358,8 @@ figure>:is(.illustration, .diagram, .simulator)::after {
     align-items: center;
     justify-content: center;
     transition-property: opacity;
-    transition-duration: 225ms;
-    transition-timing-function: var(--standard-curve);
+    transition-duration: 200ms;
+    transition-timing-function: linear;
 }
 
 .recommends {
@@ -452,7 +452,7 @@ figure[screen~="mobile"] .simulator {
 .diagram[play]::after,
 .simulator[play]::after {
     opacity: 0;
-    transition-duration: 195ms;
+    transition-duration: 150ms;
 }
 
 .diagram[play="on"],
@@ -579,12 +579,6 @@ figure[screen~="mobile"] .simulator {
 
     100% {
         scale: 1 1;
-    }
-}
-
-@keyframes navigationRippleFade {
-    100% {
-        opacity: 0;
     }
 }
 

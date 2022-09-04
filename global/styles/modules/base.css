@@ -9,19 +9,31 @@
     --ripple-expand-curve: cubic-bezier(0.17, 0.74, 0.4, 1);
 }
 
-@keyframes fade {
+@keyframes fromTransparent {
+    0% {
+        opacity: 0;
+    }
+}
+
+@keyframes toTransparent {
     100% {
         opacity: 0;
     }
 }
 
-@keyframes appear {
+@keyframes fromOpaque {
+    0% {
+        opacity: var(--custom-opacity, 1);
+    }
+}
+
+@keyframes toOpaque {
     100% {
         opacity: var(--custom-opacity, 1);
     }
 }
 
-@keyframes toVisible {
+@keyframes hiddenToVisible {
     0% {
         visibility: hidden;
     }
@@ -31,19 +43,79 @@
     }
 }
 
-@keyframes expand_scale {
+@keyframes visibleToHidden {
+    0% {
+        visibility: visible;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes fromExpand_scale {
+    0% {
+        scale: 1;
+    }
+}
+
+@keyframes toExpand_scale {
     100% {
         scale: 1;
     }
 }
 
-@keyframes shrink_inlineSize {
+@keyframes fromCollapse_scale {
+    0% {
+        scale: 0;
+    }
+}
+
+@keyframes toCollapse_scale {
+    100% {
+        scale: 0;
+    }
+}
+
+@keyframes fromCollapse_size {
+    0% {
+        inline-size: 0px;
+        block-size: 0px;
+    }
+}
+
+@keyframes toCollapse_size {
+    100% {
+        inline-size: 0px;
+        block-size: 0px;
+    }
+}
+
+@keyframes fromCollapse_inlineSize {
+    0% {
+        inline-size: 0px;
+    }
+}
+
+@keyframes toCollapse_inlineSize {
     100% {
         inline-size: 0px;
     }
 }
 
-@keyframes moveClear {
+@keyframes fromCollapse_blockSize {
+    0% {
+        block-size: 0px;
+    }
+}
+
+@keyframes toCollapse_blockSize {
+    100% {
+        block-size: 0px;
+    }
+}
+
+@keyframes toMoveClear {
     100% {
         translate: 0px 0px;
     }
