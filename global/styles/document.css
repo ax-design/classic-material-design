@@ -426,6 +426,10 @@ h5 {
         margin-block-end: 1.75em;
     }
 
+    p[type-scale="title"]:not(:last-child) {
+        margin-block-end: 1.5em;
+    }
+
     p+ul {
         margin-block-start: -0.875em;
     }
