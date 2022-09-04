@@ -103,6 +103,7 @@ body>.divider[vertical] {
 main>.toolbar {
     z-index: 4;
     grid-column: 1 / -1;
+    align-self: start;
 }
 
 main>.toolbar .title {
@@ -126,13 +127,8 @@ main>.toolbar[variant~="prominent"] {
 
 @keyframes appBarSurfaceFlex {
     0% {
-        block-size: calc(4 * var(--increment));
+        padding-block-end: calc(3 * var(--increment));
         box-shadow: var(--shadow-z0);
-    }
-
-    100% {
-        block-size: var(--increment);
-        box-shadow: var(--shadow-z4);
     }
 }
 
@@ -147,10 +143,6 @@ main>.toolbar[variant~="prominent"]::after {
 @keyframes appBarBorderShow {
     0% {
         border-block-end-color: transparent;
-    }
-
-    100% {
-        border-block-end-color: var(--surface-shade-color);
     }
 }
 
@@ -167,12 +159,6 @@ main>.toolbar[variant~="prominent"] .title {
         transform: translateY(calc(2 * var(--increment)));
         font-size: 3.5rem;
         font-weight: 400;
-    }
-
-    100% {
-        transform: translateY(0px);
-        font-size: 1.25rem;
-        font-weight: 500;
     }
 }
 
@@ -665,6 +651,7 @@ figure[screen~="mobile"] .simulator {
 /*------------------------------------*\
   页脚导航
 \*------------------------------------*/
+
 footer {
     position: relative;
     display: flex;
@@ -778,13 +765,20 @@ footer cmd-icon {
         --content-unit-inline-size: auto;
     }
 
-    main>.toolbar {
-        --title-margin-final-offset: 12px;
+    @keyframes appBarSurfaceFlex {
+        0% {
+            padding-block-end: calc(2 * var(--increment));
+            box-shadow: var(--shadow-z0);
+        }
     }
 
-    main>.toolbar[variant~="prominent"] {
-        --title-margin-final-offset: calc(var(--increment) + 12px);
-        --title-margin-begin-offset: 12px;
+    @keyframes appBarTextScale {
+        0% {
+            transform: translateY(calc(1.5 * var(--increment)));
+            font-size: 2.8125rem;
+            font-weight: 400;
+        }
+    }
     }
 
     figure {

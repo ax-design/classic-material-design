@@ -5,7 +5,8 @@ footer a {
 /*------------------------------------*\
   正文
 \*------------------------------------*/
-main {
+
+main:has(>.toolbar[variant~="prominent"]) {
     grid-template-rows: calc(3 * var(--increment));
 }
 
@@ -94,6 +95,12 @@ main>picture {
 
     #system .surface:nth-child(5) {
         display: none;
+    }
+}
+
+@media (width < 392px) {
+    main:has(>.toolbar[variant~="prominent"]) {
+        grid-template-rows: calc(2 * var(--increment));
     }
 }
 
