@@ -23,15 +23,15 @@ template.innerHTML = `
         <li interact><a draggable="false" href="material-design/elevation-shadows.html">层级与阴影</a></li>
     </ul>
 </details>
-<details inert>
+<details>
     <summary type-scale="body2">动画效果</summary>
     <ul>
         <li interact><a draggable="false" href="motion/material-motion.html">运动机理</a></li>
-        <li interact><a draggable="false" href="motion/movement.html">移动</a></li>
-        <li interact><a draggable="false" href="motion/transforming-material.html">转换</a></li>
-        <li interact><a draggable="false" href="motion/choreography.html">编排</a></li>
-        <li interact><a draggable="false" href="motion/responsive-interaction.html">作用反馈</a></li>
-        <li interact><a draggable="false" href="motion/creative-customization.html">创意定制</a></li>
+        <li interact inert><a draggable="false" href="motion/movement.html">移动</a></li>
+        <li interact inert><a draggable="false" href="motion/transforming-material.html">转换</a></li>
+        <li interact inert><a draggable="false" href="motion/choreography.html">编排</a></li>
+        <li interact inert><a draggable="false" href="motion/responsive-interaction.html">作用反馈</a></li>
+        <li interact inert><a draggable="false" href="motion/creative-customization.html">创意定制</a></li>
     </ul>
 </details>
 <details inert>

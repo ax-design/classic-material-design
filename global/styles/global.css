@@ -7,6 +7,7 @@
 @import "./modules/lists.css" layer(base);
 @import "./modules/menus.css" layer(base);
 @import "./modules/progress_indicators.css" layer(base);
+@import "./modules/selection-controls.css" layer(base);
 @import "./modules/sheets.css" layer(base);
 @import "./modules/tabs.css" layer(base);
 @import "./document.css" layer(document);

@@ -1,0 +1,121 @@
+/*------------------------------------*\
+  Plaid
+\*------------------------------------*/
+
+.simulator[plaid="shot"] {
+    --secondary-color: #ea4c89;
+}
+
+.simulator[plaid="shot"] .overlay[variant="status-bar"] {
+    --status-bar-background-color: var(--green-a400);
+}
+
+.simulator[plaid="shot"] .toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    block-size: calc(100cqi * 3 / 4);
+    box-shadow: var(--shadow-z0);
+}
+
+.simulator[plaid="shot"] .title {
+    font-family: "Roboto Mono", monospace;
+    background-color: var(--low-emphasis-surface-color);
+}
+
+.simulator[plaid="shot"] .title::before {
+    content: "";
+    float: inline-end;
+    inline-size: calc(56px + var(--keyline) * 2);
+    block-size: 100%;
+    shape-outside: circle(calc((56px + var(--keyline) * 2) / 2) at 50% 100%);
+}
+
+.simulator[plaid="shot"] .title span {
+    display: block;
+    padding: var(--keyline);
+}
+
+.simulator[plaid="shot"] .anchor {
+    inset-block-start: calc(100cqi * 3 / 4 + var(--status-bar-block-size) - 28px);
+    position: sticky;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-inline: var(--keyline);
+}
+
+.simulator[plaid="shot"] .button[variant="fab"] {
+    --surface-shade-color: rgb(62 39 35 / 0.2);
+}
+
+.simulator[plaid="shot"] .description {
+    color: var(--hint-text-color);
+}
+
+.simulator[plaid="shot"] .description::before {
+    content: "";
+    float: inline-end;
+    inline-size: calc(56px + var(--keyline) * 2);
+    block-size: 100%;
+    shape-outside: circle(calc((56px + var(--keyline) * 2) / 2) at 50% 0%);
+}
+
+.simulator[plaid="shot"] .description p {
+    padding: var(--keyline);
+}
+
+.simulator[plaid="shot"] .description span {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.simulator[plaid="shot"] .actions {
+    display: flex;
+    padding-inline: var(--keyline);
+    margin-block: 8px;
+    color: var(--secondary-text-color);
+}
+
+.simulator[plaid="shot"] .actions>div {
+    flex-basis: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 4px;
+}
+
+.simulator[plaid="shot"] .actions svg {
+    inline-size: 1.125rem;
+    block-size: 1.125rem;
+}
+
+.simulator[plaid="shot"] .actions span {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-variant-numeric: oldstyle-nums;
+    font-variant-caps: small-caps;
+}
+
+.simulator[plaid="shot"] .player {
+    grid-template-columns: min-content 1fr;
+    column-gap: var(--keyline);
+    direction: rtl;
+    margin-block: 8px;
+}
+
+.simulator[plaid="shot"] .player span {
+    font-variant-numeric: oldstyle-nums;
+    font-variant-caps: small-caps;
+}
+
+.simulator[plaid="shot"] .player span:first-of-type {
+    color: var(--secondary-text-color);
+}
+
+.simulator[plaid="shot"] .player span:last-of-type {
+    color: var(--hint-text-color);
+}

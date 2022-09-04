@@ -1,0 +1,76 @@
+/*------------------------------------*\
+  开关
+\*------------------------------------*/
+
+.switch {
+    position: relative;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch .track {
+    inline-size: 34px;
+    block-size: 14px;
+    margin: 5px 3px;
+    border-radius: 7px;
+    background-color: var(--switch-off-track-color);
+}
+
+.switch[on] .track {
+    background-color: var(--secondary-color);
+    opacity: 0.5;
+}
+
+.switch .thumb {
+    position: absolute;
+    inline-size: 20px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--switch-off-thumb-color);
+    border-radius: 50%;
+    box-shadow: var(--shadow-z1);
+    translate: -10px;
+}
+
+.switch[on] .thumb {
+    translate: 10px;
+}
+
+.switch[on] .thumb::after {
+    border-top-color: var(--surface-hint-color, rgba(255, 255, 255, 0.2));
+    border-bottom-color: var(--surface-shade-color, rgba(33, 33, 33, 0.2));
+    background-color: var(--secondary-color);
+}
+
+.switch[on] .thumb::after {
+    background-color: var(--secondary-color);
+}
+
+/*------------------------------------*\
+  主题
+\*------------------------------------*/
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --switch-off-track-color: rgb(0 0 0 / 0.38);
+        --switch-off-thumb-color: var(--high-emphasis-surface-color);
+    }
+}
+
+[theme~="light"] {
+    --switch-off-track-color: rgb(0 0 0 / 0.38);
+    --switch-off-thumb-color: var(--high-emphasis-surface-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --switch-off-track-color: rgb(255 255 255 / 0.3);
+        --switch-off-thumb-color: var(--grey-400);
+    }
+}
+
+[theme~="dark"] {
+    --switch-off-track-color: rgb(255 255 255 / 0.3);
+    --switch-off-thumb-color: var(--grey-400);
+}

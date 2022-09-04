@@ -550,7 +550,8 @@
 }
 
 [solid]::after,
-.button[variant~="fab"]::after {
+.button[variant~="fab"]::after,
+.switch .thumb::after {
     content: "";
     inset: 0;
     position: absolute;
@@ -871,6 +872,7 @@
 /*------------------------------------*\
   遮罩
 \*------------------------------------*/
+
 .scrim {
     position: absolute;
     opacity: 0.4;
@@ -892,12 +894,19 @@
 /*------------------------------------*\
   图标
 \*------------------------------------*/
+
 cmd-icon {
     inline-size: 1.5rem;
     block-size: 1.5rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+}
+
+cmd-icon[product] {
+    inline-size: 3rem;
+    block-size: auto;
+    aspect-ratio: 1 / 1;
 }
 
 cmd-icon[size="small"] {
@@ -910,7 +919,9 @@ cmd-icon[size="large"] {
     block-size: 2.25rem;
 }
 
-cmd-icon[name="more_vert"] {
+cmd-icon[name="more_vert"],
+cmd-icon[name="chevron_left"],
+cmd-icon[name="chevron_right"] {
     inline-size: 0.75rem;
     block-size: 1.5rem;
 }

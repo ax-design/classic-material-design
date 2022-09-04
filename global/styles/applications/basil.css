@@ -1,0 +1,217 @@
+/*------------------------------------*\
+  Basil
+\*------------------------------------*/
+
+.simulator[basil] {
+    --basil-green-100: #b9e4c9;
+    --basil-green-500: #37966f;
+    --basil-green-800: #356859;
+    --basil-orange-50: #fffbe6;
+    --basil-orange-800: #fd5523;
+    --primary-color: var(--basil-green-800);
+    --secondary-color: var(--basil-orange-800);
+    --divider-color: var(--primary-color);
+}
+
+.simulator[basil] .overlay[variant="status-bar"] {
+    --status-bar-background-color: #ece9d5;
+}
+
+.simulator[basil] .application {
+    inline-size: 100%;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-auto-flow: column;
+    background-color: var(--basil-orange-50);
+}
+
+.simulator[basil] .title {
+    justify-self: center;
+    position: absolute;
+    display: block;
+    margin-block: 4px;
+    color: var(--primary-color);
+    font-family: "Montserrat", sans-serif;
+    font-size: 3.75rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.1em;
+}
+
+.simulator[basil] cmd-icon[name="basil_expand_more"] {
+    justify-self: center;
+    align-self: end;
+    position: absolute;
+    inline-size: 3rem;
+    block-size: 3rem;
+    margin-block-end: 48px;
+    color: var(--primary-color);
+}
+
+.simulator[basil] .view {
+    inline-size: 100cqi;
+    display: flex;
+    flex-direction: column;
+    padding-block-start: calc(56px + var(--status-bar-block-size));
+}
+
+.simulator[basil] .image {
+    flex-shrink: 0;
+    position: relative;
+    margin: 32px;
+    overflow: clip;
+}
+
+.simulator[basil] .name {
+    margin-block-end: 24px;
+    color: var(--secondary-color);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+
+.simulator[basil] #pot-pie .name {
+    font-size: 6rem;
+}
+
+.simulator[basil] #creamy-pesto-pasta .name {
+    font-size: 3rem;
+}
+
+.simulator[basil] .recipe {
+    display: flex;
+    flex-direction: column;
+    block-size: 100%;
+    color: var(--primary-color);
+    font-family: "Lekton", sans-serif;
+}
+
+.simulator[basil] .recipe>.divider {
+    padding-inline: 32px;
+}
+
+.simulator[basil] .recipe p {
+    margin: 24px 32px;
+    padding-inline: 32px;
+    font-size: 1.3125rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    letter-spacing: 0.15px;
+    text-align: center;
+}
+
+.simulator[basil] .info {
+    align-self: stretch;
+    position: relative;
+    display: flex;
+    margin: var(--keyline);
+}
+
+.simulator[basil] .info .item {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 8px;
+}
+
+.simulator[basil] .info .item:nth-child(2) {
+    border-inline: 1px solid rgb(55 150 111 / 0.5);
+}
+
+.simulator[basil] .info .item span:first-of-type {
+    font-size: 0.9375rem;
+    line-height: 1;
+}
+
+.simulator[basil] .info .item span:last-of-type {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.simulator[basil] .info+.divider {
+    margin-block: 4px;
+}
+
+.simulator[basil] .not-included {
+    display: flex;
+    justify-content: center;
+    margin-inline: 32px;
+    font-weight: 700;
+}
+
+.simulator[basil] .not-included .item {
+    block-size: 48px;
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    padding-inline: var(--keyline);
+}
+
+.simulator[basil] .details {
+    --primary-text-color: currentColor;
+    --secondary-text-color: currentColor;
+    z-index: 4;
+    inset-inline: 0;
+    inset-block-end: -100%;
+    min-block-size: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-family: "Lekton", sans-serif;
+    color: var(--primary-color);
+    background-color: var(--basil-orange-50);
+    box-shadow: var(--shadow-z0);
+}
+
+.simulator[basil] .details>.divider {
+    --divider-color: rgb(55 150 111 / 0.12);
+}
+
+.simulator[basil] .details .tab-bar {
+    block-size: var(--increment);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.simulator[basil] .details .tab-bar .item[activated]::after {
+    inline-size: calc(100% - 2 * var(--keyline));
+    block-size: 1px;
+}
+
+.simulator[basil] .details ul {
+    margin-block: 8px;
+}
+
+.simulator[basil] .details .tile {
+    grid-template-columns: 44px 1fr;
+}
+
+.simulator[basil] .details .tile .text {
+    grid-template-columns: min-content 1fr min-content;
+    align-items: baseline;
+    column-gap: 12px;
+}
+
+.simulator[basil] .details .tile .text .primary {
+    font-size: 1.0625rem;
+    font-weight: 700;
+}
+
+.simulator[basil] .details .tile .text .secondary {
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.simulator[basil] .details .tile .divider {
+    --divider-color: var(--basil-green-500);
+}
+
+.simulator[basil] .details .tile .divider::before {
+    block-size: 0px;
+    border-block-end: 2px dotted var(--divider-color);
+    background-color: transparent;
+}
