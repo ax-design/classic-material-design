@@ -185,6 +185,7 @@ main>.toolbar[variant~="prominent"] .title {
 /*------------------------------------*\
   内容
 \*------------------------------------*/
+
 main {
     flex-grow: 1;
     display: grid;
@@ -237,10 +238,21 @@ article {
     scroll-margin-block-start: calc(2 * var(--increment));
 }
 
+article[horizontal] section {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(var(--content-columns), var(--content-unit-inline-size));
+    gap: var(--content-column-gap);
+}
+
 article[vertical] section {
     display: flex;
     flex-direction: column;
     margin-block-end: var(--keyline);
+}
+
+figure:not(:has(p))+section {
+    margin-block-start: calc(2 * var(--keyline));
 }
 
 .paragraphs {
