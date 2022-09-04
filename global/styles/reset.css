@@ -1,0 +1,76 @@
+/*------------------------------------*\
+  重置
+\*------------------------------------*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+figure {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h1,
+h2,
+h4,
+h5,
+h6 {
+    line-height: 1;
+}
+
+img {
+    inline-size: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+    -webkit-user-drag: none;
+}
+
+ol,
+ul,
+li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ol li {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+p {
+    margin: 0;
+}
+
+table {
+    block-size: fit-content;
+}
+
+thead {
+    border-spacing: 0;
+    color: var(--secondary-text-color);
+}
+
+th {
+    font-weight: inherit;
+    text-align: start;
+}
+
+th,
+td {
+    position: relative;
+}
+
+video {
+    inline-size: 100%;
+}

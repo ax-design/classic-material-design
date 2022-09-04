@@ -21,23 +21,21 @@
     justify-content: center;
 }
 
-.simulator[calendar="schedule"] .app-bar {
+.simulator[calendar="schedule"] .toolbar {
+    z-index: 4;
     inset-inline: 0;
     position: absolute;
+    color: var(--secondary-text-color);
     background-color: var(--low-emphasis-surface-color);
 }
 
-.simulator[calendar="schedule"] .app-bar .title {
+.simulator[calendar="schedule"] .toolbar .title {
     display: flex;
     align-items: center;
 }
 
-.simulator[calendar="schedule"] .app-bar .title cmd-icon {
+.simulator[calendar="schedule"] .toolbar .title cmd-icon {
     color: var(--secondary-text-color);
-}
-
-.simulator[calendar="schedule"] .overlay .status {
-    background-color: var(--status-bar-background-color);
 }
 
 .simulator[calendar="schedule"] .schedule {

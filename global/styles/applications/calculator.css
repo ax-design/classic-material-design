@@ -6,10 +6,6 @@
     --secondary-color: var(--teal-a400);
 }
 
-.simulator[calculator] .overlay .status {
-    background-color: var(--status-bar-background-color);
-}
-
 .simulator[calculator] .display {
     order: -1;
     position: relative;
@@ -23,12 +19,12 @@
     overflow: clip;
 }
 
-.simulator[calculator] .app-bar {
+.simulator[calculator] .toolbar {
     align-self: stretch;
     justify-content: space-between;
 }
 
-.simulator[calculator] .app-bar .button {
+.simulator[calculator] .toolbar .button {
     color: var(--secondary-text-color);
 }
 
@@ -104,11 +100,6 @@
     color: var(--secondary-text-color);
     text-transform: none;
     font-weight: 400;
-}
-
-.simulator[calculator] .scrim {
-    inset: 0;
-    position: absolute;
 }
 
 @container simulator (width < 520px) {

@@ -1,282 +1,4 @@
 /*------------------------------------*\
-  层面
-\*------------------------------------*/
-:root {
-    --shadow-z0: 0px 0px 0px 0px rgb(0 0 0 / 0.2), 0px 0px 0px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 0px rgb(0 0 0 / 0.12);
-    --shadow-z1: 0px 2px 1px -1px rgb(0 0 0 / 0.2), 0px 1px 1px 0px rgb(0 0 0 / 0.14), 0px 1px 3px 0px rgb(0 0 0 / 0.12);
-    --shadow-z2: 0px 3px 1px -2px rgb(0 0 0 / 0.2), 0px 2px 2px 0px rgb(0 0 0 / 0.14), 0px 1px 5px 0px rgb(0 0 0 / 0.12);
-    --shadow-z3: 0px 3px 3px -2px rgb(0 0 0 / 0.2), 0px 3px 4px 0px rgb(0 0 0 / 0.14), 0px 1px 8px 0px rgb(0 0 0 / 0.12);
-    --shadow-z4: 0px 2px 4px -1px rgb(0 0 0 / 0.2), 0px 4px 5px 0px rgb(0 0 0 / 0.14), 0px 1px 10px 0px rgb(0 0 0 / 0.12);
-    --shadow-z5: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 5px 8px 0px rgb(0 0 0 / 0.14), 0px 1px 14px 0px rgb(0 0 0 / 0.12);
-    --shadow-z6: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 6px 10px 0px rgb(0 0 0 / 0.14), 0px 1px 18px 0px rgb(0 0 0 / 0.12);
-    --shadow-z7: 0px 4px 5px -2px rgb(0 0 0 / 0.2), 0px 7px 10px 1px rgb(0 0 0 / 0.14), 0px 2px 16px 1px rgb(0 0 0 / 0.12);
-    --shadow-z8: 0px 5px 5px -3px rgb(0 0 0 / 0.2), 0px 8px 10px 1px rgb(0 0 0 / 0.14), 0px 3px 14px 2px rgb(0 0 0 / 0.12);
-    --shadow-z9: 0px 5px 6px -3px rgb(0 0 0 / 0.2), 0px 9px 12px 1px rgb(0 0 0 / 0.14), 0px 3px 16px 2px rgb(0 0 0 / 0.12);
-    --shadow-z10: 0px 6px 6px -3px rgb(0 0 0 / 0.2), 0px 10px 14px 1px rgb(0 0 0 / 0.14), 0px 4px 18px 3px rgb(0 0 0 / 0.12);
-    --shadow-z11: 0px 6px 7px -4px rgb(0 0 0 / 0.2), 0px 11px 15px 1px rgb(0 0 0 / 0.14), 0px 4px 20px 3px rgb(0 0 0 / 0.12);
-    --shadow-z12: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 12px 17px 2px rgb(0 0 0 / 0.14), 0px 5px 22px 4px rgb(0 0 0 / 0.12);
-    --shadow-z13: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 13px 19px 2px rgb(0 0 0 / 0.14), 0px 5px 24px 4px rgb(0 0 0 / 0.12);
-    --shadow-z14: 0px 7px 9px -4px rgb(0 0 0 / 0.2), 0px 14px 21px 2px rgb(0 0 0 / 0.14), 0px 5px 26px 4px rgb(0 0 0 / 0.12);
-    --shadow-z15: 0px 8px 9px -5px rgb(0 0 0 / 0.2), 0px 15px 22px 2px rgb(0 0 0 / 0.14), 0px 6px 28px 5px rgb(0 0 0 / 0.12);
-    --shadow-z16: 0px 8px 10px -5px rgb(0 0 0 / 0.2), 0px 16px 24px 2px rgb(0 0 0 / 0.14), 0px 6px 30px 5px rgb(0 0 0 / 0.12);
-    --shadow-z17: 0px 8px 11px -5px rgb(0 0 0 / 0.2), 0px 17px 26px 2px rgb(0 0 0 / 0.14), 0px 6px 32px 5px rgb(0 0 0 / 0.12);
-    --shadow-z18: 0px 9px 11px -5px rgb(0 0 0 / 0.2), 0px 18px 28px 2px rgb(0 0 0 / 0.14), 0px 7px 34px 6px rgb(0 0 0 / 0.12);
-    --shadow-z19: 0px 9px 12px -6px rgb(0 0 0 / 0.2), 0px 19px 29px 2px rgb(0 0 0 / 0.14), 0px 7px 36px 6px rgb(0 0 0 / 0.12);
-    --shadow-z20: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 20px 31px 3px rgb(0 0 0 / 0.14), 0px 8px 38px 7px rgb(0 0 0 / 0.12);
-    --shadow-z21: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 21px 33px 3px rgb(0 0 0 / 0.14), 0px 8px 40px 7px rgb(0 0 0 / 0.12);
-    --shadow-z22: 0px 10px 14px -6px rgb(0 0 0 / 0.2), 0px 22px 35px 3px rgb(0 0 0 / 0.14), 0px 8px 42px 7px rgb(0 0 0 / 0.12);
-    --shadow-z23: 0px 11px 14px -7px rgb(0 0 0 / 0.2), 0px 23px 36px 3px rgb(0 0 0 / 0.14), 0px 9px 44px 8px rgb(0 0 0 / 0.12);
-    --shadow-z24: 0px 11px 15px -7px rgb(0 0 0 / 0.2), 0px 24px 38px 3px rgb(0 0 0 / 0.14), 0px 9px 46px 8px rgb(0 0 0 / 0.12);
-}
-
-:root {
-    --drop-shadow-z2: drop-shadow(0px 1px 0.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 2px 1px rgb(0 0 0 / 0.14)) drop-shadow(0px 1px 2.5px rgb(0 0 0 / 0.12));
-    --drop-shadow-z8: drop-shadow(0px 2px 2.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 9px 5px rgb(0 0 0 / 0.14)) drop-shadow(0px 5px 7px rgb(0 0 0 / 0.12));
-}
-
-[solid]::after,
-.button[variant~="fab"]::after {
-    content: "";
-    inset: 0;
-    position: absolute;
-    border-block-start: 1px solid var(--surface-hint-color);
-    border-block-end: 1px solid var(--surface-shade-color);
-    border-radius: inherit;
-    box-sizing: border-box;
-    pointer-events: none;
-}
-
-[solid="start"]::after {
-    border-block-end: none;
-}
-
-[solid="end"]::after {
-    border-block-start: none;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --high-emphasis-surface-color: white;
-        --medium-emphasis-surface-color: var(--grey-50);
-        --low-emphasis-surface-color: var(--grey-100);
-        --surface-hint-color: rgb(255 255 255 / 0.4);
-        --surface-shade-color: rgb(0 0 0 / 0.1);
-        --theme-base-color: white;
-        --content-base-color: black;
-    }
-}
-
-[theme~="light"] {
-    --high-emphasis-surface-color: white;
-    --medium-emphasis-surface-color: var(--grey-50);
-    --low-emphasis-surface-color: var(--grey-100);
-    --surface-hint-color: rgb(255 255 255 / 0.4);
-    --surface-shade-color: rgb(0 0 0 / 0.1);
-    --theme-base-color: white;
-    --content-base-color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --high-emphasis-surface-color: var(--grey-800);
-        --medium-emphasis-surface-color: var(--grey-850);
-        --low-emphasis-surface-color: var(--grey-900);
-        --surface-hint-color: rgb(255 255 255 / 0.2);
-        --surface-shade-color: rgb(0 0 0 / 0.2);
-        --theme-base-color: black;
-        --content-base-color: white;
-    }
-}
-
-[theme~="dark"] {
-    --high-emphasis-surface-color: var(--grey-800);
-    --medium-emphasis-surface-color: var(--grey-850);
-    --low-emphasis-surface-color: var(--grey-900);
-    --surface-hint-color: rgb(255 255 255 / 0.2);
-    --surface-shade-color: rgb(0 0 0 / 0.2);
-    --theme-base-color: black;
-    --content-base-color: white;
-}
-
-/*------------------------------------*\
-  字体排印
-\*------------------------------------*/
-:lang(en) {
-    --display-4-leading: 7rem;
-    --display-3-leading: 4rem;
-    --display-2-leading: 3rem;
-    --display-1-leading: 2.5rem;
-    --headline-leading: 2rem;
-    --title-leading: 1.75rem;
-    --subheading-leading: 1.5rem;
-    --body-leading: 1.25rem;
-    --caption-leading: 1rem;
-}
-
-:lang(zh) {
-    --display-4-leading: 1em;
-    --display-3-leading: 1em;
-    --display-2-leading: 1em;
-    --display-1-leading: 1em;
-    --headline-leading: 1em;
-    --title-leading: 1.5em;
-    --subheading-leading: 1.5em;
-    --body-leading: 1.75em;
-    --caption-leading: 1.75em;
-}
-
-[type-scale=display4] {
-    font-size: 7rem;
-    font-weight: 300;
-    line-height: var(--display-4-leading);
-}
-
-:lang(en) [type-scale=display4],
-[type-scale=display4]:lang(en) {
-    letter-spacing: -0.01em;
-}
-
-[type-scale=display3] {
-    font-size: 3.5rem;
-    font-weight: 400;
-    line-height: var(--display-3-leading);
-}
-
-:lang(en) [type-scale=display3],
-[type-scale=display3]:lang(en) {
-    letter-spacing: -0.005em;
-}
-
-[type-scale=display2] {
-    font-size: 2.8125rem;
-    font-weight: 400;
-    line-height: var(--display-2-leading);
-}
-
-[type-scale=display1] {
-    font-size: 2.125rem;
-    font-weight: 400;
-    line-height: var(--display-1-leading);
-}
-
-[type-scale=headline] {
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: var(--headline-leading);
-}
-
-[type-scale=title] {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: var(--title-leading);
-}
-
-:lang(en) [type-scale=title],
-[type-scale=title]:lang(en) {
-    letter-spacing: 0.005em;
-}
-
-[type-scale=subheading] {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: var(--subheading-leading);
-}
-
-:lang(en) [type-scale=subheading],
-[type-scale=subheading]:lang(en) {
-    letter-spacing: 0.01em;
-}
-
-[type-scale=body2] {
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: var(--body-leading);
-}
-
-:lang(en) [type-scale=body2],
-[type-scale=body2]:lang(en) {
-    letter-spacing: 0.01em;
-}
-
-[type-scale=body1] {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: var(--body-leading);
-}
-
-:lang(en) [type-scale=body1],
-[type-scale=body1]:lang(en) {
-    letter-spacing: 0.01em;
-}
-
-[type-scale=caption] {
-    font-size: 0.75rem;
-    font-weight: 400;
-    line-height: var(--caption-leading);
-}
-
-:lang(en) [type-scale=caption],
-[type-scale=caption]:lang(en) {
-    letter-spacing: 0.02em;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --primary-text-color: rgb(0 0 0 / 0.87);
-        --secondary-text-color-alt: rgb(0 0 0 / 0.7);
-        --secondary-text-color: rgb(0 0 0 / 0.54);
-        --hint-text-color: rgb(0 0 0 / 0.38);
-        --hint-text-color-alt: rgb(0 0 0 / 0.2);
-    }
-}
-
-[theme~=light] {
-    --primary-text-color: rgb(0 0 0 / 0.87);
-    --secondary-text-color-alt: rgb(0 0 0 / 0.7);
-    --secondary-text-color: rgb(0 0 0 / 0.54);
-    --hint-text-color: rgb(0 0 0 / 0.38);
-    --hint-text-color-alt: rgb(0 0 0 / 0.2);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-text-color: rgb(255 255 255 / 1);
-        --secondary-text-color-alt: rgb(255 255 255 / 0.9);
-        --secondary-text-color: rgb(255 255 255 / 0.7);
-        --hint-text-color: rgb(255 255 255 / 0.5);
-        --hint-text-color-alt: rgb(255 255 255 / 0.38);
-    }
-}
-
-[theme~=dark] {
-    --primary-text-color: rgb(255 255 255 / 1);
-    --secondary-text-color-alt: rgb(255 255 255 / 0.9);
-    --secondary-text-color: rgb(255 255 255 / 0.7);
-    --hint-text-color: rgb(255 255 255 / 0.5);
-    --hint-text-color-alt: rgb(255 255 255 / 0.38);
-}
-
-/*------------------------------------*\
-  遮罩
-\*------------------------------------*/
-.scrim {
-    pointer-events: none;
-}
-
-.scrim[fill] {
-    background-color: rgb(0 0 0 / 0);
-}
-
-.scrim[fill][show] {
-    background-color: rgb(0 0 0 / 0.4);
-}
-
-.scrim[gradient] {
-    max-block-size: calc(3 * var(--increment));
-    background: linear-gradient(rgb(0 0 0 / 1) 0%, rgb(0 0 0 / 0.5) calc(1 / 3 * 100%), rgb(0 0 0 / 0) 100%);
-}
-
-/*------------------------------------*\
   动画
 \*------------------------------------*/
 :root {
@@ -284,6 +6,119 @@
     --deceleration-curve: cubic-bezier(0, 0, 0.2, 1);
     --acceleration-curve: cubic-bezier(0.4, 0, 1, 1);
     --sharp-curve: cubic-bezier(0.4, 0, 0.6, 1);
+    --ripple-expand-curve: cubic-bezier(0.17, 0.74, 0.4, 1);
+}
+
+@keyframes fromTransparent {
+    0% {
+        opacity: 0;
+    }
+}
+
+@keyframes toTransparent {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fromOpaque {
+    0% {
+        opacity: var(--custom-opacity, 1);
+    }
+}
+
+@keyframes toOpaque {
+    100% {
+        opacity: var(--custom-opacity, 1);
+    }
+}
+
+@keyframes hiddenToVisible {
+    0% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: visible;
+    }
+}
+
+@keyframes visibleToHidden {
+    0% {
+        visibility: visible;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes fromExpand_scale {
+    0% {
+        scale: 1;
+    }
+}
+
+@keyframes toExpand_scale {
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes fromCollapse_scale {
+    0% {
+        scale: 0;
+    }
+}
+
+@keyframes toCollapse_scale {
+    100% {
+        scale: 0;
+    }
+}
+
+@keyframes fromCollapse_size {
+    0% {
+        inline-size: 0px;
+        block-size: 0px;
+    }
+}
+
+@keyframes toCollapse_size {
+    100% {
+        inline-size: 0px;
+        block-size: 0px;
+    }
+}
+
+@keyframes fromCollapse_inlineSize {
+    0% {
+        inline-size: 0px;
+    }
+}
+
+@keyframes toCollapse_inlineSize {
+    100% {
+        inline-size: 0px;
+    }
+}
+
+@keyframes fromCollapse_blockSize {
+    0% {
+        block-size: 0px;
+    }
+}
+
+@keyframes toCollapse_blockSize {
+    100% {
+        block-size: 0px;
+    }
+}
+
+@keyframes toMoveClear {
+    100% {
+        translate: 0px 0px;
+    }
 }
 
 /*------------------------------------*\
@@ -547,6 +382,7 @@
     --blue-grey-800: #37474f;
     --blue-grey-900: #263238;
     --blue-grey-950: #21272b;
+    --blue-grey-1000: #14171a;
 }
 
 :root {
@@ -642,7 +478,7 @@
     --google-yellow-200: #fde293;
     --google-yellow-300: #fdd663;
     --google-yellow-400: #fcc934;
-    --google-yellow-500: #fbbc04;
+    --google-yellow-500: #fbbc05;
     --google-yellow-600: #f9ab00;
     --google-yellow-700: #f29900;
     --google-yellow-800: #ea8600;
@@ -666,6 +502,391 @@
     --google-yellow-kennedy-500: #f4b400;
     --google-yellow-kennedy-600: #eca403;
     --google-yellow-kennedy-700: #e49307;
+}
+
+/*------------------------------------*\
+  层面
+\*------------------------------------*/
+:root {
+    --shadow-z0: 0px 0px 0px 0px rgb(0 0 0 / 0.2), 0px 0px 0px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 0px rgb(0 0 0 / 0.12);
+    --shadow-z1: 0px 2px 1px -1px rgb(0 0 0 / 0.2), 0px 1px 1px 0px rgb(0 0 0 / 0.14), 0px 1px 3px 0px rgb(0 0 0 / 0.12);
+    --shadow-z2: 0px 3px 1px -2px rgb(0 0 0 / 0.2), 0px 2px 2px 0px rgb(0 0 0 / 0.14), 0px 1px 5px 0px rgb(0 0 0 / 0.12);
+    --shadow-z3: 0px 3px 3px -2px rgb(0 0 0 / 0.2), 0px 3px 4px 0px rgb(0 0 0 / 0.14), 0px 1px 8px 0px rgb(0 0 0 / 0.12);
+    --shadow-z4: 0px 2px 4px -1px rgb(0 0 0 / 0.2), 0px 4px 5px 0px rgb(0 0 0 / 0.14), 0px 1px 10px 0px rgb(0 0 0 / 0.12);
+    --shadow-z5: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 5px 8px 0px rgb(0 0 0 / 0.14), 0px 1px 14px 0px rgb(0 0 0 / 0.12);
+    --shadow-z6: 0px 3px 5px -1px rgb(0 0 0 / 0.2), 0px 6px 10px 0px rgb(0 0 0 / 0.14), 0px 1px 18px 0px rgb(0 0 0 / 0.12);
+    --shadow-z7: 0px 4px 5px -2px rgb(0 0 0 / 0.2), 0px 7px 10px 1px rgb(0 0 0 / 0.14), 0px 2px 16px 1px rgb(0 0 0 / 0.12);
+    --shadow-z8: 0px 5px 5px -3px rgb(0 0 0 / 0.2), 0px 8px 10px 1px rgb(0 0 0 / 0.14), 0px 3px 14px 2px rgb(0 0 0 / 0.12);
+    --shadow-z9: 0px 5px 6px -3px rgb(0 0 0 / 0.2), 0px 9px 12px 1px rgb(0 0 0 / 0.14), 0px 3px 16px 2px rgb(0 0 0 / 0.12);
+    --shadow-z10: 0px 6px 6px -3px rgb(0 0 0 / 0.2), 0px 10px 14px 1px rgb(0 0 0 / 0.14), 0px 4px 18px 3px rgb(0 0 0 / 0.12);
+    --shadow-z11: 0px 6px 7px -4px rgb(0 0 0 / 0.2), 0px 11px 15px 1px rgb(0 0 0 / 0.14), 0px 4px 20px 3px rgb(0 0 0 / 0.12);
+    --shadow-z12: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 12px 17px 2px rgb(0 0 0 / 0.14), 0px 5px 22px 4px rgb(0 0 0 / 0.12);
+    --shadow-z13: 0px 7px 8px -4px rgb(0 0 0 / 0.2), 0px 13px 19px 2px rgb(0 0 0 / 0.14), 0px 5px 24px 4px rgb(0 0 0 / 0.12);
+    --shadow-z14: 0px 7px 9px -4px rgb(0 0 0 / 0.2), 0px 14px 21px 2px rgb(0 0 0 / 0.14), 0px 5px 26px 4px rgb(0 0 0 / 0.12);
+    --shadow-z15: 0px 8px 9px -5px rgb(0 0 0 / 0.2), 0px 15px 22px 2px rgb(0 0 0 / 0.14), 0px 6px 28px 5px rgb(0 0 0 / 0.12);
+    --shadow-z16: 0px 8px 10px -5px rgb(0 0 0 / 0.2), 0px 16px 24px 2px rgb(0 0 0 / 0.14), 0px 6px 30px 5px rgb(0 0 0 / 0.12);
+    --shadow-z17: 0px 8px 11px -5px rgb(0 0 0 / 0.2), 0px 17px 26px 2px rgb(0 0 0 / 0.14), 0px 6px 32px 5px rgb(0 0 0 / 0.12);
+    --shadow-z18: 0px 9px 11px -5px rgb(0 0 0 / 0.2), 0px 18px 28px 2px rgb(0 0 0 / 0.14), 0px 7px 34px 6px rgb(0 0 0 / 0.12);
+    --shadow-z19: 0px 9px 12px -6px rgb(0 0 0 / 0.2), 0px 19px 29px 2px rgb(0 0 0 / 0.14), 0px 7px 36px 6px rgb(0 0 0 / 0.12);
+    --shadow-z20: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 20px 31px 3px rgb(0 0 0 / 0.14), 0px 8px 38px 7px rgb(0 0 0 / 0.12);
+    --shadow-z21: 0px 10px 13px -6px rgb(0 0 0 / 0.2), 0px 21px 33px 3px rgb(0 0 0 / 0.14), 0px 8px 40px 7px rgb(0 0 0 / 0.12);
+    --shadow-z22: 0px 10px 14px -6px rgb(0 0 0 / 0.2), 0px 22px 35px 3px rgb(0 0 0 / 0.14), 0px 8px 42px 7px rgb(0 0 0 / 0.12);
+    --shadow-z23: 0px 11px 14px -7px rgb(0 0 0 / 0.2), 0px 23px 36px 3px rgb(0 0 0 / 0.14), 0px 9px 44px 8px rgb(0 0 0 / 0.12);
+    --shadow-z24: 0px 11px 15px -7px rgb(0 0 0 / 0.2), 0px 24px 38px 3px rgb(0 0 0 / 0.14), 0px 9px 46px 8px rgb(0 0 0 / 0.12);
+}
+
+:root {
+    --text-shadow-z0: 0px 0px 0px rgb(0 0 0 / 0.2), 0px 0px 0px rgb(0 0 0 / 0.14), 0px 0px 0px rgb(0 0 0 / 0.12);
+    --text-shadow-z1: 0px 1px 1px rgb(0 0 0 / 0.2), 0px 1px 1px rgb(0 0 0 / 0.14), 0px 1px 3px rgb(0 0 0 / 0.12);
+}
+
+:root {
+    --drop-shadow-z0: drop-shadow(0px 0px 0px rgb(0 0 0 / 0.2)) drop-shadow(0px 0px 0px rgb(0 0 0 / 0.14)) drop-shadow(0px 0px 0px rgb(0 0 0 / 0.12));
+    --drop-shadow-z1: drop-shadow(0px 1px 1px rgb(0 0 0 / 0.2)) drop-shadow(0px 1px 1px rgb(0 0 0 / 0.14)) drop-shadow(0px 1px 1.5px rgb(0 0 0 / 0.12));
+    --drop-shadow-z2: drop-shadow(0px 1px 1px rgb(0 0 0 / 0.2)) drop-shadow(0px 2px 1px rgb(0 0 0 / 0.14)) drop-shadow(0px 1px 2.5px rgb(0 0 0 / 0.12));
+    --drop-shadow-z4: drop-shadow(0px 1px 2px rgb(0 0 0 / 0.2)) drop-shadow(0px 4px 2.5px rgb(0 0 0 / 0.14)) drop-shadow(0px 1px 5px rgb(0 0 0 / 0.12));
+    --drop-shadow-z6: drop-shadow(0px 2px 2.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 6px 5px rgb(0 0 0 / 0.14)) drop-shadow(0px 1px 9px rgb(0 0 0 / 0.12));
+    --drop-shadow-z8: drop-shadow(0px 2px 2.5px rgb(0 0 0 / 0.2)) drop-shadow(0px 9px 5px rgb(0 0 0 / 0.14)) drop-shadow(0px 5px 7px rgb(0 0 0 / 0.12));
+}
+
+[solid]::after,
+.button[variant~="fab"]::after {
+    content: "";
+    inset: 0;
+    position: absolute;
+    border-block-start: 1px solid var(--surface-hint-color);
+    border-block-end: 1px solid var(--surface-shade-color);
+    border-radius: inherit;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+[solid="start"]::after {
+    border-block-end: none;
+}
+
+[solid="end"]::after {
+    border-block-start: none;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --high-emphasis-surface-color: white;
+        --medium-emphasis-surface-color: var(--grey-50);
+        --low-emphasis-surface-color: var(--grey-100);
+        --surface-hint-color: rgb(255 255 255 / 0.4);
+        --surface-shade-color: rgb(0 0 0 / 0.1);
+        --theme-base-color: white;
+        --content-base-color: black;
+    }
+}
+
+[theme~="light"] {
+    --high-emphasis-surface-color: white;
+    --medium-emphasis-surface-color: var(--grey-50);
+    --low-emphasis-surface-color: var(--grey-100);
+    --surface-hint-color: rgb(255 255 255 / 0.4);
+    --surface-shade-color: rgb(0 0 0 / 0.1);
+    --theme-base-color: white;
+    --content-base-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --high-emphasis-surface-color: var(--grey-800);
+        --medium-emphasis-surface-color: var(--grey-850);
+        --low-emphasis-surface-color: var(--grey-900);
+        --surface-hint-color: rgb(255 255 255 / 0.2);
+        --surface-shade-color: rgb(0 0 0 / 0.2);
+        --theme-base-color: black;
+        --content-base-color: white;
+    }
+}
+
+[theme~="dark"] {
+    --high-emphasis-surface-color: var(--grey-800);
+    --medium-emphasis-surface-color: var(--grey-850);
+    --low-emphasis-surface-color: var(--grey-900);
+    --surface-hint-color: rgb(255 255 255 / 0.2);
+    --surface-shade-color: rgb(0 0 0 / 0.2);
+    --theme-base-color: black;
+    --content-base-color: white;
+}
+
+/*------------------------------------*\
+  字体排印
+\*------------------------------------*/
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-Thin.ttf);
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-ThinItalic.ttf);
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-Light.ttf);
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-LightItalic.ttf);
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-Italic.ttf);
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-Medium.ttf);
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-MediumItalic.ttf);
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-BoldItalic.ttf);
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-Black.ttf);
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../../resources/fonts/Roboto-BlackItalic.ttf);
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+:lang(zh) {
+    --display-4-leading: 1em;
+    --display-3-leading: 1em;
+    --display-2-leading: 1em;
+    --display-1-leading: 1em;
+    --headline-leading: 1em;
+    --title-leading: 1.5em;
+    --subheading-leading: 1.5em;
+    --body-leading: 1.75em;
+    --caption-leading: 1.75em;
+}
+
+:lang(en) {
+    --display-4-leading: 7rem;
+    --display-3-leading: 4rem;
+    --display-2-leading: 3rem;
+    --display-1-leading: 2.5rem;
+    --headline-leading: 2rem;
+    --title-leading: 1.75rem;
+    --subheading-leading: 1.5rem;
+    --body-leading: 1.25rem;
+    --caption-leading: 1rem;
+}
+
+[type-scale=display4] {
+    font-size: 7rem;
+    font-weight: 300;
+    line-height: var(--display-4-leading);
+}
+
+:lang(en) [type-scale=display4],
+[type-scale=display4]:lang(en) {
+    letter-spacing: -0.01em;
+}
+
+[type-scale=display3] {
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: var(--display-3-leading);
+}
+
+:lang(en) [type-scale=display3],
+[type-scale=display3]:lang(en) {
+    letter-spacing: -0.005em;
+}
+
+[type-scale=display2] {
+    font-size: 2.8125rem;
+    font-weight: 400;
+    line-height: var(--display-2-leading);
+}
+
+[type-scale=display1] {
+    font-size: 2.125rem;
+    font-weight: 400;
+    line-height: var(--display-1-leading);
+}
+
+[type-scale=headline] {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: var(--headline-leading);
+}
+
+[type-scale=title] {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: var(--title-leading);
+}
+
+:lang(en) [type-scale=title],
+[type-scale=title]:lang(en) {
+    letter-spacing: 0.005em;
+}
+
+[type-scale=subheading] {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: var(--subheading-leading);
+}
+
+:lang(en) [type-scale=subheading],
+[type-scale=subheading]:lang(en) {
+    letter-spacing: 0.01em;
+}
+
+[type-scale=body2] {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: var(--body-leading);
+}
+
+:lang(en) [type-scale=body2],
+[type-scale=body2]:lang(en) {
+    letter-spacing: 0.01em;
+}
+
+[type-scale=body1] {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: var(--body-leading);
+}
+
+:lang(en) [type-scale=body1],
+[type-scale=body1]:lang(en) {
+    letter-spacing: 0.01em;
+}
+
+[type-scale=caption] {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: var(--caption-leading);
+}
+
+:lang(en) [type-scale=caption],
+[type-scale=caption]:lang(en) {
+    letter-spacing: 0.02em;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary-text-color: rgb(0 0 0 / 0.87);
+        --secondary-text-color-alt: rgb(0 0 0 / 0.7);
+        --secondary-text-color: rgb(0 0 0 / 0.54);
+        --hint-text-color: rgb(0 0 0 / 0.38);
+        --hint-text-color-alt: rgb(0 0 0 / 0.2);
+    }
+}
+
+[theme~=light] {
+    --primary-text-color: rgb(0 0 0 / 0.87);
+    --secondary-text-color-alt: rgb(0 0 0 / 0.7);
+    --secondary-text-color: rgb(0 0 0 / 0.54);
+    --hint-text-color: rgb(0 0 0 / 0.38);
+    --hint-text-color-alt: rgb(0 0 0 / 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-text-color: rgb(255 255 255 / 1);
+        --secondary-text-color-alt: rgb(255 255 255 / 0.9);
+        --secondary-text-color: rgb(255 255 255 / 0.7);
+        --hint-text-color: rgb(255 255 255 / 0.5);
+        --hint-text-color-alt: rgb(255 255 255 / 0.38);
+    }
+}
+
+[theme~=dark] {
+    --primary-text-color: rgb(255 255 255 / 1);
+    --secondary-text-color-alt: rgb(255 255 255 / 0.9);
+    --secondary-text-color: rgb(255 255 255 / 0.7);
+    --hint-text-color: rgb(255 255 255 / 0.5);
+    --hint-text-color-alt: rgb(255 255 255 / 0.38);
+}
+
+/*------------------------------------*\
+  遮罩
+\*------------------------------------*/
+.scrim {
+    position: absolute;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.scrim[variant="fill"] {
+    inset: 0;
+    background-color: black;
+}
+
+.scrim[variant="gradient"] {
+    inset-inline: 0;
+    block-size: 100%;
+    max-block-size: calc(3 * var(--increment));
+    background: linear-gradient(rgb(0 0 0 / 1) 0%, rgb(0 0 0 / 0.5) calc(1 / 3 * 100%), rgb(0 0 0 / 0) 100%);
 }
 
 /*------------------------------------*\
@@ -694,10 +915,20 @@ cmd-icon[name="more_vert"] {
     block-size: 1.5rem;
 }
 
+cmd-icon[name="more_vert"][size="small"] {
+    inline-size: 0.5625rem;
+    block-size: 1.125rem;
+}
+
 /*------------------------------------*\
   状态
 \*------------------------------------*/
-.states-overlay {
+
+:is(.button[variant="icon"], [unbounded]) {
+    overflow: visible;
+}
+
+.overlay[variant="states"] {
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
@@ -711,36 +942,54 @@ cmd-icon[name="more_vert"] {
     pointer-events: none;
 }
 
-.states-overlay::before {
+.overlay[variant="states"]::before,
+.overlay[variant="states"]::after {
     content: "";
     position: absolute;
     inline-size: 100%;
     block-size: 100%;
     border-radius: inherit;
     background-color: var(--states-base-color);
-    opacity: calc((0.04 * var(--hover-parameter, 0) + 0.12 * var(--focus-parameter, 0) + 0.08 * var(--selected-parameter, 0) + 0.12 * var(--activate-parameter, 0) + 0.04 * var(--ripple-background-parameter, 0) + 0.08 * var(--dragged-parameter, 0)) * var(--states-parameter, 1));
-    transition-property: opacity;
-    transition-duration: 195ms;
-    transition-timing-function: linear;
+    opacity: 0;
 }
 
-[unbounded] {
+@scope (body) to (.simulator) {
+    .overlay[variant="states"]::after {
+        opacity: calc((0.04 * var(--hover-parameter, 0) + 0.12 * var(--focus-parameter, 0) + 0.08 * var(--selected-parameter, 0) + 0.12 * var(--activate-parameter, 0) + 0.08 * var(--dragged-parameter, 0)) * var(--states-parameter, 1));
+    }
+
+    .overlay[variant="states"]::after {
+        transition-property: opacity;
+        transition-duration: 480ms;
+        transition-timing-function: linear;
+    }
+}
+
+:is(.button[variant="icon"], [unbounded]) .overlay[variant="states"] {
+    inset-block-start: unset;
+    inset-inline-start: unset;
+    inline-size: auto;
+    min-inline-size: 100%;
+    block-size: auto;
+    min-block-size: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
     overflow: visible;
 }
 
-:is(:hover, :focus-visible, [disabled]) .states-overlay::before {
-    transition-duration: 225ms;
+:is([interact], button, summary):is(:hover, :focus-visible, [disabled]) .overlay[variant="states"]::after {
+    transition-duration: 120ms;
 }
 
 @media (hover: hover) {
-
-    *[interact]:hover,
-    button:hover {
+    :is([interact], button, summary):hover {
         --hover-parameter: 1;
     }
 }
 
-:focus-visible {
+:focus-visible,
+li:has(>:focus-visible) {
+    outline: transparent;
     --focus-parameter: 1;
 }
 
@@ -748,12 +997,19 @@ cmd-icon[name="more_vert"] {
     --activate-parameter: 1;
 }
 
-[pressed] {
-    --ripple-background-parameter: 1;
+.ripple {
+    position: absolute;
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1/1;
+    background-color: var(--states-base-color);
+    border-radius: 50%;
+    opacity: var(--ripple-opacity);
+    scale: 0;
 }
 
 [disabled],
-[aria-disabled="true"] {
+[inert] {
     color: var(--hint-text-color);
     pointer-events: none;
     cursor: default;
@@ -762,70 +1018,48 @@ cmd-icon[name="more_vert"] {
 @media (prefers-color-scheme: light) {
     :root {
         --states-base-color: black;
+        --ripple-opacity: 0.06;
     }
 }
 
 [theme~="light"] {
     --states-base-color: black;
+    --ripple-opacity: 0.06;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --states-base-color: white;
+        --ripple-opacity: 0.1;
     }
 }
 
 [theme~="dark"] {
     --states-base-color: white;
+    --ripple-opacity: 0.1;
 }
 
 /*------------------------------------*\
-  涟漪
+  边缘效果
 \*------------------------------------*/
-[unbounded]>.states-overlay {
-    inset-block-start: unset;
-    inset-inline-start: unset;
-    block-size: auto;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-}
 
-.ripple {
+.glow {
+    inset: 0;
     position: absolute;
-    block-size: auto;
-    aspect-ratio: 1/1;
-    background-color: var(--states-base-color);
+    overflow: clip;
+}
+
+.glow .item {
+    position: absolute;
+    display: flex;
+    overflow: clip;
+    opacity: 0.15;
+}
+
+.glow .item::after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
-}
-
-.ripple {
-    animation-name: rippleForegroundExpand, rippleForegroundFadeOut;
-    animation-duration: 400ms;
-    animation-timing-function: cubic-bezier(0.17, 0.74, 0.4, 1), linear;
-    animation-fill-mode: both;
-}
-
-[unbounded] .ripple {
-    inline-size: 100%;
-    animation-duration: 800ms, 400ms;
-}
-
-@keyframes rippleForegroundExpand {
-    0% {
-        scale: 0;
-    }
-
-    100% {
-        scale: 1;
-    }
-}
-
-@keyframes rippleForegroundFadeOut {
-    0% {
-        opacity: var(--ripple-foreground-alpha, 0.16);
-    }
-
-    100% {
-        opacity: 0;
-    }
+    background-color: var(--states-base-color);
 }

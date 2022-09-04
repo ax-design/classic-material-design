@@ -45,7 +45,7 @@
     inline-size: 56px;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    color: var(--secondary-text-color);
+    color: var(--primary-text-color);
     background-color: var(--secondary-color, var(--high-emphasis-surface-color));
     box-shadow: var(--shadow-z6);
 }

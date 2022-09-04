@@ -1,12 +1,12 @@
 footer a {
     direction: rtl;
-    padding-inline-start: 50%;
 }
 
 /*------------------------------------*\
   正文
 \*------------------------------------*/
-main {
+
+main:has(>.toolbar[variant~="prominent"]) {
     grid-template-rows: calc(3 * var(--increment));
 }
 
@@ -84,6 +84,7 @@ main>picture {
 
     #system .diagram {
         inline-size: 480px;
+        block-size: 100%;
         padding: 40px;
         writing-mode: vertical-lr;
     }
@@ -95,6 +96,12 @@ main>picture {
 
     #system .surface:nth-child(5) {
         display: none;
+    }
+}
+
+@media (width < 392px) {
+    main:has(>.toolbar[variant~="prominent"]) {
+        grid-template-rows: calc(2 * var(--increment));
     }
 }
 
@@ -111,8 +118,9 @@ main>picture {
     background-color: var(--secondary-color);
 }
 
-main>.app-bar {
+main>.toolbar {
     --surface-shade-color: rgb(38 50 56 / 0.2);
+    color: var(--secondary-text-color);
 }
 
 h1 {

@@ -10,7 +10,7 @@
     <base href="./" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Roboto+Mono:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet" />
     <link rel="icon" href="global/resources/favicon.svg" />
     <link rel="stylesheet" href="material-design/styles/introduction.css" />
     <link rel="stylesheet" href="global/styles/global.css" />
@@ -23,12 +23,12 @@
     <div class="divider" vertical></div>
 
     <main>
-        <div class="app-bar" variant="prominent" theme="light" solid="end">
-            <button id="drawer-trigger" class="button" variant="icon" unbounded aria-label="打开目录">
+        <div class="toolbar" variant="app-bar prominent" theme="light" solid="end">
+            <button id="drawer-trigger" class="button" variant="icon" type="button" aria-label="打开目录">
                 <cmd-icon name="menu"></cmd-icon>
             </button>
-            <h1 class="title">质感设计</h1>
-            <button id="search-trigger" class="button" variant="icon" unbounded disabled aria-label="搜索">
+            <h1 class="title" type-scale="title">质感设计</h1>
+            <button id="search-trigger" class="button" variant="icon" type="button" disabled aria-label="搜索">
                 <cmd-icon name="search"></cmd-icon>
             </button>
         </div>
@@ -39,7 +39,8 @@
 
         <header>
             <h2 type-scale="display1">概述</h2>
-            <p type-scale="title">我们挑战自我，为广大用户创造了崭新的设计系统——质感设计。质感设计不仅虚心汲取经典设计定则的丰富滋养，还致力发挥创新科学技术的强大潜力。随着我们及各界社区对质感设计理论和实践的探索，本文档将会不断更新完善。</p>
+            <p type-scale="title">当第一部智能手机诞生时，移动设备的体验处处受限：显示空间更小、通信速度更慢、功能特性更少。但数十年间，你我的日常工具不断变得更加快捷、万能、易用。如今移动设备的硬件配置已不可同日而语，软件设计同样需要更新换代。</p>
+            <p type-scale="title">因此我们挑战自我，为广大用户创造了崭新的界面设计系统——质感设计。质感设计不仅虚心汲取经典设计定则的丰富滋养，还致力发挥创新科学技术的强大潜力。我们相信设计系统是同源共流、顺理成章的，但绝不意味着静止和死板，随着我们及各界社区对质感设计理论和实践的探索，本文档将会不断更新完善。</p>
             <nav>
                 <h3 type-scale="body1">索引</h3>
                 <ul type-scale="title">
@@ -113,7 +114,7 @@
         </article>
 
         <footer theme="dark">
-            <a href="material-design/environment.html" interact>
+            <a draggable="false" href="material-design/environment.html">
                 <span type-scale="subheading"> 下一节 </span>
                 <span type-scale="title">
                     <cmd-icon name="arrow_forward"></cmd-icon>
@@ -122,6 +123,10 @@
             </a>
         </footer>
     </main>
+
+    <script>
+        document.body.style.setProperty('--window-width', document.body.clientWidth);
+    </script>
 </body>
 
 </html>

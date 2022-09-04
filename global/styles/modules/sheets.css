@@ -14,7 +14,7 @@
     overscroll-behavior: contain;
     transition-property: none;
     transition-timing-function: var(--sharp-curve);
-    transition-duration: 195ms;
+    transition-duration: 200ms;
 }
 
 .drawer[open] {
@@ -25,21 +25,20 @@
 .drawer[enter] {
     transform: translateX(0%);
     transition-timing-function: var(--deceleration-curve);
-    transition-duration: 225ms;
+    transition-duration: 250ms;
 }
 
 .drawer+.scrim {
     position: fixed;
-    inset: 0;
-    transition-property: background-color;
+    pointer-events: unset;
+    transition-property: opacity;
     transition-timing-function: var(--deceleration-curve);
-    transition-duration: 225ms;
+    transition-duration: 250ms;
 }
 
 .drawer:not([enter])+.scrim {
-    transition-duration: 195ms;
-}
-
-.drawer>ul {
-    margin: 8px 0;
+    opacity: 0;
+    pointer-events: none;
+    transition-timing-function: var(--sharp-curve);
+    transition-duration: 200ms;
 }
