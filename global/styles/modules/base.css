@@ -958,11 +958,11 @@ cmd-icon[name="more_vert"][size="small"] {
     opacity: 0;
 }
 
-.overlay[variant="states"]::after {
-    opacity: calc((0.04 * var(--hover-parameter, 0) + 0.12 * var(--focus-parameter, 0) + 0.08 * var(--selected-parameter, 0) + 0.12 * var(--activate-parameter, 0) + 0.08 * var(--dragged-parameter, 0)) * var(--states-parameter, 1));
-}
-
 @scope (body) to (.simulator) {
+    .overlay[variant="states"]::after {
+        opacity: calc((0.04 * var(--hover-parameter, 0) + 0.12 * var(--focus-parameter, 0) + 0.08 * var(--selected-parameter, 0) + 0.12 * var(--activate-parameter, 0) + 0.08 * var(--dragged-parameter, 0)) * var(--states-parameter, 1));
+    }
+
     .overlay[variant="states"]::after {
         transition-property: opacity;
         transition-duration: 480ms;
