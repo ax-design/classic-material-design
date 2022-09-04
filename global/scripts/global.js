@@ -170,10 +170,12 @@ drawerTrigger.addEventListener('click', () => {
 });
 
 window.onresize = () => {
-    if (window.innerWidth >= 1576) {
+    const windowWidth = window.innerWidth;
+    if (windowWidth >= 1576) {
         drawer.removeAttribute('open');
         drawer.removeAttribute('enter');
     }
+    document.body.style.setProperty('--window-width', windowWidth);
 };
 
 // 开关抽屉导航项

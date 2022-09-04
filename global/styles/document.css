@@ -411,11 +411,13 @@ main hr {
 /*------------------------------------*\
   模拟器
 \*------------------------------------*/
+
 .simulator {
     --status-bar-block-size: 24px;
     container-name: simulator;
     container-type: size;
     position: relative;
+    min-inline-size: 360px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -745,6 +747,17 @@ footer cmd-icon {
     main>.toolbar[variant~="prominent"] {
         --title-margin-final-offset: calc(var(--increment) + 12px);
         --title-margin-begin-offset: 12px;
+    }
+
+    figure {
+        inline-size: calc(100vw - 2 * var(--keyline));
+    }
+
+    .simulator {
+        --scale-ratio: min(calc((var(--window-width) - 32) / 360), 1);
+        transform-origin: left top;
+        scale: var(--scale-ratio);
+        margin-block-end: calc(0px - calc(1 - var(--scale-ratio)) * 100cqb);
     }
 }
 
