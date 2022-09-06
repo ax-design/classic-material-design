@@ -447,6 +447,7 @@ figure[screen~="mobile"] .simulator {
 .simulator[animated]::after {
     content: url(../resources/play_circle_filled.svg);
     z-index: 26;
+    line-height: 1;
     background-color: rgb(0 0 0 / 0.4);
     pointer-events: auto;
     cursor: pointer;
