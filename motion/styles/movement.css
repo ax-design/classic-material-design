@@ -1,0 +1,471 @@
+/*------------------------------------*\
+  正文
+\*------------------------------------*/
+
+#temporarily-leaving-do {
+    grid-column-start: max(1, calc(var(--content-columns) - 1));
+}
+
+.diagram {
+    aspect-ratio: 1 / 1;
+}
+
+#temporarily-leaving-do .diagram {
+    justify-content: start;
+}
+
+.surface {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--high-emphasis-surface-color);
+    outline: 2px solid transparent;
+    box-sizing: border-box;
+    offset-anchor: top left;
+    offset-rotate: 0deg;
+}
+
+#movement-within-screen-bounds .surface {
+    inline-size: 112px;
+    aspect-ratio: 1 / 1;
+    border-radius: 2px;
+    box-shadow: var(--shadow-z4);
+}
+
+:is(#in-along-line, #in-along-arc) .surface {
+    inline-size: 56px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    box-shadow: var(--shadow-z6);
+}
+
+:is(#permanently-leaving-do, #permanently-leaving-dont) .surface {
+    align-self: end;
+    inline-size: 100%;
+    block-size: 168px;
+    margin: 16px;
+    box-shadow: var(--shadow-z4);
+    translate: 0px calc(100% + 16px);
+    visibility: hidden;
+}
+
+#temporarily-leaving-do .surface {
+    align-self: start;
+    inline-size: calc(100% - 56px);
+    block-size: 100%;
+    box-shadow: var(--shadow-z16);
+    border-radius: 0px;
+    translate: -100%;
+    visibility: hidden;
+}
+
+#temporarily-leaving-dont .surface {
+    align-self: start;
+    inline-size: 100%;
+    block-size: calc(3 * 56px);
+    box-shadow: var(--shadow-z16);
+    border-radius: 0px;
+    translate: 0% -100%;
+    visibility: hidden;
+}
+
+#movement-in-out-of-screen-bounds section:last-of-type .surface:first-of-type {
+    align-self: end;
+    inline-size: 100%;
+    block-size: 80px;
+    box-shadow: var(--shadow-z4);
+    translate: 0% 100%;
+    visibility: hidden;
+}
+
+#movement-in-out-of-screen-bounds section:last-of-type .surface:last-of-type {
+    inset-inline-end: 16px;
+    inset-block-end: 16px;
+    position: absolute;
+    inline-size: 56px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    box-shadow: var(--shadow-z6);
+}
+
+.diagram svg {
+    z-index: -1;
+    inset: 0;
+    position: absolute;
+}
+
+figure:has(span[sign="do"]) svg {
+    color: var(--blue-500);
+}
+
+figure:has(span[sign="dont"]) svg {
+    color: var(--red-500);
+}
+
+.diagram path {
+    stroke-dasharray: 1 1;
+    stroke-dashoffset: 1;
+}
+
+#arc-do .surface {
+    offset-path: path("M -84 84 A 168 168 0 0 0 84 -84");
+}
+
+#arc-dont .surface {
+    offset-path: path("M -84 84 A 168 168 0 0 1 84 -84");
+}
+
+#line-do .surface {
+    offset-path: path("M 0 84 V -84");
+}
+
+#line-dont .surface {
+    offset-path: path("M 0 84 A 168 168 0 0 0 0 -84");
+}
+
+.diagram .surface::before {
+    content: "";
+    inline-size: 4px;
+    aspect-ratio: 1 / 1;
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+:is(#arc-do, #line-do) .surface::before {
+    outline-color: var(--blue-500);
+}
+
+:is(#arc-dont, #line-dont) .surface::before {
+    outline-color: var(--red-500);
+}
+
+#movement-within-screen-bounds [play="on"] {
+    animation-duration: 6s;
+}
+
+:is(#arc-do, #arc-dont, #line-dont) [play="on"] .surface {
+    animation-duration: 400ms, 400ms, 200ms, 1s, 1s, 200ms;
+    animation-delay: 0.5s, 1.5s, 2.5s, 3s, 4.5s, 5.75s;
+    animation-timing-function: var(--standard-curve), var(--standard-curve), linear, var(--standard-curve), var(--standard-curve), linear;
+    animation-fill-mode: forwards;
+}
+
+#line-do [play="on"] .surface {
+    animation-duration: 350ms, 350ms, 200ms, 1s, 1s, 200ms;
+    animation-delay: 0.5s, 1.5s, 2.5s, 3s, 4.5s, 5.75s;
+    animation-timing-function: var(--standard-curve), var(--standard-curve), linear, var(--standard-curve), var(--standard-curve), linear;
+    animation-fill-mode: forwards;
+}
+
+:is(#arc-do, #line-do) [play="on"] .surface {
+    animation-name: toFinalOffsetDistance, toStartOffsetDistance, toDoFrame, toFinalOffsetDistance, toStartOffsetDistance, toSurface;
+}
+
+:is(#arc-dont, #line-dont) [play="on"] .surface {
+    animation-name: toFinalOffsetDistance, toStartOffsetDistance, toDontFrame, toFinalOffsetDistance, toStartOffsetDistance, toSurface;
+}
+
+@keyframes toFinalOffsetDistance {
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+@keyframes toStartOffsetDistance {
+    100% {
+        offset-distance: 0%;
+    }
+}
+
+@keyframes toDoFrame {
+    100% {
+        background-color: rgb(66 133 244 / 0.12);
+        outline-color: var(--blue-500);
+        box-shadow: var(--shadow-z0);
+    }
+}
+
+@keyframes toDontFrame {
+    100% {
+        background-color: rgb(244 67 54 / 0.12);
+        outline-color: var(--red-500);
+        box-shadow: var(--shadow-z0);
+    }
+}
+
+@keyframes toSurface {
+    100% {
+        background-color: var(--high-emphasis-surface-color);
+        outline-color: transparent;
+        box-shadow: var(--shadow-z4);
+    }
+}
+
+#movement-within-screen-bounds [play="on"] .surface::after {
+    animation-name: toTransparent;
+    animation-duration: 200ms;
+    animation-delay: 2.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+#movement-within-screen-bounds [play="on"] .surface::before {
+    animation-name: toOpaque, toTransparent;
+    animation-duration: 200ms;
+    animation-delay: 2.5s, 5.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+#movement-within-screen-bounds [play="on"] path {
+    animation-name: toCurveExpand, toCurveCollapse;
+    animation-duration: 1s;
+    animation-delay: 3s, 4.5s;
+    animation-timing-function: var(--standard-curve);
+    animation-fill-mode: forwards;
+}
+
+@keyframes toCurveExpand {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes toCurveCollapse {
+    100% {
+        stroke-dashoffset: 1;
+    }
+}
+
+#in-along-line .surface {
+    translate: 0px calc(50cqb + 50%);
+    visibility: hidden;
+}
+
+:is(#in-along-line, #in-along-arc) [play="on"] {
+    animation-duration: 2s;
+}
+
+#in-along-line [play="on"] .surface {
+    animation-name: toMoveClear, toMoveBack, hiddenToVisible;
+    animation-duration: 300ms, 250ms, 1.3s;
+    animation-delay: 0.5s, 1.5s, 0.5s;
+    animation-timing-function: var(--deceleration-curve), var(--acceleration-curve), step-start;
+    animation-fill-mode: forwards, forwards, none;
+}
+
+@keyframes toMoveBack {
+    100% {
+        translate: 0px calc(50cqb + 50%);
+    }
+}
+
+#in-along-arc .surface {
+    offset-path: path("M -208 208 A 208 208 0 0 0 0 0 A 208 208 0 0 0 208 208");
+    visibility: hidden;
+}
+
+#in-along-arc [play="on"] .surface {
+    animation-name: toMiddleOffsetDistance, toFinalOffsetDistance, hiddenToVisible;
+    animation-duration: 350ms, 300ms, 1.3s;
+    animation-delay: 0.5s, 1.5s, 0.5s;
+    animation-timing-function: var(--deceleration-curve), var(--acceleration-curve), step-start;
+    animation-fill-mode: forwards, forwards, none;
+}
+
+@keyframes toMiddleOffsetDistance {
+    100% {
+        offset-distance: 50%;
+    }
+}
+
+#movement-in-out-of-screen-bounds .diagram span {
+    position: absolute;
+    margin: 40px;
+}
+
+:is(#permanently-leaving-do, #permanently-leaving-dont, #relative-do, #relative-dont) .diagram span {
+    align-self: start;
+}
+
+#temporarily-leaving-do .diagram span {
+    align-self: center;
+    writing-mode: vertical-rl;
+}
+
+#temporarily-leaving-dont .diagram span {
+    align-self: end;
+}
+
+:is(#permanently-leaving-do, #temporarily-leaving-do, #temporarily-leaving-dont, #relative-dont) .diagram span::before {
+    content: "减速曲线";
+    opacity: 0;
+}
+
+:is(#permanently-leaving-dont, #relative-do) .diagram span::before {
+    content: "标准曲线";
+    opacity: 0;
+}
+
+#movement-in-out-of-screen-bounds section figure:has(span[sign="do"]) .diagram span::before {
+    color: var(--green-800);
+}
+
+#movement-in-out-of-screen-bounds section figure:has(span[sign="dont"]) .diagram span::before {
+    color: var(--red-500);
+}
+
+:is(#permanently-leaving-dont, #relative-do) [play="on"] {
+    animation-duration: 2.65s;
+}
+
+:is(#permanently-leaving-do, #temporarily-leaving-do, #temporarily-leaving-dont, #relative-dont) [play="on"] {
+    animation-duration: 3.65s;
+}
+
+:is(#permanently-leaving-do, #permanently-leaving-dont) [play="on"] .surface {
+    animation-name: toMoveClear, toMoveAppear, hiddenToVisible;
+    animation-duration: 350ms, 300ms, 1.8s;
+    animation-delay: 0.5s, 2s, 0.5s;
+    animation-fill-mode: forwards, forwards, none;
+}
+
+#permanently-leaving-do [play="on"] .surface {
+    animation-timing-function: var(--deceleration-curve), var(--acceleration-curve), step-start;
+}
+
+#permanently-leaving-dont [play="on"] .surface {
+    animation-timing-function: var(--standard-curve), var(--standard-curve), step-start;
+}
+
+@keyframes toMoveAppear {
+    100% {
+        translate: 0px calc(100% + 16px);
+    }
+}
+
+:is(#permanently-leaving-do, #relative-dont, #temporarily-leaving-do, #temporarily-leaving-dont) [play="on"] span::before {
+    animation-duration: 200ms, 150ms, 150ms, 200ms, 150ms;
+    animation-delay: 0.5s, 1.85s, 2s, 2s, 3.5s;
+    animation-timing-function: linear, linear, step-start, linear, linear;
+    animation-fill-mode: forwards;
+}
+
+:is(#permanently-leaving-do, #relative-dont) [play="on"] span::before {
+    animation-name: toOpaque, toTransparent, toNextContent, toOpaque, toTransparent;
+}
+
+:is(#temporarily-leaving-do, #temporarily-leaving-dont) [play="on"] span::before {
+    animation-name: toOpaque, toTransparent, toSharpContent, toOpaque, toTransparent;
+}
+
+@keyframes toNextContent {
+    100% {
+        content: "加速曲线";
+    }
+}
+
+:is(#permanently-leaving-dont, #relative-do) [play="on"] span::before {
+    animation-name: toOpaque, toTransparent;
+    animation-duration: 200ms, 150ms;
+    animation-delay: 0.5s, 2.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+:is(#temporarily-leaving-do, #temporarily-leaving-dont) [play="on"] .surface {
+    animation-duration: 350ms, 300ms, 1.8s;
+    animation-delay: 0.5s, 2s, 0.5s;
+    animation-timing-function: var(--deceleration-curve), var(--sharp-curve), step-start;
+    animation-fill-mode: forwards, forwards, none;
+}
+
+#temporarily-leaving-do [play="on"] .surface {
+    animation-name: toMoveClear, toMoveAside, hiddenToVisible;
+}
+
+#temporarily-leaving-dont [play="on"] .surface {
+    animation-name: toMoveClear, toMoveRight, hiddenToVisible;
+}
+
+@keyframes toMoveAside {
+    100% {
+        translate: calc(-100% - 30px);
+    }
+}
+
+@keyframes toMoveRight {
+    100% {
+        translate: calc(100% + 30px) 0%;
+    }
+}
+
+@keyframes toSharpContent {
+    100% {
+        content: "对称标准曲线";
+    }
+}
+
+#movement-in-out-of-screen-bounds section:last-of-type [play="on"] .surface {
+    animation-duration: 350ms, 300ms, 1.8s;
+    animation-delay: 0.5s, 2s, 0.5s;
+    animation-fill-mode: forwards, forwards, none;
+}
+
+#movement-in-out-of-screen-bounds section:last-of-type [play="on"] .surface:first-of-type {
+    animation-name: toMoveClear, toMoveDown, hiddenToVisible;
+}
+
+#movement-in-out-of-screen-bounds section:last-of-type [play="on"] .surface:last-of-type {
+    animation-name: toMoveUp, toMoveClear, hiddenToVisible;
+}
+
+#relative-do [play="on"] .surface {
+    animation-timing-function: var(--standard-curve), var(--standard-curve), step-start;
+}
+
+#relative-dont [play="on"] .surface {
+    animation-timing-function: var(--deceleration-curve), var(--acceleration-curve), step-start;
+}
+
+@keyframes toMoveDown {
+    100% {
+        translate: 0% 100%;
+    }
+}
+
+@keyframes toMoveUp {
+    100% {
+        translate: 0px -80px;
+    }
+}
+
+/*------------------------------------*\
+  主题
+\*------------------------------------*/
+:root {
+    --primary-color: var(--purple-600);
+    --secondary-color: var(--green-a200);
+}
+
+::selection {
+    color: rgb(0 0 0 / 0.87);
+    background-color: var(--secondary-color);
+}
+
+main>.toolbar {
+    --surface-shade-color: rgb(26 35 126 / 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+
+    body>aside,
+    header,
+    article {
+        --primary-color: var(--purple-200);
+    }
+}

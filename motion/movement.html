@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#212121" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Material 的移动受摩擦力、重力、惯性力等力的影响。若 Material 层面朝倾斜方向移动，则沿向视窗底端凸起的弧线行进；若朝单一的水平或垂直方向移动，或进出视窗，则沿直线移动。若 Material 层面进入或者退出视窗时不会对视窗内其它元素的位置产生影响，则对进场层面施用减速曲线、对长期退场层面施用加速曲线、对暂时退场层面施用对称标准曲线，否则应施用标准曲线。">
+    <title>质感设计 - 移动</title>
+    <base href="../" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Roboto+Mono:wght@500&&display=swap" rel="stylesheet" />
+    <link rel="icon" href="global/resources/favicon.svg" />
+    <link rel="stylesheet" href="motion/styles/movement.css" />
+    <link rel="stylesheet" href="global/styles/global.css" />
+    <script type="module" src="global/scripts/global.js"></script>
+</head>
+
+<body type-scale="body1">
+    <aside class="drawer" chapter="2-2"></aside>
+
+    <div class="divider" vertical></div>
+
+    <main>
+        <div class="toolbar" variant="app-bar" theme="dark" solid="end">
+            <button id="drawer-trigger" class="button" variant="icon" type="button" aria-label="打开目录">
+                <cmd-icon name="menu"></cmd-icon>
+            </button>
+            <h1 class="title" type-scale="title">动画效果 - 移动</h1>
+            <button id="search-trigger" class="button" variant="icon" type="button" disabled aria-label="搜索">
+                <cmd-icon name="search"></cmd-icon>
+            </button>
+        </div>
+
+        <header>
+            <h2 type-scale="display1">移动</h2>
+            <p type-scale="title">Material 的移动受摩擦力、重力、惯性力等力的影响，且在不同的情境中有的移动轨迹和变化速率。</p>
+            <nav>
+                <h3 type-scale="body1">索引</h3>
+                <ul type-scale="title">
+                    <li><a href="motion/movement.html#movement-within-screen-bounds">视窗内的移动</a></li>
+                    <li><a href="motion/movement.html#movement-in-out-of-screen-bounds">进出视窗的移动</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article id="movement-within-screen-bounds" horizontal>
+            <h3 type-scale="headline">视窗内的移动</h3>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">弧线轨迹</h4>
+                    <p>上升的物体需要克服重力，竖直方向的速度由慢到快；下落的物体受重力影响，竖直方向的速度提升更快。因此斜向运动的 Material 层面运动轨迹表现为向下凸起的弧线。</p>
+                </div>
+                <figure id="arc-do">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <svg viewBox="0 0 360 360">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M 96 264 A 168 168 0 0 0 264 96" pathLength="1"/>
+                        </svg>
+                        <div class="surface" solid></div>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="do" type-scale="body2">正确</span>
+                        <p>Material 层面斜向移动时因重力作用导致其运动路线向下弯曲。</p>
+                    </figcaption>
+                </figure>
+                <figure id="arc-dont">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <svg viewBox="0 0 360 360">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M 96 264 A 168 168 0 0 1 264 96" pathLength="1"/>
+                        </svg>
+                        <div class="surface" solid></div>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="dont" type-scale="body2">错误</span>
+                        <p>反重力的 Material 层面移动轨迹显得不自然。</p>
+                    </figcaption>
+                </figure>
+            </section>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">直线轨迹</h4>
+                    <p>Material 层面朝单一水平或垂直方向移动不需要沿弧线轨迹。</p>
+                </div>
+                <figure id="line-do">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <svg viewBox="0 0 360 360">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M 180 264 V 96" pathLength="1"/>
+                        </svg>
+                        <div class="surface" solid></div>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="do" type-scale="body2">正确</span>
+                        <p>朝单一水平或垂直方向移动的层面只需简单沿直线移动。</p>
+                    </figcaption>
+                </figure>
+                <figure id="line-dont">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <svg viewBox="0 0 360 360">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M 180 264 A 168 168 0 0 0 180 96" pathLength="1"/>
+                        </svg>
+                        <div class="surface" solid></div>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="dont" type-scale="body2">错误</span>
+                        <p>朝单一水平或垂直方向移动的层面沿弧线移动徒增了动画的复杂程度。</p>
+                    </figcaption>
+                </figure>
+            </section>
+        </article>
+
+        <hr class="divider" horizontal />
+
+        <article id="movement-in-out-of-screen-bounds" horizontal>
+            <h3 type-scale="headline">进出视窗的移动</h3>
+            <div class="paragraphs">
+                <p>Material 层面沿直线进出视窗。</p>
+            </div>
+            <figure id="in-along-line">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="surface" solid></div>
+                </div>
+                <figcaption>
+                    <span class="recommends" sign="do" type-scale="body2">正确</span>
+                    <p>层面沿直线进出有利于用户视觉焦点轻松跟随进场层面，并快速减弱对退场层面的注意。</p>
+                </figcaption>
+            </figure>
+            <figure id="in-along-arc">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="surface" solid></div>
+                </div>
+                <figcaption>
+                    <span class="recommends" sign="dont" type-scale="body2">错误</span>
+                    <p>层面沿弧线进出不利于用户视觉焦点跟随进场层面，或会误引导用户注意退场元素。</p>
+                </figcaption>
+            </figure>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">独立移动</h4>
+                    <p>若 Material 层面进入或者退出视窗时不会对视窗内其它元素的位置产生影响，则应：</p>
+                    <ul>
+                        <li>对进场层面施用减速曲线，减少用户对进场层面原始位置的关注和推测</li>
+                        <li>对长期退场层面施用加速曲线，减少用户对退场层面停止位置的关注和预测</li>
+                        <li>对暂时退场层面施用对称标准曲线，表示层面退至离视窗边缘不远的位置，可以快速唤出</li>
+                    </ul>
+                </div>
+                <figure id="permanently-leaving-do">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="surface" solid></div>
+                        <span type-scale="subheading"></span>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="do" type-scale="body2">正确</span>
+                        <p>对进场层面施用减速曲线，对长期退场层面施用加速曲线。</p>
+                    </figcaption>
+                </figure>
+                <figure id="permanently-leaving-dont">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="surface" solid></div>
+                        <span type-scale="subheading"></span>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="dont" type-scale="body2">错误</span>
+                        <p>层面进场时无需缓慢加速，用户只需要注意层面最终停止的位置。层面退场时也无需缓慢减速，因为层面最终会消失，注意不可见的位置没有意义。</p>
+                    </figcaption>
+                </figure>
+                <figure id="temporarily-leaving-do">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="surface"></div>
+                        <span type-scale="subheading"></span>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="do" type-scale="body2">正确</span>
+                        <p>对暂时退场层面施用对称标准曲线。</p>
+                    </figcaption>
+                </figure>
+                <figure id="temporarily-leaving-dont">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="surface" solid="end"></div>
+                        <span type-scale="subheading"></span>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="dont" type-scale="body2">错误</span>
+                        <p>若层面重新进场的方向与退场方向不一致，则应对离场施用加速曲线，而不是对称标准曲线。</p>
+                    </figcaption>
+                </figure>
+            </section>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">关联移动</h4>
+                    <p>若 Material 层面进入或者退出视窗时会对视窗内其它元素的位置产生影响，则应统一施用标准曲线增强视窗内外层面运动的共性。</p>
+                </div>
+                <figure id="relative-do">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="surface" solid></div>
+                        <div class="surface" solid="start"></div>
+                        <span type-scale="subheading"></span>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="do" type-scale="body2">正确</span>
+                        <p>对位置互相影响的层面移动施用标准曲线。</p>
+                    </figcaption>
+                </figure>
+                <figure id="relative-dont">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="surface" solid></div>
+                        <div class="surface" solid="start"></div>
+                        <span type-scale="subheading"></span>
+                    </div>
+                    <figcaption>
+                        <span class="recommends" sign="dont" type-scale="body2">错误</span>
+                        <p>视窗内的层面突然快速移动，没有留给用户足够转移注意的时间，或突然完全停止，误形成了限制边界。</p>
+                    </figcaption>
+                </figure>
+            </section>
+        </article>
+
+        <footer theme="dark">
+            <a draggable="false" href="motion/material-motion.html">
+                <span type-scale="subheading">上一节</span>
+                <span type-scale="title">
+                    <cmd-icon name="arrow_back"></cmd-icon>
+                    运动机理
+                </span>
+            </a>
+            <a draggable="false" href="motion/transforming-material.html">
+                <span type-scale="subheading">下一节</span>
+                <span type-scale="title">
+                    <cmd-icon name="arrow_forward"></cmd-icon>
+                    转换
+                </span>
+            </a>
+        </footer>
+    </main>
+
+    <script>
+        document.body.style.setProperty('--window-width', document.body.clientWidth);
+    </script>
+</body>
+
+</html>
