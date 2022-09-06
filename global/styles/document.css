@@ -14,6 +14,7 @@ html {
     color: var(--primary-text-color);
     background-color: var(--medium-emphasis-surface-color);
     font-family: "Roboto", "Noto Sans SC", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -446,6 +447,7 @@ figure[screen~="mobile"] .simulator {
 .simulator[animated]::after {
     content: url(../resources/play_circle_filled.svg);
     z-index: 26;
+    line-height: 1;
     background-color: rgb(0 0 0 / 0.4);
     pointer-events: auto;
     cursor: pointer;
