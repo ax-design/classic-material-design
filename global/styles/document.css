@@ -14,6 +14,7 @@ html {
     color: var(--primary-text-color);
     background-color: var(--medium-emphasis-surface-color);
     font-family: "Roboto", "Noto Sans SC", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
