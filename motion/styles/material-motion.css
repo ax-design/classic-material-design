@@ -1780,11 +1780,11 @@ main:has(>.toolbar[variant~="prominent"]) {
 }
 
 #sharp [play="on"] .surface {
-    animation-name: easingDemoDisappear, visibleToHidden, fromCollapse_inlineSize;
-    animation-duration: 0.75s, 0.75s, 200ms;
+    animation-name: easingDemoDisappear, visibleToHidden, easingDemoMoveDown;
+    animation-duration: 0.75s, 0.75s, 0.75s;
     animation-delay: 0.5s, 1.25s, 2s;
     animation-timing-function: var(--sharp-curve), step-start, var(--deceleration-curve);
-    animation-fill-mode: none, none, forwards;
+    animation-fill-mode: forwards, none, forwards;
 }
 
 #asymmetric [play="on"] .demo:nth-child(2) .surface {
