@@ -53,6 +53,10 @@
     grid-column-start: 2;
 }
 
+.simulator[contacts="detailed"] .tile .meta {
+    grid-column-start: 3;
+}
+
 .simulator[contacts="detailed"] .tile>cmd-icon {
     color: var(--primary-color);
 }
