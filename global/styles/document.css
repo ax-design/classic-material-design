@@ -448,6 +448,10 @@ h5 {
     background-color: var(--medium-emphasis-surface-color);
 }
 
+figure[screen~="tablet"] {
+    grid-column-end: span min(2, var(--content-columns));
+}
+
 figure[screen~="mobile"] .simulator {
     block-size: 640px;
 }
@@ -706,6 +710,7 @@ footer cmd-icon {
 /*------------------------------------*\
   跨屏幕
 \*------------------------------------*/
+
 @media (width < 1576px) {
     :root {
         --content-columns: 2;
@@ -735,6 +740,12 @@ footer cmd-icon {
     main,
     .paragraphs {
         grid-column: 1 / -1;
+    }
+}
+
+@media (width >=920px) {
+    figure[screen~="tablet"] .simulator {
+        block-size: 570px;
     }
 }
 
@@ -809,6 +820,13 @@ footer cmd-icon {
     }
 }
 
+@container simulator (width >=360px) {
+    .system .navigation {
+        --navigation-button-inline-size: 80px;
+        --navigation-bar-inline-padding: 40px;
+    }
+}
+
 @container simulator (width >=600px) {
     .system .navigation {
         --navigation-button-inline-size: 162px;
@@ -819,13 +837,6 @@ footer cmd-icon {
     .application {
         --increment: 64px;
         --keyline: 24px;
-    }
-}
-
-@container simulator (width >=360px) {
-    .system .navigation {
-        --navigation-button-inline-size: 80px;
-        --navigation-bar-inline-padding: 40px;
     }
 }
 
