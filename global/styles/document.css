@@ -361,6 +361,7 @@ figure>:is(.illustration, .diagram, .simulator)::after {
 }
 
 .recommends[sign="dont"] {
+    border-color: var(--red-700);
     color: var(--red-700);
 }
 
@@ -884,6 +885,10 @@ footer cmd-icon {
 
     .recommends[sign="do"] {
         color: var(--green-400);
+    }
+
+    .recommends[sign="dont"] {
+        color: var(--red-500);
     }
 
     [theme="dark-light"] {
