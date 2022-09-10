@@ -183,7 +183,7 @@ figure:has(span[sign="dont"]) svg {
 
 @keyframes toDoFrame {
     100% {
-        background-color: rgb(66 133 244 / 0.12);
+        background-color: rgb(33 150 243 / 0.12);
         outline-color: var(--blue-500);
         box-shadow: var(--shadow-z0);
     }
