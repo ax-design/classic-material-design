@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <base href="../" />
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#212121" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="矩形的 Material 层面伸展或收缩时可以令宽高速率变化产生差异，以强调层面的变化。圆形的 Material 层面在转换成矩形层面时，需要保持层面始终呈正圆形扩展或坍缩。">
+    <meta property="og:title" content="质感设计 - 转换" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="global/resources/thumbnail.png" />
+    <meta property="og:url" content="https://ax-design.github.io/classic-material-design/motion/transforming-material.html" />
+    <title>质感设计 - 转换</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Roboto+Mono:wght@500&&display=swap" rel="stylesheet" />
+    <link rel="icon" href="global/resources/favicon.svg" />
+    <link rel="stylesheet" href="motion/styles/transforming-material.css" />
+    <link rel="stylesheet" href="global/styles/global.css" />
+    <script type="module" src="global/scripts/global.js"></script>
+</head>
+
+<body type-scale="body1">
+    <aside class="drawer" chapter="2-3"></aside>
+
+    <div class="divider" vertical></div>
+
+    <main>
+        <div class="toolbar" variant="app-bar" theme="dark" solid="end">
+            <button id="drawer-trigger" class="button" variant="icon" type="button" aria-label="打开目录">
+                <cmd-icon name="menu"></cmd-icon>
+            </button>
+            <h1 class="title" type-scale="title">动画效果 - 转换</h1>
+            <button id="search-trigger" class="button" variant="icon" type="button" disabled aria-label="搜索">
+                <cmd-icon name="search"></cmd-icon>
+            </button>
+        </div>
+
+        <header>
+            <h2 type-scale="display1">转换</h2>
+            <p type-scale="title">由 Material 组成的层面通过伸展、收缩、改变形状、拼合或拆分等方式体现虚拟纸张的强大可塑性，与魔法般的内容承载力。</p>
+            <nav>
+                <h3 type-scale="body1">索引</h3>
+                <ul type-scale="title">
+                    <li><a href="motion/transforming-material.html#rectangular-transformation">矩形转换</a></li>
+                    <li><a href="motion/transforming-material.html#radial-transformation">正圆转换</a></li>
+                    <li><a href="motion/transforming-material.html#joining-dividing">拼合与拆分</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article id="rectangular-transformation" horizontal>
+            <h3 type-scale="headline">矩形转换</h3>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">相异变化速率</h4>
+                    <p>如同移动，受重力影响，在特定情境中矩形 Material 层面水平方向和垂直方向的速率变化并不一致。为了达到这一效果，可以通过改变宽度与高度的计算方式，从而只需操控单一参数θ的变化速率：</p>
+                    <ul>
+                        <li>当前宽度变化量 = 目标宽度变化量 × cos(θ)</li>
+                        <li>当前高度变化量 = 目标高度变化量 × (sin(θ) + 1)</li>
+                        <li>其中 θ ∈ [-π/2 , 0]</li>
+                    </ul>
+                    <p>相异速率的尺寸变化通常用于矩形 Material 层面揭露或遮罩内容。</p>
+                </div>
+                <figure id="asymmetric-transformation">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="surface" solid></div>
+                    </div>
+                    <figcaption>
+                        <p>Material 层面宽高速率变化不同强调了变化过程。</p>
+                    </figcaption>
+                </figure>
+            </section>
+            <section>
+                <div class="paragraphs">
+                    <h4 type-scale="title">相同变化速率</h4>
+                    <p>相同速率的尺寸变化通常用于层面内容的变换，或需要保持一定内容尺寸比例的矩形 Material 层面变换，以避免转换时内容比例与层面比例不协调。</p>
+                </div>
+                <figure id="symmetrical-transformation">
+                    <div class="diagram" aria-hidden="true" animated>
+                        <div class="surface" solid></div>
+                    </div>
+                    <figcaption>
+                        <p>Material 层面宽高速率变化相同淡化了变化过程。</p>
+                    </figcaption>
+                </figure>
+            </section>
+        </article>
+
+        <hr class="divider" horizontal />
+
+        <article id="radial-transformation" horizontal>
+            <h3 type-scale="headline">正圆转换</h3>
+            <div class="paragraphs">
+                <p>当圆形 Material 层面转换成矩形层面或复原时，始终呈正圆扩散揭露或聚拢遮罩。</p>
+            </div>
+            <figure id="radial-expand">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="wrapper">
+                        <div class="container">
+                            <div class="surface"></div>
+                        </div>
+                    </div>
+                </div>
+                <figcaption>
+                    <span class="recommends" sign="do" type-scale="body2">正确</span>
+                    <p>圆形 Material 层面转换始终呈正圆状均匀地往四周或中心发展。</p>
+                </figcaption>
+            </figure>
+            <figure id="radial-oval">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="wrapper">
+                        <div class="container">
+                            <div class="surface"></div>
+                        </div>
+                    </div>
+                </div>
+                <figcaption>
+                    <span class="recommends" sign="dont" type-scale="body2">错误</span>
+                    <p>圆形 Material 层面转换的宽高变化速率不得相异。</p>
+                </figcaption>
+            </figure>
+            <figure id="radial-dont">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="wrapper">
+                        <div class="container">
+                            <div class="surface"></div>
+                            <div class="surface"></div>
+                        </div>
+                    </div>
+                </div>
+                <figcaption>
+                    <span class="recommends" sign="dont" type-scale="body2">错误</span>
+                    <p>矩形层面之间不得借由圆转换。</p>
+                </figcaption>
+            </figure>
+            <figure id="complex-shapes">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="wrapper">
+                        <div class="container">
+                            <div class="surface"></div>
+                        </div>
+                    </div>
+                </div>
+                <figcaption>
+                    <span class="recommends" sign="dont" type-scale="body2">错误</span>
+                    <p>非矩形或圆形的层面不适合转换。</p>
+                </figcaption>
+            </figure>
+            <div class="paragraphs">
+                <p>圆形 Material 层面转换时既可以同时沿直线或弧线移动，又可以固定在一处。</p>
+            </div>
+            <figure id="radial-arc">
+                <div class="diagram" aria-hidden="true" animated>
+                    <svg viewBox="0 0 360 360">
+                        <path fill="none" stroke="currentColor" stroke-width="2" d="M 272 272 A 92 92 0 0 1 180 180" pathLength="1"></path>
+                    </svg>
+                    <div class="wrapper">
+                        <div class="container">
+                            <div class="surface"></div>
+                        </div>
+                    </div>
+                </div>
+            </figure>
+            <figure id="radial-fixed">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="wrapper">
+                        <div class="container">
+                            <div class="surface"></div>
+                        </div>
+                    </div>
+                </div>
+            </figure>
+        </article>
+
+        <hr class="divider" horizontal />
+
+        <article id="joining-dividing" horizontal>
+            <h3 type-scale="headline">拼合与拆分</h3>
+            <div class="paragraphs">
+                <p>Material 层面在拼合或拆分时通常会保持原始形状与内边距。由于此时层面海拔高度相等，各个层面的阴影不会投射到相邻层面上。</p>
+            </div>
+            <figure id="join-divide">
+                <div class="diagram" aria-hidden="true" animated>
+                    <div class="wrapper">
+                        <div class="surface"></div>
+                        <div class="surface"></div>
+                        <div class="surface"></div>
+                        <div class="surface"></div>
+                    </div>
+                </div>
+            </figure>
+        </article>
+
+        <footer theme="dark">
+            <a draggable="false" href="motion/movement.html">
+                <span type-scale="subheading">上一节</span>
+                <span type-scale="title">
+                    <cmd-icon name="arrow_back"></cmd-icon>
+                    移动
+                </span>
+            </a>
+            <a draggable="false" href="motion/choreography.html">
+                <span type-scale="subheading">下一节</span>
+                <span type-scale="title">
+                    <cmd-icon name="arrow_forward"></cmd-icon>
+                    编排
+                </span>
+            </a>
+        </footer>
+    </main>
+
+    <script>
+        document.body.style.setProperty('--window-width', document.body.clientWidth);
+    </script>
+</body>
+
+</html>
