@@ -9,6 +9,12 @@
     --ripple-expand-curve: cubic-bezier(0.17, 0.74, 0.4, 1);
 }
 
+@property --θ {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: -90deg;
+}
+
 @keyframes fromTransparent {
     0% {
         opacity: 0;

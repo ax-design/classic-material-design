@@ -308,6 +308,13 @@ main:has(>.toolbar[variant~="prominent"]) {
     }
 }
 
+#result [play="on"] .menu {
+    inline-size: calc(3 * var(--increment) * cos(var(--θ)));
+    block-size: calc(4 * 48px * (1 + sin(var(--θ))));
+    padding-block: calc(8px * (1 + sin(var(--θ))));
+    opacity: 0;
+}
+
 #result [play="on"] {
     animation-duration: 3s;
 }
@@ -321,23 +328,7 @@ main:has(>.toolbar[variant~="prominent"]) {
     animation-fill-mode: both;
 }
 
-@property --horizontal-θ {
-    syntax: "<angle>";
-    inherits: false;
-    initial-value: 0deg;
-}
-
-@property --vertical-θ {
-    syntax: "<angle>";
-    inherits: false;
-    initial-value: 0deg;
-}
-
 #result [play="on"] .menu {
-    inline-size: calc(3 * var(--increment) * cos(var(--horizontal-θ)));
-    block-size: calc(4 * 48px * (1 + sin(var(--vertical-θ))));
-    padding-block: calc(8px * (1 + sin(var(--vertical-θ))));
-    opacity: 0;
     animation-name: menuExpand, toOpaque, toTransparent, hiddenToVisible;
     animation-duration: 300ms, 150ms, 200ms, 2.5s;
     animation-delay: 0.5s, 0.5s, 2.5s, 0.5s;
@@ -346,15 +337,8 @@ main:has(>.toolbar[variant~="prominent"]) {
 }
 
 @keyframes menuExpand {
-    0% {
-        --horizontal-θ: -90deg;
-        --vertical-θ: -90deg;
-        translate: 0px 0px;
-    }
-
     100% {
-        --horizontal-θ: 0deg;
-        --vertical-θ: 0deg;
+        --θ: 0deg;
         translate: -8px 8px;
     }
 }
