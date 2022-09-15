@@ -23,8 +23,17 @@
     block-size: 72px;
 }
 
+.tile[variant~="two"][variant~="grid"] {
+    block-size: 68px;
+    padding-inline-end: 0px;
+}
+
 .tile[variant~="two"][density="dense"] {
     block-size: 60px;
+}
+
+.tile[variant~="three"] {
+    block-size: 88px;
 }
 
 .tile .text {
@@ -93,7 +102,6 @@
     aspect-ratio: 1 / 1;
     border: 1px solid var(--divider-color);
     border-radius: inherit;
-    pointer-events: none;
 }
 
 .thumbnail[variant="avatar"][character="ali-connors"] {
@@ -101,9 +109,24 @@
     background-position: -15px -13px;
 }
 
+.thumbnail[variant="avatar"][character="anthony-stevens"] {
+    background-size: 48px;
+    background-position: -2px -2px;
+}
+
+.thumbnail[variant="avatar"][character="britta-holt"] {
+    background-size: auto 43px;
+    background-position: -12px -1px;
+}
+
 .thumbnail[variant="avatar"][character="janet-perkins"] {
     background-size: auto 80px;
     background-position: -17px -22px;
+}
+
+.thumbnail[variant="avatar"][character="jennifer-smith"] {
+    background-size: 52px;
+    background-position: -8px -7px;
 }
 
 .thumbnail[variant="avatar"][character="mary-johnson"] {
@@ -113,14 +136,4 @@
 
 .thumbnail[variant="avatar"][character="peter-carlsson"] {
     background-position: top;
-}
-
-.thumbnail[variant="avatar"][character="anthony-stevens"] {
-    background-size: 48px;
-    background-position: -2px -2px;
-}
-
-.thumbnail[variant="avatar"][character="jennifer-smith"] {
-    background-size: 52px;
-    background-position: -8px -7px;
 }

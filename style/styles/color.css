@@ -1,0 +1,100 @@
+@layer reset,base,document,application;
+@import "../../global/styles/applications/calculator.css" layer(application);
+@import "../../global/styles/applications/calendar.css" layer(application);
+@import "../../global/styles/applications/chrome.css" layer(application);
+@import "../../global/styles/applications/clock.css" layer(application);
+@import "../../global/styles/applications/contacts.css" layer(application);
+@import "../../global/styles/applications/dialer.css" layer(application);
+@import "../../global/styles/applications/files.css" layer(application);
+@import "../../global/styles/applications/inbox.css" layer(application);
+@import "../../global/styles/applications/music.css" layer(application);
+@import "../../global/styles/applications/settings.css" layer(application);
+@import "../../global/styles/applications/shrine.css" layer(application);
+@import "../../global/styles/applications/weather.css" layer(application);
+
+/*------------------------------------*\
+  正文
+\*------------------------------------*/
+
+main:has(>.toolbar[variant~="prominent"]) {
+    grid-template-rows: calc(4 * var(--increment));
+}
+
+:is(#default-light-theme, #certain-text-accented) {
+    grid-column-start: max(1, calc(var(--content-columns) - 1));
+}
+
+:is(#default-light-theme, #default-dark-theme) .toolbar {
+    background-color: var(--low-emphasis-surface-color);
+}
+
+#color-themes .dialog .body {
+    inline-size: calc(5 * var(--increment));
+    block-size: calc(5 * var(--increment));
+}
+
+#all-text-accented :is(.subject, .content) {
+    color: var(--primary-color);
+}
+
+#all-text-accented .content span {
+    color: var(--primary-text-color);
+}
+
+.palette {
+    margin-block-end: 20px;
+    user-select: text;
+}
+
+.palette li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+    padding-inline: 16px;
+    line-height: 40px;
+}
+
+.palette+#default-theme,
+#certain-text-accented {
+    grid-column-start: max(1, calc(var(--content-columns) - 1));
+}
+
+#color-palette .palette:first-of-type,
+#color-palette .palette:not(:last-of-type) li:first-of-type span:first-of-type {
+    grid-column-start: 1;
+}
+
+.palette li span:last-of-type {
+    justify-self: end;
+}
+
+/*------------------------------------*\
+  主题
+\*------------------------------------*/
+
+:root {
+    --primary-color: var(--teal-600);
+    --secondary-color: var(--orange-a200);
+}
+
+::selection {
+    color: rgb(0 0 0 / 0.87);
+    background-color: var(--secondary-color);
+}
+
+main>.toolbar {
+    --surface-shade-color: rgb(26 35 126 / 0.2);
+}
+
+footer a:first-of-type {
+    --primary-color: var(--purple-600);
+}
+
+@media (prefers-color-scheme: dark) {
+
+    body>aside,
+    header,
+    article {
+        --primary-color: var(--teal-400);
+    }
+}

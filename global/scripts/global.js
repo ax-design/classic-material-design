@@ -34,15 +34,15 @@ template.innerHTML = `
         <li interact inert><a draggable="false" href="motion/creative-customization.html">创意定制</a></li>
     </ul>
 </details>
-<details inert>
+<details>
     <summary type-scale="body2">风格样式</summary>
     <ul>
         <li interact><a draggable="false" href="style/color.html">颜色</a></li>
-        <li interact><a draggable="false" href="style/icons.html">图标</a></li>
-        <li interact><a draggable="false" href="style/imagery.html">图像</a></li>
-        <li interact><a draggable="false" href="style/typography.html">字体排印</a></li>
-        <li interact><a draggable="false" href="style/writing.html">书面用语</a></li>
-        <li interact><a draggable="false" href="style/sound.html">声音</a></li>
+        <li interact inert><a draggable="false" href="style/icons.html">图标</a></li>
+        <li interact inert><a draggable="false" href="style/imagery.html">图像</a></li>
+        <li interact inert><a draggable="false" href="style/typography.html">字体排印</a></li>
+        <li interact inert><a draggable="false" href="style/writing.html">书面用语</a></li>
+        <li interact inert><a draggable="false" href="style/sound.html">声音</a></li>
     </ul>
 </details>
 <details inert>

@@ -67,6 +67,22 @@ function getLineLineIntersection(o, p1, p2, p3, p4) {
     return [x + o[0], o[1] - y]
 }
 
+function getCirclePointTangentPoint(o, c, r, p) {
+    c = [c[0] - o[0], o[1] - c[1]];
+    p = [p[0] - o[0], o[1] - p[1]];
+
+    const b = Math.hypot(p[0] - c[0], p[1] - c[1]);
+    const th = Math.acos(r / b);
+    const d = Math.atan2(p[1] - c[1], p[0] - c[0]);
+
+    const x1 = c[0] + r * Math.cos(d + th);
+    const y1 = c[1] + r * Math.sin(d + th);
+    const x2 = c[0] + r * Math.cos(d - th);
+    const y2 = c[1] + r * Math.sin(d - th);
+
+    return [[x1 + o[0], o[1] - y1], [x2 + o[0], o[1] - y2]]
+}
+
 function getCircleLineIntersection(o, r, p1, p2) {
     p1 = [p1[0] - o[0], o[1] - p1[1]];
     p2 = [p2[0] - o[0], o[1] - p2[1]];
@@ -81,6 +97,22 @@ function getCircleLineIntersection(o, r, p1, p2) {
     const y1 = (-D * dx + Math.abs(dy) * Math.sqrt(Math.pow(r, 2) * Math.pow(dr, 2) - Math.pow(D, 2))) / Math.pow(dr, 2);
     const x2 = (D * dy - sdy * dx * Math.sqrt(Math.pow(r, 2) * Math.pow(dr, 2) - Math.pow(D, 2))) / Math.pow(dr, 2);
     const y2 = (-D * dx - Math.abs(dy) * Math.sqrt(Math.pow(r, 2) * Math.pow(dr, 2) - Math.pow(D, 2))) / Math.pow(dr, 2);
+
+    return [[x1 + o[0], o[1] - y1], [x2 + o[0], o[1] - y2]]
+}
+
+function getCircleCircleIntersection(o, c1, c2, r1, r2) {
+    c1 = [c1[0] - o[0], o[1] - c1[1]];
+    c2 = [c2[0] - o[0], o[1] - c2[1]];
+
+    const d = Math.hypot(c1[0] - c2[0], c1[1] - c2[1]);
+    const l = (Math.pow(r1, 2) - Math.pow(r2, 2) + Math.pow(d, 2)) / (2 * d);
+    const h = Math.sqrt(Math.pow(r1, 2) - Math.pow(l, 2));
+
+    const x1 = l / d * (c2[0] - c1[0]) + h / d * (c2[1] - c1[1]) + c1[0];
+    const y1 = l / d * (c2[1] - c1[1]) - h / d * (c2[0] - c1[0]) + c1[1];
+    const x2 = l / d * (c2[0] - c1[0]) - h / d * (c2[1] - c1[1]) + c1[0];
+    const y2 = l / d * (c2[1] - c1[1]) + h / d * (c2[0] - c1[0]) + c1[1];
 
     return [[x1 + o[0], o[1] - y1], [x2 + o[0], o[1] - y2]]
 }
@@ -2333,7 +2365,9 @@ function setIconProperties(element) {
 
     function setIconHeight() {
         switch (iconName) {
+            case 'expand_less':
             case 'expand_more':
+            case 'more_horiz':
                 switch (iconSize) {
                     case 'small':
                         return 9
@@ -2461,6 +2495,10 @@ function setIconProperties(element) {
                 return `
                 <polygon points="7,10 17,10 12,15"/>
             `}
+            case 'arrow_drop_up': {
+                return `
+                <polygon points="7,14 12,9 17,14"/>
+            `}
             case 'arrow_forward': {
                 return `
                 <defs>
@@ -2568,6 +2606,47 @@ function setIconProperties(element) {
                     7.5,3
                 "/>
             `}
+            case 'brightness_6': {
+                return `
+                <defs>
+                    <mask id="mask">
+                        <rect x="4" y="4" width="16" height="16" fill="white"/>
+                        <rect x="4" y="4" width="16" height="16" fill="white" transform="rotate(45)" transform-origin="center"/>
+                        <path fill="black" d="
+                            M 12 6
+                            A 6 6 0 0 1 12 18
+                            Z
+                        "/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'bluetooth': {
+                return `
+                <defs>
+                    <clipPath id="left-top-clip-path">
+                        <polygon points="0,0 24,0 0,24"/>
+                    </clipPath>
+                    <clipPath id="left-bottom-clip-path">
+                        <polygon points="24,24 0,0 0,24"/>
+                    </clipPath>
+                    <mask id="mask">
+                        <polygon fill="none" stroke="white" stroke-width="4" clip-path="url(#left-top-clip-path)" points="10,0 24,0 24,14"/>
+                        <polygon fill="none" stroke="white" stroke-width="4" clip-path="url(#left-bottom-clip-path)" points="10,24 24,24 24,10"/>
+                        <polygon fill="none" stroke="white" stroke-width="2" points="28,-4 28,28 -4,28"/>
+                        <polygon fill="none" stroke="white" stroke-width="2" points="-4,-4 28,28 28,-4"/>
+                        <rect x="6" width="5" height="4" fill="black" />
+                        <rect x="6" y="19" width="5" height="4" fill="black" />
+                        <rect x="11" width="2" height="100%" fill="white" />
+                        <polygon fill="black" points="10,0 24,0 24,14"/>
+                        <polygon fill="black" points="10,24 24,24 24,10"/>
+                        <polygon fill="black" stroke="black" stroke-width="2" points="10,0 0,0 0,10"/>
+                        <polygon fill="black" stroke="black" stroke-width="2" points="10,24 0,24 0,14"/>
+                        <rect width="100%" height="100%" fill="none" stroke="black" stroke-width="4" />
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
             case 'call': {
                 const borderRadius = 1;
                 const outerRadius = 17;
@@ -2603,6 +2682,24 @@ function setIconProperties(element) {
                     A ${borderRadius} ${borderRadius} 0 0 1 ${F[1]} ${F[1] - borderRadius}
                     Z
                 "/>
+            `}
+            case 'call_made': {
+                return `
+                <mask id="mask">
+                    <line stroke="white" stroke-width="1.5" x1="6" y1="3.75" x2="15" y2="3.75"/>
+                    <line stroke="white" stroke-width="1.5" x1="14.25" y1="3" x2="14.25" y2="12"/>
+                    <line stroke="white" stroke-width="1.5" x1="14.5" y1="3.5" x2="3.75" y2="14.25"/>
+                </mask>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'call_received': {
+                return `
+                <mask id="mask">
+                    <line stroke="white" stroke-width="1.5" x1="3.75" y1="6" x2="3.75" y2="15"/>
+                    <line stroke="white" stroke-width="1.5" x1="3" y1="14.25" x2="12" y2="14.25"/>
+                    <line stroke="white" stroke-width="1.5" x1="14.5" y1="3.5" x2="3.75" y2="14.25"/>
+                </mask>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
             `}
             case 'camera_alt': {
                 return `
@@ -2684,6 +2781,79 @@ function setIconProperties(element) {
                 return `
                 <circle fill="none" stroke="currentColor" stroke-width="2" cx="12" cy="12" r="8.25" />
             `}
+            case 'close': {
+                const offset = 12 - 5 - 1 * Math.sin(Math.PI / 4);
+                return `
+                <line stroke="currentColor" stroke-width="2" x1="${12 + offset}" y1="${12 - offset}" x2="${12 - offset}" y2="${12 + offset}"/>
+                <line stroke="currentColor" stroke-width="2" x1="${12 - offset}" y1="${12 - offset}" x2="${12 + offset}" y2="${12 + offset}"/>
+            `}
+            case 'cloud_download': {
+                return `
+                <defs>
+                    <mask id="mask">
+                        <circle fill="white" cx="6" cy="14" r="6"/>
+                        <circle fill="white" cx="12" cy="11.5" r="7.5"/>
+                        <circle fill="white" cx="19" cy="15" r="5"/>
+                        <rect fill="white" x="6" y="18" width="13" height="2"/>
+                        <polygon fill="black" points="10,9 14,9 14,13 17,13 12,18 7,13 10,13"/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'dialpad': {
+                return `
+                <circle cx="6" cy="3" r="2"/>
+                <circle cx="12" cy="3" r="2"/>
+                <circle cx="18" cy="3" r="2"/>
+                <circle cx="6" cy="9" r="2"/>
+                <circle cx="12" cy="9" r="2"/>
+                <circle cx="18" cy="9" r="2"/>
+                <circle cx="6" cy="15" r="2"/>
+                <circle cx="12" cy="15" r="2"/>
+                <circle cx="18" cy="15" r="2"/>
+                <circle cx="12" cy="21" r="2"/>
+            `}
+            case 'delete': {
+                return `
+                <defs>
+                    <mask id="mask">
+                        <rect fill="white" x="6" y="4" width="12" height="17" rx="2" ry="2"/>
+                        <rect fill="black" width="100%" height="7"/>
+                        <polygon fill="white" points="14.5,3 15.5,4 19,4 19,6 5,6 5,4 8.5,4 9.5,3"/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'drafts': {
+                const B = getCirclePointTangentPoint([12, 12], [20, 8], 2, [12, 1])[1];
+                const I = getCirclePointTangentPoint([12, 12], [4, 8], 2, [12, 1])[0];
+                const J = getLineLineIntersection([12, 12], [B[0], B[1] + 2], [12, 3], [20, 8], [12, 13]);
+                const K = getLineLineIntersection([12, 12], [I[0], I[1] + 2], [12, 3], [4, 8], [12, 13]);
+                return `
+                <defs>
+                    <mask id="mask">
+                        <path fill="white" d="
+                            M 12 1
+                            L ${B[0]} ${B[1]}
+                            A 2 2 0 0 1 22 8
+                            V 18
+                            A 2 2 0 0 1 20 20
+                            H 4
+                            A 2 2 0 0 1 2 18
+                            V 8
+                            A 2 2 0 0 1 ${I[0]} ${I[1]}
+                            Z
+                        "/>
+                        <polygon fill="black" points="
+                            12,3
+                            ${J[0]},${J[1]}
+                            12,13
+                            ${K[0]},${K[1]}
+                        "/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
             case 'edit': {
                 const radius = 1;
                 return `
@@ -2746,6 +2916,53 @@ function setIconProperties(element) {
                     <mask id="mask">
                         <rect fill="white" x="4" y="12" width="16" height="7" clip-path="url(#clip-path)"/>
                         <use href="#body" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'inbox': {
+                return `
+                <defs>
+                    <mask id="mask">
+                        <rect fill="white" x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <rect fill="black" x="5" y="5" width="14" height="10"/>
+                        <circle fill="black" cx="12" cy="15" r="3"/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'info': {
+                return `
+                <defs>
+                    <mask id="mask">
+                        <circle fill="white" cx="12" cy="12" r="10"/>
+                        <rect fill="black" x="11" y="7" width="2" height="2"/>
+                        <rect fill="black" x="11" y="11" width="2" height="6"/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'language': {
+                const assistCircle = getCircle([12, 12], [12, 4], [14.5, 12], [12, 20]);
+                const assistAngele = Math.atan((12 - 4) / (12 - assistCircle[0]));
+                const T1 = [12 - 1 * Math.cos(assistAngele), 4 - 1 * Math.sin(assistAngele)];
+                const B1 = [12 - 1 * Math.cos(assistAngele), 20 + 1 * Math.sin(assistAngele)];
+                const T2 = [12 + 1 * Math.cos(assistAngele), 4 - 1 * Math.sin(assistAngele)];
+                const B2 = [12 + 1 * Math.cos(assistAngele), 20 + 1 * Math.sin(assistAngele)];
+                return `
+                <defs>
+                    <mask id="mask">
+                        <circle fill="none" stroke="white" stroke-width="2" cx="12" cy="12" r="9"/>
+                        <path fill="none" stroke="white" stroke-width="2" d="
+                            M ${T1[0]} ${T1[1]}
+                            A ${assistCircle[2] + 1} ${assistCircle[2] + 1} 0 0 0 ${B1[0]} ${B1[1]}
+                        "/>
+                        <path fill="none" stroke="white" stroke-width="2" d="
+                            M ${T2[0]} ${T2[1]}
+                            A ${assistCircle[2] + 1} ${assistCircle[2] + 1} 0 0 1 ${B2[0]} ${B2[1]}
+                        "/>
+                        <rect fill="white" x="3.5" y="8" width="17" height="2"/>
+                        <rect fill="white" x="3.5" y="14" width="17" height="2"/>
                     </mask>
                 </defs>
                 <rect width="100%" height="100%" mask="url(#mask)"/>
@@ -2838,6 +3055,22 @@ function setIconProperties(element) {
                     `}
                 }
             }
+            case 'more_horiz': {
+                switch (iconSize) {
+                    case 'small': {
+                        return `
+                        <circle cx="4.5" cy="4.5" r="1.5"/>
+                        <circle cx="9" cy="4.5" r="1.5"/>
+                        <circle cx="13.5" cy="4.5" r="1.5"/>
+                    `}
+                    default: {
+                        return `
+                        <circle cx="6" cy="6" r="2"/>
+                        <circle cx="12" cy="6" r="2"/>
+                        <circle cx="18" cy="6" r="2"/>
+                    `}
+                }
+            }
             case 'more_vert': {
                 switch (iconSize) {
                     case 'small': {
@@ -2854,6 +3087,44 @@ function setIconProperties(element) {
                     `}
                 }
             }
+            case 'notifications': {
+                return `
+                <defs>
+                    <mask id="mask">
+                        <rect fill="white" x="10" y="14" width="4" height="8" rx="2" ry="2"/>
+                        <rect fill="black" y="19" width="100%" height="1"/>
+                        <rect fill="white" x="10.5" y="2.5" width="3" height="6" rx="1.5" ry="1.5"/>
+                        <path fill="white" d="
+                            M 6 10.5
+                            A 6 6 0 0 1 18 10.5
+                            V 16
+                            L 20 18
+                            V 19
+                            H 4
+                            V 18
+                            L 6 16
+                            Z
+                        "/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'person_add': {
+                const assistAngele = Math.atan(12 / 16);
+                return `
+                <rect x="4" y="7" width="2" height="8"/>
+                <rect x="1" y="10" width="8" height="2"/>
+                <path d="
+                    M 7 20
+                    V 18
+                    A 2 2 0 0 1 ${9 - 2 * Math.sin(assistAngele)} ${18 - 2 * Math.cos(assistAngele)}
+                    A 12 12 0 0 1 ${21 + 2 * Math.sin(assistAngele)} ${18 - 2 * Math.cos(assistAngele)}
+                    A 2 2 0 0 1 23 18
+                    V 20
+                    Z
+                "/>
+                <circle cx="15" cy="8" r="4"/>
+            `}
             case 'play_arrow': {
                 return `
                 <polygon points="8,5 19,12 8,19"/>
@@ -2881,6 +3152,60 @@ function setIconProperties(element) {
                     Z
                 "/>
             `}
+            case 'reminder': {
+                const assistAngeleA = Math.atan(1 / 2);
+                const assistAngeleB = Math.atan(1 / 7);
+                const assistAngeleC = Math.atan(5 / 24);
+                const assistA = [18.5 - (21 - 14.25) * Math.tan(assistAngeleB), 21];
+                const E = [14 + 2 * Math.sin(assistAngeleA), 12 - 2 * Math.cos(assistAngeleA)];
+                const F = getCirclePointTangentPoint([12, 12], [18.5, 14.25], 2, E)[1];
+                const G = [18.5 + 2 * Math.cos(assistAngeleB), 14.25 + 2 * Math.sin(assistAngeleB)];
+                const H = [assistA[0] + 2 * Math.cos(assistAngeleB), assistA[1] + 2 * Math.sin(assistAngeleB)];
+                const K = [10 - 2 * Math.cos(Math.PI / 4), 21 + 2 * Math.cos(Math.PI / 4)];
+                const L = [2, K[1] - (K[0] - 2)];
+                const M = [L[0] + 1.5 * Math.cos(Math.PI / 4), L[1] - 1.5 * Math.sin(Math.PI / 4)];
+                const assistB = [L[0] + 1.5 * Math.SQRT2, L[1]];
+                const N = [assistB[0] + 1.5 * Math.sin(assistAngeleC), assistB[1] - 1.5 * Math.cos(assistAngeleC)];
+                const O = [9, N[1] + (9 - N[0]) * Math.tan(assistAngeleC)];
+                return `
+                <defs>
+                    <mask id="mask">
+                        <path fill="white" d="
+                            M 9 3
+                            A 2 2 0 0 1 13 3
+                            V 10
+                            H 14
+                            A 2 2 0 0 1 ${E[0]} ${E[1]}
+                            L ${F[0]} ${F[1]}
+                            A 2 2 0 0 1 ${G[0]} ${G[1]}
+                            L ${H[0]} ${H[1]}
+                            A 2 2 0 0 1 ${assistA[0]} 23
+                            H 10
+                            A 2 2 0 0 1 ${K[0]} ${K[1]}
+                            L ${L[0]} ${L[1]}
+                            L ${M[0]} ${M[1]}
+                            A 1.5 1.5 0 0 1 ${N[0]} ${N[1]}
+                            L ${O[0]} ${O[1]}
+                            Z
+                        "/>
+                        <path fill="none" stroke="white" stroke-width="1.25" d="
+                            M 9.625 6
+                            A 2.375 2.375 0 0 0 4.875 6
+                            A 2.375 2.375 0 0 0 7.25 8.375
+                            H 9.625
+                            Z
+                        "/>
+                        <path fill="none" stroke="white" stroke-width="1.25" d="
+                            M 12.375 6
+                            A 2.375 2.375 0 0 1 17.125 6
+                            A 2.375 2.375 0 0 1 14.75 8.375
+                            H 12.375
+                            Z
+                        "/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
             case 'reply_all': {
                 return `
                 <defs>
@@ -2893,7 +3218,28 @@ function setIconProperties(element) {
                             C 20 10 23 15 24 20
                             C 21.5 16.5 18 15 13 15
                             V 19
-                        Z"/>
+                            Z
+                        "/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'report': {
+                return `
+                <defs>
+                    <mask id="mask">
+                        <polygon fill="white" points="
+                            ${12 - 9 * Math.tan(Math.PI / 8)},3
+                            ${12 + 9 * Math.tan(Math.PI / 8)},3
+                            21,${12 - 9 * Math.tan(Math.PI / 8)}
+                            21,${12 + 9 * Math.tan(Math.PI / 8)}
+                            ${12 + 9 * Math.tan(Math.PI / 8)},21
+                            ${12 - 9 * Math.tan(Math.PI / 8)},21
+                            3,${12 + 9 * Math.tan(Math.PI / 8)}
+                            3,${12 - 9 * Math.tan(Math.PI / 8)}
+                        "/>
+                        <rect fill="black" x="11" y="7" width="2" height="6"/>
+                        <circle fill="black" cx="12" cy="16" r="1.3"/>
                     </mask>
                 </defs>
                 <rect width="100%" height="100%" mask="url(#mask)"/>
@@ -2918,6 +3264,17 @@ function setIconProperties(element) {
                 </defs>
                 <rect width="100%" height="100%" mask="url(#mask)"/>
             `}
+            case 'send': {
+                return `
+                <polygon points="
+                    2,3
+                    23,12
+                    2,21
+                    2,14
+                    17,12
+                    2,10
+                "/>
+            `}
             case 'share': {
                 const lineWidth = getParallelLineDistance([12, 12], [6, 11], [18, 4], [6, 13], [18, 6]);
                 return `
@@ -2932,19 +3289,89 @@ function setIconProperties(element) {
                 </defs>
                 <rect width="100%" height="100%" mask="url(#mask)"/>
             `}
-            case 'signal_cellular_4_bar': {
-                return `
-                <polygon points="2,16 16,2 16,16"/>
-            `}
-            case 'signal_wifi_4_bar': {
+            case 'shopping_cart': {
+                const assistAngeleA = Math.atan(18 / 38);
+                const assistAngeleB = Math.atan(Math.hypot(4.5, 6) / 1);
+                const assistA = getCircleCircleIntersection([12, 12], [15.5, 11], [17.75, 8], 1, 3.75)[0];
+                const assistL1 = assistA[0] - 15.5;
+                const assistL2 = assistA[1] - 11;
+                const assistB = getCirclePointTangentPoint([12, 12], [7, 15], 2, [12, 2])[0];
+                const assistAngeleC = Math.atan((assistB[1] - 2) / (12 - assistB[0]));
+                const A = [1, 2];
+                const P = [3, 4];
+                const C = [P[0] + 2 / Math.cos(assistAngeleA), 4]
+                const B = [C[0] - 2 * Math.tan(assistAngeleA), 2];
+                const D = [20, 4];
+                const E = [20 + assistL1, 5 + assistL2];
+                const F = [15.5 + 2 * assistL1, 11 + 2 * assistL2];
+                const G = [15.5, 13];
+                const H = [7 + 2 / Math.tan(assistAngeleC), 13];
+                const I = [7 + (0.25 / Math.tan(assistAngeleC / 2)) * Math.cos(assistAngeleC), 15 - (0.25 / Math.tan(assistAngeleC / 2)) * Math.sin(assistAngeleC)];
+                const J = [7 + 0.25 / Math.tan(assistAngeleC / 2), 15];
+                const K = [19, 15];
+                const L = [19, 17];
+                const M = [7, 17];
+                const N = [assistB[0], assistB[1]];
+                const O = getLineLineIntersection([12, 12], P, [12, 23], N, [12, 2]);
+                const Q = [1, 4];
                 return `
                 <path d="
-                    M 9 16
-                    L ${9 - Math.sqrt(Math.pow(14, 2) - Math.pow(Math.abs(16 - 5), 2))} 5
-                    A 14 14 0 0 1 ${9 + Math.sqrt(Math.pow(14, 2) - Math.pow(Math.abs(16 - 5), 2))} 5
+                    M ${A[0]} ${A[1]}
+                    H ${B[0]}
+                    L ${C[0]} ${C[1]}
+                    H ${D[0]}
+                    A 1 1 0 0 1 ${E[0]} ${E[1]}
+                    L ${F[0]} ${F[1]}
+                    A 2 2 0 0 1 ${G[0]} ${G[1]}
+                    H ${H[0]}
+                    L ${I[0]} ${I[1]}
+                    A 0.25 0.25 0 0 0 ${J[0]} ${J[1]}
+                    H ${K[0]}
+                    V ${L[1]}
+                    H ${M[0]}
+                    A 2 2 0 0 1 ${N[0]} ${N[1]}
+                    L ${O[0]} ${O[1]}
+                    L ${P[0]} ${P[1]}
+                    H ${Q[0]}
                     Z
                 "/>
+                <circle cx="7" cy="20" r="2" />
+                <circle cx="17" cy="20" r="2" />
             `}
+            case 'signal_cellular_4_bar': {
+                switch (iconSize) {
+                    case 'small': {
+                        return `
+                        <polygon points="2,16 16,2 16,16"/>
+                    `}
+                    default: {
+                        return `
+                        <polygon points="2,22 22,2 22,22"/>
+                    `}
+                }
+            }
+            case 'signal_wifi_4_bar': {
+                switch (iconSize) {
+                    case 'small': {
+                        return `
+                        <path d="
+                            M 9 16
+                            L ${9 - Math.sqrt(Math.pow(14, 2) - Math.pow(Math.abs(16 - 5), 2))} 5
+                            A 14 14 0 0 1 ${9 + Math.sqrt(Math.pow(14, 2) - Math.pow(Math.abs(16 - 5), 2))} 5
+                            Z
+                        "/>
+                    `}
+                    default: {
+                        return `
+                        <path d="
+                            M 12 21.5
+                            L ${12 - Math.sqrt(Math.pow(18.5, 2) - Math.pow(Math.abs(21.5 - 7), 2))} 7
+                            A 18.5 18.5 0 0 1 ${12 + Math.sqrt(Math.pow(18.5, 2) - Math.pow(Math.abs(21.5 - 7), 2))} 7
+                            Z
+                        "/>
+                    `}
+                }
+            }
             case 'square_recent': {
                 return `
                 <defs>
@@ -3023,6 +3450,22 @@ function setIconProperties(element) {
                 <rect width="100%" height="100%" mask="url(#mask)"/>
                 <rect x="7" y="11" width="5" height="5"/>
             `}
+            case 'view_grid': {
+                return `
+                <rect x="3" y="4" width="8" height="7"/>
+                <rect x="12" y="4" width="8" height="7"/>
+                <rect x="3" y="12" width="8" height="7"/>
+                <rect x="12" y="12" width="8" height="7"/>
+            `}
+            case 'view_module': {
+                return `
+                <rect x="4" y="5" width="5" height="6"/>
+                <rect x="10" y="5" width="5" height="6"/>
+                <rect x="16" y="5" width="5" height="6"/>
+                <rect x="4" y="12" width="5" height="6"/>
+                <rect x="10" y="12" width="5" height="6"/>
+                <rect x="16" y="12" width="5" height="6"/>
+            `}
             case 'visibility': {
                 const topCircle = getCircle([12, 12], [1, 12], [12, 19.5], [23, 12]);
                 const bottomCircle = getCircle([12, 12], [1, 12], [12, 4.5], [23, 12]);
@@ -3039,6 +3482,62 @@ function setIconProperties(element) {
                 </defs>
                 <rect width="100%" height="100%" mask="url(#mask)"/>
             `}
+            case 'voicemail': {
+                return `
+                <defs>
+                    <mask id="mask">
+                        <circle cx="4" cy="9" r="3.25" fill="none" stroke="white" stroke-width="1.5"/>
+                        <circle cx="14" cy="9" r="3.25" fill="none" stroke="white" stroke-width="1.5"/>
+                        <line stroke="white" stroke-width="1.5" x1="4" y1="12.25" x2="14" y2="12.25"/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'volume_up': {
+                return `
+                <defs>
+                    <mask id="mask">
+                        <circle cx="12" cy="12" r="8" fill="none" stroke="white" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="4.5" fill="white"/>
+                        <rect fill="black" width="14" height="100%"/>
+                        <polygon fill="white" points="
+                            12,4
+                            12,20
+                            7,15
+                            3,15
+                            3,9
+                            7,9
+                        "/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#mask)"/>
+            `}
+            case 'warning': {
+                switch (iconSize) {
+                    case 'small': {
+                        return `
+                        <defs>
+                            <mask id="mask">
+                                <polygon fill="white" points="9,1 18,16.5 0,16.5"/>
+                                <rect fill="black" x="8" y="7" width="2" height="4"/>
+                                <rect fill="black" x="8" y="12" width="2" height="2"/>
+                            </mask>
+                        </defs>
+                        <rect width="100%" height="100%" mask="url(#mask)"/>
+                    `}
+                    default: {
+                        return `
+                        <defs>
+                            <mask id="mask">
+                                <polygon fill="white" points="12,2 23,21 1,21"/>
+                                <rect fill="black" x="11" y="10" width="2" height="4"/>
+                                <rect fill="black" x="11" y="16" width="2" height="2"/>
+                            </mask>
+                        </defs>
+                        <rect width="100%" height="100%" mask="url(#mask)"/>
+                    `}
+                }
+            }
         }
     }
 

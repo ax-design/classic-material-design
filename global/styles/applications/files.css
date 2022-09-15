@@ -1,0 +1,171 @@
+/*------------------------------------*\
+  文件
+\*------------------------------------*/
+
+.simulator[files] {
+    --primary-color: var(--light-blue-500);
+    --secondary-color: var(--cyan-a200);
+}
+
+.simulator[files] .overlay[variant="status-bar"] {
+    --status-bar-background-color: var(--light-blue-700);
+    z-index: 48;
+}
+
+.simulator[files] .toolbar[variant~="app-bar"] {
+    padding-block-end: 80px;
+    overflow: visible;
+}
+
+.simulator[files] .toolbar[variant~="app-bar"] .location {
+    inset-block-start: var(--increment);
+    align-self: start;
+    position: relative;
+    block-size: 80px;
+    display: flex;
+    align-items: center;
+    column-gap: var(--keyline);
+    margin-inline-start: calc(20px + var(--keyline));
+    color: var(--primary-text-color);
+}
+
+.simulator[files] .button[variant~="fab"] {
+    --surface-hint-color: rgb(255 255 255 / 0.2);
+    --surface-shade-color: rgb(38 50 56 / 0.2);
+    z-index: 6;
+    inset-inline-start: var(--keyline);
+    inset-block-end: 0px;
+    color: var(--secondary-text-color);
+    translate: 0% 50%;
+}
+
+.simulator[files] .subheader {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    padding-inline-end: calc(36px + 2 * var(--keyline) - 12px);
+    margin-block: 8px;
+    color: var(--secondary-text-color);
+}
+
+.simulator[files] ul>.tile {
+    block-size: var(--increment);
+    grid-template-columns: 56px 1fr min-content;
+    column-gap: var(--keyline);
+    padding-inline: var(--keyline) calc(var(--keyline) - 12px);
+}
+
+.simulator[files] ul>.tile .text {
+    grid-template-columns: 1.5fr 1fr 1fr;
+}
+
+.simulator[files] ul>.tile .meta {
+    color: var(--hint-text-color);
+}
+
+.simulator[files] .subheader span:last-of-type,
+.simulator[files] ul>.tile .text span:last-of-type {
+    justify-self: end;
+}
+
+.simulator[files] .thumbnail {
+    justify-self: center;
+    border-radius: 50%;
+}
+
+.simulator[files] .thumbnail::after {
+    content: "";
+    position: absolute;
+    inline-size: calc(100% - 1px);
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--divider-color);
+    border-radius: inherit;
+}
+
+.simulator[files] ul li:nth-of-type(3) .thumbnail {
+    background-size: 72px;
+    background-position: left;
+}
+
+.simulator[files] ul li:nth-of-type(4) .thumbnail {
+    background-size: 80px;
+    background-position: -22px -4px;
+}
+
+.simulator[files] ul li:nth-of-type(5) .thumbnail {
+    background-size: 80px;
+    background-position: -27px -11px;
+}
+
+.simulator[files] ul li:nth-of-type(6) .thumbnail {
+    background-size: 120px;
+    background-position: -35px -24px;
+}
+
+.simulator[files] ul li:nth-of-type(7) .thumbnail {
+    background-size: 88px;
+    background-position: -28px -15px;
+}
+
+.simulator[files] ul li:nth-of-type(8) .thumbnail {
+    background-size: 82px;
+    background-position: -18px -10px;
+}
+
+.simulator[files] ul li[selected] {
+    --states-base-color: var(--primary-color);
+    --selected-parameter: 2;
+}
+
+.simulator[files] .sheet {
+    inset-inline-end: 0;
+    position: absolute;
+    inline-size: 100%;
+}
+
+.simulator[files] .sheet .toolbar {
+    grid-template-columns: minmax(0px, 1fr);
+    grid-template-rows: var(--increment);
+    grid-auto-columns: min-content;
+    padding-block-start: var(--status-bar-block-size);
+    padding-block-end: 80px;
+    background-color: var(--light-blue-400);
+}
+
+.simulator[files] .sheet .toolbar .tile {
+    grid-column-end: -1;
+    align-self: start;
+    inset-block-start: var(--increment);
+    position: relative;
+    inline-size: max-content;
+    block-size: 80px;
+    padding-inline: 12px;
+}
+
+.simulator[files] .sheet img {
+    aspect-ratio: 1 / 1;
+    object-view-box: inset(20%);
+    object-position: 100%;
+    margin-block-end: 8px;
+}
+
+@container simulator (width >=600px) {
+    .simulator[files] .toolbar[variant~="app-bar"] {
+        box-shadow: var(--shadow-z0);
+    }
+
+    .simulator[files] .subheader span:first-of-type {
+        display: none;
+    }
+
+    .simulator[files] :is(.subheader, .divider) {
+        padding-inline-start: calc(2 * var(--keyline) + 56px);
+    }
+
+    .simulator[files] .sheet .toolbar {
+        padding-inline-start: calc(var(--keyline) - 12px + 8px);
+    }
+
+    .simulator[files] .sheet>.tile {
+        padding-inline: calc(var(--keyline) + 8px) calc(var(--keyline) - 12px);
+    }
+}

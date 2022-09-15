@@ -70,3 +70,42 @@
 .simulator[clock] .menu .item {
     inline-size: calc(3 * var(--increment));
 }
+
+/*------------------------------------*\
+  时间
+\*------------------------------------*/
+
+.simulator[clock="clock"] ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: var(--keyline);
+    margin-block-start: var(--increment);
+}
+
+.simulator[clock="clock"] ul li:first-of-type {
+    font-size: 5rem;
+    font-weight: 100;
+    line-height: 1;
+}
+
+.simulator[clock="clock"] ul li:nth-of-type(2) {
+    margin-block-end: var(--keyline);
+}
+
+.simulator[clock="clock"] ul li:nth-of-type(n+3) {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-inline: var(--keyline);
+}
+
+.simulator[clock="clock"] ul li:nth-of-type(n+3) span:last-of-type {
+    font-weight: 100;
+    line-height: var(--increment);
+}
+
+.simulator[clock="clock"] ul li span span {
+    color: var(--secondary-text-color);
+}

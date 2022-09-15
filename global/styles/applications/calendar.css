@@ -177,3 +177,53 @@
     background-color: var(--secondary-color);
     border-radius: 50%;
 }
+
+/*------------------------------------*\
+  选择日期
+\*------------------------------------*/
+
+.simulator[calendar="select-date"] .toolbar {
+    grid-template-rows: var(--increment) 1fr;
+    box-shadow: var(--shadow-z8);
+}
+
+.simulator[calendar="select-date"] .date-pick {
+    grid-column: 1 / 6;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(7, 32px);
+    grid-template-rows: repeat(6, 32px);
+    justify-content: space-between;
+    place-items: center;
+    row-gap: 16px;
+    padding-inline: 12px;
+    padding-block: 8px 24px;
+}
+
+.simulator[calendar="select-date"] .date-pick span:nth-of-type(n + 8) {
+    place-self: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-text-color);
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.simulator[calendar="select-date"] .date-pick span[class~="event"] {
+    border: 1px solid var(--divider-color);
+    border-radius: 50%;
+}
+
+.simulator[calendar="select-date"] .date-pick span[class~="today"] {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.simulator[calendar="select-date"] .schedule {
+    inset-block-start: 92px;
+}
+
+.simulator[calendar="select-date"] img {
+    inset-inline-start: -25%;
+}

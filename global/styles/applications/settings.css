@@ -2,13 +2,25 @@
   设置
 \*------------------------------------*/
 
-.simulator[settings] {
+.simulator[settings] .application,
+.simulator[settings] .application[theme="light"] {
     --primary-color: var(--blue-grey-900);
     --secondary-color: var(--teal-500);
 }
 
+.simulator[settings] .application[theme="dark"] {
+    --primary-color: var(--blue-grey-900);
+    --secondary-color: var(--teal-200);
+    --high-emphasis-surface-color: var(--blue-grey-800);
+    --medium-emphasis-surface-color: var(--blue-grey-950);
+}
+
 .simulator[settings] .application {
     background-color: var(--medium-emphasis-surface-color);
+}
+
+.simulator[settings] .toolbar {
+    z-index: 4;
 }
 
 .simulator[settings] .overlay[variant="status-bar"] {
@@ -17,4 +29,42 @@
 
 .simulator[settings] ul {
     margin-block: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .simulator[settings] .application:not([theme="light"]) {
+        --primary-color: var(--blue-grey-900);
+        --secondary-color: var(--teal-200);
+        --high-emphasis-surface-color: var(--blue-grey-800);
+        --medium-emphasis-surface-color: var(--blue-grey-950);
+    }
+}
+
+/*------------------------------------*\
+  主界面
+\*------------------------------------*/
+
+.simulator[settings="main"] .toolbar {
+    grid-template-columns: 1fr min-content;
+    box-shadow: var(--shadow-z2);
+}
+
+.simulator[settings="main"] ul {
+    background-color: var(--high-emphasis-surface-color);
+    box-shadow: var(--shadow-z2);
+    padding-block-end: 8px;
+    margin-block-start: 0px;
+}
+
+.simulator[settings="main"] ul .divider {
+    padding-inline-start: calc(var(--increment) + var(--keyline));
+}
+
+.simulator[settings="main"] .tile {
+    grid-template-columns: min-content 1fr;
+    column-gap: 32px;
+}
+
+.simulator[settings="main"] .tile cmd-icon {
+    color: var(--secondary-color);
 }

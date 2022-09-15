@@ -1,0 +1,26 @@
+/*------------------------------------*\
+  对话框
+\*------------------------------------*/
+
+.dialog {
+    inset: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog .body {
+    position: relative;
+    background-color: var(--high-emphasis-surface-color);
+    border-radius: 2px;
+    box-shadow: var(--shadow-z24);
+}
+
+/*------------------------------------*\
+  特别修改
+\*------------------------------------*/
+
+.dialog {
+    padding-block: var(--status-bar-block-size) 48px;
+}
