@@ -69,8 +69,8 @@
 }
 
 .simulator[inbox="main"] .button[variant="fab"] {
-    --surface-hint-color: rgba(255, 255, 255, 0.2);
-    --surface-shade-color: rgba(38, 50, 56, 0.2);
+    --surface-hint-color: rgb(255 255 255 / 0.2);
+    --surface-shade-color: rgb(38 50 56 / 0.2);
     box-shadow: var(--shadow-z4);
 }
 

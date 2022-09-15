@@ -38,8 +38,8 @@
 }
 
 .switch[on] .thumb::after {
-    border-top-color: var(--surface-hint-color, rgba(255, 255, 255, 0.2));
-    border-bottom-color: var(--surface-shade-color, rgba(33, 33, 33, 0.2));
+    border-block-start-color: var(--surface-hint-color, rgb(255 255 255 / 0.2));
+    border-block-end-color: var(--surface-shade-color, rgb(33 33 33 / 0.2));
     background-color: var(--secondary-color);
 }
 
