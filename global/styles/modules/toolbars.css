@@ -16,6 +16,13 @@
     overflow: clip;
 }
 
+.toolbar:has(.toolbar[variant~="float"]) {
+    grid-auto-flow: row;
+    grid-auto-columns: unset;
+    grid-template-rows: unset;
+    padding-inline: 0;
+}
+
 .toolbar[theme~="transparent"] {
     background-color: transparent;
 }
@@ -27,11 +34,12 @@
     grid-auto-columns: min-content;
 }
 
-.toolbar[variant~="app-bar"]:has(.button+.title) {
+.toolbar[variant~="app-bar"]:has(.button+.title),
+.toolbar[variant~="float"]:has(.button+.input) {
     grid-template-columns: min-content 1fr;
 }
 
-.toolbar[variant~="app-bar"][variant~="prominent"] {
+.toolbar[variant~="app-bar"][variant~="prominent"]:not(:has(.toolbar[variant~="float"])) {
     grid-template-columns: min-content minmax(0px, 1fr);
 }
 
@@ -48,6 +56,11 @@
 .toolbar[variant~="float"] {
     border-radius: 2px;
     box-shadow: var(--shadow-z2);
+}
+
+.toolbar[variant~="float"] .input {
+    margin-inline: 4px;
+    color: var(--hint-text-color);
 }
 
 /*------------------------------------*\

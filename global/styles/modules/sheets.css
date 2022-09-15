@@ -1,7 +1,27 @@
 /*------------------------------------*\
+  单页
+\*------------------------------------*/
+
+.sheet {
+    z-index: 16;
+    inset-block-start: 0;
+    position: sticky;
+    inline-size: calc(100% - var(--increment));
+    max-inline-size: 320px;
+    block-size: 100cqb;
+    background-color: var(--high-emphasis-surface-color);
+}
+
+.sheet[open] {
+    box-shadow: var(--shadow-z16);
+}
+
+/*------------------------------------*\
   导航抽屉
 \*------------------------------------*/
+
 .drawer {
+    z-index: 16;
     inset-block-start: 0;
     position: sticky;
     inline-size: calc(100% - var(--increment));
@@ -29,6 +49,7 @@
 }
 
 .drawer+.scrim {
+    z-index: 15;
     position: fixed;
     pointer-events: unset;
     transition-property: opacity;
@@ -41,4 +62,64 @@
     pointer-events: none;
     transition-timing-function: var(--sharp-curve);
     transition-duration: 200ms;
+}
+
+.drawer .header {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block-start: calc(var(--status-bar-block-size) + var(--keyline));
+    padding-block-end: 8px;
+    box-sizing: border-box;
+}
+
+.drawer .header .thumbnail[variant="avatar"] {
+    inline-size: 64px;
+    margin-inline: var(--keyline);
+}
+
+.drawer .header .tile {
+    block-size: 56px;
+    grid-template-columns: 1fr min-content;
+    padding-inline-end: calc(var(--keyline) - 12px);
+}
+
+.drawer .header .tile .meta {
+    color: var(--primary-text-color);
+}
+
+.drawer .header .scrim {
+    inset-block-end: 0;
+    block-size: calc(var(--increment) + var(--keyline));
+    rotate: 180deg;
+}
+
+.drawer>ul {
+    margin-block: 8px;
+}
+
+.drawer>ul li:not(.divider) {
+    column-gap: var(--keyline);
+    padding-inline: var(--keyline);
+    color: var(--primary-text-color);
+}
+
+.drawer>ul li:has(>cmd-icon) {
+    grid-template-columns: min-content 1fr;
+}
+
+.drawer>ul li cmd-icon:first-of-type {
+    margin-inline-end: 8px;
+    color: var(--secondary-text-color);
+}
+
+/*------------------------------------*\
+  特别修改
+\*------------------------------------*/
+
+.application .drawer {
+    overflow: clip;
 }

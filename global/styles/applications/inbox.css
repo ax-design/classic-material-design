@@ -11,10 +11,6 @@
     background-color: var(--medium-emphasis-surface-color);
 }
 
-.simulator[inbox] .toolbar {
-    box-shadow: var(--shadow-z0);
-}
-
 .simulator[inbox] .button[variant="fab"] {
     inset-inline-end: var(--keyline);
     inset-block-end: calc(48px + var(--keyline));
@@ -31,6 +27,7 @@
 
 .simulator[inbox="main"] .application>.toolbar {
     color: var(--secondary-text-color);
+    box-shadow: var(--shadow-z0);
 }
 
 .simulator[inbox="main"] .application>.toolbar .title {
@@ -47,9 +44,10 @@
     box-shadow: var(--shadow-z2);
 }
 
-.simulator[inbox="main"] .tile {
+.simulator[inbox="main"] .application>ul .tile {
     padding-inline: var(--keyline);
-    grid-template-columns: 56px 1fr;
+    grid-template-columns: min-content 1fr;
+    column-gap: 16px;
 }
 
 .simulator[inbox="main"] .group .tile .primary span {
@@ -74,6 +72,47 @@
     box-shadow: var(--shadow-z4);
 }
 
+.simulator[inbox] .drawer {
+    position: absolute;
+}
+
+.simulator[inbox] .drawer .header {
+    background-image: url(../../resources/wallpapers/default_wallpaper_alt.jpg);
+    background-size: cover;
+}
+
+.simulator[inbox] .drawer .overlay[variant="status-bar"] {
+    --status-bar-background-color: rgb(0 0 0 / 0.2);
+}
+
+.simulator[inbox] .drawer ul:first-of-type li:nth-of-type(1) {
+    --primary-text-color: var(--primary-color);
+    --secondary-text-color: var(--primary-color);
+    --states-base-color: var(--primary-color);
+}
+
+.simulator[inbox] .drawer ul:first-of-type li:nth-of-type(2) {
+    --primary-text-color: var(--orange-800);
+    --secondary-text-color: var(--orange-800);
+}
+
+.simulator[inbox] .drawer ul:first-of-type li:nth-of-type(3) {
+    --primary-text-color: var(--google-green-alt-500);
+    --secondary-text-color: var(--google-green-alt-500);
+}
+
+@media (prefers-color-scheme: dark) {
+    .simulator[inbox] .drawer ul:first-of-type li:nth-of-type(2) {
+        --primary-text-color: var(--orange-700);
+        --secondary-text-color: var(--orange-700);
+    }
+
+    .simulator[inbox] .drawer ul:first-of-type li:nth-of-type(3) {
+        --primary-text-color: var(--google-green-alt-300);
+        --secondary-text-color: var(--google-green-alt-300);
+    }
+}
+
 /*------------------------------------*\
   邮件内容
 \*------------------------------------*/
@@ -87,11 +126,18 @@
     block-size: calc(var(--increment) + 72px);
     grid-template-columns: min-content minmax(0px, 1fr);
     color: var(--secondary-text-color);
+    box-shadow: var(--shadow-z0);
 }
 
 .simulator[inbox] .content .toolbar .title {
     transform: translateY(64px);
     white-space: nowrap;
+}
+
+.simulator[inbox] .content .tile {
+    padding-inline: var(--keyline);
+    grid-template-columns: min-content 1fr;
+    column-gap: 16px;
 }
 
 .simulator[inbox] .content .text {
@@ -131,17 +177,56 @@
 }
 
 .simulator[inbox] .content hr {
-    bottom: 104px;
+    inset-block-end: 104px;
     position: sticky;
     padding: 0;
 }
 
 .simulator[inbox] .content>.tile {
-    bottom: 48px;
+    inset-block-end: 48px;
     position: sticky;
     color: var(--hint-text-color);
 }
 
+.simulator[inbox] .content>.tile cmd-icon {
+    margin-inline-end: 16px;
+}
+
 .simulator[inbox] .content>.tile .primary {
     color: var(--secondary-text-color);
+}
+
+/*------------------------------------*\
+  写邮件
+\*------------------------------------*/
+
+.simulator[inbox="compose"] .toolbar {
+    color: var(--secondary-text-color);
+    background-color: var(--low-emphasis-surface-color);
+}
+
+.simulator[inbox="compose"] :is(.from, .to, .subject) {
+    block-size: 56px;
+    display: flex;
+    align-items: center;
+    column-gap: var(--keyline);
+    padding-inline: var(--keyline);
+}
+
+.simulator[inbox="compose"] .to {
+    white-space: nowrap;
+}
+
+.simulator[inbox="compose"] .chips {
+    display: flex;
+    column-gap: 8px;
+}
+
+.simulator[inbox="compose"] .content {
+    padding-inline: var(--keyline);
+    line-height: var(--subheading-leading);
+}
+
+.simulator[inbox="compose"] .content span {
+    color: var(--primary-color);
 }

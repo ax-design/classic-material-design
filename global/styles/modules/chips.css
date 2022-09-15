@@ -1,0 +1,26 @@
+/*------------------------------------*\
+  多用标签
+\*------------------------------------*/
+
+.chip {
+    position: relative;
+    block-size: 32px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(158 158 158 / 0.2);
+    border-radius: 16px;
+    white-space: nowrap;
+}
+
+.chip .thumbnail[variant="avatar"] {
+    inline-size: auto;
+    block-size: 100%;
+}
+
+.chip .text {
+    margin-inline: 12px;
+}
+
+.chip .thumbnail[variant="avatar"] + .text {
+    margin-inline-start: 8px;
+}

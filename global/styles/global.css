@@ -1,8 +1,9 @@
 @layer reset, base, document;
 @import "./reset.css" layer(reset);
 @import "./modules/base.css" layer(base);
-@import "./modules/toolbars.css" layer(base);
 @import "./modules/buttons.css" layer(base);
+@import "./modules/chips.css" layer(base);
+@import "./modules/dialogs.css" layer(base);
 @import "./modules/dividers.css" layer(base);
 @import "./modules/lists.css" layer(base);
 @import "./modules/menus.css" layer(base);
@@ -10,4 +11,5 @@
 @import "./modules/selection-controls.css" layer(base);
 @import "./modules/sheets.css" layer(base);
 @import "./modules/tabs.css" layer(base);
+@import "./modules/toolbars.css" layer(base);
 @import "./document.css" layer(document);

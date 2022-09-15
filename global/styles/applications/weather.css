@@ -1,0 +1,88 @@
+/*------------------------------------*\
+  天气
+\*------------------------------------*/
+
+.simulator[weather] .toolbar[variant~="app-bar"] {
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: var(--shadow-z0);
+}
+
+.simulator[weather] .toolbar[variant~="app-bar"] .toolbar {
+    margin: 8px;
+    color: var(--secondary-text-color);
+}
+
+.simulator[weather] .search-bar input {
+    padding-block-end: 2px;
+}
+
+.simulator[weather] .brief-report {
+    display: flex;
+    align-items: flex-end;
+    flex-grow: 1;
+    padding-block-end: 48px;
+}
+
+.simulator[weather] .brief-report>img {
+    position: absolute;
+}
+
+.simulator[weather] .brief-report .info-body {
+    inset-inline: 0;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr calc(2 * var(--increment));
+    align-self: flex-start;
+    padding-inline: var(--keyline) calc(var(--keyline) - 8px);
+    margin-block: var(--keyline);
+    color: white;
+    box-sizing: border-box;
+}
+
+.simulator[weather] .brief-report .info-body span:nth-of-type(1) {
+    grid-column: 1 / -1;
+    margin-block-end: 8px;
+}
+
+.simulator[weather] .brief-report .info-body span:nth-of-type(2) {
+    grid-column: 1 / -1;
+}
+
+.simulator[weather] .brief-report .info-body span:nth-of-type(3) {
+    align-self: center;
+    font-feature-settings: "pnum";
+}
+
+.simulator[weather] .brief-report .info-body img {
+    justify-self: end;
+    align-self: end;
+}
+
+.simulator[weather] .brief-report .info-body span:last-of-type {
+    justify-self: center;
+}
+
+/*------------------------------------*\
+  晴朗夜间露营
+\*------------------------------------*/
+
+.simulator[weather="clear-hills-camping"] {
+    --primary-color: #483caf;
+}
+
+.simulator[weather="clear-hills-camping"] .overlay[variant="status-bar"] {
+    background-color: #2c2e9d;
+}
+
+.simulator[weather="clear-hills-camping"] .brief-report {
+    display: flex;
+    align-items: flex-end;
+    flex-grow: 1;
+    background: linear-gradient(#5352AA 0%, #6E5BC0 100%);
+    padding-block-end: 48px;
+}
+
+.simulator[weather] .brief-report .info-body span:nth-of-type(1) {
+    color: var(--primary-text-color);
+}

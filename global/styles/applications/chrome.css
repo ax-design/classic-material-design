@@ -184,3 +184,59 @@
     line-height: 38px;
     color: #212121;
 }
+
+/*------------------------------------*\
+  恶意软件
+\*------------------------------------*/
+
+.simulator[chrome="malware"] .omnibox cmd-icon {
+    color: var(--google-red-600);
+}
+
+.simulator[chrome="malware"] .page {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    padding-inline: 24px;
+    padding-block-start: var(--increment);
+    background-color: var(--google-red-600);
+}
+
+.simulator[chrome="malware"] .page>cmd-icon {
+    inline-size: 4.5rem;
+    block-size: 4.5rem;
+    color: var(--primary-text-color);
+}
+
+.simulator[chrome="malware"] .page>span {
+    color: var(--primary-text-color);
+}
+
+.simulator[chrome="malware"] .page>p {
+    color: var(--primary-text-color);
+    text-align: justify;
+}
+
+.simulator[chrome="malware"] .page>p>span {
+    text-decoration: underline;
+}
+
+.simulator[chrome="malware"] .page .actions {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-block-start: 32px;
+}
+
+.simulator[chrome="malware"] .page .button {
+    block-size: 48px;
+}
+
+.simulator[chrome="malware"] .page .button:nth-last-of-type(2) {
+    background-color: var(--google-red-800);
+}
+
+.simulator[chrome="malware"] .page .button:nth-last-of-type(1) {
+    color: var(--primary-text-color);
+}
