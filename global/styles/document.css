@@ -1,6 +1,7 @@
 /*------------------------------------*\
   全局设定
 \*------------------------------------*/
+
 :root {
     --increment: 64px;
     --keyline: 24px;
@@ -33,6 +34,7 @@ video::cue {
 /*------------------------------------*\
   导航抽屉
 \*------------------------------------*/
+
 #drawer-trigger {
     visibility: hidden;
 }
@@ -199,7 +201,7 @@ header p {
 }
 
 header video {
-    margin-bottom: var(--content-column-gap);
+    margin-block-end: var(--content-column-gap);
 }
 
 nav {
@@ -859,6 +861,7 @@ footer cmd-icon {
 /*------------------------------------*\
   主题
 \*------------------------------------*/
+
 @media (prefers-color-scheme: light) {
     :root {
         --sheet-border-color: var(--grey-200);

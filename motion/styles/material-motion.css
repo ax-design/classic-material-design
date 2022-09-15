@@ -50,8 +50,8 @@ main:has(>.toolbar[variant~="prominent"]) {
 }
 
 #hierarchy .button[variant="fab"] {
-    right: calc(var(--keyline) + 28px);
-    bottom: calc(48px + var(--keyline) + 28px);
+    inset-inline-end: calc(var(--keyline) + 28px);
+    inset-block-end: calc(48px + var(--keyline) + 28px);
     translate: 50% 50%;
 }
 

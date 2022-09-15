@@ -1,3 +1,7 @@
+/*------------------------------------*\
+  标签栏
+\*------------------------------------*/
+
 .tab-bar {
     block-size: 48px;
     display: flex;
@@ -10,8 +14,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 72px;
-    max-width: 264px;
+    min-inline-size: 72px;
+    max-inline-size: 264px;
     padding-inline: var(--keyline);
     box-sizing: border-box;
 }

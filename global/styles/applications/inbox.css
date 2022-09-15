@@ -64,8 +64,8 @@
     color: var(--secondary-text-color);
 }
 
-.simulator[inbox="main"] .divider {
-    padding-left: calc(16px + var(--increment));
+.simulator[inbox="main"] ul .divider {
+    padding-inline-start: calc(16px + var(--increment));
 }
 
 .simulator[inbox="main"] .button[variant="fab"] {

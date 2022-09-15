@@ -1,6 +1,7 @@
 /*------------------------------------*\
   正文
 \*------------------------------------*/
+
 #dimensions {
     grid-column-end: span min(var(--content-columns), 2);
 }
@@ -36,6 +37,7 @@ figure:not(#dimensions) .diagram {
 /*------------------------------------*\
   主题
 \*------------------------------------*/
+
 :root {
     --primary-color: var(--cyan-500);
     --secondary-color: var(--lime-a200);

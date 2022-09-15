@@ -161,7 +161,7 @@
 }
 
 .simulator[launcher="home"] .hotseat {
-    height: calc(60px + 24px);
+    block-size: calc(60px + 24px);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-areas: "a b c d e";
