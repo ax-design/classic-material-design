@@ -680,6 +680,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const unbounded = ifUnbounded(parentElement);
         const constrained = ifConstraint(parentElement);
         const rippleForegroundObject = element.querySelector('.ripple');
+        if (rippleForegroundObject == undefined) {
+            return
+        }
 
         const containerWidth = parentElement.getBoundingClientRect().width;
         const containerHeight = parentElement.getBoundingClientRect().height;
