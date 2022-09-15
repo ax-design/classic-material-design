@@ -439,6 +439,7 @@ h5 {
 
 .simulator {
     --status-bar-block-size: 24px;
+    --scale-ratio: 1;
     container-name: simulator;
     container-type: size;
     position: relative;
@@ -447,10 +448,17 @@ h5 {
     flex-direction: column;
     overflow: hidden;
     background-color: var(--medium-emphasis-surface-color);
+    transform-origin: left top;
+    scale: var(--scale-ratio);
 }
 
 figure[screen~="tablet"] {
     grid-column-end: span min(2, var(--content-columns));
+}
+
+figure[screen="tablet"] .simulator {
+    min-inline-size: 760px;
+    block-size: 570px;
 }
 
 figure[screen~="mobile"] .simulator {
@@ -758,6 +766,11 @@ footer cmd-icon {
     main {
         column-gap: var(--keyline);
     }
+
+    figure[screen="tablet"] .simulator {
+        --scale-ratio: calc(360 / 760);
+        margin-block-end: calc(0px - calc(1 - var(--scale-ratio)) * 570px);
+    }
 }
 
 @media (width < 504px) {
@@ -815,9 +828,11 @@ footer cmd-icon {
 
     .simulator {
         --scale-ratio: min(calc((var(--window-width) - 32) / 360), 1);
-        transform-origin: left top;
-        scale: var(--scale-ratio);
         margin-block-end: calc(0px - calc(1 - var(--scale-ratio)) * 100cqb);
+    }
+
+    figure[screen="tablet"] .simulator {
+        --scale-ratio: min(calc((var(--window-width) - 32) / 760), 1);
     }
 }
 
