@@ -1,13 +1,16 @@
 /*------------------------------------*\
   日历
 \*------------------------------------*/
+
 .simulator[calendar] {
     --secondary-color: var(--red-a200);
     --calendar-light-red: var(--google-red-alt-400);
     --calendar-teal: var(--teal-500);
+    --calendar-light-teal: var(--teal-400);
     --calendar-light-green: var(--google-green-kennedy-300);
     --calendar-blue-grey: var(--blue-grey-300);
     --calendar-yellow: var(--google-yellow-alt-700);
+    --calendar-deep-orange: var(--deep-orange-400);
 }
 
 .simulator[calendar] .button[variant="fab"] {
@@ -17,11 +20,11 @@
     color: var(--primary-text-color);
 }
 
-.simulator[calendar="schedule"] .application {
+.simulator[calendar] .application {
     justify-content: center;
 }
 
-.simulator[calendar="schedule"] .toolbar {
+.simulator[calendar] .toolbar {
     z-index: 4;
     inset-inline: 0;
     position: absolute;
@@ -29,24 +32,23 @@
     background-color: var(--low-emphasis-surface-color);
 }
 
-.simulator[calendar="schedule"] .toolbar .title {
+.simulator[calendar] .toolbar .title {
     display: flex;
     align-items: center;
 }
 
-.simulator[calendar="schedule"] .toolbar .title cmd-icon {
+.simulator[calendar] .toolbar .title cmd-icon {
     color: var(--secondary-text-color);
 }
 
-.simulator[calendar="schedule"] .schedule {
+.simulator[calendar] .schedule {
     position: relative;
     inline-size: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.simulator[calendar="schedule"] .illustration {
-    order: 9;
+.simulator[calendar] .illustration {
     position: relative;
     block-size: calc(3 * var(--increment));
     display: flex;
@@ -55,27 +57,19 @@
     overflow: clip;
 }
 
-.simulator[calendar="schedule"] .illustration img {
+.simulator[calendar] .illustration img {
     position: absolute;
     inline-size: 200%;
     align-self: center;
 }
 
-.simulator[calendar="schedule"] .illustration span {
+.simulator[calendar] .illustration span {
     position: relative;
     margin-block: var(--keyline);
     color: var(--primary-text-color);
 }
 
-.simulator[calendar="schedule"] .august {
-    order: 8;
-}
-
-.simulator[calendar="schedule"] .september {
-    order: 10;
-}
-
-.simulator[calendar="schedule"] .month {
+.simulator[calendar] .month {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -84,7 +78,7 @@
     background-color: var(--medium-emphasis-surface-color);
 }
 
-.simulator[calendar="schedule"] .events {
+.simulator[calendar] .events {
     position: relative;
     display: grid;
     grid-template-columns: 44px auto;
@@ -92,9 +86,8 @@
     row-gap: 8px;
 }
 
-.simulator[calendar="schedule"] .date {
+.simulator[calendar] .date {
     align-self: start;
-    grid-row-end: span 2;
     inset-block-start: calc(24px + var(--keyline) + var(--increment));
     position: sticky;
     display: flex;
@@ -105,16 +98,20 @@
     color: var(--primary-text-color);
 }
 
-.simulator[calendar="schedule"] .date[class~="today"] {
+.simulator[calendar] .schedule .events:has(div:nth-of-type(2)) .date {
+    grid-row-end: span 2;
+}
+
+.simulator[calendar] .date[class~="today"] {
     color: var(--secondary-color);
 }
 
-.simulator[calendar="schedule"] .date>span {
+.simulator[calendar] .date>span {
     color: var(--secondary-text-color);
     white-space: nowrap;
 }
 
-.simulator[calendar="schedule"] .event {
+.simulator[calendar] .schedule .event {
     grid-column-start: 2;
     position: relative;
     display: flex;
@@ -123,32 +120,38 @@
     color: white;
     background-color: var(--teal-300);
     border-radius: 2px;
+    box-sizing: border-box;
 }
 
-.simulator[calendar="schedule"] .event[size="regular"] {
+.simulator[calendar] .schedule .event[size="regular"] {
     block-size: 32px;
     align-items: center;
 }
 
-.simulator[calendar="schedule"] .event[size="medium"] {
+.simulator[calendar] .schedule .event[size="medium"] {
     block-size: 56px;
     align-items: center;
 }
 
-.simulator[calendar="schedule"] .event[size="large"] {
+.simulator[calendar] .schedule .event[size="large"] {
+    block-size: 80px;
+    align-items: center;
+}
+
+.simulator[calendar] .schedule .event[size="xlarge"] {
     block-size: 112px;
     align-items: end;
     padding-block: 8px;
 }
 
-.simulator[calendar="schedule"] .event span {
+.simulator[calendar] .schedule .event span {
     display: flex;
     flex-direction: column;
     white-space: nowrap;
     line-height: 1.25rem;
 }
 
-.simulator[calendar="schedule"] .now {
+.simulator[calendar] .now {
     grid-column-start: 2;
     position: relative;
     block-size: 0px;
@@ -156,7 +159,7 @@
     align-items: center;
 }
 
-.simulator[calendar="schedule"] .now::before {
+.simulator[calendar] .now::before {
     content: "";
     inline-size: 100%;
     block-size: 1px;
@@ -165,7 +168,7 @@
     background-color: var(--secondary-color);
 }
 
-.simulator[calendar="schedule"] .now::after {
+.simulator[calendar] .now::after {
     content: "";
     inset-inline-start: -12px;
     position: absolute;

@@ -333,13 +333,13 @@
 
 @keyframes viewScroll1 {
     100% {
-        inset-block-start: -136px;
+        inset-block-start: -120px;
     }
 }
 
 @keyframes viewScroll2 {
     100% {
-        inset-block-start: 168px;
+        inset-block-start: 152px;
     }
 }
 
@@ -359,13 +359,13 @@
 
 @keyframes imageMove1 {
     100% {
-        translate: 0px calc(84 / 404 * 84px);
+        translate: 0px calc(68 / 404 * 84px);
     }
 }
 
 @keyframes imageMove2 {
     100% {
-        translate: 0px calc(-220 / 404 * 84px);
+        translate: 0px calc(-204 / 404 * 84px);
     }
 }
 
