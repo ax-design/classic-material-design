@@ -1005,12 +1005,12 @@ cmd-icon[name="more_vert"][size="small"] {
     overflow: visible;
 }
 
-:is([interact], button, summary):is(:hover, :focus-visible, [disabled]) .overlay[variant="states"]::after {
+:is([interact], button, summary, footer a):is(:hover, :focus-visible, [disabled]) .overlay[variant="states"]::after {
     transition-duration: 120ms;
 }
 
 @media (hover: hover) {
-    :is([interact], button, summary):hover {
+    :is([interact], button, summary, footer a):hover {
         --hover-parameter: 1;
     }
 }
