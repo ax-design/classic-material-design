@@ -583,7 +583,7 @@ function setIconProperties(element) {
                         </filter>
                         <linearGradient id="long-shadow" x1="${gradientStart[0]}" y1="${gradientStart[1]}" x2="${gradientEnd[0]}" y2="${gradientEnd[1]}" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#1A237E" stop-opacity="0.2"></stop>
-                            <stop offset="0.33333" stop-color="#1A237E" stop-opacity="0.1"></stop>
+                            <stop offset="${1 / 3}" stop-color="#1A237E" stop-opacity="0.1"></stop>
                             <stop offset="1" stop-color="#1A237E" stop-opacity="0"></stop>
                         </linearGradient>
                         <radialGradient id="finish" cx="${44 - 12 * Math.cos(Math.PI / 4)}" cy="${20 - 12 * Math.sin(Math.PI / 4)}" r="${Math.hypot(148 - 44, 172 - 20) + 12 * 2}" gradientUnits="userSpaceOnUse">
@@ -695,7 +695,7 @@ function setIconProperties(element) {
                         </filter>
                         <linearGradient id="long-shadow" x1="${20 - 12 * Math.cos(Math.PI / 4)}" y1="${44 + 12 * Math.sin(Math.PI / 4)}" x2="${20 - 12 * Math.cos(Math.PI / 4) + (160 - (44 + 12 * Math.sin(Math.PI / 4)))}" y2="${160}" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#212121" stop-opacity="0.1"></stop>
-                            <stop offset="0.33333" stop-color="#212121" stop-opacity="0.05"></stop>
+                            <stop offset="${1 / 3}" stop-color="#212121" stop-opacity="0.05"></stop>
                             <stop offset="1" stop-color="#212121" stop-opacity="0"></stop>
                         </linearGradient>
                         <radialGradient id="finish" cx="${gradientStart[0]}" cy="${gradientStart[1]}" r="${gradientRadius}" gradientUnits="userSpaceOnUse">
@@ -958,7 +958,7 @@ function setIconProperties(element) {
                         </filter>
                         <linearGradient id="long-shadow" x1="96" y1="96" x2="${N[0]}" y2="${N[1]}" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#212121" stop-opacity="0.1"></stop>
-                            <stop offset="0.33333" stop-color="#212121" stop-opacity="0.05"></stop>
+                            <stop offset="${1 / 3}" stop-color="#212121" stop-opacity="0.05"></stop>
                             <stop offset="1" stop-color="#212121" stop-opacity="0"></stop>
                         </linearGradient>
                         <radialGradient id="finish" cx="${S[0]}" cy="${S[1]}" r="${Math.hypot(N[0] - S[0], N[1] - S[1])}" gradientUnits="userSpaceOnUse">
@@ -1275,7 +1275,7 @@ function setIconProperties(element) {
                         </filter>
                         <linearGradient id="long-shadow" x1="${A[0]}" y1="${A[1]}" x2="${C[0]}" y2="${C[1]}" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#212121" stop-opacity="0.1"></stop>
-                            <stop offset="0.33333" stop-color="#212121" stop-opacity="0.05"></stop>
+                            <stop offset="${1 / 3}" stop-color="#212121" stop-opacity="0.05"></stop>
                             <stop offset="1" stop-color="#212121" stop-opacity="0"></stop>
                         </linearGradient>
                         <radialGradient id="finish" cx="${gradientStart[0]}" cy="${gradientStart[1]}" r="${gradientRadius}" gradientUnits="userSpaceOnUse">
@@ -1286,7 +1286,7 @@ function setIconProperties(element) {
                     </defs>
                     <g>
                         <use fill="#E0E0E0" href="#back"/>
-                        <rect x="72" y="36" width="72" height="12"></rect>
+                        <rect x="72" y="36" width="72" height="12"/>
                         <path fill="url(#long-shadow)" clip-path="url(#clip-path)" d="
                             M 144 72
                             A ${borderRaidus} ${borderRaidus} 0 0 0 ${A[0]} ${A[1]}
@@ -1325,9 +1325,9 @@ function setIconProperties(element) {
                     </g>
                     <g>
                         <use fill="#03A9F4" href="#front"/>
-                        <rect x="48" y="88" width="72" height="12"></rect>
-                        <rect x="48" y="112" width="72" height="12"></rect>
-                        <rect x="48" y="136" width="48" height="12"></rect>
+                        <rect x="48" y="88" width="72" height="12"/>
+                        <rect x="48" y="112" width="72" height="12"/>
+                        <rect x="48" y="136" width="48" height="12"/>
                         <path class="hint" d="
                             M 4 60
                             H 132
@@ -1446,12 +1446,12 @@ function setIconProperties(element) {
                         </filter>
                         <linearGradient id="stick-long-shadow" x1="32" y1="83" x2="65" y2="116" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#263238" stop-opacity="0.2"></stop>
-                            <stop offset="0.33333" stop-color="#263238" stop-opacity="0.1"></stop>
+                            <stop offset="${1 / 3}" stop-color="#263238" stop-opacity="0.1"></stop>
                             <stop offset="1" stop-color="#263238" stop-opacity="0"></stop>
                         </linearGradient>
                         <linearGradient id="button-long-shadow" x1="138" y1="62" x2="154" y2="78" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#263238" stop-opacity="0.2"></stop>
-                            <stop offset="0.33333" stop-color="#263238" stop-opacity="0.1"></stop>
+                            <stop offset="${1 / 3}" stop-color="#263238" stop-opacity="0.1"></stop>
                             <stop offset="1" stop-color="#263238" stop-opacity="0"></stop>
                         </linearGradient>
                         <radialGradient id="finish" cx="${54 - 42 * Math.cos(Math.PI / 4)}" cy="${78 - 42 * Math.sin(Math.PI / 4)}" r="${gradientRadius}" gradientUnits="userSpaceOnUse">
@@ -1799,7 +1799,7 @@ function setIconProperties(element) {
                         </filter>
                         <linearGradient id="long-shadow" x1="${assistC[0] + 6 * Math.cos(Math.PI / 4)}" y1="${assistC[1] - 6 * Math.sin(Math.PI / 4)}" x2="${assistE[0]}" y2="${assistE[1]}" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#BF360C" stop-opacity="0.2"></stop>
-                            <stop offset="0.33333" stop-color="#BF360C" stop-opacity="0.1"></stop>
+                            <stop offset="${1 / 3}" stop-color="#BF360C" stop-opacity="0.1"></stop>
                             <stop offset="1" stop-color="#BF360C" stop-opacity="0"></stop>
                         </linearGradient>
                         <radialGradient id="finish" cx="${assistF[0]}" cy="${assistF[1]}" r="${assistL3}" gradientUnits="userSpaceOnUse">
@@ -2030,7 +2030,7 @@ function setIconProperties(element) {
                         </filter>
                         <linearGradient id="long-shadow" x1="68" y1="16" x2="84" y2="32" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#212121" stop-opacity="0.2"></stop>
-                            <stop offset="0.33333" stop-color="#212121" stop-opacity="0.1"></stop>
+                            <stop offset="${1 / 3}" stop-color="#212121" stop-opacity="0.1"></stop>
                             <stop offset="1" stop-color="#212121" stop-opacity="0"></stop>
                         </linearGradient>
                         <linearGradient id="blue-gradient" x1="${16 - 8 * Math.cos(Math.PI / 4)}" y1="${176 + 8 * Math.cos(Math.PI / 4)}" x2="84" y2="108" gradientUnits="userSpaceOnUse">
@@ -2176,7 +2176,7 @@ function setIconProperties(element) {
                         </filter>
                         <linearGradient id="long-shadow" x1="${gradientStart[0]}" y1="${gradientStart[1]}" x2="${gradientEnd[0]}" y2="${gradientEnd[1]}" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#263238" stop-opacity="0.2"></stop>
-                            <stop offset="0.33333" stop-color="#263238" stop-opacity="0.1"></stop>
+                            <stop offset="${1 / 3}" stop-color="#263238" stop-opacity="0.1"></stop>
                             <stop offset="1" stop-color="#263238" stop-opacity="0"></stop>
                         </linearGradient>
                         <radialGradient id="finish" cx="${44 - 12 * Math.cos(Math.PI / 4)}" cy="${20 - 12 * Math.sin(Math.PI / 4)}" r="${Math.hypot(148 - 44, 172 - 20) + 12 * 2}" gradientUnits="userSpaceOnUse">
@@ -2273,7 +2273,7 @@ function setIconProperties(element) {
                         </filter>
                         <linearGradient id="long-shadow" x1="${gradientStart[0]}" y1="${gradientStart[1]}" x2="${gradientEnd[0]}" y2="${gradientEnd[1]}" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#BF360C" stop-opacity="0.2"></stop>
-                            <stop offset="0.33333" stop-color="#BF360C" stop-opacity="0.1"></stop>
+                            <stop offset="${1 / 3}" stop-color="#BF360C" stop-opacity="0.1"></stop>
                             <stop offset="1" stop-color="#BF360C" stop-opacity="0"></stop>
                         </linearGradient>
                         <radialGradient id="finish" cx="${44 - 12 * Math.cos(Math.PI / 4)}" cy="${20 - 12 * Math.sin(Math.PI / 4)}" r="${Math.hypot(148 - 44, 172 - 20) + 12 * 2}" gradientUnits="userSpaceOnUse">
