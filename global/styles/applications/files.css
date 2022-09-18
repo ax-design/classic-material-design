@@ -30,8 +30,8 @@
 }
 
 .simulator[files] .button[variant~="fab"] {
-    --surface-hint-color: rgb(255 255 255 / 0.2);
-    --surface-shade-color: rgb(38 50 56 / 0.2);
+    --surface-hint-color: var(--white-hint-color);
+    --surface-shade-color: var(--blue-grey-shade-color);
     z-index: 6;
     inset-inline-start: var(--keyline);
     inset-block-end: 0px;

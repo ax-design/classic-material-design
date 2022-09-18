@@ -103,8 +103,8 @@
 }
 
 .simulator[launcher="home"] .unit .folder .tray {
-    --surface-hint-color: rgb(255 255 255 / 0.4);
-    --surface-shade-color: rgb(33 33 33 / 0.1);
+    --surface-hint-color: var(--high-white-hint-color);
+    --surface-shade-color: var(--low-black-shade-color);
     grid-area: a;
     position: relative;
     inline-size: 60px;

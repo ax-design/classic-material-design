@@ -2053,7 +2053,7 @@ main:has(>.toolbar[variant~="prominent"]) {
 }
 
 main>.toolbar {
-    --surface-shade-color: rgb(26 35 126 / 0.2);
+    --surface-shade-color: var(--indigo-shade-color);
 }
 
 footer a:first-of-type {

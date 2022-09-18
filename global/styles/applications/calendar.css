@@ -14,7 +14,8 @@
 }
 
 .simulator[calendar] .button[variant="fab"] {
-    --surface-shade-color: rgb(62 39 35 / 0.2);
+    --surface-hint-color: var(--white-hint-color);
+    --surface-shade-color: var(--brown-shade-color);
     inset-inline-end: var(--keyline);
     inset-block-end: calc(48px + var(--keyline));
     color: var(--primary-text-color);

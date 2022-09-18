@@ -47,7 +47,8 @@
 }
 
 .simulator[plaid="shot"] .button[variant="fab"] {
-    --surface-shade-color: rgb(62 39 35 / 0.2);
+    --surface-hint-color: var(--white-hint-color);
+    --surface-shade-color: var(--brown-shade-color);
 }
 
 .simulator[plaid="shot"] .description {

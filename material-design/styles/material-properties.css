@@ -334,7 +334,7 @@
 }
 
 main>.toolbar {
-    --surface-shade-color: rgb(38 50 56 / 0.2);
+    --surface-shade-color: var(--blue-grey-shade-color);
     color: var(--secondary-text-color);
 }
 
