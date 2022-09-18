@@ -243,8 +243,9 @@ article[vertical] section {
     margin-block-end: var(--keyline);
 }
 
+section+section,
 figure:not(:has(p))+section {
-    margin-block-start: calc(2 * var(--keyline));
+    margin-block-start: 40px;
 }
 
 .paragraphs {
@@ -287,7 +288,7 @@ figcaption :is(ul, ol) {
     margin-block-start: 3px;
 }
 
-figcaption:not(:has(.recommends)) :is(p, ul, ol) {
+figcaption:not(:has(.recommends)) :is(p, ul, ol):first-child {
     margin-block-start: 1em;
 }
 
@@ -430,7 +431,7 @@ h5 {
         margin-block-end: 1.5em;
     }
 
-    p+ul {
+    p+:is(ul, ol) {
         margin-block-start: -0.875em;
     }
 }
