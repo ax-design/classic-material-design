@@ -21,7 +21,6 @@ html {
 body {
     position: relative;
     display: flex;
-    margin: 0;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
 }
