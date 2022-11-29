@@ -242,7 +242,7 @@ article[vertical] section {
     margin-block-end: var(--keyline);
 }
 
-section+section,
+article[horizontal] section+section,
 figure:not(:has(p))+section {
     margin-block-start: 40px;
 }
