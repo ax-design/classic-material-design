@@ -107,24 +107,39 @@ body>.divider[vertical] {
 /*------------------------------------*\
   应用栏
 \*------------------------------------*/
-main>.toolbar {
-    z-index: 4;
-    grid-column: 1 / -1;
-    align-self: start;
-}
+main {
+    >.toolbar {
+        z-index: 4;
+        grid-column: 1 / -1;
+        align-self: start;
+    }
 
-main>.toolbar .title {
-    inline-size: min(100%, calc(var(--content-columns) * var(--content-unit-inline-size) + (var(--content-columns) - 1) * var(--content-column-gap)));
-    justify-self: center;
-    user-select: none;
-}
+    >.toolbar .title {
+        inline-size: min(100%, calc(var(--content-columns) * var(--content-unit-inline-size) + (var(--content-columns) - 1) * var(--content-column-gap)));
+        justify-self: center;
+        user-select: none;
+    }
 
-main>.toolbar[variant~="prominent"] {
-    animation-name: appBarSurfaceFlex;
-    animation-timeline: scroll(root);
-    animation-timing-function: linear;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+    >.toolbar[variant~="prominent"],
+    >.toolbar[variant~="prominent"]::after,
+    >.toolbar[variant~="prominent"] .title {
+        animation-timeline: scroll();
+        animation-timing-function: linear;
+        animation-range-end: calc(3 * var(--increment));
+        animation-fill-mode: forwards;
+    }
+
+    >.toolbar[variant~="prominent"] {
+        animation-name: appBarSurfaceFlex;
+    }
+
+    >.toolbar[variant~="prominent"]::after {
+        animation-name: appBarBorderShow;
+    }
+
+    >.toolbar[variant~="prominent"] .title {
+        animation-name: appBarTextScale;
+    }
 }
 
 @keyframes appBarSurfaceFlex {
@@ -134,26 +149,10 @@ main>.toolbar[variant~="prominent"] {
     }
 }
 
-main>.toolbar[variant~="prominent"]::after {
-    animation-name: appBarBorderShow;
-    animation-timeline: scroll(root);
-    animation-timing-function: linear;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
-
 @keyframes appBarBorderShow {
     0% {
         border-block-end-color: transparent;
     }
-}
-
-main>.toolbar[variant~="prominent"] .title {
-    animation-name: appBarTextScale;
-    animation-timeline: scroll(root);
-    animation-timing-function: linear;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
 }
 
 @keyframes appBarTextScale {
@@ -792,16 +791,19 @@ footer cmd-icon {
     footer cmd-icon {
         inset-inline-start: calc(0px - 1.5rem - var(--keyline));
     }
-
-    @scroll-timeline appBarFlex {
-        start: 0;
-        end: 168px;
-    }
 }
 
 @media (width < 392px) {
     :root {
         --content-unit-inline-size: auto;
+    }
+
+    main {
+        >.toolbar[variant~="prominent"],
+        >.toolbar[variant~="prominent"]::after,
+        >.toolbar[variant~="prominent"] .title {
+            animation-range-end: calc(2 * var(--increment));
+        }
     }
 
     @keyframes appBarSurfaceFlex {
