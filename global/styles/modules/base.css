@@ -573,12 +573,12 @@
 :root {
     --high-white-hint-color: rgb(255 255 255 / 0.4);
     --white-hint-color: rgb(255 255 255 / 0.2);
-    --indigo-shade-color: rgb(26 35 126 / 0.2);
-    --blue-grey-shade-color: rgb(38 50 56 / 0.2);
-    --deep-orange-shade-color: rgb(191 54 12 / 0.2);
-    --brown-shade-color: rgb(62 39 35 / 0.2);
-    --low-grey-shade-color: rgb(33 33 33 / 0.1);
-    --grey-shade-color: rgb(33 33 33 / 0.2);
+    --indigo-shade-color: rgb(from var(--indigo-900) r g b / 0.2);
+    --blue-grey-shade-color: rgb(from var(--blue-grey-900) r g b / 0.2) ;
+    --deep-orange-shade-color: rgb(from var(--deep-orange-900) r g b / 0.2);
+    --brown-shade-color: rgb(from var(--brown-900) r g b / 0.2);
+    --low-grey-shade-color: rgb(from var(--grey-900) r g b / 0.1);
+    --grey-shade-color: rgb(from var(--grey-900) r g b / 0.2);
 }
 
 [solid]::after,
