@@ -3,16 +3,12 @@
 \*------------------------------------*/
 
 .sheet {
-    z-index: 16;
     inset-block-start: 0;
     position: sticky;
     inline-size: calc(100% - var(--increment));
     max-inline-size: 320px;
     block-size: 100cqb;
     background-color: var(--high-emphasis-surface-color);
-}
-
-.sheet[open] {
     box-shadow: var(--shadow-z16);
 }
 
@@ -21,7 +17,6 @@
 \*------------------------------------*/
 
 .drawer {
-    z-index: 16;
     inset-block-start: 0;
     position: sticky;
     inline-size: calc(100% - var(--increment));
@@ -33,11 +28,6 @@
     box-shadow: var(--shadow-z16);
     overflow: auto;
     overscroll-behavior: contain;
-}
-
-.drawer+.scrim {
-    z-index: 15;
-    position: fixed;
 }
 
 .drawer .header {
@@ -95,6 +85,12 @@
 /*------------------------------------*\
   特别修改
 \*------------------------------------*/
+
+.application .drawer-wrapper {
+    inset: 0;
+    position: fixed;
+    background-color: rgb(0 0 0 / 0.4);
+}
 
 .application .drawer {
     overflow: clip;

@@ -9,7 +9,6 @@
 
 .simulator[files] .overlay[variant="status-bar"] {
     --status-bar-background-color: var(--light-blue-700);
-    z-index: 48;
 }
 
 .simulator[files] .toolbar[variant~="app-bar"] {

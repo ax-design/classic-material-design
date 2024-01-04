@@ -692,45 +692,46 @@
                             <div class="button" variant="fab" theme="light">
                                 <cmd-icon name="shopping_cart"></cmd-icon>
                             </div>
-                            <div class="drawer" open enter>
-                                <div class="tile">
-                                    <img src="global/resources/shrine/product_icon.svg" />
-                                    <div class="text">
-                                        <span type-scale="display1">SHRINE</span>
+                            <div class="drawer-wrapper">
+                                <div class="drawer" open>
+                                    <div class="tile">
+                                        <img src="global/resources/shrine/product_icon.svg" />
+                                        <div class="text">
+                                            <span type-scale="display1">SHRINE</span>
+                                        </div>
                                     </div>
+                                    <div class="divider" horizontal></div>
+                                    <ul type-scale="subheading">
+                                        <li class="tile" variant="one" activated>
+                                            <div class="text">
+                                                <span>Explore</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one">
+                                            <div class="text">
+                                                <span>Shop</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one">
+                                            <div class="text">
+                                                <span>Featured</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one">
+                                            <span type-scale="body2">3</span>
+                                            <div class="text">
+                                                <span>Shopping cart</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one">
+                                            <div class="text">
+                                                <span>Sign out</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="overlay" variant="status-bar"></div>
                                 </div>
-                                <div class="divider" horizontal></div>
-                                <ul type-scale="subheading">
-                                    <li class="tile" variant="one" activated>
-                                        <div class="text">
-                                            <span>Explore</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one">
-                                        <div class="text">
-                                            <span>Shop</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one">
-                                        <div class="text">
-                                            <span>Featured</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one">
-                                        <span type-scale="body2">3</span>
-                                        <div class="text">
-                                            <span>Shopping cart</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one">
-                                        <div class="text">
-                                            <span>Sign out</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="overlay" variant="status-bar"></div>
                             </div>
-                            <div class="scrim" variant="fill"></div>
                             <div class="overlay" variant="navigation-bar"></div>
                         </div>
                         <div class="system">
@@ -930,6 +931,19 @@
                 <figure id="secondary-color-showcase" screen="mobile tablet">
                     <div class="simulator" calculator="main" aria-hidden="true" inert>
                         <div class="application" lang="en">
+                            <div class="display" solid="end">
+                                <div class="toolbar" variant="app-bar" theme="transparent">
+                                    <div class="button" variant="text" unbounded type-scale="body2">
+                                        <span>RAD</span>
+                                    </div>
+                                    <div class="button" variant="icon">
+                                        <cmd-icon name="more_vert"></cmd-icon>
+                                    </div>
+                                </div>
+                                <span class="expression" type-scale="display3">√ ( 1 + 3 )</span>
+                                <span class="result" type-scale="display1">2</span>
+                                <div class="overlay" variant="status-bar"></div>
+                            </div>
                             <div class="panel">
                                 <div class="numeric" theme="dark" type-scale="display1">
                                     <div class="button" variant="text" unbounded>
@@ -1037,19 +1051,6 @@
                                         <span class="subheading">!</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="display" solid="end">
-                                <div class="toolbar" variant="app-bar" theme="transparent">
-                                    <div class="button" variant="text" unbounded type-scale="body2">
-                                        <span>RAD</span>
-                                    </div>
-                                    <div class="button" variant="icon">
-                                        <cmd-icon name="more_vert"></cmd-icon>
-                                    </div>
-                                </div>
-                                <span class="expression" type-scale="display3">√ ( 1 + 3 )</span>
-                                <span class="result" type-scale="display1">2</span>
-                                <div class="overlay" variant="status-bar"></div>
                             </div>
                             <div class="overlay" variant="navigation-bar"></div>
                         </div>
@@ -1221,92 +1222,93 @@
                                     </div>
                                 </li>
                             </ul>
-                            <div class="drawer" open enter>
-                                <div class="header" theme="dark" lang="en-US">
-                                    <div class="scrim" variant="gradient"></div>
-                                    <div class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/jonathan_lee.jpg)"></div>
-                                    <div class="tile" variant="two" density="dense">
-                                        <div class="text">
-                                            <span class="primary" type-scale="body2">Jonathan Lee</span>
-                                            <span class="secondary" type-scale="body1">heyfromjonathan@example.com</span>
-                                        </div>
-                                        <div class="button meta" variant="icon">
-                                            <cmd-icon name="arrow_drop_down"></cmd-icon>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="primary">
-                                    <li class="tile" variant="one" density="dense" activated>
-                                        <cmd-icon name="inbox"></cmd-icon>
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">收件箱</span>
-                                        </div>
-                                        <div class="overlay" variant="states"></div>
-                                    </li>
-                                    <li class="tile" variant="one" density="dense">
-                                        <cmd-icon name="access_time"></cmd-icon>
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">已延后</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one" density="dense">
-                                        <cmd-icon name="check"></cmd-icon>
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">处理完毕</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="divider" horizontal></div>
-                                <ul class="primary">
-                                    <li class="tile" variant="one" density="dense">
-                                        <cmd-icon name="drafts"></cmd-icon>
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">草稿</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one" density="dense">
-                                        <cmd-icon name="send"></cmd-icon>
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">已发邮件</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one" density="dense">
-                                        <cmd-icon name="reminder"></cmd-icon>
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">提醒</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one" density="dense">
-                                        <cmd-icon name="delete"></cmd-icon>
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">回收站</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one" density="dense">
-                                        <cmd-icon name="report"></cmd-icon>
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">垃圾邮件</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="divider" horizontal></div>
-                                <ul class="secondary">
-                                    <li class="tile" variant="one" density="dense">
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">设置</span>
-                                        </div>
-                                    </li>
-                                    <li class="tile" variant="one" density="dense">
-                                        <div class="text">
-                                            <span class="primary-text" type-scale="body2">帮助与反馈</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="overlay" variant="status-bar"></div>
-                            </div>
-                            <div class="scrim" variant="fill"></div>
                             <div class="button" variant="fab" theme="light">
                                 <cmd-icon name="add"></cmd-icon>
+                            </div>
+                            <div class="drawer-wrapper">
+                                <div class="drawer" open>
+                                    <div class="header" theme="dark" lang="en-US">
+                                        <div class="scrim" variant="gradient"></div>
+                                        <div class="thumbnail" variant="avatar" style="background-image: url(global/resources/faces/jonathan_lee.jpg)"></div>
+                                        <div class="tile" variant="two" density="dense">
+                                            <div class="text">
+                                                <span class="primary" type-scale="body2">Jonathan Lee</span>
+                                                <span class="secondary" type-scale="body1">heyfromjonathan@example.com</span>
+                                            </div>
+                                            <div class="button meta" variant="icon">
+                                                <cmd-icon name="arrow_drop_down"></cmd-icon>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="primary">
+                                        <li class="tile" variant="one" density="dense" activated>
+                                            <cmd-icon name="inbox"></cmd-icon>
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">收件箱</span>
+                                            </div>
+                                            <div class="overlay" variant="states"></div>
+                                        </li>
+                                        <li class="tile" variant="one" density="dense">
+                                            <cmd-icon name="access_time"></cmd-icon>
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">已延后</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one" density="dense">
+                                            <cmd-icon name="check"></cmd-icon>
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">处理完毕</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="divider" horizontal></div>
+                                    <ul class="primary">
+                                        <li class="tile" variant="one" density="dense">
+                                            <cmd-icon name="drafts"></cmd-icon>
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">草稿</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one" density="dense">
+                                            <cmd-icon name="send"></cmd-icon>
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">已发邮件</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one" density="dense">
+                                            <cmd-icon name="reminder"></cmd-icon>
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">提醒</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one" density="dense">
+                                            <cmd-icon name="delete"></cmd-icon>
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">回收站</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one" density="dense">
+                                            <cmd-icon name="report"></cmd-icon>
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">垃圾邮件</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="divider" horizontal></div>
+                                    <ul class="secondary">
+                                        <li class="tile" variant="one" density="dense">
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">设置</span>
+                                            </div>
+                                        </li>
+                                        <li class="tile" variant="one" density="dense">
+                                            <div class="text">
+                                                <span class="primary-text" type-scale="body2">帮助与反馈</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="overlay" variant="status-bar"></div>
+                                </div>
                             </div>
                             <div class="overlay" variant="navigation-bar"></div>
                         </div>
