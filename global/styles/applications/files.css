@@ -26,15 +26,15 @@
     align-items: center;
     column-gap: var(--keyline);
     margin-inline-start: calc(20px + var(--keyline));
+    anchor-name: --files-anchor;
     color: var(--primary-text-color);
 }
 
 .simulator[files] .button[variant~="fab"] {
     --surface-hint-color: var(--white-hint-color);
     --surface-shade-color: var(--blue-grey-shade-color);
-    z-index: 6;
     inset-inline-start: var(--keyline);
-    inset-block-end: 0px;
+    inset-block-end: anchor(--files-anchor bottom);
     color: var(--secondary-text-color);
     translate: 0% 50%;
 }

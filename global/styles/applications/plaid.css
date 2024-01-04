@@ -20,6 +20,7 @@
 }
 
 .simulator[plaid="shot"] .title {
+    anchor-name: --plaid-shot-anchor;
     font-family: "Roboto Mono", monospace;
     background-color: var(--low-emphasis-surface-color);
 }
@@ -37,18 +38,12 @@
     padding: var(--keyline);
 }
 
-.simulator[plaid="shot"] .anchor {
-    inset-block-start: calc(100cqi * 3 / 4 + var(--status-bar-block-size) - 28px);
-    position: sticky;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding-inline: var(--keyline);
-}
-
 .simulator[plaid="shot"] .button[variant="fab"] {
     --surface-hint-color: var(--white-hint-color);
     --surface-shade-color: var(--brown-shade-color);
+    inset-inline-end: var(--keyline);
+    inset-block-end: anchor(--plaid-shot-anchor bottom);
+    translate: 0% 50%;
 }
 
 .simulator[plaid="shot"] .description {

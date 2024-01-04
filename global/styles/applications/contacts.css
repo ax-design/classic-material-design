@@ -16,6 +16,7 @@
 
 .simulator[contacts="detailed"] .toolbar {
     block-size: calc(100cqi * 2 / 3);
+    anchor-name: --contacts-anchor;
     box-shadow: var(--shadow-z0);
 }
 
@@ -69,8 +70,9 @@
     --surface-hint-color: var(--white-hint-color);
     --surface-shade-color: var(--brown-shade-color);
     inset-inline-end: var(--keyline);
-    inset-block-start: calc(var(--status-bar-block-size) + 100cqi * 2 / 3 - 56px / 2);
+    inset-block-end: anchor(--contacts-anchor bottom);
     color: var(--primary-text-color);
+    translate: 0% 50%;
 }
 
 @media (prefers-color-scheme: dark) {

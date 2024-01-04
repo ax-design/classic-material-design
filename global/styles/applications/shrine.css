@@ -23,6 +23,7 @@
     grid-template-columns: min-content 1fr;
     grid-template-rows: var(--increment) 80px;
     row-gap: var(--keyline);
+    anchor-name: --shrine-anchor;
     color: var(--primary-color);
     background-color: var(--high-emphasis-surface-color);
     box-shadow: var(--shadow-z0);
@@ -52,18 +53,12 @@
     border-block-end: 1px solid var(--primary-color);
 }
 
-.simulator[shrine] .anchor {
-    position: relative;
-}
-
 .simulator[shrine] .button[variant="fab"] {
     --surface-hint-color: var(--white-hint-color);
     --surface-shade-color: var(--deep-orange-shade-color);
-    z-index: 6;
-    position: absolute;
     inset-inline-end: var(--keyline);
-    inset-block-end: 0px;
-    transform: translateY(50%);
+    inset-block-end: anchor(--shrine-anchor bottom);
+    translate: 0% 50%;
 }
 
 .simulator[shrine] .application > ul {
