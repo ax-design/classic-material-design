@@ -34,10 +34,6 @@ video::cue {
   导航抽屉
 \*------------------------------------*/
 
-#drawer-trigger {
-    visibility: hidden;
-}
-
 body>.drawer {
     z-index: 16;
     inline-size: 256px;
@@ -717,25 +713,65 @@ footer cmd-icon {
   跨屏幕
 \*------------------------------------*/
 
+@media (width >=1576px) {
+    body>.drawer {
+        box-shadow: var(--shadow-z0);
+    }
+
+    button[popovertarget="drawer"] {
+        visibility: hidden;
+    }
+}
+
 @media (width < 1576px) {
     :root {
         --content-columns: 2;
     }
 
-    #drawer-trigger {
-        visibility: visible;
-    }
-
     body>.drawer {
+        &:popover-open {
+            &::backdrop {
+                opacity: 1;
+            }
+
+            translate: 0%;
+            transition-duration: 250ms;
+            transition-timing-function: var(--deceleration-curve);
+        }
+
+        &:not(:popover-open) {
+            display: none;
+        }
+
+        &::backdrop {
+            opacity: 0;
+        }
+
         position: fixed;
+        translate: -100%;
     }
 
-    body>.drawer:not([open]) {
-        visibility: hidden;
+    body {
+
+        >.drawer,
+        >.drawer::backdrop {
+            transition-property: translate, opacity, display, overlay;
+            transition-duration: 200ms;
+            transition-timing-function: var(--sharp-curve);
+            transition-behavior: allow-discrete;
+        }
     }
 
-    body>.drawer:not([enter]) {
-        transform: translateX(-100%);
+    @starting-style {
+        body>.drawer {
+            &:popover-open {
+                translate: -100%;
+            }
+
+            &:popover-open::backdrop {
+                opacity: 0;
+            }
+        }
     }
 
     body>.divider {
@@ -795,6 +831,7 @@ footer cmd-icon {
     }
 
     main {
+
         >.toolbar[variant~="prominent"],
         >.toolbar[variant~="prominent"]::after,
         >.toolbar[variant~="prominent"] .title {

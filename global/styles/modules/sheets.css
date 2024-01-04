@@ -30,38 +30,14 @@
     display: flex;
     flex-direction: column;
     background-color: var(--high-emphasis-surface-color);
+    box-shadow: var(--shadow-z16);
     overflow: auto;
     overscroll-behavior: contain;
-    transition-property: none;
-    transition-timing-function: var(--sharp-curve);
-    transition-duration: 200ms;
-}
-
-.drawer[open] {
-    box-shadow: var(--shadow-z16);
-    transition-property: transform;
-}
-
-.drawer[enter] {
-    transform: translateX(0%);
-    transition-timing-function: var(--deceleration-curve);
-    transition-duration: 250ms;
 }
 
 .drawer+.scrim {
     z-index: 15;
     position: fixed;
-    pointer-events: unset;
-    transition-property: opacity;
-    transition-timing-function: var(--deceleration-curve);
-    transition-duration: 250ms;
-}
-
-.drawer:not([enter])+.scrim {
-    opacity: 0;
-    pointer-events: none;
-    transition-timing-function: var(--sharp-curve);
-    transition-duration: 200ms;
 }
 
 .drawer .header {

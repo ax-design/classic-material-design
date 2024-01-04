@@ -131,49 +131,10 @@ currentNavigationMain.setAttribute('open', '');
 currentNavigationSub.setAttribute('activated', '');
 
 // 开关抽屉
-const drawerTrigger = document.querySelector('#drawer-trigger');
-
-const scrim = document.createElement('div');
-scrim.classList.add('scrim');
-scrim.setAttribute('variant', 'fill');
-drawer.after(scrim);
-
-function closeDrawer(event) {
-    if (event.type == 'keyup') {
-        if (event.code !== 'Escape' || event.repeat) {
-            return
-        }
-    } else {
-        if (event.composedPath().includes(drawerTrigger) || event.composedPath().includes(drawer)) {
-            return
-        }
-    }
-
-    drawer.removeAttribute('enter');
-    document.removeEventListener('pointerup', closeDrawer);
-    document.removeEventListener('keyup', closeDrawer);
-    drawer.addEventListener('transitionend', (event) => {
-        if (event.currentTarget !== event.target || drawer.hasAttribute('enter')) {
-            return
-        }
-        drawer.removeAttribute('open');
-    });
-}
-
-drawerTrigger.addEventListener('click', () => {
-    drawer.setAttribute('open', '');
-    drawer.setAttribute('enter', '');
-    drawer.querySelector('summary').focus();
-
-    document.addEventListener('pointerup', closeDrawer);
-    document.addEventListener('keyup', closeDrawer);
-});
-
 window.onresize = () => {
     const windowWidth = window.innerWidth;
     if (windowWidth >= 1576) {
-        drawer.removeAttribute('open');
-        drawer.removeAttribute('enter');
+        drawer.hidePopover();
     }
     document.body.style.setProperty('--window-width', windowWidth);
 };
