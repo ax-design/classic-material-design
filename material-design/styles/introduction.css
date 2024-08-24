@@ -5,7 +5,6 @@ footer a {
 /*------------------------------------*\
   正文
 \*------------------------------------*/
-
 main:has(>.toolbar[variant~="prominent"]) {
     grid-template-rows: calc(3 * var(--increment));
 }

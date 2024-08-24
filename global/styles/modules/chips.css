@@ -1,7 +1,6 @@
 /*------------------------------------*\
   多用标签
 \*------------------------------------*/
-
 .chip {
     position: relative;
     block-size: 32px;
@@ -10,17 +9,17 @@
     background-color: rgb(158 158 158 / 0.2);
     border-radius: 16px;
     white-space: nowrap;
-}
 
-.chip .thumbnail[variant="avatar"] {
-    inline-size: auto;
-    block-size: 100%;
-}
+    & .thumbnail[variant="avatar"] {
+        inline-size: auto;
+        block-size: 100%;
 
-.chip .text {
-    margin-inline: 12px;
-}
+        &+.text {
+            margin-inline-start: 8px;
+        }
+    }
 
-.chip .thumbnail[variant="avatar"] + .text {
-    margin-inline-start: 8px;
+    & .text {
+        margin-inline: 12px;
+    }
 }

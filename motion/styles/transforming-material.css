@@ -1,7 +1,6 @@
 /*------------------------------------*\
   正文
 \*------------------------------------*/
-
 :is(#asymmetric-transformation, #symmetrical-transformation, #join-divide) {
     grid-column-end: span min(var(--content-columns), 2);
 }
@@ -535,7 +534,6 @@
 /*------------------------------------*\
   主题
 \*------------------------------------*/
-
 :root {
     --primary-color: var(--purple-600);
     --secondary-color: var(--green-a200);

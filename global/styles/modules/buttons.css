@@ -20,10 +20,10 @@
 
 .button[variant~=icon] {
     padding: 12px;
-}
 
-.button[variant~=icon][narrowed] span {
-    inline-size: 0.5em;
+    &[narrowed] span {
+        inline-size: 0.5em;
+    }
 }
 
 .button[variant~=text] {
@@ -48,8 +48,4 @@
     color: var(--primary-text-color);
     background-color: var(--secondary-color, var(--high-emphasis-surface-color));
     box-shadow: var(--shadow-z6);
-}
-
-.fab[density=mini] {
-    inline-size: 40px;
 }

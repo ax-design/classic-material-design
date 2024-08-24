@@ -5,7 +5,6 @@
 /*------------------------------------*\
   滑动刷新组件
 \*------------------------------------*/
-
 .swipe-refresh {
     position: absolute;
     inline-size: 40px;
@@ -17,13 +16,13 @@
     border-radius: 50%;
     box-shadow: var(--shadow-z3);
     translate: 0% -50%;
-}
 
-.swipe-refresh svg {
-    rotate: -20deg;
-}
+    & svg {
+        rotate: -20deg;
 
-.swipe-refresh svg circle {
-    stroke-dasharray: 0 0 20 360;
-    rotate: -90deg;
+        & circle {
+            stroke-dasharray: 0 0 20 360;
+            rotate: -90deg;
+        }
+    }
 }

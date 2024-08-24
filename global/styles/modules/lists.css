@@ -9,64 +9,63 @@
     grid-template-columns: auto;
     grid-auto-flow: column;
     padding-inline: var(--keyline);
-}
 
-.tile[variant~="one"] {
-    block-size: 56px;
-}
+    &[variant~="one"] {
+        block-size: 56px;
 
-.tile[variant~="one"][density="dense"] {
-    block-size: 48px;
-}
+        &[density="dense"] {
+            block-size: 48px;
+        }
+    }
 
-.tile[variant~="two"] {
-    block-size: 72px;
-}
+    &[variant~="two"] {
+        block-size: 72px;
 
-.tile[variant~="two"][variant~="grid"] {
-    block-size: 68px;
-    padding-inline-end: 0px;
-}
+        &[density="dense"] {
+            block-size: 60px;
+        }
 
-.tile[variant~="two"][density="dense"] {
-    block-size: 60px;
-}
+        &[variant~="grid"] {
+            block-size: 68px;
+            padding-inline-end: 0px;
+        }
+    }
 
-.tile[variant~="three"] {
-    block-size: 88px;
-}
+    &[variant~="three"] {
+        block-size: 88px;
+    }
 
-.tile .text {
-    justify-self: stretch;
-    display: grid;
-    white-space: nowrap;
-}
+    & .text {
+        justify-self: stretch;
+        display: grid;
+        white-space: nowrap;
 
-.tile .text .primary {
-    color: var(--primary-text-color);
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+        & .primary {
+            color: var(--primary-text-color);
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-.tile .text .secondary {
-    color: var(--secondary-text-color);
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+        & .secondary {
+            color: var(--secondary-text-color);
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-.tile .text .tertiary {
-    color: var(--secondary-text-color);
-}
+        & .tertiary {
+            color: var(--secondary-text-color);
+        }
+    }
 
-.tile .meta {
-    justify-self: end;
-    color: var(--secondary-text-color);
+    & .meta {
+        justify-self: end;
+        color: var(--secondary-text-color);
+    }
 }
 
 /*------------------------------------*\
   副标题
 \*------------------------------------*/
-
 .subheader {
     position: relative;
     block-size: 48px;
@@ -93,47 +92,47 @@
 
 .thumbnail[variant="avatar"] {
     border-radius: 50%;
-}
 
-.thumbnail[variant="avatar"]::after {
-    content: "";
-    position: absolute;
-    inline-size: calc(100% - 1px);
-    aspect-ratio: 1 / 1;
-    border: 1px solid var(--divider-color);
-    border-radius: inherit;
-}
+    &::after {
+        content: "";
+        position: absolute;
+        inline-size: calc(100% - 1px);
+        aspect-ratio: 1 / 1;
+        border: 1px solid var(--divider-color);
+        border-radius: inherit;
+    }
 
-.thumbnail[variant="avatar"][character="ali-connors"] {
-    background-size: 60px auto;
-    background-position: -15px -13px;
-}
+    &[character="ali-connors"] {
+        background-size: 60px auto;
+        background-position: -15px -13px;
+    }
 
-.thumbnail[variant="avatar"][character="anthony-stevens"] {
-    background-size: 48px;
-    background-position: -2px -2px;
-}
+    &[character="anthony-stevens"] {
+        background-size: 48px;
+        background-position: -2px -2px;
+    }
 
-.thumbnail[variant="avatar"][character="britta-holt"] {
-    background-size: auto 43px;
-    background-position: -12px -1px;
-}
+    &[character="britta-holt"] {
+        background-size: auto 43px;
+        background-position: -12px -1px;
+    }
 
-.thumbnail[variant="avatar"][character="janet-perkins"] {
-    background-size: auto 80px;
-    background-position: -17px -22px;
-}
+    &[character="janet-perkins"] {
+        background-size: auto 80px;
+        background-position: -17px -22px;
+    }
 
-.thumbnail[variant="avatar"][character="jennifer-smith"] {
-    background-size: 52px;
-    background-position: -8px -7px;
-}
+    &[character="jennifer-smith"] {
+        background-size: 52px;
+        background-position: -8px -7px;
+    }
 
-.thumbnail[variant="avatar"][character="mary-johnson"] {
-    background-size: auto 44px;
-    background-position: bottom;
-}
+    &[character="mary-johnson"] {
+        background-size: auto 44px;
+        background-position: bottom;
+    }
 
-.thumbnail[variant="avatar"][character="peter-carlsson"] {
-    background-position: top;
+    &[character="peter-carlsson"] {
+        background-position: top;
+    }
 }

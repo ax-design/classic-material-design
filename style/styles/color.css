@@ -15,7 +15,6 @@
 /*------------------------------------*\
   正文
 \*------------------------------------*/
-
 main:has(>.toolbar[variant~="prominent"]) {
     grid-template-rows: calc(4 * var(--increment));
 }
@@ -71,7 +70,6 @@ main:has(>.toolbar[variant~="prominent"]) {
 /*------------------------------------*\
   主题
 \*------------------------------------*/
-
 :root {
     --primary-color: var(--teal-600);
     --secondary-color: var(--orange-a200);
