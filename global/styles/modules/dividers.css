@@ -1,6 +1,6 @@
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   分割线
-\*------------------------------------*/
+\*----------------------------------------------------------------------------*/
 .divider {
     display: flex;
     border: none;
@@ -13,7 +13,7 @@
         background-color: var(--divider-color);
     }
 
-    &[horizontal] {
+    &[data-direction="horizontal"] {
         inline-size: 100%;
         block-size: 0;
         align-items: center;
@@ -25,7 +25,7 @@
         }
     }
 
-    &[vertical] {
+    &[data-direction="vertical"] {
         inline-size: 0;
         block-size: 100%;
         justify-content: center;
@@ -38,25 +38,10 @@
     }
 }
 
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   主题
-\*------------------------------------*/
-@media (prefers-color-scheme: light) {
-    :root {
-        --divider-color: rgb(0 0 0 / 0.12);
-    }
-}
+\*----------------------------------------------------------------------------*/
 
-[theme~="light"] {
-    --divider-color: rgb(0 0 0 / 0.12);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --divider-color: rgb(255 255 255 / 0.12);
-    }
-}
-
-[theme~="dark"] {
-    --divider-color: rgb(255 255 255 / 0.12);
+:root {
+    --divider-color: light-dark(rgb(0 0 0 / 0.12), rgb(255 255 255 / 0.12));
 }

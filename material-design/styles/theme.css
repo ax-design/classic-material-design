@@ -1,0 +1,30 @@
+/*----------------------------------------------------------------------------*\
+  基本原理 - 主题
+\*----------------------------------------------------------------------------*/
+:root {
+    --primary-color: var(--cyan-500);
+    --secondary-color: var(--lime-a200);
+    --medium-emphasis-surface-color: light-dark(var(--grey-50), #191C1D);
+}
+
+::selection {
+    color: rgb(0 0 0 / 0.87);
+    background-color: var(--secondary-color);
+}
+
+main>.toolbar {
+    --surface-shade-color: var(--blue-grey-shade-color);
+    background-color: light-dark(var(--primary-color), #0E1112);
+
+    & .title {
+        color-scheme: dark;
+    }
+}
+
+footer a {
+    background-color: light-dark(var(--primary-color), #0E1112);
+
+    & :is(span, cmd-icon) {
+        color-scheme: dark;
+    }
+}

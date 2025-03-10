@@ -1,6 +1,6 @@
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   应用栏
-\*------------------------------------*/
+\*----------------------------------------------------------------------------*/
 .toolbar {
     flex-shrink: 0;
     position: relative;
@@ -9,34 +9,35 @@
     grid-template-rows: 48px;
     grid-auto-flow: column;
     grid-auto-columns: auto;
+    justify-items: start;
     align-items: center;
+    color: light-dark(var(--secondary-text-color), var(--primary-text-color));
     background-color: var(--medium-emphasis-surface-color);
-    color: var(--primary-text-color);
     overflow: clip;
 
-    &:has(.toolbar[variant~="float"]) {
+    &:has(.toolbar[data-variant~="float"]) {
         grid-auto-flow: row;
         grid-auto-columns: unset;
         grid-template-rows: unset;
         padding-inline: 0;
     }
 
-    &[theme~="transparent"] {
+    &[data-theme~="transparent"] {
         background-color: transparent;
     }
 
-    &[variant~="app-bar"] {
+    &[data-variant~="app-bar"] {
         inset-block-start: 0;
         position: sticky;
         grid-template-rows: var(--increment);
         grid-auto-columns: min-content;
 
-        &:not([theme~="transparent"]) {
+        &:not([data-theme~="transparent"]) {
             background-color: var(--primary-color, --low-emphasis-surface-color);
             box-shadow: var(--shadow-z4);
         }
 
-        &[variant~="prominent"]:not(:has(.toolbar[variant~="float"])) {
+        &[data-variant~="prominent"]:not(:has(.toolbar[data-variant~="float"])) {
             grid-template-columns: min-content minmax(0px, 1fr);
         }
 
@@ -46,7 +47,7 @@
         }
     }
 
-    &[variant~="float"] {
+    &[data-variant~="float"] {
         border-radius: 2px;
         box-shadow: var(--shadow-z2);
 
@@ -55,23 +56,20 @@
             color: var(--hint-text-color);
         }
     }
+
+    & .button {
+        color: light-dark(var(--secondary-text-color), var(--primary-text-color));
+    }
 }
 
-.toolbar[variant~="app-bar"]:has(.button+.title),
-.toolbar[variant~="float"]:has(.button+.input) {
+.toolbar[data-variant~="app-bar"]:has(.button+.title),
+.toolbar[data-variant~="float"]:has(.button+.input) {
     grid-template-columns: min-content 1fr;
 }
 
-/*------------------------------------*\
-  主题
-\*------------------------------------*/
-.toolbar[theme="light"] {
-    color: var(--secondary-text-color);
-}
-
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   特别修改
-\*------------------------------------*/
-.application .toolbar[variant~="app-bar"] {
+\*----------------------------------------------------------------------------*/
+.application .toolbar[data-variant~="app-bar"] {
     padding-block-start: var(--status-bar-block-size);
 }

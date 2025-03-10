@@ -1,6 +1,6 @@
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   按钮
-\*------------------------------------*/
+\*----------------------------------------------------------------------------*/
 :where(.button) {
     position: relative;
     align-items: center;
@@ -18,15 +18,15 @@
     overflow: hidden;
 }
 
-.button[variant~=icon] {
+.button[data-variant~=icon] {
     padding: 12px;
 
-    &[narrowed] span {
+    &[data-narrowed] span {
         inline-size: 0.5em;
     }
 }
 
-.button[variant~=text] {
+.button[data-variant~=text] {
     --states-base-color: currentColor;
     min-inline-size: 64px;
     block-size: 36px;
@@ -35,12 +35,12 @@
     border-radius: 2px;
 }
 
-.button[variant~=filled] {
+.button[data-variant~=filled] {
     color: var(--primary-text-color);
     background-color: var(--secondary-color, var(--primary-color));
 }
 
-.button[variant~=fab] {
+.button[data-variant~=fab] {
     position: absolute;
     inline-size: 56px;
     aspect-ratio: 1/1;

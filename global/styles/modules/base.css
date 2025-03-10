@@ -1,6 +1,6 @@
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   动画
-\*------------------------------------*/
+\*----------------------------------------------------------------------------*/
 :root {
     --standard-curve: cubic-bezier(0.4, 0, 0.2, 1);
     --deceleration-curve: cubic-bezier(0, 0, 0.2, 1);
@@ -127,9 +127,9 @@
     }
 }
 
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   颜色
-\*------------------------------------*/
+\*----------------------------------------------------------------------------*/
 :root {
     --red-50: #ffebee;
     --red-100: #ffcdd2;
@@ -525,9 +525,9 @@
     --google-grey-alt-400: #bdbdbd;
 }
 
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   层面
-\*------------------------------------*/
+\*----------------------------------------------------------------------------*/
 :root {
     --shadow-z0: 0px 0px 0px 0px rgb(0 0 0 / 0.2), 0px 0px 0px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 0px rgb(0 0 0 / 0.12);
     --shadow-z1: 0px 2px 1px -1px rgb(0 0 0 / 0.2), 0px 1px 1px 0px rgb(0 0 0 / 0.14), 0px 1px 3px 0px rgb(0 0 0 / 0.12);
@@ -581,8 +581,8 @@
     --grey-shade-color: rgb(from var(--grey-900) r g b / 0.2);
 }
 
-[solid]::after,
-.button[variant~="fab"]::after,
+[data-surface-edge]::after,
+.button[data-variant~="fab"]::after,
 .switch .thumb::after {
     content: "";
     inset: 0;
@@ -594,157 +594,27 @@
     pointer-events: none;
 }
 
-[solid="start"]::after {
+[data-surface-edge="start"]::after {
     border-block-end: none;
 }
 
-[solid="end"]::after {
+[data-surface-edge="end"]::after {
     border-block-start: none;
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --high-emphasis-surface-color: white;
-        --medium-emphasis-surface-color: var(--grey-50);
-        --low-emphasis-surface-color: var(--grey-100);
-        --surface-hint-color: rgb(255 255 255 / 0.4);
-        --surface-shade-color: rgb(0 0 0 / 0.1);
-        --theme-base-color: white;
-        --content-base-color: black;
-    }
+:root {
+    --high-emphasis-surface-color: light-dark(white, var(--grey-800));
+    --medium-emphasis-surface-color: light-dark(var(--grey-50), var(--grey-850));
+    --low-emphasis-surface-color: light-dark(var(--grey-100), var(--grey-900));
+    --surface-hint-color: light-dark(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.2));
+    --surface-shade-color: light-dark(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.2));
+    --theme-base-color: light-dark(white, black);
+    --content-base-color: light-dark(black, white);
 }
 
-[theme~="light"] {
-    --high-emphasis-surface-color: white;
-    --medium-emphasis-surface-color: var(--grey-50);
-    --low-emphasis-surface-color: var(--grey-100);
-    --surface-hint-color: rgb(255 255 255 / 0.4);
-    --surface-shade-color: rgb(0 0 0 / 0.1);
-    --theme-base-color: white;
-    --content-base-color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --high-emphasis-surface-color: var(--grey-800);
-        --medium-emphasis-surface-color: var(--grey-850);
-        --low-emphasis-surface-color: var(--grey-900);
-        --surface-hint-color: rgb(255 255 255 / 0.2);
-        --surface-shade-color: rgb(0 0 0 / 0.2);
-        --theme-base-color: black;
-        --content-base-color: white;
-    }
-}
-
-[theme~="dark"] {
-    --high-emphasis-surface-color: var(--grey-800);
-    --medium-emphasis-surface-color: var(--grey-850);
-    --low-emphasis-surface-color: var(--grey-900);
-    --surface-hint-color: rgb(255 255 255 / 0.2);
-    --surface-shade-color: rgb(0 0 0 / 0.2);
-    --theme-base-color: black;
-    --content-base-color: white;
-}
-
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   字体排印
-\*------------------------------------*/
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-Thin.ttf);
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-ThinItalic.ttf);
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-Light.ttf);
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-LightItalic.ttf);
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-Regular.ttf);
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-Italic.ttf);
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-Medium.ttf);
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-MediumItalic.ttf);
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-Bold.ttf);
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-BoldItalic.ttf);
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-Black.ttf);
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url(../../resources/fonts/Roboto-BlackItalic.ttf);
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-
+\*----------------------------------------------------------------------------*/
 :lang(zh) {
     --display-4-leading: 1em;
     --display-3-leading: 1em;
@@ -769,140 +639,112 @@
     --caption-leading: 1rem;
 }
 
-[type-scale=display4] {
+[data-type-scale=display4] {
     font-size: 7rem;
     font-weight: 300;
     line-height: var(--display-4-leading);
 }
 
-:lang(en) [type-scale=display4],
-[type-scale=display4]:lang(en) {
+:lang(en) [data-type-scale=display4],
+[data-type-scale=display4]:lang(en) {
     letter-spacing: -0.01em;
 }
 
-[type-scale=display3] {
+[data-type-scale=display3] {
     font-size: 3.5rem;
     font-weight: 400;
     line-height: var(--display-3-leading);
 }
 
-:lang(en) [type-scale=display3],
-[type-scale=display3]:lang(en) {
+:lang(en) [data-type-scale=display3],
+[data-type-scale=display3]:lang(en) {
     letter-spacing: -0.005em;
 }
 
-[type-scale=display2] {
+[data-type-scale=display2] {
     font-size: 2.8125rem;
     font-weight: 400;
     line-height: var(--display-2-leading);
 }
 
-[type-scale=display1] {
+[data-type-scale=display1] {
     font-size: 2.125rem;
     font-weight: 400;
     line-height: var(--display-1-leading);
 }
 
-[type-scale=headline] {
+[data-type-scale=headline] {
     font-size: 1.5rem;
     font-weight: 400;
     line-height: var(--headline-leading);
 }
 
-[type-scale=title] {
+[data-type-scale=title] {
     font-size: 1.25rem;
     font-weight: 500;
     line-height: var(--title-leading);
 }
 
-:lang(en) [type-scale=title],
-[type-scale=title]:lang(en) {
+:lang(en) [data-type-scale=title],
+[data-type-scale=title]:lang(en) {
     letter-spacing: 0.005em;
 }
 
-[type-scale=subheading] {
+[data-type-scale=subheading] {
     font-size: 1rem;
     font-weight: 400;
     line-height: var(--subheading-leading);
 }
 
-:lang(en) [type-scale=subheading],
-[type-scale=subheading]:lang(en) {
+:lang(en) [data-type-scale=subheading],
+[data-type-scale=subheading]:lang(en) {
     letter-spacing: 0.01em;
 }
 
-[type-scale=body2] {
+[data-type-scale=body2] {
     font-size: 0.875rem;
     font-weight: 500;
     line-height: var(--body-leading);
 }
 
-:lang(en) [type-scale=body2],
-[type-scale=body2]:lang(en) {
+:lang(en) [data-type-scale=body2],
+[data-type-scale=body2]:lang(en) {
     letter-spacing: 0.01em;
 }
 
-[type-scale=body1] {
+[data-type-scale=body1] {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: var(--body-leading);
 }
 
-:lang(en) [type-scale=body1],
-[type-scale=body1]:lang(en) {
+:lang(en) [data-type-scale=body1],
+[data-type-scale=body1]:lang(en) {
     letter-spacing: 0.01em;
 }
 
-[type-scale=caption] {
+[data-type-scale=caption] {
     font-size: 0.75rem;
     font-weight: 400;
     line-height: var(--caption-leading);
 }
 
-:lang(en) [type-scale=caption],
-[type-scale=caption]:lang(en) {
+:lang(en) [data-type-scale=caption],
+[data-type-scale=caption]:lang(en) {
     letter-spacing: 0.02em;
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --primary-text-color: rgb(0 0 0 / 0.87);
-        --secondary-text-color-alt: rgb(0 0 0 / 0.7);
-        --secondary-text-color: rgb(0 0 0 / 0.54);
-        --hint-text-color: rgb(0 0 0 / 0.38);
-        --hint-text-color-alt: rgb(0 0 0 / 0.2);
-    }
+:root {
+    --primary-text-color: light-dark(rgb(0 0 0 / 0.87), rgb(255 255 255 / 1));
+    --secondary-text-color-alt: light-dark(rgb(0 0 0 / 0.7), rgb(255 255 255 / 0.9));
+    --secondary-text-color: light-dark(rgb(0 0 0 / 0.54), rgb(255 255 255 / 0.7));
+    --hint-text-color: light-dark(rgb(0 0 0 / 0.38), rgb(255 255 255 / 0.5));
+    --hint-text-color-alt: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.38));
 }
 
-[theme~=light] {
-    --primary-text-color: rgb(0 0 0 / 0.87);
-    --secondary-text-color-alt: rgb(0 0 0 / 0.7);
-    --secondary-text-color: rgb(0 0 0 / 0.54);
-    --hint-text-color: rgb(0 0 0 / 0.38);
-    --hint-text-color-alt: rgb(0 0 0 / 0.2);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-text-color: rgb(255 255 255 / 1);
-        --secondary-text-color-alt: rgb(255 255 255 / 0.9);
-        --secondary-text-color: rgb(255 255 255 / 0.7);
-        --hint-text-color: rgb(255 255 255 / 0.5);
-        --hint-text-color-alt: rgb(255 255 255 / 0.38);
-    }
-}
-
-[theme~=dark] {
-    --primary-text-color: rgb(255 255 255 / 1);
-    --secondary-text-color-alt: rgb(255 255 255 / 0.9);
-    --secondary-text-color: rgb(255 255 255 / 0.7);
-    --hint-text-color: rgb(255 255 255 / 0.5);
-    --hint-text-color-alt: rgb(255 255 255 / 0.38);
-}
-
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   遮罩
-\*------------------------------------*/
+\*----------------------------------------------------------------------------*/
 .scrim {
     position: absolute;
     opacity: 0.4;
@@ -925,9 +767,9 @@
     background-color: rgb(0 0 0 / 0.4);
 }
 
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   图标
-\*------------------------------------*/
+\*----------------------------------------------------------------------------*/
 cmd-icon {
     inline-size: 1.5rem;
     block-size: 1.5rem;
@@ -962,135 +804,9 @@ cmd-icon:is([name="more_vert"], [name="chevron_left"], [name="chevron_right"]) {
     block-size: 1.5rem;
 }
 
-/*------------------------------------*\
-  状态
-\*------------------------------------*/
-:is(.button[variant="icon"], [unbounded]) {
-    overflow: visible;
-}
-
-.overlay[variant="states"] {
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline-start: 0;
-    inline-size: 100%;
-    block-size: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: inherit;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.overlay[variant="states"]::before,
-.overlay[variant="states"]::after {
-    content: "";
-    position: absolute;
-    inline-size: 100%;
-    block-size: 100%;
-    border-radius: inherit;
-    background-color: var(--states-base-color);
-    opacity: 0;
-}
-
-.overlay[variant="states"]::after {
-    opacity: calc((0.04 * var(--hover-parameter, 0) + 0.12 * var(--focus-parameter, 0) + 0.08 * var(--selected-parameter, 0) + 0.12 * var(--activate-parameter, 0) + 0.08 * var(--dragged-parameter, 0)) * var(--states-parameter, 1));
-}
-
-@scope (body) to (.simulator) {
-    .overlay[variant="states"]::after {
-        transition-property: opacity;
-        transition-duration: 480ms;
-        transition-timing-function: linear;
-    }
-}
-
-:is(.button[variant="icon"], [unbounded]) .overlay[variant="states"] {
-    inset-block-start: unset;
-    inset-inline-start: unset;
-    inline-size: auto;
-    min-inline-size: 100%;
-    block-size: auto;
-    min-block-size: 100%;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    overflow: visible;
-}
-
-:is([interact], button, summary, footer a):is(:hover, :focus-visible, [disabled]) .overlay[variant="states"]::after {
-    transition-duration: 120ms;
-}
-
-@media (hover: hover) {
-    :is([interact], button, summary, footer a):hover {
-        --hover-parameter: 1;
-    }
-}
-
-:focus-visible,
-li:has(>:focus-visible) {
-    outline: transparent;
-    --focus-parameter: 1;
-}
-
-[activated] {
-    --activate-parameter: 1;
-}
-
-.tab-bar [activated] {
-    --activate-parameter: 0;
-}
-
-[selected] {
-    --selected-parameter: 1;
-}
-
-.ripple {
-    position: absolute;
-    inline-size: 100%;
-    block-size: auto;
-    aspect-ratio: 1/1;
-    background-color: var(--states-base-color);
-    border-radius: 50%;
-    opacity: var(--ripple-opacity);
-    scale: 0;
-}
-
-[disabled],
-[inert] {
-    color: var(--hint-text-color);
-    pointer-events: none;
-    cursor: default;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --states-base-color: black;
-        --ripple-opacity: 0.06;
-    }
-}
-
-[theme~="light"] {
-    --states-base-color: black;
-    --ripple-opacity: 0.06;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --states-base-color: white;
-        --ripple-opacity: 0.1;
-    }
-}
-
-[theme~="dark"] {
-    --states-base-color: white;
-    --ripple-opacity: 0.1;
-}
-
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   边缘效果
-\*------------------------------------*/
+\*----------------------------------------------------------------------------*/
 .glow {
     inset: 0;
     position: absolute;

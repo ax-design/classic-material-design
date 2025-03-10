@@ -5,6 +5,7 @@
     <base href="./" />
     <meta charset="UTF-8" />
     <meta name="theme-color" content="#212121" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="质感设计是以印刷工艺为基底的、以Material世界为特征的科学界面设计系统。质感设计通过模仿现实世界，创造真实的虚拟世界调动用户已有的认知经验，并充分利用电子媒介的可能性，释放界面运作、表现的想象力；质感设计还要求设计者清楚自己的设计意图，有意识地把握界面运作的全过程，以帮助使用不同电子设备的、处于不同身心状况的用户高效达成目标。">
     <meta property="og:title" content="质感设计 - 概述" />
@@ -14,48 +15,161 @@
     <title>质感设计 - 概述</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400..500&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400..500&family=Roboto:wght@400..500&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet" />
     <link rel="icon" href="global/resources/favicon.svg" />
     <link rel="stylesheet" href="material-design/styles/introduction.css" />
     <link rel="stylesheet" href="global/styles/global.css" />
     <script type="module" src="global/scripts/global.js"></script>
 </head>
 
-<body type-scale="body1">
-    <aside id="drawer" class="drawer" chapter="1-1" popover></aside>
-
-    <div class="divider" vertical></div>
-
+<body data-type-scale="body1">
+    <aside id="drawer" class="drawer" popover>
+        <figure>
+            <svg viewBox="0 0 24 24">
+                <circle fill="#212121" cx="12" cy="12" r="12" />
+                <polygon fill="#BDBDBD" points="12,0 24,12 12,24 0,12" transform-origin="center" transform="rotate(45)" />
+                <polygon fill="#FFFFFF" points="12,0 18,18 0,12" transform-origin="center" transform="rotate(45)" />
+            </svg>
+            <figcaption data-type-scale="subheading" lang="en">MATERIAL DESIGN</figcaption>
+        </figure>
+        <hr class="divider" data-direction="horizontal" />
+        <details open>
+            <summary data-type-scale="body2">基本原理</summary>
+            <ul>
+                <li data-states="activated"><a href="index.html">概述</a></li>
+                <li><a href="material-design/environment.html">环境</a></li>
+                <li><a href="material-design/material-properties.html">Material 属性</a></li>
+                <li><a href="material-design/elevation-shadows.html">层级与阴影</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary data-type-scale="body2">动画效果</summary>
+            <ul>
+                <li><a href="motion/material-motion.html">运动机理</a></li>
+                <li><a href="motion/movement.html">移动</a></li>
+                <li><a href="motion/transforming-material.html">转换</a></li>
+                <li inert><a href="motion/choreography.html">编排</a></li>
+                <li inert><a href="motion/responsive-interaction.html">作用反馈</a></li>
+                <li inert><a href="motion/creative-customization.html">创意定制</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary data-type-scale="body2">风格样式</summary>
+            <ul>
+                <li><a href="style/color.html">颜色</a></li>
+                <li inert><a href="style/icons.html">图标</a></li>
+                <li inert><a href="style/imagery.html">图像</a></li>
+                <li inert><a href="style/typography.html">字体排印</a></li>
+                <li inert><a href="style/writing.html">书面用语</a></li>
+                <li inert><a href="style/sound.html">声音</a></li>
+            </ul>
+        </details>
+        <details inert>
+            <summary data-type-scale="body2">布局</summary>
+            <ul>
+                <li><a href="layout/principles.html">架构方法</a></li>
+                <li><a href="layout/units-measurements.html">单位与度量方法</a></li>
+                <li><a href="layout/spacing-methods.html">元素排布</a></li>
+                <li><a href="layout/structure.html">界面结构</a></li>
+                <li><a href="layout/responsive-ui.html">响应式界面</a></li>
+                <li><a href="layout/density.html">元素密度</a></li>
+            </ul>
+        </details>
+        <details inert>
+            <summary data-type-scale="body2">组件</summary>
+            <ul>
+                <li><a href="components/bottom-navigation.html">底部导航</a></li>
+                <li><a href="components/buttons.html">按钮</a></li>
+                <li><a href="components/buttons-floating-action-button.html">按钮：浮动操作按钮</a></li>
+                <li><a href="components/cards.html">卡片</a></li>
+                <li><a href="components/chips.html">多用标签</a></li>
+                <li><a href="components/data-tables.html">数据表格</a></li>
+                <li><a href="components/dividers.html">分隔线</a></li>
+                <li><a href="components/dialogs.html">对话框</a></li>
+                <li><a href="components/dialogs-pickers.html">对话框：选择器</a></li>
+                <li><a href="components/lists.html">列表</a></li>
+                <li><a href="components/menus.html">菜单</a></li>
+                <li><a href="components/progress-indicators.html">进程指示器</a></li>
+                <li><a href="components/selection-controls.html">选择控件</a></li>
+                <li><a href="components/sheets-bottom.html">底部单页</a></li>
+                <li><a href="components/sheets-side.html">侧边单页</a></li>
+                <li><a href="components/sheets-navigation-drawer.html">侧边单页：导航抽屉</a></li>
+                <li><a href="components/sliders.html">滑块</a></li>
+                <li><a href="components/snackbars.html">条形通知</a></li>
+                <li><a href="components/tabs.html">标签栏</a></li>
+                <li><a href="components/text-fields.html">文本框</a></li>
+                <li><a href="components/toolbars.html">工具栏</a></li>
+                <li><a href="components/widgets.html">桌面小部件</a></li>
+            </ul>
+        </details>
+        <details inert>
+            <summary data-type-scale="body2">交互模式</summary>
+            <ul>
+                <li><a href="patterns/confirmation-acknowledgement.html">确认与获知</a></li>
+                <li><a href="patterns/data-display.html">数据展示</a></li>
+                <li><a href="patterns/empty-states.html">空状态</a></li>
+                <li><a href="patterns/errors.html">错误提示</a></li>
+                <li><a href="patterns/fingerprint.html">指纹识别</a></li>
+                <li><a href="patterns/gestures.html">手势</a></li>
+                <li><a href="patterns/help-feedback.html">帮助与反馈</a></li>
+                <li><a href="patterns/launch-screens.html">启动画面</a></li>
+                <li><a href="patterns/navigation.html">导航</a></li>
+                <li><a href="patterns/notifications.html">通知</a></li>
+                <li><a href="patterns/offline-states.html">离线状态</a></li>
+                <li><a href="patterns/permissions.html">权限</a></li>
+                <li><a href="patterns/search.html">搜索</a></li>
+                <li><a href="patterns/selection.html">选择</a></li>
+                <li><a href="patterns/settings.html">设置</a></li>
+                <li><a href="patterns/states.html">交互状态</a></li>
+                <li><a href="patterns/swipe-to-refresh.html">下滑刷新</a></li>
+            </ul>
+        </details>
+        <details inert>
+            <summary data-type-scale="body2">可用性</summary>
+            <ul>
+                <li><a href="usability/accessibility.html">无障碍</a></li>
+                <li><a href="usability/bidirectionality.html">阅读方向</a></li>
+            </ul>
+        </details>
+        <details inert>
+            <summary data-type-scale="body2">发展与用户教育</summary>
+        </details>
+        <details inert>
+            <summary data-type-scale="body2">附录</summary>
+        </details>
+    </aside>
+    <div class="divider" data-direction="vertical"></div>
     <main>
-        <div class="toolbar" variant="app-bar prominent" theme="light" solid="end">
-            <button popovertarget="drawer" class="button" variant="icon" type="button" aria-label="打开目录">
+        <div class="toolbar" data-variant="app-bar prominent" data-surface-edge="end">
+            <button popovertarget="drawer" class="button" data-variant="icon" type="button" aria-label="打开目录">
                 <cmd-icon name="menu"></cmd-icon>
             </button>
-            <h1 class="title" type-scale="title">质感设计</h1>
-            <button id="search-trigger" class="button" variant="icon" type="button" disabled aria-label="搜索">
+            <h1 class="title" data-type-scale="title">质感设计</h1>
+            <button id="search-trigger" class="button" data-variant="icon" type="button" disabled aria-label="搜索">
                 <cmd-icon name="search"></cmd-icon>
             </button>
         </div>
-
-        <picture aria-hidden="true">
-            <img src="material-design/resources/introduction.svg" />
-        </picture>
-
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+            <rect fill="#F9A825" x="176" y="111" width="796" height="510" />
+            <rect fill="#FBC02D" x="580" y="239" width="524" height="382" />
+            <rect fill="#FDD835" x="476" y="341" width="496" height="280" />
+            <rect fill="#FFF176" x="389" y="407" width="122" height="214" />
+            <circle fill="#FFF59D" cx="972" cy="577" r="44" />
+        </svg>
         <header>
-            <h2 type-scale="display1">概述</h2>
-            <p type-scale="title">当第一部智能手机诞生时，移动设备的体验处处受限：显示空间更小、通信速度更慢、功能特性更少。但数十年间，你我的日常工具不断变得更加快捷、万能、易用。如今移动设备的硬件配置已不可同日而语，软件设计同样需要更新换代。</p>
-            <p type-scale="title">因此我们挑战自我，为广大用户创造了崭新的界面设计系统——质感设计。质感设计不仅虚心汲取经典设计定则的丰富滋养，还致力发挥创新科学技术的强大潜力。我们相信设计系统是同源共流、顺理成章的，但绝不意味着静止和死板，随着我们及各界社区对质感设计理论和实践的探索，本文档将会不断更新完善。</p>
+            <h2 data-type-scale="display1">概述</h2>
+            <p data-type-scale="title">当第一部智能手机诞生时，移动设备的体验处处受限：显示空间更小、通信速度更慢、功能特性更少。但数十年间，你我的日常工具不断变得更加快捷、万能、易用。如今移动设备的硬件配置已不可同日而语，软件设计同样需要更新换代。</p>
+            <p data-type-scale="title">因此我们挑战自我，为广大用户创造了崭新的界面设计系统——质感设计。质感设计不仅虚心汲取经典设计定则的丰富滋养，还致力发挥创新科学技术的强大潜力。我们相信设计系统是同源共流、顺理成章的，但绝不意味着静止和死板，随着我们及各界社区对质感设计理论和实践的探索，本文档将会不断更新完善。</p>
             <nav>
-                <h3 type-scale="body1">索引</h3>
-                <ul type-scale="title">
+                <h3 data-type-scale="body1">索引</h3>
+                <ul data-type-scale="title">
                     <li><a href="index.html#goals">目标</a></li>
                     <li><a href="index.html#principles">原则</a></li>
                 </ul>
             </nav>
         </header>
-
-        <article id="goals" horizontal>
-            <h3 type-scale="headline">目标</h3>
+        <article id="goals" data-direction="horizontal">
+            <h3 data-type-scale="headline">目标</h3>
             <div class="paragraphs">
                 <p>我们希冀开创一门视觉语言，既能恪守优秀设计的经典定则，又能结合尖端科技的无尽可能。</p>
             </div>
@@ -69,27 +183,25 @@
                 <p>我们希冀构建一种底层系统，在其基础之上打造跨越平台和设备尺寸的融合体验。虽然面向移动设备设计，但兼顾触摸、语音、鼠标、键盘等多种输入方式。</p>
             </div>
             <figure id="system">
-                <div class="diagram" theme="light">
-                    <div class="surface" solid></div>
-                    <div class="surface" solid></div>
-                    <div class="surface" solid></div>
-                    <div class="surface" solid></div>
-                    <div class="surface" solid></div>
+                <div class="diagram">
+                    <div class="surface" data-surface-edge="both"></div>
+                    <div class="surface" data-surface-edge="both"></div>
+                    <div class="surface" data-surface-edge="both"></div>
+                    <div class="surface" data-surface-edge="both"></div>
+                    <div class="surface" data-surface-edge="both"></div>
                 </div>
             </figure>
         </article>
-
-        <hr class="divider" horizontal />
-
-        <article id="principles" vertical>
-            <h3 type-scale="headline">原则</h3>
+        <hr class="divider" data-direction="horizontal" />
+        <article id="principles" data-direction="vertical">
+            <h3 data-type-scale="headline">原则</h3>
             <section>
                 <figure id="metaphor">
                     <picture class="illustration" aria-hidden="true">
                         <img src="material-design/resources/metaphor.svg" />
                     </picture>
                 </figure>
-                <h4 type-scale="title">借助Material反映真实</h4>
+                <h4 data-type-scale="title">借助Material反映真实</h4>
                 <p>质感设计参照现实世界，将Material喻为科学设想空间的基本粒子、系统进行运动的物质载体，统一反映了虚拟世界的存在形式与运作机理。Material虽根植于现实质感、启迪于传统纸墨，却又融汇了前沿科技与奇思妙想。</p>
                 <p>由Material所构成的层面和边沿提供了与现实相贯通的视觉暗示，熟悉的质地让用户可以快速地认知、理解界面。同时Material的可塑性使其得以超脱现实桎梏表现新性质，但又不反叛现实物理规律的真实。</p>
                 <p>光照、层面、运动，这三者的基本原理是传达虚拟空间中物件活动情况、交互方式、存在状态、相互关系的关键。逼真的光影效果展示出物件之间的交合关系、划分出空间层次、凸显出运动中的物件。</p>
@@ -100,7 +212,7 @@
                         <img src="material-design/resources/bold-graphic-intentional.svg" />
                     </picture>
                 </figure>
-                <h4 type-scale="title">鲜明、形象、考虑周到</h4>
+                <h4 data-type-scale="title">鲜明、形象、考虑周到</h4>
                 <p>空间布局、网格系统、比例分配、字体排印、色彩搭配、图像使用——这些传统印刷品设计的基本要素指导着质感设计的视觉效果。在这些设计基础上下功夫，不但可以愉悦用户，还能构建出视觉层级、视觉意义以及视觉聚焦。精心挑选色彩、贴边图像，设置对比明显的字号和目量意营的留白，能够缔造出鲜明形象的用户界面，提供沉浸的用户体验。</p>
                 <p>着重强调用户操作项有利于凸显核心功能，为用户提供使用指引。</p>
             </section>
@@ -110,27 +222,20 @@
                         <img src="material-design/resources/motion.svg" />
                     </picture>
                 </figure>
-                <h4 type-scale="title">运动传递意义</h4>
+                <h4 data-type-scale="title">运动传递意义</h4>
                 <p>质感设计尊重并强化用户作为输入源的主体地位，以用户的操作为界面变化的起点，进而改变设计的整体形态。</p>
                 <p>所有界面物件的运动都处在同一环境中进行并相互影响。即使物件正在变形或重组，新状态的呈现也不应破坏用户体验的连续性。</p>
                 <p>界面动画应当意义深厚、合情合理，为吸引用户注意及维持体验连续服务。界面给用户的反馈要清晰且巧妙，转场需连贯且高效。</p>
             </section>
         </article>
-
-        <footer theme="dark">
-            <a draggable="false" href="material-design/environment.html">
-                <span type-scale="subheading">下一节</span>
-                <span type-scale="title">
-                    <cmd-icon name="arrow_forward"></cmd-icon>
-                    环境
-                </span>
+        <footer>
+            <a href="material-design/environment.html">
+                <cmd-icon name="arrow_forward"></cmd-icon>
+                <span data-type-scale="subheading">下一节</span>
+                <span data-type-scale="title">环境</span>
             </a>
         </footer>
     </main>
-
-    <script>
-        document.body.style.setProperty('--window-width', document.body.clientWidth);
-    </script>
 </body>
 
 </html>

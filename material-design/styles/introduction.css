@@ -1,18 +1,38 @@
+@import "./theme.css";
+
 footer a {
     direction: rtl;
 }
 
-/*------------------------------------*\
+/*----------------------------------------------------------------------------*\
   正文
-\*------------------------------------*/
-main:has(>.toolbar[variant~="prominent"]) {
-    grid-template-rows: calc(3 * var(--increment));
-}
-
-main>picture {
+\*----------------------------------------------------------------------------*/
+main>svg {
     grid-column: 1 / -1;
     aspect-ratio: 16 / 9;
-    background-color: var(--yellow-500);
+    background-color: light-dark(var(--yellow-500), var(--cyan-500));
+
+    & rect {
+        &:nth-child(1) {
+            fill: light-dark(var(--yellow-800), var(--cyan-800));
+        }
+
+        &:nth-child(2) {
+            fill: light-dark(var(--yellow-700), var(--cyan-700));
+        }
+
+        &:nth-child(3) {
+            fill: light-dark(var(--yellow-600), var(--cyan-600));
+        }
+
+        &:nth-child(4) {
+            fill: light-dark(var(--yellow-300), var(--cyan-300));
+        }
+    }
+
+    & circle {
+        fill: light-dark(var(--yellow-200), var(--cyan-200));
+    }
 }
 
 #goals figure {
@@ -25,39 +45,42 @@ main>picture {
     background-color: #1f4388;
 }
 
-#system .diagram {
-    block-size: 360px;
-    align-items: stretch;
-    gap: 16px;
-    padding: 60px;
-    background-color: var(--cyan-300);
-}
+#system {
+    & .diagram {
+        block-size: 360px;
+        align-items: stretch;
+        gap: 16px;
+        padding: 60px;
+        color-scheme: light;
+        background-color: var(--cyan-300);
+    }
 
-#system .surface {
-    position: relative;
-    background-color: var(--medium-emphasis-surface-color);
-    border-radius: 2px;
-    box-shadow: var(--shadow-z2);
-}
+    & .surface {
+        position: relative;
+        background-color: var(--medium-emphasis-surface-color);
+        border-radius: 2px;
+        box-shadow: var(--shadow-z2);
 
-#system .surface:nth-child(1) {
-    inline-size: 24px;
-}
+        &:nth-child(1) {
+            inline-size: 24px;
+        }
 
-#system .surface:nth-child(2) {
-    inline-size: 48px;
-}
+        &:nth-child(2) {
+            inline-size: 48px;
+        }
 
-#system .surface:nth-child(3) {
-    inline-size: 80px;
-}
+        &:nth-child(3) {
+            inline-size: 80px;
+        }
 
-#system .surface:nth-child(4) {
-    inline-size: 136px;
-}
+        &:nth-child(4) {
+            inline-size: 136px;
+        }
 
-#system .surface:nth-child(5) {
-    flex-grow: 1;
+        &:nth-child(5) {
+            flex-grow: 1;
+        }
+    }
 }
 
 #principles figure {
@@ -81,47 +104,23 @@ main>picture {
         block-size: 480px;
     }
 
-    #system .diagram {
-        inline-size: 480px;
-        block-size: 100%;
-        padding: 40px;
-        writing-mode: vertical-lr;
+    #system {
+        & .diagram {
+            inline-size: 480px;
+            block-size: 100%;
+            padding: 40px;
+            writing-mode: vertical-lr;
+        }
+
+        & .surface {
+            &:nth-child(4) {
+                inline-size: auto;
+                flex-grow: 1;
+            }
+
+            &:nth-child(5) {
+                display: none;
+            }
+        }
     }
-
-    #system .surface:nth-child(4) {
-        inline-size: auto;
-        flex-grow: 1;
-    }
-
-    #system .surface:nth-child(5) {
-        display: none;
-    }
-}
-
-@media (width < 392px) {
-    main:has(>.toolbar[variant~="prominent"]) {
-        grid-template-rows: calc(2 * var(--increment));
-    }
-}
-
-/*------------------------------------*\
-  主题
-\*------------------------------------*/
-:root {
-    --primary-color: var(--cyan-500);
-    --secondary-color: var(--lime-a200);
-}
-
-::selection {
-    color: rgb(0 0 0 / 0.87);
-    background-color: var(--secondary-color);
-}
-
-main>.toolbar {
-    --surface-shade-color: var(--blue-grey-shade-color);
-    color: var(--secondary-text-color);
-}
-
-h1 {
-    --primary-text-color: white;
 }
