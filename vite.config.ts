@@ -3,6 +3,10 @@ import vue from "@vitejs/plugin-vue";
 import { fileURLToPath, URL } from "url";
 
 export default defineConfig({
+    base: "/classic-material-design/",
+    build: {
+        target: "chrome138",
+    },
     plugins: [vue()],
     resolve: {
         alias: {
