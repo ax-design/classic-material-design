@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24">
-    <defs>
-        <mask id="mask">
-            <circle fill="white" cx="12" cy="12" r="10" />
-            <polygon fill="black" points="10,7.5 16,12 10,16.5" />
-        </mask>
-    </defs>
-    <rect fill="white" width="24" height="24" mask="url(#mask)" />
-</svg>
