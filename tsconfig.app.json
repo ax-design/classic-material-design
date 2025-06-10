@@ -1,0 +1,38 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
+    "compilerOptions": {
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "erasableSyntaxOnly": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedSideEffectImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "@pages/*": [
+                "./src/pages/*"
+            ],
+            "@scripts/*": [
+                "./src/scripts/*"
+            ],
+            "@document/*": [
+                "./src/components/document/*"
+            ],
+            "@material/*": [
+                "./src/components/material/*"
+            ],
+            "@diagrams/*": [
+                "./src/components/diagrams/*"
+            ],
+            "@applications/*": [
+                "./src/components/applications/*"
+            ],
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue"
+    ]
+}

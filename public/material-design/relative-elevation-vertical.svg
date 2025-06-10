@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220">
+	<style>
+		rect:first-of-type {
+			fill: #FAFAFA;
+		}
+
+		rect:last-of-type {
+			fill: #2196f3;
+		}
+
+		line {
+			stroke: rgb(0 0 0 / 20%);
+		}
+
+		svg>line:first-of-type {
+			stroke: rgb(0 0 0 / 38%);
+		}
+
+		g>line {
+			stroke: #FF4081;
+		}
+
+		text {
+			font-size: 12px;
+			text-anchor: middle;
+		}
+
+		svg>text {
+			fill: rgb(0 0 0 / 38%);
+		}
+
+		@media (prefers-color-scheme: dark) {
+			rect:first-of-type {
+				fill: #424242;
+			}
+
+			line {
+				stroke: rgb(255 255 255 / 50%);
+			}
+
+			svg>line:first-of-type {
+				stroke: rgb(255 255 255 / 70%);
+			}
+
+			svg>text {
+				fill: #FFFFFF;
+			}
+		}
+	</style>
+	<rect x="48" y="78" width="264" height="8" />
+	<rect x="216" y="62" width="80" height="8" />
+	<line x1="48" x2="312" y1="206" y2="206" />
+	<line x1="48" x2="64" y1="198" y2="198" />
+	<line x1="48" x2="64" y1="190" y2="190" />
+	<line x1="48" x2="64" y1="182" y2="182" />
+	<line x1="48" x2="72" y1="174" y2="174" />
+	<line x1="48" x2="64" y1="166" y2="166" />
+	<line x1="48" x2="64" y1="158" y2="158" />
+	<line x1="48" x2="64" y1="150" y2="150" />
+	<line x1="48" x2="72" y1="142" y2="142" />
+	<line x1="48" x2="64" y1="134" y2="134" />
+	<line x1="48" x2="64" y1="126" y2="126" />
+	<line x1="48" x2="64" y1="118" y2="118" />
+	<line x1="48" x2="72" y1="110" y2="110" />
+	<line x1="48" x2="64" y1="102" y2="102" />
+	<line x1="48" x2="64" y1="94" y2="94" />
+	<line x1="48" x2="64" y1="86" y2="86" />
+	<line x1="48" x2="312" y1="78" y2="78" stroke-dasharray="4" />
+	<line x1="48" x2="64" y1="70" y2="70" />
+	<line x1="48" x2="312" y1="62" y2="62" stroke-dasharray="4" />
+	<line x1="48" x2="64" y1="54" y2="54" />
+	<line x1="48" x2="72" y1="46" y2="46" />
+	<line x1="48" x2="64" y1="38" y2="38" />
+	<line x1="48" x2="64" y1="30" y2="30" />
+	<line x1="48" x2="64" y1="22" y2="22" />
+	<line x1="48" x2="72" y1="14" y2="14" />
+	<text x="24" y="82">16dp</text>
+	<text x="24" y="66">18dp</text>
+	<g>
+		<line x1="320" x2="336" y1="62" y2="62" />
+		<line x1="328" x2="328" y1="62" y2="78" />
+		<line x1="320" x2="336" y1="78" y2="78" />
+		<text x="328" y="54" fill="#FF4081">2dp</text>
+	</g>
+</svg>

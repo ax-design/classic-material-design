@@ -1,0 +1,393 @@
+import { ViteSSG } from "vite-ssg";
+import App from "./App.vue";
+import NotFound from "@pages/NotFound.vue";
+
+import Introduction from "@pages/material-design/Introduction.vue";
+import Environment from "@pages/material-design/Environment.vue";
+import MaterialProperties from "@pages/material-design/MaterialProperties.vue";
+import ElevationShadows from "./pages/material-design/ElevationShadows.vue";
+
+const routes = [
+    {
+        path: "/",
+        alias: "/material-design/introduction",
+        name: "基本原理：概述",
+        component: Introduction,
+    },
+    {
+        path: "/material-design/environment",
+        name: "基本原理：环境",
+        component: Environment,
+    },
+    {
+        path: "/material-design/material-properties",
+        name: "基本原理：Material属性",
+        component: MaterialProperties,
+    },
+    {
+        path: "/material-design/elevation-shadows",
+        name: "基本原理：层级与阴影",
+        component: ElevationShadows,
+    },
+    {
+        path: "/motion/material-motion",
+        name: "动画效果：运动机理",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/motion/movement",
+        name: "动画效果：移动",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/motion/transforming-material",
+        name: "动画效果：转换",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/motion/choreography",
+        name: "动画效果：编排",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/motion/responsive-interaction",
+        name: "动画效果：作用反馈",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/motion/creative-customization",
+        name: "动画效果：创意定制",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/style/color",
+        name: "风格样式：颜色",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/style/icons",
+        name: "风格样式：图标",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/style/imagery",
+        name: "风格样式：图像",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/style/typography",
+        name: "风格样式：字体排印",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/style/writing",
+        name: "风格样式：书面用语",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/style/sound",
+        name: "风格样式：声音",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/layout/principles",
+        name: "布局：架构方法",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/layout/units-measurements",
+        name: "布局：单位与度量方法",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/layout/spacing-methods",
+        name: "布局：元素排布",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/layout/structure",
+        name: "布局：界面结构",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/layout/responsive-ui",
+        name: "布局：响应式界面",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/layout/density",
+        name: "布局：元素密度",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/bottom-navigation",
+        name: "组件：底部导航",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/buttons",
+        name: "组件：按钮",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/buttons-floating-action-button",
+        name: "组件：按钮：浮动操作按钮",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/cards",
+        name: "组件：卡片",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/chips",
+        name: "组件：多用标签",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/data-tables",
+        name: "组件：数据表格",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/dividers",
+        name: "组件：分隔线",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/dialogs",
+        name: "组件：对话框",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/dialogs-pickers",
+        name: "组件：对话框：选择器",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/lists",
+        name: "组件：列表",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/menus",
+        name: "组件：菜单",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/progress-indicators",
+        name: "组件：进程指示器",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/selection-controls",
+        name: "组件：选择控件",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/sheets-bottom",
+        name: "组件：底部单页",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/sheets-side",
+        name: "组件：侧边单页",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/sheets-navigation-drawer",
+        name: "组件：侧边单页：导航抽屉",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/sliders",
+        name: "组件：滑块",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/snackbars",
+        name: "组件：条形通知",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/tabs",
+        name: "组件：标签栏",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/text-fields",
+        name: "组件：文本框",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/toolbars",
+        name: "组件：工具栏",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/components/widgets",
+        name: "组件：桌面小部件",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/confirmation-acknowledgement",
+        name: "交互模式：确认与获知",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/data-display",
+        name: "交互模式：数据展示",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/empty-states",
+        name: "交互模式：空状态",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/errors",
+        name: "交互模式：错误提示",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/fingerprint",
+        name: "交互模式：指纹识别",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/gestures",
+        name: "交互模式：手势",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/help-feedback",
+        name: "交互模式：帮助与反馈",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/launch-screens",
+        name: "交互模式：启动画面",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/navigation",
+        name: "交互模式：导航",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/notifications",
+        name: "交互模式：通知",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/offline-states",
+        name: "交互模式：离线状态",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/permissions",
+        name: "交互模式：权限",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/search",
+        name: "交互模式：搜索",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/selection",
+        name: "交互模式：选择",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/settings",
+        name: "交互模式：设置",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/states",
+        name: "交互模式：交互状态",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/patterns/swipe-to-refresh",
+        name: "交互模式：下滑刷新",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/usability/accessibility",
+        name: "可用性：无障碍",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/usability/bidirectionality",
+        name: "可用性：阅读方向",
+        component: NotFound,
+        props: false,
+    },
+    {
+        path: "/:pathMatch(.*)*",
+        name: "页面不存在",
+        component: NotFound,
+    },
+];
+
+export const createApp = ViteSSG(App, { routes });
