@@ -156,6 +156,10 @@ const { id, page, animation } = defineProps<Props>();
                 white-space: nowrap;
                 line-height: 1.25rem;
             }
+
+            & .thumbnail {
+                border-radius: 50%;
+            }
         }
 
         & .events:has(div:nth-of-type(2)) .date {
@@ -299,7 +303,7 @@ const { id, page, animation } = defineProps<Props>();
                             <p lang="en">Sam Blitzstein</p>
                             <p>生日</p>
                         </div>
-                        <Thumbnail variant="avatar" style="background-image: url('/avatars/sam-blitzstein.jpg');" />
+                        <Thumbnail appearance="outlined" src="../avatars/sam-blitzstein.jpg" />
                     </div>
                     <div class="event" data-size="xlarge" style="background-color: var(--calendar-blue-grey)">
                         <div class="text">
