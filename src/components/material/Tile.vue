@@ -2,11 +2,12 @@
 interface Props {
     type?: "container" | "link";
     lines: string;
+    density?: "compact" | "normal";
 }
 
 import StateLayer from "./StateLayer.vue";
 
-const { type = "container" } = defineProps<Props>();
+const { type = "container", density = "normal" } = defineProps<Props>();
 </script>
 
 <style>
@@ -17,6 +18,7 @@ const { type = "container" } = defineProps<Props>();
         grid-auto-flow: column;
         align-items: center;
         padding-inline: var(--keyline);
+        color-scheme: var(--content-color-scheme, inherit);
 
         & .text {
             --type-scale: body1;
@@ -38,20 +40,42 @@ const { type = "container" } = defineProps<Props>();
 
     .tile[data-lines="1"] {
         block-size: 56px;
+
+        &[data-density="compact"] {
+            block-size: 48px;
+        }
     }
 
     .tile[data-lines="2"] {
         block-size: 72px;
+
+        &[data-density="compact"] {
+            block-size: 64px;
+        }
     }
 
     .tile[data-lines="3"] {
         block-size: 88px;
+
+        &[data-density="compact"] {
+            block-size: 80px;
+        }
+    }
+
+    .subheader {
+        block-size: 48px;
+        align-content: center;
+        padding-inline: var(--keyline);
+        line-height: 1;
+        white-space: nowrap;
+        color: var(--secondary-text-color);
+        overflow: hidden;
     }
 }
 </style>
 
 <template>
-    <li class="tile" :data-lines="lines">
+    <li class="tile" :data-lines="lines" :data-density="density">
         <slot v-if="type === 'link'" />
         <div v-else class="content">
             <slot />
