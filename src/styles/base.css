@@ -738,6 +738,7 @@ h4,
 h5,
 h6,
 th,
+td,
 summary,
 figcaption {
     font-size: --font-size(var(--type-scale));

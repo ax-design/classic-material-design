@@ -74,11 +74,11 @@ p {
 
 table {
     block-size: fit-content;
+    border-collapse: collapse;
 }
 
 thead {
     border-spacing: 0;
-    color: var(--secondary-text-color);
 }
 
 th {
@@ -86,9 +86,15 @@ th {
     text-align: start;
 }
 
+tr,
 th,
 td {
     position: relative;
+}
+
+th,
+td {
+    padding: 0;
 }
 
 video {

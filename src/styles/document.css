@@ -181,40 +181,6 @@ h5 {
     }
 }
 
-table {
-    margin-block-end: var(--keyline);
-    border-collapse: collapse;
-
-    & span {
-        display: block;
-    }
-}
-
-thead {
-    --type-scale: body2;
-    background-color: var(--medium-emphasis-surface-color);
-}
-
-tbody {
-    background-color: var(--high-emphasis-surface-color);
-    color: var(--primary-text-color);
-}
-
-th {
-    text-wrap-mode: nowrap;
-    font-feature-settings: "halt";
-}
-
-th,
-td {
-    border: 1px solid light-dark(var(--grey-200), var(--grey-700));
-    padding: calc(var(--keyline) / 2 + 4px) var(--keyline);
-
-    table[density="dense"] tbody & {
-        padding: calc(var(--keyline) / 2) var(--keyline);
-    }
-}
-
 main > hr {
     grid-column: 2 / span var(--content-columns);
 }
@@ -237,6 +203,40 @@ main > hr {
     article a {
         color: var(--primary-color);
         text-decoration: underline;
+    }
+
+    table {
+        margin-block-end: var(--keyline);
+
+        & span {
+            display: block;
+        }
+    }
+
+    thead {
+        --type-scale: body2;
+        color: var(--secondary-text-color);
+        background-color: var(--medium-emphasis-surface-color);
+    }
+
+    tbody {
+        background-color: var(--high-emphasis-surface-color);
+        color: var(--primary-text-color);
+    }
+
+    th {
+        text-wrap-mode: nowrap;
+        font-feature-settings: "halt";
+    }
+
+    th,
+    td {
+        border: 1px solid light-dark(var(--grey-200), var(--grey-700));
+        padding: calc(var(--keyline) / 2 + 4px) var(--keyline);
+
+        table[density="dense"] tbody & {
+            padding: calc(var(--keyline) / 2) var(--keyline);
+        }
     }
 }
 

@@ -74,7 +74,7 @@ useHead({
                 <p>在不同种类的设备上组件的静息海拔可能会有所不同。比如电视的屏幕更厚，因此能展示更广的景深，其中组件的静息海拔就会更高。而为了适应桌面端的多窗口和鼠标输入环境，部分组件的静息海拔会有所降低。</p>
             </Paragraphs>
 
-            <table style="grid-column-end: var(--medium-content-span);">
+            <table style="grid-column-end: var(--medium-content-span)">
                 <thead>
                     <tr>
                         <th scope="col">海拔（dp）</th>
@@ -84,43 +84,88 @@ useHead({
                 <tbody>
                     <tr>
                         <th>24</th>
-                        <td><span>对话框</span></td>
+                        <td>
+                            <ul>
+                                <li>对话框</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>16</th>
-                        <td><span>单页（导航抽屉、底部单页、侧边单页等）</span></td>
+                        <td>
+                            <ul>
+                                <li>单页（导航抽屉、底部单页、侧边单页等）</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>9</th>
-                        <td><span>子菜单（每叠加一层子菜单其海拔增加1dp）</span></td>
+                        <td>
+                            <ul>
+                                <li>子菜单（每叠加一层子菜单其海拔增加1dp）</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>8</th>
-                        <td><span>底部导航</span><span>菜单</span></td>
+                        <td>
+                            <ul>
+                                <li>底部导航</li>
+                                <li>菜单</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>6</th>
-                        <td><span>浮动操作按钮</span><span>条形通知</span></td>
+                        <td>
+                            <ul>
+                                <li>浮动操作按钮</li>
+                                <li>条形通知</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>4</th>
-                        <td><span>应用栏</span></td>
+                        <td>
+                            <ul>
+                                <li>应用栏</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>3</th>
-                        <td><span>刷新指示器</span></td>
+                        <td>
+                            <ul>
+                                <li>刷新指示器</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>2</th>
-                        <td><span>卡片</span><span>悬浮按钮</span><span>搜索栏</span></td>
+                        <td>
+                            <ul>
+                                <li>卡片</li>
+                                <li>悬浮按钮</li>
+                                <li>搜索栏</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>1</th>
-                        <td><span>开关</span></td>
+                        <td>
+                            <ul>
+                                <li>开关</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>0</th>
-                        <td><span>扁平按钮</span><span>工具栏（应用栏、搜索栏）</span></td>
+                        <td>
+                            <ul>
+                                <li>扁平按钮</li>
+                                <li>工具栏（应用栏、搜索栏）</li>
+                            </ul>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -133,7 +178,7 @@ useHead({
                 <p>一旦输入或事件中止、完成，组件应尽快回到静息海拔。</p>
             </Paragraphs>
 
-            <table style="grid-column-end: var(--medium-content-span);">
+            <table style="grid-column-end: var(--medium-content-span)">
                 <thead>
                     <tr>
                         <th scope="col">海拔变化量（dp）</th>
@@ -143,15 +188,29 @@ useHead({
                 <tbody>
                     <tr>
                         <th>+6</th>
-                        <td><span>浮动操作按钮（点按时）</span><span>卡片（点按时）</span><span>悬浮按钮（点按时）</span></td>
+                        <td>
+                            <ul>
+                                <li>浮动操作按钮（点按时）</li>
+                                <li>卡片（点按时）</li>
+                                <li>悬浮按钮（点按时）</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>+4</th>
-                        <td><span>工具栏（滚动时解决层面冲突）</span></td>
+                        <td>
+                            <ul>
+                                <li>工具栏（滚动时解决层面冲突）</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>+1</th>
-                        <td><span>搜索栏（滚动时解决层面冲突）</span></td>
+                        <td>
+                            <ul>
+                                <li>搜索栏（滚动时解决层面冲突）</li>
+                            </ul>
+                        </td>
                     </tr>
                 </tbody>
             </table>
