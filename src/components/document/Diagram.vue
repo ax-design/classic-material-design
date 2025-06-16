@@ -14,6 +14,8 @@ import System from "@applications/System.vue";
 
 const { id, variant = "illustration", animation, application, theme = "base" } = defineProps<Props>();
 
+const isInProduction = import.meta.env.PROD;
+
 provide("isIsolated", true);
 
 const root = useTemplateRef("diagram");
@@ -52,6 +54,8 @@ onMounted(() => {
 
 <style>
 .diagram {
+    --increment: 56px;
+    --keyline: 16px;
     position: relative;
     display: flex;
     box-sizing: border-box;
@@ -60,7 +64,12 @@ onMounted(() => {
     outline-offset: -1px;
     user-select: none;
 
-    &:not(:is(picture)) {
+    @container figure (width >=600px) {
+        --increment: 64px;
+        --keyline: 24px;
+    }
+
+    &:not(picture) {
         background-color: var(--grey-200);
         background-image: radial-gradient(circle at top left, rgb(0 0 0 / 0) calc(1 / 3 * 100%), rgb(0 0 0 / 0.01) calc(7 / 9 * 100%), rgb(0 0 0 / 0.02) 100%);
 
@@ -70,8 +79,9 @@ onMounted(() => {
         }
     }
 
-    &:not(:is(picture), [data-variant="video"]) {
-        container: diagram / size;
+    &:not(picture, [data-variant="video"]) {
+        container-name: diagram;
+        container-type: size;
     }
 
     &[data-playback] {
@@ -90,9 +100,7 @@ onMounted(() => {
         }
     }
 
-    &>.canvas {
-        --increment: 56px;
-        --keyline: 16px;
+    & > .canvas {
         z-index: -1;
         inline-size: stretch;
         block-size: stretch;
@@ -100,7 +108,7 @@ onMounted(() => {
     }
 }
 
-.diagram>button {
+.diagram > button {
     inset: 0;
     position: absolute;
     display: flex;
@@ -125,19 +133,6 @@ onMounted(() => {
     }
 }
 
-@container diagram (width >=600px) {
-    .system .navigation {
-        --navigation-button-inline-size: 162px;
-        --navigation-bar-inline-padding: 42px;
-        justify-content: center;
-    }
-
-    .diagram> :is(.canvas, .application, .system) {
-        --increment: 64px;
-        --keyline: 24px;
-    }
-}
-
 .diagram[data-variant="simulator"] {
     --status-bar-block-size: 24px;
     --navigation-bar-block-size: 48px;
@@ -152,8 +147,6 @@ onMounted(() => {
     scale: var(--scale-ratio-numeric);
 
     & .application {
-        --increment: 56px;
-        --keyline: 16px;
         z-index: -1;
         flex-grow: 1;
         position: relative;
@@ -163,49 +156,10 @@ onMounted(() => {
         overflow: auto;
         scrollbar-width: none;
     }
-}
 
-.overlay[data-variant="status-bar"] {
-    z-index: 48;
-    inset-block-start: 0;
-    position: fixed;
-    inline-size: 100%;
-    block-size: var(--status-bar-block-size);
-    background-color: var(--status-bar-background-color);
-    overflow: clip;
-}
-
-.overlay[data-variant="navigation-bar"] {
-    z-index: 48;
-    inset-block-end: 0;
-    position: fixed;
-    inline-size: 100%;
-    block-size: var(--navigation-bar-block-size);
-    background-color: black;
-    overflow: clip;
-
-    &[data-appearance="translucent"] {
-        opacity: 0.4;
-    }
-}
-
-.navigation-ripple {
-    visibility: hidden;
-    inline-size: 135%;
-    max-inline-size: 128px;
-    block-size: 100%;
-    background-color: white;
-    border-radius: 24px;
-    opacity: 0.2;
-}
-
-@keyframes navigationRippleEnter {
-    0% {
-        scale: 0 1;
-    }
-
-    100% {
-        scale: 1 1;
+    @container figure (width >=400px) {
+        inline-size: 760px;
+        block-size: 570px;
     }
 }
 
@@ -278,11 +232,11 @@ onMounted(() => {
 <template>
     <div :id="id" class="diagram" :data-variant="variant" :data-application="application" :data-theme="theme" :data-playback="animation || variant === 'video' ? (playback ? 'play' : 'pause') : undefined" ref="diagram">
         <template v-if="variant === 'simulator'">
-            <div class="application" inert>
+            <div class="application" :inert="isInProduction ? true : undefined">
                 <slot />
                 <div class="overlay" data-variant="navigation-bar"></div>
             </div>
-            <System />
+            <System :inert="isInProduction ? true : undefined" />
         </template>
 
         <slot v-else-if="variant === 'video'" />

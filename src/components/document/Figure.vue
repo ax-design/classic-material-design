@@ -3,16 +3,17 @@
 </script>
 
 <style>
-article[data-direction="horizontal"] figure:has(p) {
-    margin-block-end: var(--keyline);
-}
+figure {
+    container-name: figure;
+    container-type: inline-size;
 
-article[data-direction="vertical"] figure {
-    margin-block-end: 2.5em;
-}
+    article[data-direction="horizontal"] &:has(p) {
+        margin-block-end: var(--keyline);
+    }
 
-figure[screen~="tablet"] {
-    grid-column-end: var(--medium-content-span);
+    article[data-direction="vertical"] & {
+        margin-block-end: 2.5em;
+    }
 }
 
 @media (width < 392px) {
