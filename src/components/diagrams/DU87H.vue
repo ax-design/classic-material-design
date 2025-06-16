@@ -26,7 +26,7 @@ const { id } = defineProps<Props>();
         animation-fill-mode: forwards;
     }
 
-    &[data-playback] img {
+    &[data-playback] .illustration img {
         animation-name: imageMove1, imageMove2, imageMove3;
         animation-duration: 1.25s, 1.5s, 1.5s;
         animation-delay: 0.5s, 2.25s, 4.25s;

@@ -15,27 +15,27 @@ div.content {
     --sharp-curve: cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-@keyframes fromTransparent {
-    0% {
+@keyframes show-opacity-from {
+    from {
         opacity: 0;
     }
 }
 
-@keyframes toTransparent {
-    100% {
+@keyframes hide-opacity-to {
+    to {
         opacity: 0;
     }
 }
 
-@keyframes fromOpaque {
-    0% {
-        opacity: var(--custom-opacity, 1);
+@keyframes hide-opacity-from {
+    from {
+        opacity: 1;
     }
 }
 
-@keyframes toOpaque {
-    100% {
-        opacity: var(--custom-opacity, 1);
+@keyframes show-opacity-to {
+    to {
+        opacity: 1;
     }
 }
 
@@ -59,70 +59,76 @@ div.content {
     }
 }
 
-@keyframes fromExpand_scale {
-    0% {
-        scale: 1;
-    }
-}
-
-@keyframes toExpand_scale {
-    100% {
-        scale: 1;
-    }
-}
-
-@keyframes fromCollapse_scale {
-    0% {
+@keyframes expand-scale-from {
+    from {
         scale: 0;
     }
 }
 
-@keyframes toCollapse_scale {
-    100% {
+@keyframes expand-scale-to {
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes collapse-scale-from {
+    from {
+        scale: 1;
+    }
+}
+
+@keyframes collapse-scale-to {
+    to {
         scale: 0;
     }
 }
 
-@keyframes fromCollapse_size {
-    0% {
+@keyframes collapse-size-from {
+    from {
         inline-size: 0px;
         block-size: 0px;
     }
 }
 
-@keyframes toCollapse_size {
-    100% {
+@keyframes collapse-size-to {
+    to {
         inline-size: 0px;
         block-size: 0px;
     }
 }
 
-@keyframes fromCollapse_inlineSize {
-    0% {
+@keyframes expand-inline-size-from {
+    from {
         inline-size: 0px;
     }
 }
 
-@keyframes toCollapse_inlineSize {
-    100% {
+@keyframes collapse-inline-size-to {
+    to {
         inline-size: 0px;
     }
 }
 
-@keyframes fromCollapse_blockSize {
-    0% {
+@keyframes expand-block-size-from {
+    from {
         block-size: 0px;
     }
 }
 
-@keyframes toCollapse_blockSize {
-    100% {
+@keyframes collapse-block-size-to {
+    to {
         block-size: 0px;
     }
 }
 
-@keyframes toMoveClear {
-    100% {
+@keyframes clear-translate-from {
+    from {
+        translate: 0px 0px;
+    }
+}
+
+@keyframes clear-translate-to {
+    to {
         translate: 0px 0px;
     }
 }
@@ -574,21 +580,20 @@ div.content {
     --high-emphasis-surface-color: light-dark(white, var(--grey-800));
     --medium-emphasis-surface-color: light-dark(var(--grey-50), var(--grey-850));
     --low-emphasis-surface-color: light-dark(var(--grey-100), var(--grey-900));
-    --surface-hint-color: light-dark(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.2));
-    --surface-shade-color: light-dark(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.2));
     --theme-base-color: light-dark(white, black);
     --content-base-color: light-dark(black, white);
 }
 
 :root {
-    --high-white-hint-color: rgb(255 255 255 / 0.4);
-    --white-hint-color: rgb(255 255 255 / 0.2);
+    --high-white-tint-color: rgb(255 255 255 / 0.4);
+    --white-tint-color: rgb(255 255 255 / 0.2);
     --indigo-shade-color: rgb(from var(--indigo-900) r g b / 0.2);
     --blue-grey-shade-color: rgb(from var(--blue-grey-900) r g b / 0.2);
     --deep-orange-shade-color: rgb(from var(--deep-orange-900) r g b / 0.2);
     --brown-shade-color: rgb(from var(--brown-900) r g b / 0.2);
     --low-grey-shade-color: rgb(from var(--grey-900) r g b / 0.1);
     --grey-shade-color: rgb(from var(--grey-900) r g b / 0.2);
+    --black-shade-color: rgb(0 0 0 / 0.2);
 }
 
 @property --surface-edge {
@@ -602,8 +607,8 @@ div.content {
         content: "";
         inset: 0;
         position: absolute;
-        border-block-start: 1px solid var(--surface-hint-color);
-        border-block-end: 1px solid var(--surface-shade-color);
+        border-block-start: 1px solid var(--surface-tint-color, light-dark(var(--high-white-tint-color), var(--white-tint-color)));
+        border-block-end: 1px solid var(--surface-shade-color, light-dark(var(--grey-shade-color), var(--black-shade-color)));
         border-radius: inherit;
         box-sizing: border-box;
         pointer-events: none;
@@ -621,38 +626,6 @@ div.content {
     ::after {
         border-block-start: unset;
     }
-}
-
-[theme~="light"] {
-    --high-emphasis-surface-color: white;
-    --medium-emphasis-surface-color: var(--grey-50);
-    --low-emphasis-surface-color: var(--grey-100);
-    --surface-hint-color: rgb(255 255 255 / 0.4);
-    --surface-shade-color: rgb(0 0 0 / 0.1);
-    --theme-base-color: white;
-    --content-base-color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --high-emphasis-surface-color: var(--grey-800);
-        --medium-emphasis-surface-color: var(--grey-850);
-        --low-emphasis-surface-color: var(--grey-900);
-        --surface-hint-color: rgb(255 255 255 / 0.2);
-        --surface-shade-color: rgb(0 0 0 / 0.2);
-        --theme-base-color: black;
-        --content-base-color: white;
-    }
-}
-
-[theme~="dark"] {
-    --high-emphasis-surface-color: var(--grey-800);
-    --medium-emphasis-surface-color: var(--grey-850);
-    --low-emphasis-surface-color: var(--grey-900);
-    --surface-hint-color: rgb(255 255 255 / 0.2);
-    --surface-shade-color: rgb(0 0 0 / 0.2);
-    --theme-base-color: black;
-    --content-base-color: white;
 }
 
 /*----------------------------------------------------------------------------*\
@@ -728,7 +701,7 @@ div.content {
 }
 
 p,
-span,
+a span,
 a,
 button,
 h1,

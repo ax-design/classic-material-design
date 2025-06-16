@@ -31,10 +31,10 @@ const { id } = defineProps<Props>();
         grid-template-columns: repeat(4, 1fr);
         gap: 8px;
         margin-block: var(--keyline);
-        padding-inline: var(--keyline);
+        padding-inline: 8px;
         box-sizing: border-box;
 
-        &>.surface {
+        & > .surface {
             aspect-ratio: 1 / 1;
             background-color: var(--medium-emphasis-surface-color);
             box-shadow: var(--shadow-z2);
@@ -42,7 +42,7 @@ const { id } = defineProps<Props>();
         }
     }
 
-    & .canvas>.surface:first-of-type {
+    & .canvas > .surface:first-of-type {
         z-index: 4;
         position: sticky;
         block-size: var(--increment);
@@ -50,7 +50,7 @@ const { id } = defineProps<Props>();
         box-shadow: var(--shadow-z4);
     }
 
-    & .canvas>.surface:last-of-type {
+    & .canvas > .surface:last-of-type {
         inset-inline-end: var(--keyline);
         inset-block-end: var(--keyline);
         position: absolute;
@@ -66,7 +66,7 @@ const { id } = defineProps<Props>();
     }
 
     &[data-playback] .surfaces {
-        animation-name: surfacesMoveUp, toMoveClear;
+        animation-name: surfacesMoveUp, clear-translate-to;
         animation-duration: 2s;
         animation-delay: 0.5s, 3s;
         animation-timing-function: var(--standard-curve);

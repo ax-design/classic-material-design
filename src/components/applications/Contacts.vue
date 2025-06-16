@@ -33,14 +33,12 @@ const { id, page, animation } = defineProps<Props>();
     }
 
     & .toolbar {
-        --surface-edge: bottom;
         --content-color-scheme: dark;
         z-index: 4;
         anchor-name: --toolbar;
         block-size: calc(100cqi * 2 / 3);
         padding-block-start: var(--status-bar-block-size);
         box-shadow: var(--shadow-z0);
-        overflow: clip;
 
         & img {
             position: absolute;
@@ -63,7 +61,7 @@ const { id, page, animation } = defineProps<Props>();
         animation-name: contactsAppBarSurfaceFlex;
 
         &::after {
-            animation-name: fromTransparent;
+            animation-name: show-opacity-from;
         }
 
         & .title {
@@ -71,7 +69,7 @@ const { id, page, animation } = defineProps<Props>();
         }
 
         & :is(img, .scrim) {
-            animation-name: toTransparent;
+            animation-name: hide-opacity-to;
         }
     }
 
@@ -93,7 +91,7 @@ const { id, page, animation } = defineProps<Props>();
             grid-auto-flow: column;
             grid-auto-columns: 56px;
 
-            &>.content>.icon {
+            & > .content > .icon {
                 color: var(--primary-color);
             }
 
@@ -112,7 +110,7 @@ const { id, page, animation } = defineProps<Props>();
         }
 
         &:last-of-type {
-            margin-block-end: var(--increment);
+            margin-block-end: calc(2 * var(--keyline));
         }
     }
 
@@ -121,11 +119,14 @@ const { id, page, animation } = defineProps<Props>();
     }
 
     & .button[data-variant="floating"] {
+        --surface-tint-color: var(--white-tint-color);
+        --surface-shade-color: var(--brown-shade-color);
         --content-color-scheme: dark;
-        z-index: 6;
+        z-index: 8;
         position-anchor: --toolbar;
         inset-inline-end: var(--keyline);
         inset-block-end: anchor(bottom);
+        position: fixed;
         translate: 0% 50%;
     }
 }

@@ -42,17 +42,17 @@ const { id } = defineProps<Props>();
 
     @container style(--prepare: true) {
         & .state-layer::before {
-            animation-name: toOpaque, toTransparent;
+            animation-name: show-opacity-to, hide-opacity-to;
             animation-duration: 120ms, 480ms;
             animation-timing-function: linear;
             animation-fill-mode: forwards;
         }
 
         & .ripple {
-            animation-name: toExpand_scale, toOpaque, toTransparent;
-            animation-duration: var(--exit-duration), 120ms, calc(1000ms / 3);
-            animation-timing-function: var(--ripple-expand-curve), linear, linear;
-            animation-fill-mode: both;
+            /* animation-name: expand-scale-to, hide-opacity-to;
+            animation-duration: var(--ripple-scale-exit-duration), var(--ripple-opacity-exit-duration);
+            animation-timing-function: var(--ripple-expand-easing), linear;
+            animation-fill-mode: forwards; */
         }
     }
 }
@@ -62,7 +62,7 @@ const { id } = defineProps<Props>();
     animation-duration: 2s, 4s;
     animation-delay: 0.5s;
     animation-timing-function: step-end, linear;
-    animation-fill-mode: forwards, forwards;
+    animation-fill-mode: forwards;
 }
 
 @keyframes expressionShow {
@@ -96,7 +96,7 @@ const { id } = defineProps<Props>();
         }
 
         & .ripple {
-            animation-delay: 0.5s, 0.5s, 0.62s;
+            animation-delay: 0.5s;
         }
     }
 
@@ -108,7 +108,7 @@ const { id } = defineProps<Props>();
         }
 
         & .ripple {
-            animation-delay: 0.8s, 0.8s, 0.92s;
+            animation-delay: 0.8s;
         }
     }
 
@@ -120,7 +120,7 @@ const { id } = defineProps<Props>();
         }
 
         & .ripple {
-            animation-delay: 2.1s, 2.1s, 2.22s;
+            animation-delay: 2.1s;
         }
     }
 
@@ -132,7 +132,7 @@ const { id } = defineProps<Props>();
         }
 
         & .ripple {
-            animation-delay: 2.5s, 2.5s, 2.62s;
+            animation-delay: 2.5s;
         }
     }
 
@@ -144,7 +144,9 @@ const { id } = defineProps<Props>();
         }
 
         & .ripple {
-            animation-delay: 3.58s, 3.5s, 4.5s;
+            scale: calc(0 + var(--scale-progress));
+            animation-duration: var(--ripple-scale-enter-duration), var(--ripple-opacity-exit-duration);
+            animation-delay: 3.5s, 4.5s;
         }
     }
 
@@ -156,7 +158,7 @@ const { id } = defineProps<Props>();
         }
 
         & .ripple {
-            animation-delay: 1.5s, 1.5s, 1.62s;
+            animation-delay: 1.5s;
         }
     }
 }
@@ -166,7 +168,7 @@ const { id } = defineProps<Props>();
     animation-duration: 0.4s, 4s;
     animation-delay: 2.1s, 0.5s;
     animation-timing-function: step-end, linear;
-    animation-fill-mode: forwards, forwards;
+    animation-fill-mode: forwards;
 }
 
 @keyframes resultShow {
@@ -180,7 +182,7 @@ const { id } = defineProps<Props>();
 }
 
 #color-overlap[data-playback] .clear-ripple::before {
-    animation-name: toExpand_scale, toTransparent;
+    animation-name: expand-scale-to, hide-opacity-to;
     animation-duration: 400ms;
     animation-delay: 4.1s, 4.5s;
     animation-timing-function: var(--deceleration-curve), linear;

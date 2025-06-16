@@ -36,7 +36,6 @@ const { id, page, animation } = defineProps<Props>();
 
     & .toolbar {
         z-index: 4;
-        position: sticky;
         padding-block-start: var(--status-bar-block-size);
         color: var(--secondary-text-color);
         background-color: var(--low-emphasis-surface-color);
@@ -52,7 +51,7 @@ const { id, page, animation } = defineProps<Props>();
     }
 
     & .button[data-variant="floating"] {
-        --surface-hint-color: var(--white-hint-color);
+        --surface-tint-color: var(--white-tint-color);
         --surface-shade-color: var(--brown-shade-color);
         --content-color-scheme: dark;
         position: fixed;

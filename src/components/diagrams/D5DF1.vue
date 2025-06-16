@@ -9,13 +9,9 @@ const { id } = defineProps<Props>();
 </script>
 
 <style>
-#motion-virtual-presence {
-    background-color: #8e24aa;
-
-    figure:has(&) {
-        grid-column-start: max(1, calc(var(--content-columns) - 1));
-        grid-column-end: var(--medium-content-span);
-    }
+figure:has(#motion-virtual-presence) {
+    grid-column-start: max(1, calc(var(--content-columns) - 1));
+    grid-column-end: var(--medium-content-span);
 }
 </style>
 

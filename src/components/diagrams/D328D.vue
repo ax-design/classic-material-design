@@ -35,7 +35,7 @@ const { id } = defineProps<Props>();
         animation-duration: 5s;
 
         & .surface {
-            animation-name: magicalMaterial1, magicalMaterial2, magicalMaterial3, magicalMaterial4, toCollapse_size;
+            animation-name: magicalMaterial1, magicalMaterial2, magicalMaterial3, magicalMaterial4, collapse-size-to;
             animation-duration: 300ms, 500ms, 500ms, 500ms, 250ms;
             animation-delay: 0.5s, 1.5s, 2.5s, 3.5s, 4.5s;
             animation-timing-function: var(--deceleration-curve), var(--standard-curve), var(--standard-curve), var(--standard-curve), var(--acceleration-curve);
