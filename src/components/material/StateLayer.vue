@@ -198,6 +198,10 @@ onMounted(() => {
         initial-value: 0;
     }
 
+    @function --ripple-opacity(--color) {
+        result: if(style(--color: light-dark(black, white)): 0.06; else: 0.12);
+    }
+
     @function --transform-progress(--progress) {
         result: calc(1 - pow(400, var(--progress) / -1.4));
     }
@@ -221,7 +225,7 @@ onMounted(() => {
         }
 
         &::before {
-            background-color: rgb(from currentColor r g b / 0.08);
+            background-color: rgb(from var(--states-base-color) r g b / --ripple-opacity(var(--states-base-color)));
             opacity: 0;
         }
 
@@ -284,7 +288,7 @@ onMounted(() => {
         inline-size: calc(var(--radius) * 2);
         block-size: auto;
         aspect-ratio: 1/1;
-        background-color: rgb(from currentColor r g b / 0.08);
+        background-color: rgb(from var(--states-base-color) r g b / --ripple-opacity(var(--states-base-color)));
         clip-path: circle(50%);
         scale: calc(0 + --transform-progress(var(--scale-progress)));
         translate:
