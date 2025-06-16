@@ -182,7 +182,7 @@ const { id, page, animation } = defineProps<Props>();
 <template>
     <Diagram :id="id" variant="simulator" :application="`calculator:${page}`" :animation="animation">
         <div class="display">
-            <Toolbar appearance="transparent">
+            <Toolbar variant="app-bar" appearance="transparent">
                 <Button>RAD</Button>
                 <Button>
                     <Icon name="more_vert" />

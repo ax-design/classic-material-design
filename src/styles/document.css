@@ -61,7 +61,6 @@ video::cue {
     应用栏
 \*----------------------------------------------------------------------------*/
 main > .toolbar {
-    --surface-edge: bottom;
     z-index: 4;
     grid-column: 1 / -1;
     align-self: start;
@@ -89,7 +88,8 @@ main > .toolbar {
     }
 
     & .title {
-        grid-column: 2 / -2;
+        max-inline-size: var(--content-inline-size);
+        justify-self: center;
         user-select: none;
 
         & :where(span:nth-of-type(2)) {
@@ -326,20 +326,6 @@ main > hr {
     :root {
         --increment: 56px;
         --keyline: 16px;
-    }
-
-    main > .toolbar .title {
-        justify-self: start;
-    }
-}
-
-@media (width>=392px) {
-    main > .toolbar {
-        grid-template-columns: subgrid;
-
-        & .title {
-            margin: 0;
-        }
     }
 }
 

@@ -44,7 +44,8 @@ const { variant, appearance = "filled" } = defineProps<Props>();
             grid-template-rows: var(--increment);
             grid-auto-columns: auto;
 
-            &:not([data-appearance="transparent"]) {
+            &[data-appearance="filled"] {
+                --surface-edge: bottom;
                 background-color: var(--primary-color, --low-emphasis-surface-color);
                 box-shadow: var(--shadow-z4);
 
@@ -65,6 +66,7 @@ const { variant, appearance = "filled" } = defineProps<Props>();
                 --type-scale: title;
                 inline-size: stretch;
                 margin-inline: 20px;
+                line-height: 1;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 color-scheme: var(--content-color-scheme, inherit);
