@@ -26,7 +26,7 @@ import Icon from "@material/Icon.vue";
             margin-inline-end: 2.5px;
         }
 
-        & span {
+        & p {
             --type-scale: body2;
             margin-inline: 4px;
             padding-block-start: 1px;
@@ -35,18 +35,21 @@ import Icon from "@material/Icon.vue";
     }
 
     & .navigation {
-        --navigation-button-inline-size: 80px;
-        --navigation-bar-inline-padding: 40px;
         block-size: 48px;
         display: grid;
-        grid-template-columns: repeat(3, var(--navigation-button-inline-size));
+        grid-template-columns: repeat(3, 80px);
         grid-template-rows: 100%;
         grid-template-areas: "back home recent";
         justify-content: space-between;
-        align-items: center;
-        justify-items: center;
-        padding-inline: var(--navigation-bar-inline-padding);
+        place-items: center;
+        padding-inline: 40px;
         color: rgb(255 255 255 / 0.9);
+
+        @container diagram (width >=600px) {
+            grid-template-columns: repeat(3, 162px);
+            padding-inline: 40px;
+            justify-content: center;
+        }
 
         & .icon {
             filter: drop-shadow(0 1.5px 0.5px rgb(0 0 0 / 0.2)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.14)) drop-shadow(0 1px 2.5px rgb(0 0 0 / 0.12));
@@ -65,12 +68,56 @@ import Icon from "@material/Icon.vue";
         }
     }
 }
+
+.overlay[data-variant="status-bar"] {
+    z-index: 48;
+    inset-block-start: 0;
+    position: fixed;
+    inline-size: 100%;
+    block-size: var(--status-bar-block-size);
+    background-color: var(--status-bar-background-color);
+    overflow: clip;
+}
+
+.overlay[data-variant="navigation-bar"] {
+    z-index: 48;
+    inset-block-end: 0;
+    position: fixed;
+    inline-size: 100%;
+    block-size: var(--navigation-bar-block-size);
+    background-color: black;
+    overflow: clip;
+
+    &[data-appearance="translucent"] {
+        opacity: 0.4;
+    }
+}
+
+.navigation-ripple {
+    visibility: hidden;
+    inline-size: 135%;
+    max-inline-size: 128px;
+    block-size: 100%;
+    background-color: white;
+    border-radius: 24px;
+    opacity: 0.2;
+}
+
+@keyframes navigationRippleEnter {
+    0% {
+        scale: 0 1;
+    }
+
+    100% {
+        scale: 1 1;
+    }
+}
 </style>
 
 <template>
-    <div class="system" inert>
+    <div class="system">
         <div class="status">
-            <span>12:30</span>
+            <p>12:30</p>
             <Icon name="battery_full_alt" size="small" />
             <Icon name="signal_cellular_4_bar" size="small" />
             <Icon name="signal_wifi_4_bar" size="small" />
