@@ -21,19 +21,18 @@ useSeoMeta({
 });
 
 const isFirstPageInChapter = computed(() => {
-    const currentIndex = routes.findIndex(r => r.name === route.name);
-    return currentIndex === 0 || currentIndex > 0 && !(routes[currentIndex - 1].name as string).startsWith(chapter);
+    const currentIndex = routes.findIndex((r) => r.name === route.name);
+    return currentIndex === 0 || (currentIndex > 0 && !(routes[currentIndex - 1].name as string).startsWith(chapter));
 });
 
 const theme = computed(() => {
-    const currentPageEntry = routes.find(r => r.name === route.name);
+    const currentPageEntry = routes.find((r) => r.name === route.name);
     if (!currentPageEntry) {
         return "material-design";
     }
-    const path = currentPageEntry.alias as string || currentPageEntry.path;
+    const path = (currentPageEntry.alias as string) || currentPageEntry.path;
     return path.split("/")[1];
-})
-
+});
 </script>
 
 <template>
@@ -46,7 +45,10 @@ const theme = computed(() => {
             </Button>
             <h1 class="title" v-if="route.path === '/' || !page">质感设计</h1>
             <h1 class="title" v-else-if="isFirstPageInChapter">{{ chapter }}</h1>
-            <h1 class="title" v-else><span>{{ chapter }}</span><span>–</span>{{ page }}</h1>
+            <h1 class="title" v-else>
+                <span>{{ chapter }}</span
+                ><span>–</span>{{ page }}
+            </h1>
             <Button disabled aria-label="搜索">
                 <Icon name="search" />
             </Button>

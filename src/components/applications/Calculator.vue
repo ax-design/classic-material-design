@@ -197,18 +197,18 @@ const { id, page, animation } = defineProps<Props>();
         </div>
         <div class="panel">
             <div class="numeric">
-                <Button style="grid-area: zero;">0</Button>
-                <Button style="grid-area: one;">1</Button>
-                <Button style="grid-area: two;">2</Button>
-                <Button style="grid-area: three;">3</Button>
-                <Button style="grid-area: four;">4</Button>
-                <Button style="grid-area: five;">5</Button>
-                <Button style="grid-area: six;">6</Button>
-                <Button style="grid-area: seven;">7</Button>
-                <Button style="grid-area: eight;">8</Button>
-                <Button style="grid-area: nine;">9</Button>
-                <Button style="grid-area: dot;">.</Button>
-                <Button style="grid-area: equal;">=</Button>
+                <Button style="grid-area: zero">0</Button>
+                <Button style="grid-area: one">1</Button>
+                <Button style="grid-area: two">2</Button>
+                <Button style="grid-area: three">3</Button>
+                <Button style="grid-area: four">4</Button>
+                <Button style="grid-area: five">5</Button>
+                <Button style="grid-area: six">6</Button>
+                <Button style="grid-area: seven">7</Button>
+                <Button style="grid-area: eight">8</Button>
+                <Button style="grid-area: nine">9</Button>
+                <Button style="grid-area: dot">.</Button>
+                <Button style="grid-area: equal">=</Button>
             </div>
             <div class="operator">
                 <Button>÷</Button>
