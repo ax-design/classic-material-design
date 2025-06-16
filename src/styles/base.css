@@ -13,7 +13,6 @@ div.content {
     --deceleration-curve: cubic-bezier(0, 0, 0.2, 1);
     --acceleration-curve: cubic-bezier(0.4, 0, 1, 1);
     --sharp-curve: cubic-bezier(0.4, 0, 0.6, 1);
-    --ripple-expand-curve: cubic-bezier(0.17, 0.74, 0.4, 1);
 }
 
 @keyframes fromTransparent {

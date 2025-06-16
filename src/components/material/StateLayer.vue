@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, useTemplateRef, ref, inject } from "vue";
 
-const RIPPLE_EXPAND_EASING = "cubic-bezier(0.17, 0.74, 0.4, 1)";
+const RIPPLE_BOUNDED_MAX_RADIUS = 120;
 
 const isIsolated = inject("isIsolated", false);
 
@@ -45,69 +45,62 @@ function rippleBackgroundExit() {
     }
 }
 
-function createRippleForegound() {
-    const foreground = document.createElement("div");
-    foreground.className = "ripple";
-    return foreground;
+function clamp(value: number, min: number, max: number) {
+    return Math.min(Math.max(value, min), max);
 }
 
-function rippleForegroundExit(event: PointerEvent | KeyboardEvent) {
-    const container = stateLayer.value!;
+function getInputOffset(container: HTMLElement, event?: PointerEvent | KeyboardEvent) {
     const containerDimensions = container.getBoundingClientRect();
-    const isUnbounded = getComputedStyle(container).getPropertyValue("--unbounded") === "true";
-
-    const foreground = createRippleForegound();
-    container.appendChild(foreground);
-
-    let radius: number;
-    if (isUnbounded) {
-        radius = containerDimensions.width / 2;
-    } else {
-        const containerRadius = Math.hypot(containerDimensions.width, containerDimensions.height) / 2;
-        const maxRadius = Math.min(containerRadius, 350);
-        radius = maxRadius * 0.9 + maxRadius * Math.random() * 0.1;
-        foreground.attributeStyleMap.set("--radius", `${CSS.px(radius)}`);
-    }
-
-    const rippleScaleDuration = isUnbounded ? 1000 * Math.sqrt(radius / 1024) : 800;
-
-    foreground.animate([{ scale: 1 }], {
-        duration: rippleScaleDuration,
-        easing: RIPPLE_EXPAND_EASING,
-        fill: "both",
-    });
+    const offset = { x: 0, y: 0 };
 
     if (event instanceof PointerEvent) {
-        const offset = { x: 0, y: 0 };
-        const pointerX = event.clientX - containerDimensions.left;
-        const pointerY = event.clientY - containerDimensions.top;
+        const pointerX = clamp(event.clientX, containerDimensions.left, containerDimensions.right) - containerDimensions.left;
+        const pointerY = clamp(event.clientY, containerDimensions.top, containerDimensions.bottom) - containerDimensions.top;
 
         offset.x = pointerX - containerDimensions.width / 2;
         offset.y = pointerY - containerDimensions.height / 2;
-
-        if (isUnbounded) {
-            const distance = Math.hypot(offset.x, offset.y);
-            if (distance > radius) {
-                const scale = radius / distance;
-                offset.x *= scale;
-                offset.y *= scale;
-            }
-        }
-
-        foreground.animate([{ translate: `${CSS.px(offset.x)} ${CSS.px(offset.y)}` }, { translate: isUnbounded ? `${CSS.px(0)}` : `${CSS.px(offset.x * 0.7)} ${CSS.px(offset.y * 0.7)}` }], {
-            duration: isUnbounded ? rippleScaleDuration : 300,
-            easing: RIPPLE_EXPAND_EASING,
-            fill: "both",
-        });
     }
 
-    const opacityExit = foreground.animate([{ opacity: 0 }], {
-        duration: isUnbounded ? 1000 / 3 : 400,
-        easing: "linear",
-        fill: "both",
-    });
+    return offset;
+}
 
-    opacityExit.addEventListener(
+function createRippleForegound(container: HTMLElement, event?: PointerEvent | KeyboardEvent, noEnter: boolean = false) {
+    const foreground = document.createElement("div");
+    foreground.className = "ripple";
+
+    const offset = getInputOffset(container, event);
+
+    foreground.attributeStyleMap.set("--offset-x", `${CSS.px(offset.x)}`);
+    foreground.attributeStyleMap.set("--offset-y", `${CSS.px(offset.y)}`);
+
+    noEnter && foreground.setAttribute("inert", "");
+
+    return foreground;
+}
+
+function rippleForegroundEnter(container: HTMLElement, event: PointerEvent | KeyboardEvent, isUnbounded: boolean) {
+    if (!isUnbounded) return;
+
+    const foreground = createRippleForegound(container, event);
+    container.appendChild(foreground);
+}
+
+function rippleForegroundExit(container: HTMLElement, event: PointerEvent | KeyboardEvent, isUnbounded: boolean) {
+    let foreground;
+    if (isUnbounded) {
+        foreground = container.querySelector(".ripple:last-of-type") as HTMLElement;
+        const pastProgress = getComputedStyle(foreground).getPropertyValue("--scale-progress");
+        foreground.setAttribute("inert", "");
+        foreground.attributeStyleMap.set("--past-progress", pastProgress);
+    } else {
+        foreground = createRippleForegound(container, event);
+        const radius = RIPPLE_BOUNDED_MAX_RADIUS * 0.9 + RIPPLE_BOUNDED_MAX_RADIUS * Math.random() * 0.1;
+        foreground.attributeStyleMap.set("--radius", `${CSS.px(radius)}`);
+        container.appendChild(foreground);
+    }
+
+    const opacityAnimation = foreground.getAnimations().at(-1);
+    opacityAnimation?.addEventListener(
         "finish",
         () => {
             foreground.remove();
@@ -123,26 +116,44 @@ function isValidKeyboardInput(event: KeyboardEvent): boolean {
 
 function inputDownHandler(event: PointerEvent | KeyboardEvent) {
     event.stopPropagation();
-    // console.log(event.currentTarget, stateLayer.value?.parentElement);
-    // if (event.currentTarget != stateLayer.value?.parentElement) return;
     if (event instanceof PointerEvent && event.button != 0) return;
     if (event instanceof KeyboardEvent && !isValidKeyboardInput(event)) return;
     isPressing.value = true;
+    const container = stateLayer.value!;
+    const isUnbounded = getComputedStyle(container).getPropertyValue("--unbounded") === "true";
     rippleBackgroundEnter();
+    rippleForegroundEnter(container, event, isUnbounded);
+    isUnbounded && stateLayer.value!.parentElement!.addEventListener("pointermove", pointerMoveHandler, { passive: true });
 }
 
 function inputUpHandler(event: PointerEvent | KeyboardEvent) {
     event.stopPropagation();
     if (!isPressing.value) return;
+    const container = stateLayer.value!;
+    const isUnbounded = getComputedStyle(container).getPropertyValue("--unbounded") === "true";
     rippleBackgroundExit();
-    rippleForegroundExit(event);
+    rippleForegroundExit(container, event, isUnbounded);
+    container.parentElement?.removeEventListener("pointermove", pointerMoveHandler);
     isPressing.value = false;
 }
 
-function pointerLeaveHandler(event: PointerEvent | KeyboardEvent) {
+function pointerMoveHandler(event: PointerEvent) {
+    if (!isPressing.value) return;
+    const container = stateLayer.value!;
+    const foreground = container.querySelector(".ripple:last-of-type") as HTMLElement;
+    const offset = getInputOffset(container, event);
+    foreground.attributeStyleMap.set("--offset-x", `${CSS.px(offset.x)}`);
+    foreground.attributeStyleMap.set("--offset-y", `${CSS.px(offset.y)}`);
+}
+
+function pointerLeaveHandler(event: PointerEvent) {
     event.stopPropagation();
     if (!isPressing.value) return;
+    const container = stateLayer.value!;
+    const isUnbounded = getComputedStyle(container).getPropertyValue("--unbounded") === "true";
     rippleBackgroundExit();
+    rippleForegroundExit(container, event, isUnbounded);
+    container.parentElement?.removeEventListener("pointermove", pointerMoveHandler);
     isPressing.value = false;
 }
 
@@ -164,7 +175,7 @@ onMounted(() => {
     });
     backgroundAnimation.value.pause();
 
-    isIsolated && overlay.appendChild(createRippleForegound());
+    isIsolated && getComputedStyle(component).getPropertyValue("--prepare") === "true" && overlay.appendChild(createRippleForegound(overlay, undefined, true));
 });
 </script>
 
@@ -172,6 +183,23 @@ onMounted(() => {
 @layer base {
     :root {
         --states-base-color: light-dark(black, white);
+        --ripple-expand-easing: cubic-bezier(0.17, 0.74, 0.4, 1);
+    }
+
+    @property --scale-progress {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 0;
+    }
+
+    @property --offset-progress {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 0;
+    }
+
+    @function --transform-progress(--progress) {
+        result: calc(1 - pow(400, var(--progress) / -1.4));
     }
 
     .state-layer {
@@ -193,7 +221,7 @@ onMounted(() => {
         }
 
         &::before {
-            background-color: rgb(from currentColor r g b / 0.06);
+            background-color: rgb(from currentColor r g b / 0.08);
             opacity: 0;
         }
 
@@ -208,6 +236,7 @@ onMounted(() => {
         @container style(--unbounded: true) {
             & {
                 --radius: calc(hypot(100cqi, 100cqb) / 2);
+                --radius-numeric: tan(atan2(var(--radius), 1px));
                 container-type: size;
                 place-content: center;
                 overflow: visible;
@@ -223,11 +252,6 @@ onMounted(() => {
                 block-size: auto;
                 aspect-ratio: 1 / 1;
                 border-radius: 50%;
-            }
-
-            & .ripple {
-                --exit-duration: calc(1000ms * sqrt(tan(atan2(var(--radius), 1px)) / 1024));
-                inline-size: calc(var(--radius) * 2);
             }
         }
 
@@ -248,24 +272,78 @@ onMounted(() => {
         }
 
         @container style(--selected: true) {
-            & {
-                --selected-opacity: 0.08;
-            }
+            --selected-opacity: 0.08;
         }
     }
 
+    /* prettier-ignore */
     .ripple {
+        --constraint-scale: 1;
+        --offset-drift: calc(1 - (0.3 * --transform-progress(var(--offset-progress))));
         position: absolute;
         inline-size: calc(var(--radius) * 2);
         block-size: auto;
         aspect-ratio: 1/1;
-        background-color: rgb(from currentColor r g b / 0.06);
+        background-color: rgb(from currentColor r g b / 0.08);
         clip-path: circle(50%);
-        scale: 0;
+        scale: calc(0 + --transform-progress(var(--scale-progress)));
+        translate:
+            calc(var(--offset-x, 0px) * var(--constraint-scale) * var(--offset-drift))
+            calc(var(--offset-y, 0px) * var(--constraint-scale) * var(--offset-drift));
+        animation-name: ripple-scale-progress, ripple-offset-progress, hide-opacity-to;
+        animation-timing-function: linear;
+        animation-duration: 800ms, 300ms, 400ms;
+        animation-fill-mode: forwards;
 
-        button[data-variant="text"] & {
-            inline-size: calc(var(--radius) * 2 * 2);
+        @container style(--unbounded: true) {
+            & {
+                --input-offset-radius-numeric: tan(atan2(hypot(var(--offset-x, 0px), var(--offset-y, 0px)), 1px));
+                --constraint-scale: min(1, calc(var(--radius-numeric) / var(--input-offset-radius-numeric)));
+                --offset-drift: calc(1 - var(--scale-progress));
+                --ripple-scale-enter-duration: calc(1000ms * sqrt(var(--radius-numeric) * 3 / 1024));
+                scale: calc(0 + var(--scale-progress));
+                animation-name: ripple-scale-progress;
+                animation-duration: var(--ripple-scale-enter-duration);
+            }
+
+            &[inert] {
+                --past-progress: 0;
+                --remain-progress: calc(1 - var(--past-progress));
+                --offset-drift: calc(var(--remain-progress) - var(--remain-progress) * --transform-progress(var(--scale-progress)));
+                --ripple-scale-exit-duration: calc(1000ms * sqrt(var(--remain-progress) * var(--radius-numeric) * 3 / (1024 + 3400)));
+                --ripple-opacity-exit-duration: calc(1000ms / 3);
+                scale: calc(var(--past-progress) + var(--remain-progress) * --transform-progress(var(--scale-progress)));
+                animation-name: ripple-scale-progress-restart, hide-opacity-to;
+                animation-duration: var(--ripple-scale-exit-duration), var(--ripple-opacity-exit-duration);
+            }
         }
+    }
+}
+
+@keyframes ripple-scale-progress {
+    to {
+        --scale-progress: 1;
+    }
+}
+
+@keyframes ripple-scale-progress-restart {
+    from {
+        --scale-progress: 0;
+    }
+    to {
+        --scale-progress: 1;
+    }
+}
+
+@keyframes ripple-offset-progress {
+    to {
+        --offset-progress: 1;
+    }
+}
+
+@keyframes ripple-move-translate-to {
+    to {
+        translate: calc(var(--offset-x) * 0.7) calc(var(--offset-y) * 0.7);
     }
 }
 </style>
