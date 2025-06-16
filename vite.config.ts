@@ -5,11 +5,12 @@ import { fileURLToPath, URL } from "url";
 export default defineConfig({
     base: "/classic-material-design/",
     build: {
-        target: "chrome138",
+        target: "esnext",
     },
     plugins: [vue()],
     resolve: {
         alias: {
+            "@public": fileURLToPath(new URL("./public", import.meta.url)),
             "@pages": fileURLToPath(new URL("./src/pages", import.meta.url)),
             "@scripts": fileURLToPath(new URL("./src/scripts", import.meta.url)),
             "@document": fileURLToPath(new URL("./src/components/document", import.meta.url)),
