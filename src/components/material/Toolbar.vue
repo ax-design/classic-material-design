@@ -35,7 +35,7 @@ const { variant, appearance = "filled" } = defineProps<Props>();
 
         &[data-appearance="transparent"] {
             background-color: transparent;
-            overflow: unset;
+            overflow: visible;
         }
 
         &[data-variant^="app-bar"] {

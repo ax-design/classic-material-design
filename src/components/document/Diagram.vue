@@ -62,6 +62,7 @@ onMounted(() => {
     isolation: isolate;
     outline: 1px solid var(--diagram-border-color);
     outline-offset: -1px;
+    overflow: clip;
     user-select: none;
 
     @container figure (width >=600px) {
@@ -155,12 +156,20 @@ onMounted(() => {
         background-color: var(--medium-emphasis-surface-color);
         overflow: auto;
         scrollbar-width: none;
+
+        & * {
+            scrollbar-width: inherit;
+        }
     }
 
     @container figure (width >=400px) {
         inline-size: 760px;
         block-size: 570px;
     }
+}
+
+.diagram .sheet[popover] {
+    display: block;
 }
 
 .user-input {
