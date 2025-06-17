@@ -163,7 +163,7 @@ const { id } = defineProps<Props>();
     }
 }
 
-#color-overlap[data-playback] .result .background::after {
+#color-overlap[data-playback] .result::before {
     animation-name: resultShow, visibleToHidden;
     animation-duration: 0.4s, 4s;
     animation-delay: 2.1s, 0.5s;
