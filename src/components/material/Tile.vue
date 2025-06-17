@@ -20,6 +20,10 @@ const { type = "container", density = "normal" } = defineProps<Props>();
         padding-inline: var(--keyline);
         color-scheme: var(--content-color-scheme, inherit);
 
+        &:has(div:last-of-type.switch) {
+            padding-inline-end: calc(var(--keyline) - 8px);
+        }
+
         & .text {
             --type-scale: body1;
 

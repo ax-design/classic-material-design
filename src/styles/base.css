@@ -613,6 +613,14 @@ div.content {
         box-sizing: border-box;
         pointer-events: none;
         writing-mode: initial;
+        transition-property: border-color;
+        transition-duration: 120ms;
+        transition-timing-function: linear;
+    }
+
+    .switch .thumb::after {
+        transition-duration: inherit;
+        transition-timing-function: inherit;
     }
 }
 
@@ -664,7 +672,6 @@ div.content {
     }
 }
 
-/* prettier-ignore */
 @function --font-size(--type-scale) {
     result: if(style(--type-scale: display4): 7rem;
             style(--type-scale: display3): 3.5rem;
@@ -680,7 +687,6 @@ div.content {
         );
 }
 
-/* prettier-ignore */
 @function --font-weight(--type-scale) {
     result: if(style(--type-scale: display4): 300;
             style(--type-scale: title): 500;
@@ -689,7 +695,6 @@ div.content {
         );
 }
 
-/* prettier-ignore */
 @function --line-height(--type-scale) {
     result: if(style(--type-scale: title): var(--title-line-height);
             style(--type-scale: subheading): var(--subheading-line-height);

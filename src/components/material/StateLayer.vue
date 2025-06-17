@@ -5,9 +5,20 @@ const RIPPLE_BOUNDED_MAX_RADIUS = 120;
 
 const isIsolated = inject("isIsolated", false);
 
+const component = ref<HTMLElement>();
 const stateLayer = useTemplateRef("state-layer");
 const backgroundAnimation = ref<Animation>();
 const isPressing = ref(false);
+
+function getVaildParent() {
+    const parentElement = stateLayer.value!.parentElement!;
+
+    if (parentElement?.className.includes("thumb")) {
+        return parentElement.parentElement!;
+    }
+
+    return parentElement;
+}
 
 const rippleBackgroundNormalExitHandler = () => {
     const animation = backgroundAnimation.value!;
@@ -49,8 +60,8 @@ function clamp(value: number, min: number, max: number) {
     return Math.min(Math.max(value, min), max);
 }
 
-function getInputOffset(container: HTMLElement, event?: PointerEvent | KeyboardEvent) {
-    const containerDimensions = container.getBoundingClientRect();
+function getInputOffset(event?: PointerEvent | KeyboardEvent) {
+    const containerDimensions = stateLayer.value!.querySelector(".background")!.getBoundingClientRect();
     const offset = { x: 0, y: 0 };
 
     if (event instanceof PointerEvent) {
@@ -64,11 +75,11 @@ function getInputOffset(container: HTMLElement, event?: PointerEvent | KeyboardE
     return offset;
 }
 
-function createRippleForegound(container: HTMLElement, event?: PointerEvent | KeyboardEvent, noEnter: boolean = false) {
+function createRippleForegound(event?: PointerEvent | KeyboardEvent, noEnter: boolean = false) {
     const foreground = document.createElement("div");
     foreground.className = "ripple";
 
-    const offset = getInputOffset(container, event);
+    const offset = getInputOffset(event);
 
     foreground.attributeStyleMap.set("--offset-x", `${CSS.px(offset.x)}`);
     foreground.attributeStyleMap.set("--offset-y", `${CSS.px(offset.y)}`);
@@ -81,7 +92,7 @@ function createRippleForegound(container: HTMLElement, event?: PointerEvent | Ke
 function rippleForegroundEnter(container: HTMLElement, event: PointerEvent | KeyboardEvent, isUnbounded: boolean) {
     if (!isUnbounded) return;
 
-    const foreground = createRippleForegound(container, event);
+    const foreground = createRippleForegound(event);
     container.appendChild(foreground);
 }
 
@@ -93,7 +104,7 @@ function rippleForegroundExit(container: HTMLElement, event: PointerEvent | Keyb
         foreground.setAttribute("inert", "");
         foreground.attributeStyleMap.set("--past-progress", pastProgress);
     } else {
-        foreground = createRippleForegound(container, event);
+        foreground = createRippleForegound(event);
         const radius = RIPPLE_BOUNDED_MAX_RADIUS * 0.9 + RIPPLE_BOUNDED_MAX_RADIUS * Math.random() * 0.1;
         foreground.attributeStyleMap.set("--radius", `${CSS.px(radius)}`);
         container.appendChild(foreground);
@@ -123,7 +134,7 @@ function inputDownHandler(event: PointerEvent | KeyboardEvent) {
     const isUnbounded = getComputedStyle(container).getPropertyValue("--unbounded") === "true";
     rippleBackgroundEnter();
     rippleForegroundEnter(container, event, isUnbounded);
-    isUnbounded && stateLayer.value!.parentElement!.addEventListener("pointermove", pointerMoveHandler, { passive: true });
+    isUnbounded && component.value!.addEventListener("pointermove", pointerMoveHandler, { passive: true });
 }
 
 function inputUpHandler(event: PointerEvent | KeyboardEvent) {
@@ -133,7 +144,7 @@ function inputUpHandler(event: PointerEvent | KeyboardEvent) {
     const isUnbounded = getComputedStyle(container).getPropertyValue("--unbounded") === "true";
     rippleBackgroundExit();
     rippleForegroundExit(container, event, isUnbounded);
-    container.parentElement?.removeEventListener("pointermove", pointerMoveHandler);
+    component.value!.removeEventListener("pointermove", pointerMoveHandler);
     isPressing.value = false;
 }
 
@@ -141,7 +152,7 @@ function pointerMoveHandler(event: PointerEvent) {
     if (!isPressing.value) return;
     const container = stateLayer.value!;
     const foreground = container.querySelector(".ripple:last-of-type") as HTMLElement;
-    const offset = getInputOffset(container, event);
+    const offset = getInputOffset(event);
     foreground.attributeStyleMap.set("--offset-x", `${CSS.px(offset.x)}`);
     foreground.attributeStyleMap.set("--offset-y", `${CSS.px(offset.y)}`);
 }
@@ -153,29 +164,29 @@ function pointerLeaveHandler(event: PointerEvent) {
     const isUnbounded = getComputedStyle(container).getPropertyValue("--unbounded") === "true";
     rippleBackgroundExit();
     rippleForegroundExit(container, event, isUnbounded);
-    container.parentElement?.removeEventListener("pointermove", pointerMoveHandler);
+    component.value!.removeEventListener("pointermove", pointerMoveHandler);
     isPressing.value = false;
 }
 
 onMounted(() => {
     const overlay = stateLayer.value!;
-    const component = overlay.parentElement!;
+    component.value = getVaildParent();
 
-    component.addEventListener("pointerdown", inputDownHandler, { passive: true });
-    component.addEventListener("keydown", inputDownHandler, { passive: true });
-    component.addEventListener("pointerup", inputUpHandler, { passive: true });
-    component.addEventListener("keyup", inputUpHandler, { passive: true });
-    component.addEventListener("pointerleave", pointerLeaveHandler, { passive: true });
+    component.value.addEventListener("pointerdown", inputDownHandler, { passive: true });
+    component.value.addEventListener("keydown", inputDownHandler, { passive: true });
+    component.value.addEventListener("pointerup", inputUpHandler, { passive: true });
+    component.value.addEventListener("keyup", inputUpHandler, { passive: true });
+    component.value.addEventListener("pointerleave", pointerLeaveHandler, { passive: true });
 
-    backgroundAnimation.value = overlay.animate([{ opacity: 1 }], {
-        pseudoElement: "::before",
+    backgroundAnimation.value = overlay.querySelector(".background")!.animate([{ opacity: 1 }], {
+        pseudoElement: "::after",
         duration: 600,
         easing: "linear",
         fill: "both",
     });
     backgroundAnimation.value.pause();
 
-    isIsolated && getComputedStyle(component).getPropertyValue("--prepare") === "true" && overlay.appendChild(createRippleForegound(overlay, undefined, true));
+    isIsolated && getComputedStyle(component.value).getPropertyValue("--prepare") === "true" && overlay.appendChild(createRippleForegound(undefined, true));
 });
 </script>
 
@@ -207,42 +218,57 @@ onMounted(() => {
     }
 
     .state-layer {
-        z-index: 1;
+        container-type: size;
         position: absolute;
         inset: 0;
         display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        place-content: center;
         place-items: center;
         border-radius: inherit;
         overflow: clip;
+        transition-duration: 120ms;
+        transition-timing-function: linear;
 
-        &::before,
-        &::after {
-            content: "";
-            grid-area: 1 / 1;
+        & .background {
             inline-size: stretch;
             block-size: stretch;
+            position: relative;
             border-radius: inherit;
-        }
+            transition-duration: inherit;
+            transition-timing-function: inherit;
 
-        &::before {
-            background-color: rgb(from var(--states-base-color) r g b / --ripple-opacity(var(--states-base-color)));
-            opacity: 0;
-        }
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                pointer-events: none;
+            }
 
-        &::after {
-            background-color: var(--states-base-color);
-            opacity: calc(var(--hovered-opacity, 0) + var(--focused-opacity, 0) + var(--selected-opacity, 0) + var(--dragged-opacity, 0));
-            transition-property: opacity;
-            transition-duration: 480ms;
-            transition-timing-function: linear;
+            &::before {
+                background-color: var(--states-base-color);
+                opacity: calc(var(--hovered-opacity, 0) + var(--focused-opacity, 0) + var(--selected-opacity, 0) + var(--dragged-opacity, 0));
+                transition-property: background-color, opacity;
+                transition-duration: 480ms;
+                transition-timing-function: linear;
+            }
+
+            &::after {
+                background-color: rgb(from var(--states-base-color) r g b / --ripple-opacity(var(--states-base-color)));
+                opacity: 0;
+                transition-property: background-color;
+                transition-duration: inherit;
+                transition-timing-function: inherit;
+            }
         }
 
         @container style(--unbounded: true) {
             & {
                 --radius: calc(hypot(100cqi, 100cqb) / 2);
                 --radius-numeric: tan(atan2(var(--radius), 1px));
-                container-type: size;
-                place-content: center;
                 overflow: visible;
             }
 
@@ -250,8 +276,12 @@ onMounted(() => {
                 --radius: calc(hypot(max(100cqi, 100cqb), max(100cqi, 100cqb)) / 2);
             }
 
-            &::before,
-            &::after {
+            .switch .thumb & {
+                --radius: 24px;
+                z-index: -1;
+            }
+
+            & .background {
                 inline-size: calc(var(--radius) * 2);
                 block-size: auto;
                 aspect-ratio: 1 / 1;
@@ -280,7 +310,6 @@ onMounted(() => {
         }
     }
 
-    /* prettier-ignore */
     .ripple {
         --constraint-scale: 1;
         --offset-drift: calc(1 - (0.3 * --transform-progress(var(--offset-progress))));
@@ -294,6 +323,9 @@ onMounted(() => {
         translate:
             calc(var(--offset-x, 0px) * var(--constraint-scale) * var(--offset-drift))
             calc(var(--offset-y, 0px) * var(--constraint-scale) * var(--offset-drift));
+        transition-property: background-color;
+        transition-duration: inherit;
+        transition-timing-function: inherit;
         animation-name: ripple-scale-progress, ripple-offset-progress, hide-opacity-to;
         animation-timing-function: linear;
         animation-duration: 800ms, 300ms, 400ms;
@@ -320,6 +352,16 @@ onMounted(() => {
                 animation-name: ripple-scale-progress-restart, hide-opacity-to;
                 animation-duration: var(--ripple-scale-exit-duration), var(--ripple-opacity-exit-duration);
             }
+        }
+    }
+
+    .switch .thumb .state-layer {
+        transition-duration: inherit;
+        transition-timing-function: inherit;
+
+        & .background::before {
+            transition-duration: 250ms, 480ms;
+            transition-timing-function: var(--standard-curve), linear;
         }
     }
 }
@@ -353,5 +395,7 @@ onMounted(() => {
 </style>
 
 <template>
-    <div class="state-layer" inert ref="state-layer"></div>
+    <div class="state-layer" inert ref="state-layer">
+        <div class="background"></div>
+    </div>
 </template>

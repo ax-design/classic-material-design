@@ -41,7 +41,7 @@ const { id } = defineProps<Props>();
     animation-duration: 5.5s;
 
     @container style(--prepare: true) {
-        & .state-layer::before {
+        & .state-layer .background::after {
             animation-name: show-opacity-to, hide-opacity-to;
             animation-duration: 120ms, 480ms;
             animation-timing-function: linear;
@@ -91,7 +91,7 @@ const { id } = defineProps<Props>();
     & .numeric .button:nth-child(2) {
         --prepare: true;
 
-        & .state-layer::before {
+        & .state-layer .background::after {
             animation-delay: 0.5s, 0.62s;
         }
 
@@ -103,7 +103,7 @@ const { id } = defineProps<Props>();
     & .numeric .button:nth-child(3) {
         --prepare: true;
 
-        & .state-layer::before {
+        & .state-layer .background::after {
             animation-delay: 0.8s, 0.92s;
         }
 
@@ -115,7 +115,7 @@ const { id } = defineProps<Props>();
     & .numeric .button:nth-child(5) {
         --prepare: true;
 
-        & .state-layer::before {
+        & .state-layer .background::after {
             animation-delay: 2.1s, 2.22s;
         }
 
@@ -127,7 +127,7 @@ const { id } = defineProps<Props>();
     & .numeric .button:nth-child(7) {
         --prepare: true;
 
-        & .state-layer::before {
+        & .state-layer .background::after {
             animation-delay: 2.5s, 2.62s;
         }
 
@@ -139,7 +139,7 @@ const { id } = defineProps<Props>();
     & .operator .button:nth-child(2) {
         --prepare: true;
 
-        & .state-layer::before {
+        & .state-layer .background::after {
             animation-delay: 3.5s, 4.5s;
         }
 
@@ -153,7 +153,7 @@ const { id } = defineProps<Props>();
     & .operator .button:nth-child(5) {
         --prepare: true;
 
-        & .state-layer::before {
+        & .state-layer .background::after {
             animation-delay: 1.5s, 1.62s;
         }
 
@@ -163,7 +163,7 @@ const { id } = defineProps<Props>();
     }
 }
 
-#color-overlap[data-playback] .result::before {
+#color-overlap[data-playback] .result .background::after {
     animation-name: resultShow, visibleToHidden;
     animation-duration: 0.4s, 4s;
     animation-delay: 2.1s, 0.5s;
