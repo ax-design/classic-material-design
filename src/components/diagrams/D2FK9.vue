@@ -30,7 +30,7 @@ const { id } = defineProps<Props>();
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 8px;
-        margin-block: var(--keyline);
+        margin-block: 12px var(--keyline);
         padding-inline: 8px;
         box-sizing: border-box;
 
