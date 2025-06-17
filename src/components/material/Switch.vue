@@ -1,11 +1,12 @@
 <script setup lang="ts">
 interface Props {
+    name: string;
     checked: boolean;
 }
 
 import StateLayer from "@material/StateLayer.vue";
 
-const { checked = false } = defineProps<Props>();
+const { name, checked = false } = defineProps<Props>();
 </script>
 
 <style>
@@ -90,6 +91,6 @@ const { checked = false } = defineProps<Props>();
     <div class="switch">
         <div class="track"></div>
         <div class="thumb"><StateLayer></StateLayer></div>
-        <input type="checkbox" role="switch" :checked="checked" />
+        <input type="checkbox" :name="name" role="switch" :checked="checked" />
     </div>
 </template>
