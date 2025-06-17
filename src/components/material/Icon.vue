@@ -5,7 +5,7 @@ interface Props {
     variant?: string;
 }
 
-import { computed } from 'vue';
+import { computed } from "vue";
 
 const { name, variant = "system", size = "medium" } = defineProps<Props>();
 
@@ -18,7 +18,6 @@ const { name, variant = "system", size = "medium" } = defineProps<Props>();
 //         this.y = -y;
 //     }
 // }
-
 
 // function getLineParams(p1: Point, p2: Point) {
 //     const A = p2.y - p1.y;
@@ -156,7 +155,7 @@ const { name, variant = "system", size = "medium" } = defineProps<Props>();
 const ICON_SIZES = {
     small: 18,
     medium: 24,
-    large: 36
+    large: 36,
 } as const;
 
 const VERTICAL_ICONS = ["chevron_left", "chevron_right", "more_vert"];
@@ -963,6 +962,23 @@ const getSystemIconContent = (name: string, size: string): string => {
                     Z
                 "/>
                 <circle cx="15" cy="8" r="4"/>
+            `;
+        }
+        case "place": {
+            return `
+                <defs>
+                    <mask id="1d4cd30e">
+                        <path fill="white" d="
+                            M 19 9
+                            A 1 1 0 0 0 5 9
+                            c 0 5.25 7 13 7 13
+                            c 0 0 7 -7.75 7 -13
+                            Z
+                        "/>
+                        <circle fill="black" cx="12" cy="9" r="2.5"/>
+                    </mask>
+                </defs>
+                <rect width="100%" height="100%" mask="url(#1d4cd30e)"/>
             `;
         }
         case "play_arrow": {
