@@ -6,6 +6,7 @@ export default defineConfig({
     base: "/classic-material-design/",
     build: {
         target: "esnext",
+        assetsInlineLimit: 0,
     },
     plugins: [vue()],
     resolve: {
