@@ -18,6 +18,7 @@ figure:has(#motion-virtual-presence) {
 <template>
     <Diagram :id="id" variant="video">
         <video loop>
+        <video width="720" height="360" loop>
             <source src="/material-design/whatismaterial-properties-physical-07-xhdpi-009.mp4" type="video/mp4" />
         </video>
     </Diagram>

@@ -17,6 +17,7 @@ figure:has(#independent-content) {
 <template>
     <Diagram :id="id" variant="video">
         <video loop>
+        <video width="720" height="360" loop>
             <source src="/material-design/whatismaterial-materialprop-physicalprop-inkbehavior-xhdpi-006.mp4" type="video/mp4" />
         </video>
     </Diagram>

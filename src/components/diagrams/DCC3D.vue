@@ -18,6 +18,7 @@ figure:has(#screen-piercing) {
 <template>
     <Diagram :id="id" variant="video">
         <video loop>
+        <video width="720" height="480" loop>
             <source src="/material-design/whatismaterial-materialprop-transformingmaterial-paperbendfold-xhdpi-006.mp4" type="video/mp4" />
         </video>
     </Diagram>

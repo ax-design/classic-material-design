@@ -112,4 +112,5 @@ td {
 
 video {
     inline-size: 100%;
+    block-size: auto;
 }
