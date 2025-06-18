@@ -1,8 +1,8 @@
 <script setup lang="ts">
 interface Props {
-    id: string;
     page: string;
-    animation?: boolean;
+    window?: "mobile" | "tablet" | "desktop";
+    contentSet?: number;
 }
 
 import Diagram from "@document/Diagram.vue";
@@ -10,7 +10,7 @@ import Button from "@material/Button.vue";
 import Icon from "@material/Icon.vue";
 import Toolbar from "@material/Toolbar.vue";
 
-const { id, page, animation } = defineProps<Props>();
+const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
 </script>
 
 <style>
@@ -180,7 +180,7 @@ const { id, page, animation } = defineProps<Props>();
 </style>
 
 <template>
-    <Diagram :id="id" variant="simulator" :application="`calculator:${page}`" :animation="animation">
+    <Diagram variant="simulator" :application="`calculator:${page}`" :window="window">
         <div class="display">
             <Toolbar variant="app-bar" appearance="transparent">
                 <Button>RAD</Button>

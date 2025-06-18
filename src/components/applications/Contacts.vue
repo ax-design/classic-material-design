@@ -1,8 +1,7 @@
 <script setup lang="ts">
 interface Props {
-    id: string;
     page: string;
-    animation?: boolean;
+    window?: "mobile" | "tablet" | "desktop";
 }
 
 import Diagram from "@document/Diagram.vue";
@@ -13,7 +12,7 @@ import Scrim from "@material/Scrim.vue";
 import Tile from "@material/Tile.vue";
 import Toolbar from "@material/Toolbar.vue";
 
-const { id, page, animation } = defineProps<Props>();
+const { page, window = "mobile" } = defineProps<Props>();
 </script>
 
 <style>
@@ -153,7 +152,7 @@ const { id, page, animation } = defineProps<Props>();
 </style>
 
 <template>
-    <Diagram :id="id" variant="simulator" :application="`contacts:${page}`" :animation="animation">
+    <Diagram variant="simulator" :application="`contacts:${page}`" :window="window">
         <Toolbar variant="app-bar:prominent">
             <img src="/avatars/ali-connors.png" />
             <Scrim variant="gradient" anchor="top" />

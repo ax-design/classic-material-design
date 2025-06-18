@@ -1,8 +1,7 @@
 <script setup lang="ts">
 interface Props {
-    id: string;
     page: string;
-    animation?: boolean;
+    window?: "mobile" | "tablet" | "desktop";
 }
 
 import Diagram from "@document/Diagram.vue";
@@ -11,7 +10,7 @@ import Icon from "@material/Icon.vue";
 import Thumbnail from "@material/Thumbnail.vue";
 import Toolbar from "@material/Toolbar.vue";
 
-const { id, page, animation } = defineProps<Props>();
+const { page, window = "mobile" } = defineProps<Props>();
 </script>
 
 <style>
@@ -25,7 +24,7 @@ const { id, page, animation } = defineProps<Props>();
     --calendar-yellow: var(--google-yellow-alt-700);
     --calendar-deep-orange: var(--deep-orange-400);
 
-    & .system .status {
+    & .status {
         color-scheme: inherit;
     }
 
@@ -271,7 +270,7 @@ const { id, page, animation } = defineProps<Props>();
 </style>
 
 <template>
-    <Diagram :id="id" variant="simulator" :application="`calendar:${page}`" :animation="animation">
+    <Diagram variant="simulator" :application="`calendar:${page}`" :window="window">
         <Toolbar variant="app-bar">
             <Button>
                 <Icon name="menu"></Icon>

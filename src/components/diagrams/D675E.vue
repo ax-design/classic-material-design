@@ -3,20 +3,21 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Diagram from "@document/Diagram.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
 </script>
 
 <style>
 #system {
-    block-size: 360px;
-
     figure:has(&) {
         grid-column-end: var(--medium-content-span);
     }
 
     & .canvas {
+        height: 360px;
         display: flex;
         align-items: stretch;
         gap: 16px;
@@ -53,9 +54,8 @@ const { id } = defineProps<Props>();
     }
 
     @media (width < 920px) {
-        block-size: 480px;
-
         & .canvas {
+            height: 480px;
             padding: 40px;
             writing-mode: vertical-lr;
         }
@@ -75,7 +75,7 @@ const { id } = defineProps<Props>();
 </style>
 
 <template>
-    <Diagram :id="id" variant="illustration">
+    <Diagram variant="illustration">
         <div class="surface"></div>
         <div class="surface"></div>
         <div class="surface"></div>

@@ -3,9 +3,12 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Calendar from "@applications/Calendar.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
+provide("animation", true);
 </script>
 
 <style>
@@ -73,5 +76,5 @@ const { id } = defineProps<Props>();
 </style>
 
 <template>
-    <Calendar :id="id" page="schedule" :animation="true" />
+    <Calendar page="schedule" />
 </template>

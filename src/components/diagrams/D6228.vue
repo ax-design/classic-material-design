@@ -3,11 +3,13 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Contacts from "@applications/Contacts.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
 </script>
 
 <template>
-    <Contacts :id="id" page="detailed" />
+    <Contacts page="detailed" />
 </template>

@@ -3,19 +3,22 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Diagram from "@document/Diagram.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
+provide("animation", true);
 </script>
 
 <style>
 #motion-without-shadow,
 #motion-different-shadow,
 #motion-same-shadow {
-    aspect-ratio: 1/1;
     animation-duration: 4s;
 
     & .canvas {
+        aspect-ratio: 1/1;
         display: grid;
         place-items: center;
     }
@@ -81,7 +84,7 @@ figure:has(#motion-without-shadow) {
 </style>
 
 <template>
-    <Diagram :id="id" variant="illustration" :animation="true">
+    <Diagram variant="illustration">
         <div class="surface"></div>
     </Diagram>
     <slot />

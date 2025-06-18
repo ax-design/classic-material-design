@@ -3,17 +3,18 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Diagram from "@document/Diagram.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
 </script>
 
 <style>
 #obstructed-input,
 #input-pass-through {
-    aspect-ratio: 1/1;
-
     & .canvas {
+        aspect-ratio: 1/1;
         flex-direction: column;
         justify-content: start;
         align-items: start;
@@ -68,7 +69,7 @@ const { id } = defineProps<Props>();
 </style>
 
 <template>
-    <Diagram :id="id" variant="illustration">
+    <Diagram variant="illustration">
         <div class="top-bar surface"></div>
         <div v-if="id === 'input-pass-through'" class="hint"></div>
         <div class="flyout surface">

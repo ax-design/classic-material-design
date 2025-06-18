@@ -3,15 +3,15 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Diagram from "@document/Diagram.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
 </script>
 
 <style>
 #relative-elevation {
-    block-size: 480px;
-
     figure:has(&) {
         grid-column-end: var(--medium-content-span);
     }
@@ -21,13 +21,13 @@ const { id } = defineProps<Props>();
     }
 
     & .canvas {
+        block-size: 480px;
         display: flex;
         padding-inline: 20px;
 
         @media (width < 920px) {
             flex-direction: column;
-            padding-inline: unset;
-            padding-block-end: 20px;
+            padding-inline: 0px;
         }
     }
 
@@ -67,7 +67,7 @@ const { id } = defineProps<Props>();
 </style>
 
 <template>
-    <Diagram :id="id" variant="illustration">
+    <Diagram variant="illustration">
         <div class="wrapper">
             <div class="surface">
                 <div class="surface"></div>

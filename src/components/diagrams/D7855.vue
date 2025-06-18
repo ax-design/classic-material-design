@@ -3,9 +3,11 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Diagram from "@document/Diagram.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
 </script>
 
 <style>
@@ -67,7 +69,7 @@ figure:has(#without-shadow) {
 </style>
 
 <template>
-    <Diagram :id="id" variant="illustration">
+    <Diagram variant="illustration">
         <div class="top-bar"></div>
         <div class="surface"></div>
     </Diagram>

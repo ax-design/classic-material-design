@@ -3,17 +3,18 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Diagram from "@document/Diagram.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
 </script>
 
 <style>
 #physical-presence,
 #virtual-presence {
-    aspect-ratio: 1/1;
-
     & .canvas {
+        aspect-ratio: 1/1;
         display: grid;
         place-items: center;
     }
@@ -69,7 +70,7 @@ const { id } = defineProps<Props>();
 </style>
 
 <template>
-    <Diagram :id="id" variant="illustration">
+    <Diagram variant="illustration">
         <div class="surface"></div>
         <div class="surface"></div>
     </Diagram>

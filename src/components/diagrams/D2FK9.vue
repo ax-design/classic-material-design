@@ -3,20 +3,22 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Diagram from "@document/Diagram.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
+provide("animation", true);
 </script>
 
 <style>
 #relative-static {
-    block-size: 570px;
-
     figure:has(&) {
         grid-column-end: var(--medium-content-span);
     }
 
     & .canvas {
+        block-size: 570px;
         display: grid;
         grid-auto-flow: row;
     }
@@ -82,7 +84,11 @@ const { id } = defineProps<Props>();
 
 @media (width < 920px) {
     #relative-static {
-        block-size: 360px;
+        & .canvas {
+            block-size: auto;
+            aspect-ratio: 1 / 1;
+        }
+
 
         & .surfaces {
             grid-template-columns: repeat(2, 1fr);
@@ -97,7 +103,7 @@ const { id } = defineProps<Props>();
 </style>
 
 <template>
-    <Diagram :id="id" variant="illustration" :animation="true">
+    <Diagram variant="illustration">
         <div class="surface"></div>
         <div class="surfaces">
             <div class="surface"></div>

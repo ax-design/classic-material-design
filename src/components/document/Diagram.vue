@@ -1,19 +1,20 @@
 <script setup lang="ts">
 interface Props {
-    id: string;
     variant?: "illustration" | "simulator" | "video";
-    animation?: boolean;
     application?: string;
+    window?: "mobile" | "tablet" | "desktop";
     theme?: string;
 }
 
-import { useTemplateRef, ref, onMounted, provide } from "vue";
+import { useTemplateRef, ref, onMounted, provide, inject } from "vue";
 import { getCSSAnimations } from "@scripts/utils";
 import Icon from "@material/Icon.vue";
 import System from "@applications/System.vue";
 
-const { id, variant = "illustration", animation, application, theme = "base" } = defineProps<Props>();
+const { variant = "illustration", application, window, theme = "base" } = defineProps<Props>();
 
+const id = inject<string>("id");
+const animation = inject<boolean>("animation", false);
 const isInProduction = import.meta.env.PROD;
 
 provide("isIsolated", true);
@@ -54,35 +55,20 @@ onMounted(() => {
 
 <style>
 .diagram {
-    --increment: 56px;
-    --keyline: 16px;
     position: relative;
-    display: flex;
-    box-sizing: border-box;
-    isolation: isolate;
-    outline: 1px solid var(--diagram-border-color);
+    display: flow-root;
+    outline: 1px solid light-dark(var(--divider-color), transparent);
     outline-offset: -1px;
-    overflow: clip;
+    isolation: isolate;
     user-select: none;
 
-    @container figure (width >=600px) {
-        --increment: 64px;
-        --keyline: 24px;
+    &:has(> video) {
+        display: flex;
     }
 
-    &:not(picture) {
-        background-color: var(--grey-200);
-        background-image: radial-gradient(circle at top left, rgb(0 0 0 / 0) calc(1 / 3 * 100%), rgb(0 0 0 / 0.01) calc(7 / 9 * 100%), rgb(0 0 0 / 0.02) 100%);
-
-        @media (prefers-color-scheme: dark) {
-            background-color: var(--grey-900);
-            background-image: radial-gradient(circle at top left, rgb(0 0 0 / 0) calc(1 / 3 * 100%), rgb(0 0 0 / 0.04) calc(7 / 9 * 100%), rgb(0 0 0 / 0.08) 100%);
-        }
-    }
-
-    &:not(picture, [data-variant="video"]) {
-        container-name: diagram;
-        container-type: size;
+    &:not(picture, :has(> video)) {
+        background-color: light-dark(var(--grey-200), var(--grey-900));
+        background-image: radial-gradient(circle at top left, rgb(0 0 0 / 0) calc(1 / 3 * 100%), light-dark(rgb(0 0 0 / 0.01), rgb(0 0 0 / 0.04)) calc(7 / 9 * 100%), light-dark(rgb(0 0 0 / 0.02), rgb(0 0 0 / 0.08)) 100%);
     }
 
     &[data-playback] {
@@ -101,11 +87,22 @@ onMounted(() => {
         }
     }
 
-    & > .canvas {
+    & > :where(.canvas, .device) {
+        --increment: 56px;
+        --keyline: 16px;
         z-index: -1;
+        container-name: diagram;
+        container-type: size;
+        position: relative;
         inline-size: stretch;
         block-size: stretch;
+        box-sizing: border-box;
         overflow: clip;
+
+        [data-window="tablet"] & {
+            --increment: 64px;
+            --keyline: 24px;
+        }
     }
 }
 
@@ -134,21 +131,18 @@ onMounted(() => {
     }
 }
 
-.diagram[data-variant="simulator"] {
-    --status-bar-block-size: 24px;
-    --navigation-bar-block-size: 48px;
-    --scale-ratio: calc((100vw - 32px) / 360);
-    --scale-ratio-numeric: min(tan(atan2(var(--scale-ratio), 1px)), 1);
-    inline-size: 360px;
-    block-size: 640px;
-    margin-block-end: calc(0px - calc(1 - var(--scale-ratio-numeric)) * 100cqb);
+.diagram > .device {
+    --scale-ratio: min(calc((100vw - 32px) / var(--device-width)), 1);
+    inline-size: var(--device-width);
+    block-size: var(--device-height);
+    display: flex;
     flex-direction: column;
+    margin-block-end: calc(0px - (1 - var(--scale-ratio)) * var(--device-height));
     background-color: var(--medium-emphasis-surface-color);
     transform-origin: left top;
-    scale: var(--scale-ratio-numeric);
+    scale: var(--scale-ratio);
 
     & .application {
-        z-index: -1;
         flex-grow: 1;
         position: relative;
         padding-block-end: var(--navigation-bar-block-size);
@@ -162,9 +156,14 @@ onMounted(() => {
         }
     }
 
-    @container figure (width >=400px) {
-        inline-size: 760px;
-        block-size: 570px;
+    [data-window="mobile"] & {
+        --device-width: 360px;
+        --device-height: 640px;
+    }
+
+    [data-window="tablet"] & {
+        --device-width: 760px;
+        --device-height: 570px;
     }
 }
 
@@ -239,14 +238,14 @@ onMounted(() => {
 </style>
 
 <template>
-    <div :id="id" class="diagram" :data-variant="variant" :data-application="application" :data-theme="theme" :data-playback="animation || variant === 'video' ? (playback ? 'play' : 'pause') : undefined" ref="diagram">
-        <template v-if="variant === 'simulator'">
+    <div :id="id" class="diagram" :data-variant="variant" :data-application="application" :data-window="window" :data-theme="theme" :data-playback="animation || variant === 'video' ? (playback ? 'play' : 'pause') : undefined" ref="diagram">
+        <div v-if="variant === 'simulator'" class="device">
             <div class="application" :inert="isInProduction ? true : undefined">
                 <slot />
                 <div class="overlay" data-variant="navigation-bar"></div>
             </div>
-            <System :inert="isInProduction ? true : undefined" />
-        </template>
+            <System />
+        </div>
 
         <slot v-else-if="variant === 'video'" />
 

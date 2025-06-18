@@ -3,9 +3,12 @@ interface Props {
     id: string;
 }
 
+import { provide } from "vue";
 import Calculator from "@applications/Calculator.vue";
 
 const { id } = defineProps<Props>();
+provide("id", id);
+provide("animation", true);
 </script>
 
 <style>
@@ -136,7 +139,7 @@ const { id } = defineProps<Props>();
         }
     }
 
-    & .operator .button:nth-child(2) {
+    & .operator .button:nth-child(1) {
         --prepare: true;
 
         & .state-layer .background::after {
@@ -191,5 +194,5 @@ const { id } = defineProps<Props>();
 </style>
 
 <template>
-    <Calculator :id="id" page="main" :animation="true" />
+    <Calculator page="main" />
 </template>

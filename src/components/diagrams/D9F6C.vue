@@ -8,7 +8,8 @@ const { id } = defineProps<Props>();
 
 <style>
 #consistent-surfaces-thickness {
-    block-size: 360px;
+    block-size: auto;
+    aspect-ratio: 1 / 1;
 }
 </style>
 
