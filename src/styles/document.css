@@ -373,42 +373,8 @@ main > hr {
 /*----------------------------------------------------------------------------*\
     主题
 \*----------------------------------------------------------------------------*/
-@media (prefers-color-scheme: light) {
-    :root {
-        --diagram-background-color: var(--grey-200);
-        --diagram-border-color: rgb(0 0 0 / 0.08);
-        --status-bar-background-color: var(--grey-300);
-    }
-
-    [theme="ligth-dark"] {
-        --status-bar-color: rgb(0 0 0 / 0.6);
-    }
-}
-
-[theme~="light"] {
-    --status-bar-color: rgb(0 0 0 / 0.6);
-    --status-bar-background-color: var(--grey-300);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --diagram-background-color: var(--grey-900);
-        --diagram-border-color: rgb(255 255 255 / 0.08);
-        --status-bar-background-color: black;
-    }
-
-    [theme="ligth-dark"] {
-        --status-bar-color: rgb(255 255 255 / 0.9);
-    }
-}
-
-[theme~="dark"] {
-    --status-bar-color: rgb(255 255 255 / 0.9);
-    --status-bar-background-color: black;
-}
 
 /*  基本原理  */
-
 [data-theme="material-design"] {
     --primary-color: var(--cyan-500);
     --secondary-color: var(--lime-a200);

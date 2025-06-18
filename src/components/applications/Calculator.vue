@@ -18,7 +18,7 @@ const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
     --primary-color: var(--cyan-500);
     --secondary-color: var(--teal-a400);
 
-    & .system .status {
+    & .status {
         color-scheme: inherit;
     }
 
