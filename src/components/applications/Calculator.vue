@@ -11,6 +11,11 @@ import Icon from "@material/Icon.vue";
 import Toolbar from "@material/Toolbar.vue";
 
 const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
+
+const content = [
+    { expression: "​", result: "​" },
+    { expression: "√ ( 1 + 3 )", result: "2" },
+];
 </script>
 
 <style>
@@ -31,10 +36,11 @@ const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
         --surface-edge: bottom;
         z-index: 4;
         position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        row-gap: 16px;
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-rows: auto calc(56px + 24px) calc(34px + 16px);
+        justify-items: end;
+        align-items: center;
         padding-block: 24px;
         background-color: light-dark(var(--medium-emphasis-surface-color), var(--grey-800));
         box-shadow: var(--shadow-z4);
@@ -42,13 +48,12 @@ const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
     }
 
     & .toolbar {
-        align-self: stretch;
+        justify-self: stretch;
         justify-content: space-between;
     }
 
     & .expression {
         --type-scale: display3;
-        min-block-size: 1em;
         padding-inline-end: var(--keyline);
         font-weight: 300;
         line-height: 1;
@@ -56,8 +61,6 @@ const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
 
     & .result {
         --type-scale: display1;
-        min-block-size: 1em;
-        margin-block-start: 8px;
         padding-inline-end: var(--keyline);
         color: var(--hint-text-color);
         font-weight: 300;
@@ -96,21 +99,9 @@ const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
         place-items: stretch;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: "delete" "divide" "multiply" "minus" "plus";
         background-color: light-dark(var(--grey-700), var(--grey-850));
         padding: 4px 12px;
-
-        & button:last-of-type {
-            display: none;
-        }
-
-        & button:nth-of-type(2) {
-            /* anchor-name: --backspace; */
-            grid-row-start: 1;
-        }
-
-        & button:is(:nth-of-type(4), :nth-of-type(5)) {
-            grid-column-start: 1;
-        }
     }
 
     & :is(.numeric, .operator) button {
@@ -120,6 +111,7 @@ const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
 
     & .advanced {
         --type-scale: title;
+        --content-color-scheme: light;
         align-items: center;
         justify-items: stretch;
         inline-size: calc(100cqi - var(--increment));
@@ -139,41 +131,25 @@ const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
             font-weight: 400;
         }
     }
-}
 
-@container simulator (width >=520px) {
-    .diagram[data-application^="calculator"] {
-        & .panel {
-            padding-inline-end: 0px;
+    @container diagram (width >=520px) {
+        & .display {
+            grid-template-rows: auto calc(56px + 16px) calc(34px + 24px);
+            padding-block-end: 16px;
         }
 
-        & .numeric .button:last-of-type {
-            display: none;
+        & .panel {
+            grid-template-columns: auto min-content auto;
         }
 
         & .operator {
             grid-template-columns: 1fr 1fr;
             grid-template-rows: repeat(4, 1fr);
-
-            & button:nth-of-type(2) {
-                grid-row-start: unset;
-            }
-
-            & button:last-of-type {
-                display: inline-flex;
-            }
+            grid-template-areas: "divide delete" "multiply ." "minus ." "plus equal";
         }
 
         & .advanced {
-            inline-size: initial;
-            block-size: initial;
-            position: relative;
-            padding-block-end: 4px;
-            translate: 0px;
-        }
-
-        & .scrim {
-            display: none;
+            inline-size: unset;
         }
     }
 }
@@ -188,8 +164,8 @@ const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
                     <Icon name="more_vert" />
                 </Button>
             </Toolbar>
-            <p class="expression"></p>
-            <p class="result"></p>
+            <p class="expression">{{ content[contentSet].expression }}</p>
+            <p class="result">{{ content[contentSet].result }}</p>
             <div class="clear-ripple"></div>
             <div class="overlay" data-variant="status-bar">
                 <div class="clear-ripple"></div>
@@ -208,17 +184,17 @@ const { page, window = "mobile", contentSet = 0 } = defineProps<Props>();
                 <Button style="grid-area: eight">8</Button>
                 <Button style="grid-area: nine">9</Button>
                 <Button style="grid-area: dot">.</Button>
-                <Button style="grid-area: equal">=</Button>
+                <Button v-if="window === 'mobile'" style="grid-area: equal">=</Button>
             </div>
             <div class="operator">
-                <Button>÷</Button>
-                <Button>
+                <Button style="grid-area: delete">
                     <Icon name="backspace" />
                 </Button>
-                <Button>×</Button>
-                <Button>−</Button>
-                <Button>+</Button>
-                <Button>=</Button>
+                <Button style="grid-area: divide">÷</Button>
+                <Button style="grid-area: multiply">×</Button>
+                <Button style="grid-area: minus">−</Button>
+                <Button style="grid-area: plus">+</Button>
+                <Button v-if="window != 'mobile'" style="grid-area: equal">=</Button>
             </div>
             <div class="advanced">
                 <Button>INV</Button>
