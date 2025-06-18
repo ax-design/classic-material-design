@@ -268,7 +268,6 @@ onMounted(() => {
         @container style(--unbounded: true) {
             & {
                 --radius: calc(hypot(100cqi, 100cqb) / 2);
-                --radius-numeric: tan(atan2(var(--radius), 1px));
                 overflow: visible;
             }
 
@@ -333,10 +332,10 @@ onMounted(() => {
 
         @container style(--unbounded: true) {
             & {
-                --input-offset-radius-numeric: tan(atan2(hypot(var(--offset-x, 0px), var(--offset-y, 0px)), 1px));
-                --constraint-scale: min(1, calc(var(--radius-numeric) / var(--input-offset-radius-numeric)));
+                --input-offset-radius: hypot(var(--offset-x, 0px), var(--offset-y, 0px));
+                --constraint-scale: min(1, calc(var(--radius) / var(--input-offset-radius)));
                 --offset-drift: calc(1 - var(--scale-progress));
-                --ripple-scale-enter-duration: calc(1000ms * sqrt(var(--radius-numeric) * 3 / 1024));
+                --ripple-scale-enter-duration: calc(1000ms * sqrt(var(--radius) / 1px * 3 / 1024));
                 scale: calc(0 + var(--scale-progress));
                 animation-name: ripple-scale-progress;
                 animation-duration: var(--ripple-scale-enter-duration);
@@ -346,7 +345,7 @@ onMounted(() => {
                 --past-progress: 0;
                 --remain-progress: calc(1 - var(--past-progress));
                 --offset-drift: calc(var(--remain-progress) - var(--remain-progress) * --transform-progress(var(--scale-progress)));
-                --ripple-scale-exit-duration: calc(1000ms * sqrt(var(--remain-progress) * var(--radius-numeric) * 3 / (1024 + 3400)));
+                --ripple-scale-exit-duration: calc(1000ms * sqrt(var(--remain-progress) * var(--radius) / 1px * 3 / (1024 + 3400)));
                 --ripple-opacity-exit-duration: calc(1000ms / 3);
                 scale: calc(var(--past-progress) + var(--remain-progress) * --transform-progress(var(--scale-progress)));
                 animation-name: ripple-scale-progress-restart, hide-opacity-to;
